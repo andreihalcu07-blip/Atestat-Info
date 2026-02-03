@@ -1,0 +1,192 @@
+/**
+ * Responsive Design & Media Queries
+ */
+
+/* Desktop First Approach */
+
+/* Tablets & Small Desktops */
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 30px;
+    }
+
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 1.8rem; }
+    
+    .cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Tablets */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 20px;
+    }
+
+    /* Typography */
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.5rem; }
+    h3 { font-size: 1rem; }
+
+    .subtitle {
+        font-size: var(--font-size-lg);
+    }
+
+    /* Layout */
+    .section {
+        padding: var(--spacing-lg) 0;
+    }
+
+    .nav-links {
+        gap: var(--spacing-sm);
+        flex-direction: column;
+    }
+
+    .cards-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .grid-2, .grid-3 {
+        grid-template-columns: 1fr;
+    }
+
+    /* Hero */
+    .hero {
+        padding: var(--spacing-xl) 0;
+    }
+
+    /* Tables */
+    .comparison-table {
+        font-size: var(--font-size-sm);
+    }
+
+    .comparison-table th,
+    .comparison-table td {
+        padding: var(--spacing-xs);
+    }
+
+    /* Buttons */
+    .btn {
+        padding: 0.6rem 1.2rem;
+        font-size: var(--font-size-sm);
+    }
+}
+
+/* Mobile Phones */
+@media (max-width: 480px) {
+    .container {
+        padding: 0 15px;
+    }
+
+    /* Typography */
+    h1 { font-size: 1.5rem; }
+    h2 { font-size: 1.2rem; }
+    h3 { font-size: 0.95rem; }
+
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    /* Layout */
+    .section {
+        padding: var(--spacing-md) 0;
+    }
+
+    /* Navbar */
+    .logo {
+        font-size: var(--font-size-lg);
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: var(--spacing-xs);
+    }
+
+    /* Cards */
+    .card {
+        padding: 1.25rem;
+    }
+
+    .cards-grid {
+        gap: var(--spacing-md);
+    }
+
+    /* Forms */
+    .calculator-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Buttons */
+    .btn {
+        padding: 0.6rem 1rem;
+        font-size: var(--font-size-base);
+        width: 100%;
+    }
+
+    .comparison-selector {
+        flex-direction: column;
+        gap: var(--spacing-xs);
+    }
+
+    .tab-btn {
+        width: 100%;
+    }
+
+    /* Table */
+    .comparison-table {
+        font-size: 0.8rem;
+    }
+
+    .comparison-table th,
+    .comparison-table td {
+        padding: 0.5rem;
+    }
+
+    /* Formula */
+    .formula {
+        padding: var(--spacing-xs) var(--spacing-sm);
+        font-size: var(--font-size-sm);
+    }
+
+    /* Footer */
+    .footer {
+        padding: var(--spacing-md) 0;
+    }
+
+    .footer p {
+        font-size: 0.85rem;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .navbar, .footer {
+        display: none;
+    }
+
+    body {
+        background: white;
+        color: black;
+    }
+
+    .card {
+        page-break-inside: avoid;
+    }
+}
+
+/* High DPI / Retina Displays */
+@media (min-resolution: 2dppx) {
+    body {
+        -webkit-font-smoothing: subpixel-antialiased;
+    }
+}
+
+/* Prefers Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

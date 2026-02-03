@@ -1,0 +1,71 @@
+/**
+ * Global CSS Variables
+ * Color scheme, spacing, typography standards
+ */
+
+:root {
+    /* Color Palette - Clean Blue Theme */
+    --primary-color: #0A1F44;
+    --secondary-color: #1E3A6D;
+    --accent-color: #5BA4E6;
+    --accent-light: #7EBCF0;
+    --dark-bg: #0B0F1A;
+    --dark-bg-2: #0A1F44;
+    --card-bg: #0B0F1A;
+    --text-light: #EDE9E3;
+    --text-gray: rgba(237, 233, 227, 0.7);
+    --success: #4ADE80;
+    --warning: #5BA4E6;
+    --border-color: rgba(91, 164, 230, 0.12);
+    --grid-line: rgba(91, 164, 230, 0.05);
+
+    /* RGB Helpers */
+    --primary-rgb: 10, 31, 68;
+    --secondary-rgb: 30, 58, 109;
+    --accent-rgb: 91, 164, 230;
+    --dark-rgb: 11, 15, 26;
+    --gray-rgb: 42, 47, 58;
+    --cream-rgb: 237, 233, 227;
+
+    /* Spacing */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 3rem;
+    --spacing-2xl: 4rem;
+
+    /* Typography */
+    --font-sans: 'SFMono-Regular', 'Monaco', 'Courier New', monospace;
+    --font-serif: 'New York', 'Georgia', 'Garamond', serif;
+    --font-size-sm: 0.9rem;
+    --font-size-base: 0.95rem;
+    --font-size-lg: 1.1rem;
+    --font-size-xl: 1.3rem;
+    --font-size-2xl: 2rem;
+    --font-size-3xl: 3rem;
+
+    /* Border Radius */
+    --radius-sm: 6px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-xl: 14px;
+
+    /* Shadows - Subtle */
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.15);
+    --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.2);
+    --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.25);
+    --glow-accent: 0 0 20px rgba(91, 164, 230, 0.15);
+
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+    --transition-base: 0.3s ease;
+    --transition-smooth: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Dark mode only for this project */
+@media (prefers-color-scheme: dark) {
+    :root {
+        color-scheme: dark;
+    }
+}

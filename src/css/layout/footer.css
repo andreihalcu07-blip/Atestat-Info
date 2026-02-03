@@ -1,0 +1,28 @@
+/**
+ * Footer Component
+ */
+
+.footer {
+    background: rgba(11, 15, 26, 0.95);
+    padding: var(--spacing-xl) 0 var(--spacing-lg);
+    text-align: center;
+    margin-top: var(--spacing-xl);
+    border-top: 1px solid rgba(91, 164, 230, 0.08);
+}
+
+.footer p {
+    color: var(--text-gray);
+    margin: var(--spacing-xs) 0;
+    font-size: var(--font-size-sm);
+}
+
+.footer-note {
+    opacity: 0.6;
+    font-style: italic;
+}
+
+@media (max-width: 768px) {
+    .footer {
+        padding: var(--spacing-lg) var(--spacing-sm);
+    }
+}

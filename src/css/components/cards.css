@@ -1,0 +1,100 @@
+/**
+ * Card Component - Glassmorphism Style
+ */
+
+.card {
+    /* Glass effect */
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    
+    /* Subtle border */
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 20px;
+    
+    /* Spacing */
+    padding: 2rem;
+    
+    /* Soft shadow */
+    box-shadow: 
+        0 4px 24px rgba(0, 0, 0, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.card:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-4px);
+    box-shadow: 
+        0 12px 40px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.card h3 {
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-light);
+    font-weight: 600;
+}
+
+.card h4 {
+    margin-top: var(--spacing-md);
+    margin-bottom: var(--spacing-xs);
+    color: var(--text-light);
+    font-weight: 600;
+}
+
+.card p {
+    color: var(--text-gray);
+    margin-bottom: var(--spacing-sm);
+}
+
+.card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.card ul li {
+    padding: var(--spacing-xs) 0;
+    color: var(--text-gray);
+    line-height: 1.6;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.card ul li:last-child {
+    border-bottom: none;
+}
+
+/* Card Variants - Colored accent */
+.card.physics-card {
+    border-left: 3px solid rgba(91, 164, 230, 0.5);
+}
+
+.card.physics-card:hover {
+    border-left-color: rgba(91, 164, 230, 0.8);
+}
+
+.card.cs-card {
+    border-left: 3px solid rgba(126, 188, 240, 0.5);
+}
+
+.card.cs-card:hover {
+    border-left-color: rgba(126, 188, 240, 0.8);
+}
+
+/* Card Grid */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+}
+
+@media (max-width: 768px) {
+    .cards-grid {
+        grid-template-columns: 1fr;
+    }
+}

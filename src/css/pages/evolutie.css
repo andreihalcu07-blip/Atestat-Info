@@ -1,0 +1,491 @@
+/**
+ * Index Enciclopedic - Evoluție
+ * Stiluri pentru pagina cu lista tuturor consolelor
+ */
+
+/* ====================
+   SECTION INTRO
+   ==================== */
+.section#index .container {
+    max-width: 100%;
+    width: 100%;
+    padding-left: 3rem;
+    padding-right: 3rem;
+}
+
+.section-intro {
+    text-align: center;
+    color: var(--text-gray);
+    font-size: 1.1rem;
+    line-height: 1.8;
+    max-width: 750px;
+    margin: 0 auto 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* ====================
+   GENERATION BLOCK
+   ==================== */
+.generation-block {
+    margin-bottom: 3.5rem;
+}
+
+.generation-header {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    margin-bottom: 1.75rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.generation-icon {
+    font-size: 2.5rem;
+    line-height: 1;
+}
+
+.generation-info h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-light);
+    margin: 0 0 0.25rem 0;
+}
+
+.generation-years {
+    font-size: 0.95rem;
+    color: var(--accent-color);
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+/* ====================
+   CONSOLE GRID
+   ==================== */
+.console-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 320px));
+    gap: 1.25rem;
+    justify-content: start;
+}
+
+/* ====================
+   CONSOLE CARD
+   ==================== */
+.console-card {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    padding: 1.5rem;
+    max-width: 320px;
+    
+    /* Glassmorphism */
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 16px;
+    
+    /* Inner highlight */
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.console-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, 
+        transparent,
+        rgba(91, 164, 230, 0.3),
+        transparent
+    );
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.console-card:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.12);
+    transform: translateY(-4px);
+    box-shadow: 
+        0 12px 40px rgba(0, 0, 0, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.console-card:hover::before {
+    opacity: 1;
+}
+
+/* Featured Console Cards - Highlight */
+.console-card.featured {
+    background: rgba(91, 164, 230, 0.05);
+    border-color: rgba(91, 164, 230, 0.12);
+}
+
+.console-card.featured::before {
+    background: linear-gradient(90deg, 
+        transparent,
+        rgba(91, 164, 230, 0.5),
+        transparent
+    );
+}
+
+.console-card.featured:hover {
+    background: rgba(91, 164, 230, 0.08);
+    border-color: rgba(91, 164, 230, 0.2);
+}
+
+/* Card Contents */
+.console-year {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--accent-color);
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+}
+
+.console-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-light);
+    margin: 0 0 0.5rem 0;
+    line-height: 1.3;
+}
+
+.console-maker {
+    font-size: 0.9rem;
+    color: var(--text-gray);
+    margin-top: auto;
+}
+
+/* ====================
+   ARROW INDICATOR
+   ==================== */
+.console-card::after {
+    content: '→';
+    position: absolute;
+    right: 1.25rem;
+    bottom: 1.25rem;
+    color: var(--text-gray);
+    opacity: 0;
+    transform: translateX(-8px);
+    transition: all 0.3s ease;
+}
+
+.console-card:hover::after {
+    opacity: 0.6;
+    transform: translateX(0);
+}
+
+/* ====================
+   SECTION TITLE (Handhelds)
+   ==================== */
+.section-title {
+    text-align: center;
+    font-size: 1.75rem;
+    color: var(--text-light);
+    margin-bottom: 2.5rem;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, 
+        transparent,
+        var(--accent-color),
+        transparent
+    );
+}
+
+/* ====================
+   RESPONSIVE
+   ==================== */
+@media (max-width: 768px) {
+    .section#index .container {
+        padding-left: 1.75rem;
+        padding-right: 1.75rem;
+    }
+    .console-grid {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 1rem;
+    }
+    
+    .generation-header {
+        gap: 1rem;
+    }
+    
+    .generation-icon {
+        font-size: 2rem;
+    }
+    
+    .generation-info h2 {
+        font-size: 1.25rem;
+    }
+    
+    .console-card {
+        padding: 1.25rem;
+    }
+    
+    .console-name {
+        font-size: 1rem;
+    }
+    
+    .section-title {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .console-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .generation-block {
+        margin-bottom: 2.5rem;
+    }
+}
+
+/**
+ * Timeline Vertical pentru evolutie.html
+ * Layout grid cu 3 coloane: card stânga | axă centrală | card dreapta
+ */
+
+/* Timeline Container */
+.timeline {
+    position: relative;
+    max-width: 1000px;
+    margin: 3rem auto;
+    padding: 2rem 0;
+}
+
+/* Axa centrală verticală continuă */
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(180deg, 
+        rgba(var(--secondary-rgb), 0.12),
+        rgba(var(--secondary-rgb), 0.4) 10%,
+        rgba(var(--secondary-rgb), 0.4) 90%,
+        rgba(var(--secondary-rgb), 0.12)
+    );
+    transform: translateX(-50%);
+    z-index: 0;
+}
+
+/* Timeline Item - Grid 3 coloane */
+.timeline-item {
+    display: grid;
+    grid-template-columns: 1fr 80px 1fr;
+    gap: 0;
+    align-items: stretch;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+/* Cercul cu anul */
+.timeline-item::after {
+    content: attr(data-year);
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    width: 64px;
+    height: 64px;
+    background: rgba(var(--dark-rgb), 0.95);
+    border: 2px solid rgba(var(--secondary-rgb), 0.55);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-light);
+    z-index: 2;
+}
+
+/* Card comun (text și imagine) */
+.timeline-content,
+.timeline-image {
+    background: linear-gradient(145deg, rgba(11, 15, 26, 0.85) 0%, rgba(10, 31, 68, 0.3) 100%);
+    border: 1px solid rgba(74, 158, 255, 0.12);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    min-height: 280px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+}
+
+.timeline-content::before,
+.timeline-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(74, 158, 255, 0.4), transparent);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.timeline-content:hover,
+.timeline-image:hover {
+    border-color: rgba(74, 158, 255, 0.3);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), 0 0 20px rgba(74, 158, 255, 0.1);
+    transform: translateY(-4px);
+}
+
+.timeline-content:hover::before,
+.timeline-image:hover::before {
+    opacity: 1;
+}
+
+/* Content Card - Text */
+.timeline-content h3 {
+    font-size: 1.25rem;
+    color: var(--text-light);
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+    transition: color 0.3s ease;
+}
+
+.timeline-content:hover h3 {
+    color: #4A9EFF;
+}
+
+.timeline-content > p {
+    color: var(--text-gray);
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+.timeline-content .specs-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1rem 0;
+    flex-grow: 1;
+}
+
+.timeline-content .specs-list li {
+    padding: 0.35rem 0;
+    color: var(--text-gray);
+    font-size: 0.85rem;
+    font-family: 'Consolas', 'Monaco', monospace;
+}
+
+/* Timeline Note/Comment Box */
+.timeline-note {
+    margin-top: auto;
+    padding: 1rem 1.1rem;
+    background: linear-gradient(135deg, rgba(74, 158, 255, 0.08) 0%, rgba(74, 158, 255, 0.03) 100%);
+    border-left: 3px solid #4A9EFF;
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    color: rgba(var(--cream-rgb), 0.9);
+    font-size: 0.85rem;
+    line-height: 1.6;
+    font-style: italic;
+    box-shadow: inset 0 0 20px rgba(74, 158, 255, 0.03);
+}
+
+/* Image Card */
+.timeline-image {
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem;
+}
+
+.timeline-image img {
+    max-width: 90%;
+    max-height: 90%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: var(--radius-sm);
+}
+
+/* Alternanță stânga/dreapta */
+
+/* Item-uri impare (1, 3, 5): text stânga, imagine dreapta */
+.timeline-item:nth-child(odd) .timeline-content {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.timeline-item:nth-child(odd) .timeline-image {
+    grid-column: 3;
+    grid-row: 1;
+}
+
+/* Item-uri pare (2, 4, 6): imagine stânga, text dreapta */
+.timeline-item:nth-child(even) .timeline-content {
+    grid-column: 3;
+    grid-row: 1;
+}
+
+.timeline-item:nth-child(even) .timeline-image {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+/* Responsive - pe ecrane mici */
+@media (max-width: 900px) {
+    .timeline-item {
+        grid-template-columns: 40px 1fr;
+        gap: 1rem;
+    }
+    
+    .timeline-item::before {
+        left: 20px;
+    }
+    
+    .timeline-item::after {
+        left: 20px;
+        top: 20px;
+        transform: translate(-50%, 0);
+        width: 40px;
+        height: 40px;
+        font-size: 0.75rem;
+    }
+    
+    .timeline-item:nth-child(odd) .timeline-content,
+    .timeline-item:nth-child(even) .timeline-content {
+        grid-column: 2;
+        grid-row: 1;
+    }
+    
+    .timeline-item:nth-child(odd) .timeline-image,
+    .timeline-item:nth-child(even) .timeline-image {
+        grid-column: 2;
+        grid-row: 2;
+    }
+    
+    .timeline-content,
+    .timeline-image {
+        min-height: auto;
+    }
+}
+

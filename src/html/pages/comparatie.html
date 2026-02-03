@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparație — Console Notebook</title>
+    <link rel="stylesheet" href="../../css/main.css">
+    <!-- KaTeX pentru ecuații matematice -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+        onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">Console Notebook</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Acasă</a></li>
+                <li><a href="fizica.html">Fizica</a></li>
+                <li><a href="informatica.html">Informatica</a></li>
+                <li><a href="evolutie.html">Evoluție</a></li>
+                <li><a href="comparatie.html">Comparație</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero hero-cinematic">
+        <div class="hero-content">
+            <h1>Comparație Console</h1>
+            <p>PS5 vs Xbox Series X vs Nintendo Switch — specificații și performanță.</p>
+            <a href="#content" class="hero-button">Compară</a>
+        </div>
+    </section>
+
+    <section class="section" id="content">
+        <div class="container">
+            <p class="section-intro">
+                Comparația pragmatică: PS5 și Series X merg pe forță brută și termică ridicată, Switch joacă cartea mobilității și eficienței.
+            </p>
+            
+            <h2 class="section-title">Sub capă</h2>
+            
+            <div class="comparison-selector">
+                <button class="tab-btn active" onclick="showComparison('hardware')">Hardware</button>
+                <button class="tab-btn" onclick="showComparison('performance')">Performance</button>
+                <button class="tab-btn" onclick="showComparison('features')">Features</button>
+            </div>
+
+            <div id="comparison-hardware" class="comparison-content active">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Componentă</th>
+                            <th>PlayStation 5</th>
+                            <th>Xbox Series X</th>
+                            <th>Nintendo Switch</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="table-group-header">
+                            <td colspan="4"><strong>Procesor (CPU)</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Arhitectură</td>
+                            <td>AMD Zen 2</td>
+                            <td>AMD Zen 2</td>
+                            <td>ARM Cortex-A57</td>
+                        </tr>
+                        <tr>
+                            <td>Cores / Threads</td>
+                            <td>8 cores / 16 threads</td>
+                            <td>8 cores / 16 threads</td>
+                            <td>4 cores</td>
+                        </tr>
+                        <tr>
+                            <td>Frecvență</td>
+                            <td>3.5 GHz (variabil)</td>
+                            <td>3.8 GHz (variabil)</td>
+                            <td>1.02 GHz (handheld) / 1.2 GHz (docked)</td>
+                        </tr>
+                        <tr>
+                            <td>TDP</td>
+                            <td>50W</td>
+                            <td>50W</td>
+                            <td>~5W</td>
+                        </tr>
+
+                        <tr class="table-group-header">
+                            <td colspan="4"><strong>GPU (Unitate Grafică)</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Arhitectură</td>
+                            <td>AMD RDNA 2</td>
+                            <td>AMD RDNA 2</td>
+                            <td>NVIDIA Maxwell</td>
+                        </tr>
+                        <tr>
+                            <td>Performanță</td>
+                            <td><strong>10.3 TFLOPS</strong></td>
+                            <td><strong>12 TFLOPS</strong></td>
+                            <td>0.4 TFLOPS (docked)</td>
+                        </tr>
+                        <tr>
+                            <td>Ray Tracing</td>
+                            <td>✅ Hardware RT cores</td>
+                            <td>✅ Hardware RT cores</td>
+                            <td>❌ Nu are</td>
+                        </tr>
+
+                        <tr class="table-group-header">
+                            <td colspan="4"><strong>Memorie</strong></td>
+                        </tr>
+                        <tr>
+                            <td>GPU Memory</td>
+                            <td>10 GB GDDR6 (448 GB/s)</td>
+                            <td>10 GB GDDR6 (560 GB/s)</td>
+                            <td>32-bit (21.3 GB/s)</td>
+                        </tr>
+                        <tr>
+                            <td>Total System RAM</td>
+                            <td>16 GB</td>
+                            <td>16 GB</td>
+                            <td>4 GB</td>
+                        </tr>
+
+                        <tr class="table-group-header">
+                            <td colspan="4"><strong>Stocare</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Capacitate</td>
+                            <td>825 GB</td>
+                            <td>1 TB</td>
+                            <td>32 GB (microSD expandibil)</td>
+                        </tr>
+                        <tr>
+                            <td>Viteză Transfer</td>
+                            <td>5.5 GB/s</td>
+                            <td>2.4 GB/s</td>
+                            <td>~300 MB/s</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="comparison-performance" class="comparison-content">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Metric</th>
+                            <th>PlayStation 5</th>
+                            <th>Xbox Series X</th>
+                            <th>Nintendo Switch</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Max TFLOPS</td>
+                            <td>10.3 TFLOPS</td>
+                            <td>12 TFLOPS</td>
+                            <td>0.4 TFLOPS</td>
+                        </tr>
+                        <tr>
+                            <td>Max Rez Native</td>
+                            <td>4K (3840×2160)</td>
+                            <td>4K (3840×2160)</td>
+                            <td>1080p (docked)</td>
+                        </tr>
+                        <tr>
+                            <td>Frame Rate</td>
+                            <td>60 fps (standard), 120 fps (select)</td>
+                            <td>60 fps (standard), 120 fps (select)</td>
+                            <td>30 fps - 60 fps</td>
+                        </tr>
+                        <tr>
+                            <td>Load Times</td>
+                            <td>Sub-1 sec</td>
+                            <td>2-4 sec</td>
+                            <td>5-15 sec</td>
+                        </tr>
+                        <tr>
+                            <td>Ray Tracing Quality</td>
+                            <td>Good</td>
+                            <td>Better (superior bandwidth)</td>
+                            <td>N/A</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="comparison-features" class="comparison-content">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>PlayStation 5</th>
+                            <th>Xbox Series X</th>
+                            <th>Nintendo Switch</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Portabilitate</td>
+                            <td>❌ Home only</td>
+                            <td>❌ Home only</td>
+                            <td>✅ Full portable</td>
+                        </tr>
+                        <tr>
+                            <td>Game Pass</td>
+                            <td>PlayStation Plus</td>
+                            <td>✅ Game Pass (best value)</td>
+                            <td>Nintendo Switch Online</td>
+                        </tr>
+                        <tr>
+                            <td>Backwards Compat</td>
+                            <td>PS4 games</td>
+                            <td>Xbox One, 360, OG Xbox</td>
+                            <td>None</td>
+                        </tr>
+                        <tr>
+                            <td>Online Multiplayer</td>
+                            <td>✅ Free</td>
+                            <td>✅ With Game Pass</td>
+                            <td>✅ Free</td>
+                        </tr>
+                        <tr>
+                            <td>Haptic Feedback</td>
+                            <td>✅ DualSense (excellent)</td>
+                            <td>Limited</td>
+                            <td>HD Rumble (good)</td>
+                        </tr>
+                        <tr>
+                            <td>4K Blu-ray</td>
+                            <td>✅ Yes</td>
+                            <td>✅ Yes</td>
+                            <td>❌ No</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <section class="section bg-alt">
+        <div class="container">
+            <h2 class="section-title">Verdict Rapid</h2>
+            
+            <div class="cards-grid">
+                <div class="card">
+                    <h3>PlayStation 5</h3>
+                    <p>✅ Cel mai rapid SSD (5.5 GB/s)</p>
+                    <p>✅ DualSense haptics phenomenal</p>
+                    <p>✅ Biblioteca de jocuri exclusive</p>
+                    <p>❌ Offline storage limitat</p>
+                </div>
+
+                <div class="card">
+                    <h3>Xbox Series X</h3>
+                    <p>✅ Cea mai puternică (12 TFLOPS)</p>
+                    <p>✅ Game Pass exceptional value</p>
+                    <p>✅ Best backwards compatibility</p>
+                    <p>❌ Mai lent SSD (2.4 GB/s)</p>
+                </div>
+
+                <div class="card">
+                    <h3>Nintendo Switch</h3>
+                    <p>✅ Portabil, Play Anywhere</p>
+                    <p>✅ Exclusive Nintendo franchises</p>
+                    <p>✅ Pricier games, less powerful</p>
+                    <p>❌ Versiuni mai slabe ale jocurilor</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 — Console Notebook</p>
+            <p class="footer-note">Documentat cu pasiune pentru hardware</p>
+            <p>Comparație Consolelor Moderne</p>
+        </div>
+    </footer>
+
+    <script type="module" src="../../js/main.js"></script>
+    <script type="module" src="../../js/pages/comparatie.js"></script>
+</body>
+</html>

@@ -1,0 +1,173 @@
+/**
+ * Section Components
+ * Hero intro, dividers, comparison elements
+ */
+
+.section-title {
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--spacing-lg);
+    text-align: center;
+    color: var(--text-light);
+    font-weight: 700;
+}
+
+.section-intro {
+    font-size: var(--font-size-base);
+    color: var(--text-gray);
+    max-width: 880px;
+    margin: 0 auto var(--spacing-lg);
+    line-height: 1.7;
+    
+    /* Glass effect */
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 16px;
+    padding: 1.5rem 2rem;
+    
+    /* Inner glow */
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+/* Divider */
+.divider {
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(91, 164, 230, 0.4), transparent);
+    margin: var(--spacing-lg) auto;
+}
+
+/* Comparison Selector */
+.comparison-selector {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-lg);
+    flex-wrap: wrap;
+}
+
+/* Comparison Table - Glass */
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    
+    /* Glass effect */
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    font-size: var(--font-size-base);
+}
+
+.comparison-table thead {
+    background: rgba(91, 164, 230, 0.08);
+}
+
+.comparison-table th,
+.comparison-table td {
+    padding: var(--spacing-sm) 1rem;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.comparison-table th {
+    font-weight: 600;
+    color: var(--text-light);
+    padding: 1rem;
+}
+
+.comparison-table td {
+    color: var(--text-gray);
+}
+
+.comparison-table tbody tr {
+    transition: background 0.2s ease;
+}
+
+.comparison-table tbody tr:hover {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.table-group-header {
+    background: rgba(255, 255, 255, 0.04) !important;
+    font-weight: 600 !important;
+    color: var(--text-light) !important;
+}
+
+/* Comparison Content */
+.comparison-content {
+    display: none;
+}
+
+.comparison-content.active {
+    display: block;
+    animation: fadeIn 0.3s;
+}
+
+/* Formula Box - Glass */
+.formula {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    margin-top: var(--spacing-sm);
+    font-family: var(--font-sans);
+    text-align: center;
+    font-size: var(--font-size-base);
+    color: var(--text-light);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.formula .katex {
+    font-size: 1.1em;
+    white-space: nowrap;
+}
+
+/* Image Styling */
+.image {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--radius-lg);
+    margin-top: var(--spacing-md);
+    object-fit: cover;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(91, 164, 230, 0.08);
+}
+
+.image:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+.card .image {
+    margin-top: var(--spacing-sm);
+    max-height: 250px;
+}
+
+@media (max-width: 768px) {
+    .comparison-selector {
+        gap: var(--spacing-xs);
+    }
+
+    .comparison-table {
+        font-size: var(--font-size-sm);
+    }
+
+    .comparison-table th,
+    .comparison-table td {
+        padding: var(--spacing-xs);
+    }
+
+    .formula {
+        padding: var(--spacing-xs) var(--spacing-sm);
+        font-size: var(--font-size-sm);
+    }
+}

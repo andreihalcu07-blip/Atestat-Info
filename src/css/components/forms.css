@@ -1,0 +1,90 @@
+/**
+ * Forms & Input Components
+ */
+
+.input-group {
+    margin-bottom: var(--spacing-md);
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: var(--spacing-xs);
+    color: var(--text-gray);
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="password"],
+textarea,
+select {
+    width: 100%;
+    padding: 0.7rem;
+    background: rgba(var(--secondary-rgb), 0.08);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    color: var(--text-light);
+    font-size: var(--font-size-base);
+    font-family: var(--font-sans);
+    transition: all var(--transition-fast);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    background: rgba(var(--secondary-rgb), 0.12);
+    box-shadow: 0 0 0 3px rgba(var(--secondary-rgb), 0.18);
+}
+
+textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+/* Calculator Input Styling */
+.calculator-card {
+    background: var(--card-bg);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+}
+
+.calculator-card h3 {
+    color: var(--secondary-color);
+    margin-bottom: var(--spacing-md);
+    font-weight: 600;
+}
+
+.calculator-card button {
+    width: 100%;
+    background: var(--primary-color);
+    color: var(--text-light);
+    border: none;
+    padding: 0.7rem;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    font-size: var(--font-size-base);
+    margin-top: var(--spacing-sm);
+    font-weight: 600;
+    transition: all var(--transition-fast);
+}
+
+.calculator-card button:hover {
+    background: var(--secondary-color);
+}
+
+.result {
+    margin-top: var(--spacing-md);
+    padding: 1.2rem;
+    background: rgba(var(--secondary-rgb), 0.1);
+    border-radius: var(--radius-sm);
+    border-left: 3px solid var(--secondary-color);
+    font-size: var(--font-size-base);
+    color: var(--text-gray);
+    font-family: var(--font-sans);
+    line-height: 1.7;
+}

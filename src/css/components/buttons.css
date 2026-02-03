@@ -1,0 +1,109 @@
+/**
+ * Button Component
+ */
+
+.btn {
+    display: inline-block;
+    padding: 0.7rem 1.5rem;
+    background: var(--secondary-color);
+    color: var(--text-light);
+    border: 1px solid rgba(91, 164, 230, 0.15);
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    font-family: inherit;
+}
+
+.btn:hover {
+    background: #1E3A6D;
+    border-color: rgba(91, 164, 230, 0.3);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+/* Button Variants */
+.btn.primary {
+    background: var(--primary-color);
+    color: var(--text-light);
+}
+
+.btn.secondary {
+    background: var(--secondary-color);
+    color: var(--text-light);
+}
+
+.btn.outline {
+    background: transparent;
+    color: var(--text-light);
+    border: 1px solid rgba(91, 164, 230, 0.3);
+}
+
+.btn.outline:hover {
+    background: rgba(91, 164, 230, 0.08);
+    border-color: rgba(91, 164, 230, 0.5);
+}
+
+/* Button Sizes */
+.btn.sm {
+    padding: 0.5rem 1rem;
+    font-size: var(--font-size-sm);
+}
+
+.btn.lg {
+    padding: 1rem 2rem;
+    font-size: var(--font-size-lg);
+}
+
+/* Link Button */
+.demo-button {
+    background: var(--primary-color);
+    color: var(--text-light);
+    border: none;
+    padding: 0.7rem 1.5rem;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    font-size: var(--font-size-base);
+    margin-top: var(--spacing-sm);
+    font-weight: 600;
+    transition: all var(--transition-fast);
+    font-family: inherit;
+}
+
+.demo-button:hover {
+    background: var(--secondary-color);
+    box-shadow: 0 2px 8px rgba(var(--secondary-rgb), 0.25);
+}
+
+/* Tab Button - Glass */
+.tab-btn {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: var(--text-gray);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 0.75rem 1.5rem;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: var(--font-size-base);
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.tab-btn:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.1);
+    color: var(--text-light);
+}
+
+.tab-btn.active {
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--text-light);
+    border-color: rgba(255, 255, 255, 0.12);
+}

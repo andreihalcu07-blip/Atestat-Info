@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fizica — Console Notebook</title>
+    <link rel="stylesheet" href="../../css/main.css">
+    <!-- KaTeX pentru ecuații matematice -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+        onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">Console Notebook</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Acasă</a></li>
+                <li><a href="fizica.html">Fizica</a></li>
+                <li><a href="informatica.html">Informatica</a></li>
+                <li><a href="evolutie.html">Evoluție</a></li>
+                <li><a href="comparatie.html">Comparație</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero hero-cinematic">
+        <div class="hero-content">
+            <h1>Perspectiva Fizicii</h1>
+            <p>Termodinamică, optică și unde electromagnetice în hardware-ul consolelor.</p>
+            <a href="#content" class="hero-button">Explorează</a>
+        </div>
+    </section>
+
+    <section class="section" id="content">
+        <div class="container">
+            <p class="section-intro">
+                Aici am adunat notele mele de fizică aplicată pentru console: termodinamică pentru răcire, unde electromagnetice pentru wireless, lumină pentru afișaje și acustică pentru sunet 3D. Fără prelegeri, doar observații tehnice pe care le-am testat sau citit în documentația hardware.
+            </p>
+            <div class="card">
+                <h3>Optică</h3>
+                <p>Optica descrie propagarea, reflexia și refracția luminii prin elemente geometrice precum lentile și oglinzi, folosind ecuații simple de conjugare și raporturi de mărire.</p>
+                <ul>
+                    <li>Lentile: relația $\frac{1}{f} = \frac{1}{d_o} + \frac{1}{d_i}$ și unghiul critic pentru refracție</li>
+                    <li>Oglinzi: legea incidenței și formarea imaginii în oglinzi plane și sferice</li>
+                    <li>Prisme: dispersia luminii și ordonarea spectrului vizibil</li>
+                </ul>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Concave_mirror_ray_diagram.png/640px-Concave_mirror_ray_diagram.png" alt="Optica" class="image">
+            </div>
+            <div class="card">
+                <h3>Acustică</h3>
+                <p>Acustica analizează undele longitudinale generate de vibrații, cu accent pe relația dintre frecvență, amplitudine și percepția auditivă, precum și pe reflexia și amortizarea lor în medii reale.</p>
+                <ul>
+                    <li>Sunet: frecvența determină tonalitatea, amplitudinea controlează intensitatea</li>
+                    <li>Ecou și reverberație: reflectarea undelor sonore pe suprafețe multiple</li>
+                    <li>Aplicații: instrumente muzicale, sonorizare, anularea activă a zgomotului</li>
+                </ul>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Longitudinal_wave.svg/640px-Longitudinal_wave.svg.png" alt="Acustica" class="image">
+            </div>
+            
+            <div class="card physics-card">
+                <h3>Termodinamica și Răcirea</h3>
+                <p>Consolele generează căldură semnificativă. Înțelegerea fizicii termice este esențială pentru designul sistemelor de răcire.</p>
+
+                <h4 class="card-subtitle">Ecuația Transferului de Căldură:</h4>
+                <div class="formula">
+                    $$Q = m \cdot c \cdot \Delta T$$
+                </div>
+
+                <h4 class="card-subtitle">Legea Conducției Termice (Fourier):</h4>
+                <div class="formula">
+                    $$q = -k \cdot A \cdot \frac{dT}{dx}$$
+                </div>
+
+                <h4 class="card-subtitle">Componente Sistemului de Răcire:</h4>
+                <ul>
+                    <li>Radiator cu aripioare din aluminiu (suprafață mare)</li>
+                    <li>Ventilatoare centrifuge sau axiale pentru circulație</li>
+                    <li>Heat pipes - conducte etanșate cu lichid pentru transfer rapid</li>
+                    <li>Paste termoconductoare - interfață între componentă și radiator</li>
+                </ul>
+            </div>
+
+            <div class="card physics-card">
+                <h3>Undele Electromagnetice și Comunicație Wireless</h3>
+                <p>Consolele moderne utilizează comunicația wireless pentru periferice și rețea. Acest transfer de date se bazează pe propagarea undelor electromagnetice.</p>
+
+                <h4 class="card-subtitle">Benzile de Frecvență Utilizate:</h4>
+                <ul>
+                    <li><strong>Bluetooth:</strong> 2.4 GHz (rază până la 240m)</li>
+                    <li><strong>Wi-Fi 6 (802.11ax):</strong> 2.4 GHz / 5 GHz / 6 GHz</li>
+                    <li><strong>5G mmWave (viitor):</strong> 24-100 GHz</li>
+                </ul>
+
+                <h4 class="card-subtitle">Ecuații Fundamentale:</h4>
+                <div class="formula">
+                    $$c = \lambda \cdot f$$
+                </div>
+                <p style="font-size: 0.9rem; color: var(--text-gray); margin-top: 0.5rem;">
+                    Pentru Bluetooth 2.4 GHz: $\lambda = \frac{3 \times 10^8 \text{ m/s}}{2.4 \times 10^9 \text{ Hz}} \approx 0.125 \text{ m} = 12.5 \text{ cm}$
+                </p>
+
+                <h4 class="card-subtitle">Atenuarea Semnalului (Ecuația Friis):</h4>
+                <div class="formula">
+                    $$P_r = P_t \cdot G_t \cdot G_r \cdot \left(\frac{\lambda}{4\pi d}\right)^2$$
+                </div>
+
+                <h4 class="card-subtitle">Spectrul Frecvenței:</h4>
+                <ul>
+                    <li>Bluetooth: 2400-2483.5 MHz (banda ISM)</li>
+                    <li>Wi-Fi: 2.4 GHz (11 canale) și 5 GHz (13-165 canale)</li>
+                    <li>Lățimea de bandă: Bluetooth 1-2 MHz, Wi-Fi 20-160 MHz</li>
+                </ul>
+            </div>
+
+            <div class="card physics-card">
+                <h3>Optică și Afișajul</h3>
+                <p>Fizica luminii și a culorilor în afișajele LCD, OLED și LED moderne.</p>
+
+                <h4 class="card-subtitle">Parametri de Afișaj:</h4>
+                <ul>
+                    <li><strong>Rezoluție:</strong> 4K (3840×2160 pixeli) - 8K pe viitor</li>
+                    <li><strong>Lungimi de undă:</strong> Roșu ~700nm, Verde ~550nm, Albastru ~450nm</li>
+                    <li><strong>Refresh Rate:</strong> 60 Hz (16.67ms), 120 Hz (8.33ms), 144 Hz (6.94ms)</li>
+                    <li><strong>Luminozitate:</strong> 0.1 - 1000 nits (HDR)</li>
+                </ul>
+
+                <h4 class="card-subtitle">Ray Tracing - Simularea Luminii:</h4>
+                <ul>
+                    <li><strong>Reflexie:</strong> $\theta_i = \theta_r$ (Legea reflexiei)</li>
+                    <li><strong>Refracție:</strong> $n_1 \sin(\theta_1) = n_2 \sin(\theta_2)$ (Legea lui Snell)</li>
+                    <li><strong>Absorție:</strong> Pierdere de foton în material</li>
+                    <li><strong>Difuzie:</strong> Reflexie diffuzivă pe suprafețe rugoase</li>
+                </ul>
+
+                <h4 class="card-subtitle">HDR (High Dynamic Range):</h4>
+                <div class="formula">
+                    $$\text{Contrast Dinamic} = \frac{\text{Luminozitate Maximă}}{\text{Luminozitate Minimă}}$$
+                </div>
+                <ul>
+                    <li>SDR: ~100:1 contrast</li>
+                    <li>HDR: 1000:1 - 100000:1 contrast</li>
+                    <li>Culori 10-bit per canal (1 miliard culori)</li>
+                </ul>
+
+                <h4 class="card-subtitle">Frecvența și Flicker Fusion:</h4>
+                <ul>
+                    <li>Ochiul uman percepe flicker sub 60 Hz</li>
+                    <li>Deasupra 120 Hz - mișcarea pare liniară</li>
+                    <li>Lag input < 20ms - imperceptibil pentru gamer</li>
+                </ul>
+            </div>
+
+            <div class="card physics-card">
+                <h3>Acustica și Procesarea Sunetului 3D</h3>
+                <p>Principiile acustice aplicate la crearea unui mediu sonor imersiv.</p>
+
+                <h4 class="card-subtitle">Parametri Audio Fundamentali:</h4>
+                <ul>
+                    <li><strong>Frecvență:</strong> 20 Hz - 20 kHz (domeniu uman)</li>
+                    <li><strong>Viteza sunetului:</strong> v = 343 m/s (aer la 20°C)</li>
+                    <li><strong>Lungime undă:</strong> $\lambda = \frac{v}{f}$</li>
+                    <li><strong>Intensitate:</strong> $I = \frac{P}{A}$ (putere pe arie)</li>
+                </ul>
+
+                <h4 class="card-subtitle">Decibeli și Amplitudine:</h4>
+                <div class="formula">
+                    $$\text{dB} = 20 \log_{10}\left(\frac{A_1}{A_0}\right)$$
+                    <br><small>(Decibel = raport logaritmic de amplitudini)</small>
+                </div>
+                <ul>
+                    <li>Prag auzire: 0 dB</li>
+                    <li>Șoapă: 20 dB</li>
+                    <li>Conversație: 60 dB</li>
+                    <li>Consolă de jocuri: 80-100 dB</li>
+                    <li>Prag dureri: 130 dB</li>
+                </ul>
+
+                <h4 class="card-subtitle">Audio 3D și HRTF:</h4>
+                <ul>
+                    <li><strong>HRTF:</strong> Head-Related Transfer Function</li>
+                    <li><strong>ITD:</strong> Interaural Time Difference (diferență timp între urechi)</li>
+                    <li><strong>ILD:</strong> Interaural Level Difference (diferență volum)</li>
+                    <li><strong>Spectral Cues:</strong> Modifimare frecvență</li>
+                </ul>
+
+                <h4 class="card-subtitle">Efect Doppler:</h4>
+                <div class="formula">
+                    $$f' = f \cdot \frac{v \pm v_{\text{observer}}}{v \mp v_{\text{source}}}$$
+                    <br><small>(Frecvență observată când sursa se mișcă)</small>
+                </div>
+                <ul>
+                    <li>Mașina apropie-se: frecvență mai mare</li>
+                    <li>Mașina se depărtează: frecvență mai mică</li>
+                </ul>
+
+                <h4 class="card-subtitle">Formats Audio:</h4>
+                <ul>
+                    <li><strong>Stereo:</strong> 2 canale (L, R)</li>
+                    <li><strong>Surround 5.1:</strong> 6 canale (L, C, R, SL, SR, LFE)</li>
+                    <li><strong>Atmos 7.1.4:</strong> 12 canale (cu subcanale verticale)</li>
+                    <li><strong>Frecvență eșantionare:</strong> 44.1 kHz (CD), 48 kHz, 96 kHz, 192 kHz</li>
+                    <li><strong>Bitrate:</strong> 128-320 kbps (MP3), 256+ kbps (lossless)</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="section bg-alt">
+        <div class="container">
+            <h2 class="section-title">Cifrele din spatele căldurii și semnalelor</h2>
+            
+            <div class="comparison-selector">
+                <button class="tab-btn active" onclick="showPhysicsComparison('heat')">Căldură</button>
+                <button class="tab-btn" onclick="showPhysicsComparison('wireless')">Wireless</button>
+                <button class="tab-btn" onclick="showPhysicsComparison('display')">Afișaj</button>
+            </div>
+
+            <div id="comparison-heat" class="comparison-content active">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Parametru</th>
+                            <th>PlayStation 5</th>
+                            <th>Xbox Series X</th>
+                            <th>Nintendo Switch</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Putere medie (W)</td>
+                            <td>100-150</td>
+                            <td>150-180</td>
+                            <td>10-20</td>
+                        </tr>
+                        <tr>
+                            <td>Putere maximă (W)</td>
+                            <td>200</td>
+                            <td>220</td>
+                            <td>40</td>
+                        </tr>
+                        <tr>
+                            <td>Căldură zilnică (BTU)</td>
+                            <td>~1700</td>
+                            <td>~2000</td>
+                            <td>~340</td>
+                        </tr>
+                        <tr>
+                            <td>Temperatura internă max (°C)</td>
+                            <td>~90-100</td>
+                            <td>~90-100</td>
+                            <td>~65-75</td>
+                        </tr>
+                        <tr>
+                            <td>Nivel zgomot (dB)</td>
+                            <td>35-40</td>
+                            <td>38-42</td>
+                            <td>28-32</td>
+                        </tr>
+                        <tr>
+                            <td>Sistem răcire</td>
+                            <td>Ventilator + radiator</td>
+                            <td>Ventilator + radiator</td>
+                            <td>Ventilator silent</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="comparison-wireless" class="comparison-content">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Caracteristică</th>
+                            <th>Bluetooth 5.2</th>
+                            <th>Wi-Fi 6E</th>
+                            <th>5G mmWave</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Frecvență (GHz)</td>
+                            <td>2.4</td>
+                            <td>2.4 / 5 / 6</td>
+                            <td>24-100</td>
+                        </tr>
+                        <tr>
+                            <td>Lungime undă (cm)</td>
+                            <td>12.5</td>
+                            <td>5-12.5</td>
+                            <td>0.3-1.2</td>
+                        </tr>
+                        <tr>
+                            <td>Rază (m)</td>
+                            <td>240</td>
+                            <td>100</td>
+                            <td>50-200</td>
+                        </tr>
+                        <tr>
+                            <td>Lățime bandă (MHz)</td>
+                            <td>1-2</td>
+                            <td>20-160</td>
+                            <td>100-400</td>
+                        </tr>
+                        <tr>
+                            <td>Viteză teoretică (Mbps)</td>
+                            <td>2</td>
+                            <td>9600</td>
+                            <td>10000+</td>
+                        </tr>
+                        <tr>
+                            <td>Latență (ms)</td>
+                            <td>1-3</td>
+                            <td>1-10</td>
+                            <td>1-5</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="comparison-display" class="comparison-content">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Parametru</th>
+                            <th>1080p@60fps</th>
+                            <th>4K@60fps</th>
+                            <th>4K@120fps</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Rezoluție</td>
+                            <td>1920×1080</td>
+                            <td>3840×2160</td>
+                            <td>3840×2160</td>
+                        </tr>
+                        <tr>
+                            <td>Pixeli total</td>
+                            <td>2.07 M</td>
+                            <td>8.29 M</td>
+                            <td>8.29 M</td>
+                        </tr>
+                        <tr>
+                            <td>Frame time (ms)</td>
+                            <td>16.67</td>
+                            <td>16.67</td>
+                            <td>8.33</td>
+                        </tr>
+                        <tr>
+                            <td>Bandwidth (Gbps) 24-bit</td>
+                            <td>7.46</td>
+                            <td>29.86</td>
+                            <td>59.71</td>
+                        </tr>
+                        <tr>
+                            <td>Flicker fusion</td>
+                            <td>Vizibil</td>
+                            <td>Imperceptibil</td>
+                            <td>Imperceptibil</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Calculează-ți consumul</h2>
+            
+            <div class="calculator-grid">
+                <div class="calculator-card">
+                    <h3>Calculator Lungime Undă</h3>
+                    <div class="input-group">
+                        <label>Frecvență (MHz):</label>
+                        <input type="number" id="frequency-input" value="2400" min="1">
+                    </div>
+                    <button onclick="calculateWavelength()">Calculează</button>
+                    <div id="wavelength-result" class="result"></div>
+                </div>
+
+                <div class="calculator-card">
+                    <h3>Calculator Căldură Generată</h3>
+                    <div class="input-group">
+                        <label>Putere (W):</label>
+                        <input type="number" id="heat-power" value="150" min="1">
+                    </div>
+                    <div class="input-group">
+                        <label>Timp (ore):</label>
+                        <input type="number" id="heat-time" value="4" min="0.1">
+                    </div>
+                    <button onclick="calculateHeat()">Calculează</button>
+                    <div id="heat-result" class="result"></div>
+                </div>
+
+                <div class="calculator-card">
+                    <h3>Calculator Efect Doppler</h3>
+                    <div class="input-group">
+                        <label>Frecvență (Hz):</label>
+                        <input type="number" id="doppler-freq" value="440" min="1">
+                    </div>
+                    <div class="input-group">
+                        <label>Vit. sursă (m/s):</label>
+                        <input type="number" id="doppler-source-vel" value="10">
+                    </div>
+                    <div class="input-group">
+                        <label>Direcție:</label>
+                        <select id="doppler-direction">
+                            <option value="approach">Se apropie</option>
+                            <option value="away">Se depărtează</option>
+                        </select>
+                    </div>
+                    <button onclick="calculateDoppler()">Calculează</button>
+                    <div id="doppler-result" class="result"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 — Console Notebook</p>
+            <p class="footer-note">Documentat cu pasiune pentru hardware</p>
+            <p>Perspectiva Fizicii asupra Tehnologiei Gaming</p>
+        </div>
+    </footer>
+
+    <script type="module" src="../../js/main.js"></script>
+    <script type="module" src="../../js/pages/fizica.js"></script>
+</body>
+</html>

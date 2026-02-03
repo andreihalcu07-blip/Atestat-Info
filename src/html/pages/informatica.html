@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informatica — Console Notebook</title>
+    <link rel="stylesheet" href="../../css/main.css">
+    <!-- KaTeX pentru ecuații matematice -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+        onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">Console Notebook</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Acasă</a></li>
+                <li><a href="fizica.html">Fizica</a></li>
+                <li><a href="informatica.html">Informatica</a></li>
+                <li><a href="evolutie.html">Evoluție</a></li>
+                <li><a href="comparatie.html">Comparație</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero hero-cinematic">
+        <div class="hero-content">
+            <h1>Perspectiva Informaticii</h1>
+            <p>Arhitectură hardware, algoritmi și pipeline-uri grafice moderne.</p>
+            <a href="#content" class="hero-button">Explorează</a>
+        </div>
+    </section>
+
+    <section class="section" id="content">
+        <div class="container">
+            <p class="section-intro">
+                Am notat aici cum sunt împachetate consolele ca sisteme: procesoare multi-core, ierarhii de memorie, GPU-uri cu mii de unități de execuție și algoritmi care împart sarcinile pe toate aceste resurse. E perspectiva unui pasionat care vrea să înțeleagă arhitectura, nu o lecție de laborator.
+            </p>
+            <div class="cards-grid">
+                <div class="card cs-card">
+                    <h3>Arhitectura Hardware</h3>
+                    <p>Componentele fundamentale și interconexiunile unei console moderne.</p>
+
+                    <h4 class="card-subtitle">Unitate Centrală de Prelucrare (CPU):</h4>
+                    <ul>
+                        <li><strong>PlayStation 5:</strong> AMD Zen 2, 8 core @ 3.5 GHz</li>
+                        <li><strong>Xbox Series X:</strong> AMD Zen 2, 8 core @ 3.8 GHz</li>
+                        <li><strong>Cache:</strong> L1 (32KB/core), L2 (512KB/core), L3 (16MB)</li>
+                        <li><strong>IPC:</strong> Instructions Per Clock (3-5 pentru Zen 2)</li>
+                    </ul>
+
+                    <h4 class="card-subtitle">Unitate de Procesare Grafică (GPU):</h4>
+                    <ul>
+                        <li><strong>PlayStation 5:</strong> 10.3 TFLOPS RDNA 2 (36 CUs)</li>
+                        <li><strong>Xbox Series X:</strong> 12 TFLOPS RDNA 2 (52 CUs)</li>
+                        <li><strong>Memorii texture:</strong> Acces rapid la imagini</li>
+                        <li><strong>Render Targets:</strong> Destinații pentru output</li>
+                    </ul>
+
+                    <h4 class="card-subtitle">Memorie:</h4>
+                    <ul>
+                        <li><strong>VRAM GPU:</strong> 10 GB GDDR6 (448 GB/s PS5)</li>
+                        <li><strong>System RAM:</strong> 16 GB (GPU + CPU)</li>
+                        <li><strong>Bandwidth:</strong> Viteza transfer date</li>
+                        <li><strong>Latență:</strong> Timp de acces</li>
+                    </ul>
+
+                    <h4 class="card-subtitle">Stocare:</h4>
+                    <ul>
+                        <li><strong>SSD NVMe:</strong> 5.5 GB/s (PS5) vs 2.4 GB/s (Xbox X)</li>
+                        <li><strong>Direct Storage API:</strong> Transfer direct GPU</li>
+                        <li><strong>Capacitate:</strong> 825 GB (PS5) vs 1 TB (Xbox X)</li>
+                    </ul>
+
+                    <div class="formula">
+                        $$\text{TFLOPS} = \frac{\text{Cores} \times \text{Frequency} \times 2}{10^{12}}$$
+                        <br><small>(Tera Float Point Operations Per Second)</small>
+                    </div>
+                </div>
+
+                <div class="card cs-card">
+                    <h3>Stocarea și Compresie Datelor</h3>
+                    <p>Gestionarea eficientă a datelor și memoriei.</p>
+
+                    <h4 class="card-subtitle">Hierarhia Memoriei:</h4>
+                    <ul>
+                        <li><strong>Registri:</strong> 64 bytes, latență 0 cicli</li>
+                        <li><strong>Cache L1:</strong> 32 KB, latență 3-4 cicli</li>
+                        <li><strong>Cache L2:</strong> 256 KB, latență 10-20 cicli</li>
+                        <li><strong>Cache L3:</strong> 8 MB, latență 40-75 cicli</li>
+                        <li><strong>RAM:</strong> 16 GB, latență 200-300 cicli</li>
+                        <li><strong>SSD:</strong> 825 GB, latență microsecunde</li>
+                    </ul>
+
+                    <h4 class="card-subtitle">Compresie Texturi:</h4>
+                    <ul>
+                        <li><strong>BC1-BC7:</strong> Compression rate 4:1 - 8:1</li>
+                        <li><strong>ETC2:</strong> Standard mobile</li>
+                        <li><strong>ASTC:</strong> Adaptive Scalable Texture Compression</li>
+                    </ul>
+
+                    <h4 class="card-subtitle">Algoritmi Compresie:</h4>
+                    <ul>
+                        <li><strong>Kraken:</strong> Compression ratio 3:1 - 10:1 (real-time)</li>
+                        <li><strong>Oodle:</strong> Developed by RAD Game Tools</li>
+                        <li><strong>LZ4:</strong> Foarte rapid pentru streaming</li>
+                        <li><strong>Zstandard:</strong> Better ratio decât gzip</li>
+                    </ul>
+
+                    <h4 class="card-subtitle">I/O Optimization:</h4>
+                    <div class="formula">
+                        $$\text{Data Transfer Rate} = \text{Bandwidth} \times \text{Compression Ratio}$$
+                        <br><small>PS5: 5.5 GB/s × 1 = 5.5 GB/s raw; 5.5 GB/s × 8 = 44 GB/s compressed</small>
+                    </div>
+                </div>
+
+                <div class="card cs-card">
+                    <h3>Networking și Multiplayer</h3>
+                    <p>Protocoluri și arhitecturi pentru jocuri multiplayer.</p>
+
+                    <h4 class="card-subtitle">Modelul Client-Server:</h4>
+                    <ul>
+                        <li><strong>Server:</strong> Autoritate - validează acțiuni</li>
+                        <li><strong>Client:</strong> UI și input local</li>
+                        <li><strong>Delay Compensation:</strong> Laguri netezite</li>
+                        <li><strong>Authoritative Server:</strong> Anti-cheat</li>
+                    </ul>
+
+                    <h4 class="card-subtitle">Protocoale Transport:</h4>
+                    <ul>
+                        <li><strong>UDP:</strong> Low-latency, packet loss tolerabil</li>
+                        <li><strong>TCP:</strong> Reliable, mai lent (chat, lobby)</li>
+                        <li><strong>Hybrid:</strong> UDP pentru joc, TCP pentru control</li>
+                    </ul>
+
+                    <h4 class="card-subtitle">Optimizări Netcode:</h4>
+                    <ul>
+                        <li><strong>Rollback Netcode:</strong> GGPO (Guilty Gear)</li>
+                        <li><strong>Prediction:</strong> Client-side prediction</li>
+                        <li><strong>Reconciliation:</strong> Corectare state diferit</li>
+                        <li><strong>Interest Management:</strong> Transmitere doar ce e relevant</li>
+                    </ul>
+
+                    <h4 class="card-subtitle">Metrice de Calitate:</h4>
+                    <ul>
+                        <li><strong>Ping:</strong> Latență round-trip (ms)</li>
+                        <li><strong>Jitter:</strong> Variație latență</li>
+                        <li><strong>Packet Loss:</strong> % pachete pierdute</li>
+                        <li><strong>Bandwidth:</strong> Bps transmis</li>
+                    </ul>
+
+                    <div class="formula">
+                        $$\text{Latență ideală} < 50 \text{ ms}$$
+                        $$\text{Jitter} < 20 \text{ ms}$$
+                        $$\text{Packet Loss} < 1\%$$
+                    </div>
+                </div>
+
+                <div class="card cs-card">
+                    <h3>Game Engine Architecture</h3>
+                    <p>Structura software-ului care face rulează jocurile.</p>
+
+                    <h4 class="card-subtitle">Componente Game Engine:</h4>
+                    <ul>
+                        <li><strong>Renderer:</strong> Graphics API (Vulkan, DirectX)</li>
+                        <li><strong>Physics Engine:</strong> Simulare coliziuni</li>
+                        <li><strong>Audio Engine:</strong> Mixare, 3D positional</li>
+                        <li><strong>Input System:</strong> Mapare controller</li>
+                        <li><strong>Asset Manager:</strong> Încărcare resurse</li>
+                    </ul>
+
+                    <h4 class="card-subtitle">Sisteme Timp Real:</h4>
+                    <ul>
+                        <li><strong>Game Loop:</strong> Update → Render ciclic</li>
+                        <li><strong>Frame Rate:</strong> Constantă (V-sync)</li>
+                        <li><strong>Task Scheduling:</strong> Distribuire pe 8 cores</li>
+                        <li><strong>Multi-threading:</strong> Paralelizare procese</li>
+                    </ul>
+
+                    <h4 class="card-subtitle">Memory Management:</h4>
+                    <ul>
+                        <li><strong>Pooling:</strong> Pre-alocate obiecte</li>
+                        <li><strong>Defragmentation:</strong> Reducere fragmentation</li>
+                        <li><strong>Garbage Collection:</strong> Cleanup automat</li>
+                    </ul>
+
+                    <h4 class="card-subtitle">Motoare Populare:</h4>
+                    <ul>
+                        <li><strong>Unreal Engine:</strong> C++, versatil</li>
+                        <li><strong>Unity:</strong> C#, rapid development</li>
+                        <li><strong>PlayStation Engine:</strong> Proprietary</li>
+                    </ul>
+                </div>
+
+                <div class="card cs-card">
+                    <h3>Securitate și DRM</h3>
+                    <p>Protecția împotriva piratăriei și cheating.</p>
+
+                    <h4 class="card-subtitle">Digital Rights Management:</h4>
+                    <ul>
+                        <li><strong>Encryption:</strong> Cheie decripție în console</li>
+                        <li><strong>Licensing:</strong> Validare cu server</li>
+                        <li><strong>Code Signing:</strong> Certificate verificare</li>
+                    </ul>
+
+                    <h4 class="card-subtitle">Anti-Cheat:</h4>
+                    <ul>
+                        <li><strong>Server-Side Validation:</strong> Verificare pe server</li>
+                        <li><strong>Kernel-Mode AC:</strong> Ring 0 monitoring</li>
+                        <li><strong>Behavioral Analysis:</strong> Detection anomalii</li>
+                        <li><strong>Blockchain:</strong> Viitoare - transparency</li>
+                    </ul>
+
+                    <h4 class="card-subtitle">Criptografie:</h4>
+                    <div class="formula">
+                        $$\text{AES-256:} \quad 2^{256} \text{ combinații posibile}$$
+                        <br><small>RSA-2048: Cheie publică/privată | SHA-256: Hash pentru integritate</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section bg-alt">
+        <div class="container">
+            <h2 class="section-title">Algoritmi — cum gândesc consolele</h2>
+            
+            <div class="cards-grid">
+                <div class="card">
+                    <h3>Big O Notation</h3>
+                    <ul>
+                        <li><strong>$O(1)$:</strong> Constant - Hash lookup</li>
+                        <li><strong>$O(\log n)$:</strong> Logaritmic - Binary search</li>
+                        <li><strong>$O(n)$:</strong> Linear - Simple search</li>
+                        <li><strong>$O(n \log n)$:</strong> Quasilinear - Merge sort</li>
+                        <li><strong>$O(n^2)$:</strong> Quadratic - Bubble sort</li>
+                        <li><strong>$O(2^n)$:</strong> Exponențial - Recursive subproblems</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>Algoritmi AI Gaming</h3>
+                    <ul>
+                        <li><strong>A* Pathfinding:</strong> Găsire cale optimă</li>
+                        <li><strong>State Machine:</strong> Schimbări comportament</li>
+                        <li><strong>Behavior Trees:</strong> Decizii complexe</li>
+                        <li><strong>MCTS:</strong> Monte Carlo Tree Search</li>
+                        <li><strong>Neural Networks:</strong> Deep learning AI</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>Data Structures</h3>
+                    <ul>
+                        <li><strong>Array:</strong> $O(1)$ acces, $O(n)$ inserție</li>
+                        <li><strong>Hash Table:</strong> $O(1)$ mediu</li>
+                        <li><strong>Binary Tree:</strong> $O(\log n)$ balanced</li>
+                        <li><strong>Graph:</strong> BFS/DFS $O(V+E)$</li>
+                        <li><strong>Spatial Partitioning:</strong> Octree, BVH</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Joacă-te cu numerele</h2>
+            
+            <div class="calculator-grid">
+                <div class="calculator-card">
+                    <h3>Calculator FLOPS</h3>
+                    <div class="input-group">
+                        <label>Cores:</label>
+                        <input type="number" id="cores-input" value="8" min="1">
+                    </div>
+                    <div class="input-group">
+                        <label>Frecvență (GHz):</label>
+                        <input type="number" id="freq-input" value="3.5" step="0.1" min="0.1">
+                    </div>
+                    <button onclick="calculateFLOPS()">Calculează</button>
+                    <div id="flops-result" class="result"></div>
+                </div>
+
+                <div class="calculator-card">
+                    <h3>Calculator Transfer Date</h3>
+                    <div class="input-group">
+                        <label>Bandwidth (GB/s):</label>
+                        <input type="number" id="bandwidth-input" value="5.5" step="0.1" min="0.1">
+                    </div>
+                    <div class="input-group">
+                        <label>Dimensiune (GB):</label>
+                        <input type="number" id="data-size" value="100" min="1">
+                    </div>
+                    <button onclick="calculateTransfer()">Calculează</button>
+                    <div id="transfer-result" class="result"></div>
+                </div>
+
+                <div class="calculator-card">
+                    <h3>Calculator Complexitate Timp</h3>
+                    <div class="input-group">
+                        <label>Dimensiune input (n):</label>
+                        <input type="number" id="input-size" value="1000" min="1">
+                    </div>
+                    <div class="input-group">
+                        <label>Algoritm:</label>
+                        <select id="algo-select">
+                            <option value="linear">O(n) - Linear</option>
+                            <option value="log">O(log n) - Logaritmic</option>
+                            <option value="nlogn">O(n log n) - Quasilinear</option>
+                            <option value="quadratic">O(n²) - Quadratic</option>
+                        </select>
+                    </div>
+                    <button onclick="calculateComplexity()">Calculează</button>
+                    <div id="complexity-result" class="result"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 — Console Notebook</p>
+            <p class="footer-note">Documentat cu pasiune pentru hardware</p>
+            <p>Perspectiva Informaticii asupra Tehnologiei Gaming</p>
+        </div>
+    </footer>
+
+    <script type="module" src="../../js/main.js"></script>
+    <script type="module" src="../../js/pages/informatica.js"></script>
+</body>
+</html>

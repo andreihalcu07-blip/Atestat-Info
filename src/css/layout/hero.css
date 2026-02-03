@@ -1,0 +1,147 @@
+/**
+ * Hero Section - Cinematic Style
+ * Inspired by TradingView landing
+ */
+
+/* === HERO CINEMATIC === */
+.hero-cinematic {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    padding-top: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--text-light);
+    
+    /* Fundal cinematic - gradient dramatic cu "lumini" */
+    background: 
+        radial-gradient(ellipse 100% 60% at 50% 0%, rgba(91, 164, 230, 0.12) 0%, transparent 50%),
+        radial-gradient(ellipse 80% 50% at 80% 90%, rgba(30, 58, 109, 0.2) 0%, transparent 40%),
+        radial-gradient(ellipse 70% 40% at 10% 70%, rgba(91, 164, 230, 0.08) 0%, transparent 45%),
+        linear-gradient(180deg, #0B0F1A 0%, #0A1F44 50%, #0B0F1A 100%);
+    
+    /* Pentru imagine de fundal (dacă ai una): */
+    /* background: url('../../assets/images/hero-bg.jpg') center/cover no-repeat; */
+    
+    overflow: hidden;
+}
+
+/* Glow subtil în centru */
+.hero-cinematic::before {
+    content: '';
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 300px;
+    background: radial-gradient(ellipse, rgba(91, 164, 230, 0.08) 0%, transparent 70%);
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Content container */
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    padding: 0 2rem;
+}
+
+/* Titlu principal - mare, bold, impactant */
+.hero-cinematic h1 {
+    font-size: clamp(2.5rem, 7vw, 5rem);
+    font-weight: 700;
+    letter-spacing: -2px;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    color: #ffffff;
+}
+
+/* Subtitlu - elegant, aerisit */
+.hero-content p {
+    font-size: clamp(1rem, 2.5vw, 1.35rem);
+    color: rgba(237, 233, 227, 0.8);
+    max-width: 600px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.6;
+    font-weight: 400;
+}
+
+/* Buton CTA - stil TradingView */
+.hero-button {
+    display: inline-block;
+    padding: 16px 36px;
+    background: #EDE9E3;
+    color: #0B0F1A;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 999px;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.hero-button:hover {
+    background: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+    .hero-cinematic {
+        min-height: 100svh;
+    }
+    
+    .hero-cinematic h1 {
+        letter-spacing: -1px;
+    }
+    
+    .hero-button {
+        padding: 14px 28px;
+        font-size: 0.95rem;
+    }
+    
+    .hero-cinematic::after {
+        bottom: 20px;
+    }
+}
+
+/* === HERO STANDARD (pentru alte pagini) === */
+.hero:not(.hero-cinematic) {
+    text-align: center;
+    padding: var(--spacing-2xl) 0;
+    background: linear-gradient(180deg, rgba(10, 31, 68, 0.5) 0%, var(--dark-bg) 100%);
+    position: relative;
+}
+
+.hero:not(.hero-cinematic) .container {
+    position: relative;
+    z-index: 1;
+}
+
+.hero:not(.hero-cinematic) h1 {
+    color: var(--text-light);
+    margin-bottom: var(--spacing-md);
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.subtitle {
+    font-size: var(--font-size-xl);
+    color: #5BA4E6;
+    margin-bottom: var(--spacing-md);
+    font-weight: 500;
+}
+
+.hero-text {
+    font-size: var(--font-size-base);
+    color: var(--text-gray);
+    max-width: 680px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
