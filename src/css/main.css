@@ -27,3 +27,5 @@
 
 /* === PAGE-SPECIFIC === */
 @import url('./pages/evolutie.css');
+@import url('./pages/comparatie.css');
+@import url('./pages/console-detail.css');

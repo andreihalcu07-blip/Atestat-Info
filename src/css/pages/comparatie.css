@@ -1,0 +1,629 @@
+/* =====================================================
+   COMPARATIE PAGE STYLES
+   Dynamic console comparison with modern app-style UI
+   ===================================================== */
+
+/* === HERO COMPACT === */
+.hero-compact {
+    min-height: 26vh;
+    padding: 80px 0 24px;
+}
+
+.hero-compact .hero-content h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin-bottom: 0.5rem;
+}
+
+.hero-compact .hero-content p {
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    opacity: 0.8;
+}
+
+.hero-compact .hero-content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero-compact .hero-button {
+    margin-top: 1.25rem;
+}
+
+/* === SELECTOR SECTION === */
+.selector-section {
+    padding: 2rem 0 1.25rem;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.selector-grid {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 1.25rem;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.selector-section .container {
+    display: flex;
+    justify-content: center;
+}
+
+.selector-box {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 1.25rem;
+    transition: all 0.3s ease;
+}
+
+.selector-box:hover {
+    border-color: rgba(91, 164, 230, 0.3);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.selector-label {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-weight: 600;
+    color: var(--text-light);
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.selector-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background: linear-gradient(135deg, var(--accent-color), #3d8fd1);
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: white;
+}
+
+.console-select {
+    width: 100%;
+    padding: 1rem 1.25rem;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    color: var(--text-light);
+    font-size: 1rem;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%235BA4E6' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    padding-right: 2.5rem;
+}
+
+.console-select:hover {
+    border-color: rgba(91, 164, 230, 0.4);
+}
+
+.console-select:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(91, 164, 230, 0.15);
+}
+
+.console-select option {
+    background: #1a2233;
+    color: var(--text-light);
+    padding: 0.5rem;
+}
+
+.console-select optgroup {
+    font-weight: 600;
+    color: var(--accent-color);
+    background: #0f1729;
+}
+
+.selector-vs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.selector-vs span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background: linear-gradient(135deg, rgba(91, 164, 230, 0.2), rgba(91, 164, 230, 0.05));
+    border: 2px solid rgba(91, 164, 230, 0.3);
+    border-radius: 50%;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--accent-color);
+}
+
+/* === COMPARISON DISPLAY === */
+.comparison-section {
+    padding: 0.75rem 0 3rem;
+}
+
+.comparison-display {
+    transition: opacity 0.3s ease;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    padding-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.comparison-display.fade-in {
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.loading-placeholder {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: var(--text-gray);
+    font-size: 1.1rem;
+}
+
+/* === COMPARISON GRID (Console Cards) === */
+.comparison-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    align-items: stretch;
+    margin: 0 auto 2.5rem;
+    max-width: 1000px;
+}
+
+.console-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    min-height: 100px;
+    width: 100%;
+}
+
+.console-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+    border-color: rgba(91, 164, 230, 0.3);
+}
+
+.console-card-image {
+    padding: 1.75rem 1.25rem 1.25rem;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.2), transparent);
+    text-align: center;
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.console-card-image img {
+    max-width: 100%;
+    max-height: 170px;
+    object-fit: contain;
+    filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.4));
+}
+
+.console-card-info {
+    padding: 1rem 1.5rem 1.5rem;
+    text-align: center;
+}
+
+.console-card-info h3 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--text-light);
+    margin-bottom: 1rem;
+}
+
+.console-meta-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+}
+
+.meta-tag {
+    padding: 0.35rem 0.75rem;
+    background: rgba(91, 164, 230, 0.1);
+    border: 1px solid rgba(91, 164, 230, 0.2);
+    border-radius: 8px;
+    font-size: 0.85rem;
+    color: var(--accent-color);
+}
+
+.comparison-vs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+}
+
+.vs-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--accent-color), #3d8fd1);
+    border-radius: 50%;
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: white;
+    box-shadow: 0 4px 20px rgba(91, 164, 230, 0.4);
+}
+
+/* === SPECS COMPARISON === */
+.specs-comparison {
+    margin: 0 auto 2.5rem;
+    max-width: 1000px;
+    width: 100%;
+}
+
+.specs-title,
+.verdict-title {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-light);
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.specs-title::after,
+.verdict-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: var(--accent-color);
+    margin: 0.75rem auto 0;
+    border-radius: 2px;
+}
+
+.spec-sheet {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.spec-section {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 14px;
+    padding: 0.75rem 0.75rem 0.5rem;
+}
+
+.spec-section-header {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--accent-color);
+    font-weight: 700;
+    margin: 0 0 0.5rem 0.25rem;
+}
+
+.spec-row {
+    display: grid;
+    grid-template-columns: 1fr minmax(140px, 200px) 1fr;
+    grid-template-areas: "left label right";
+    gap: 1rem;
+    padding: 0.65rem 0.75rem;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.03);
+    align-items: center;
+}
+
+.spec-row + .spec-row {
+    margin-top: 0.35rem;
+}
+
+.spec-label {
+    grid-area: label;
+    text-align: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--text-gray);
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+}
+
+.spec-value {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    word-break: break-word;
+}
+
+.spec-value.spec-left {
+    grid-area: left;
+    text-align: right;
+}
+
+.spec-value.spec-right {
+    grid-area: right;
+    text-align: left;
+}
+
+.flag {
+    font-weight: 700;
+}
+
+.flag.yes {
+    color: #4ade80;
+}
+
+.flag.no {
+    color: #f87171;
+}
+
+/* === VERDICT SECTION === */
+.verdict-section {
+    margin: 1.5rem auto 0;
+    max-width: 1000px;
+    width: 100%;
+}
+
+.verdict-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.verdict-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 1.5rem;
+}
+
+.verdict-console-name {
+    text-align: center;
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--text-light);
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.85rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.verdict-lists {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.list-title {
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.75rem;
+}
+
+.pros-title {
+    color: #4ade80;
+}
+
+.cons-title {
+    color: #f87171;
+}
+
+.pros-list ul,
+.cons-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.pro-item,
+.con-item {
+    padding: 0.5rem 0;
+    font-size: 0.95rem;
+    color: var(--text-gray);
+    line-height: 1.5;
+}
+
+.pro-item {
+    border-left: 3px solid rgba(74, 222, 128, 0.3);
+    padding-left: 1rem;
+}
+
+.con-item {
+    border-left: 3px solid rgba(248, 113, 113, 0.3);
+    padding-left: 1rem;
+}
+
+/* === MOBILE RESPONSIVE === */
+@media (max-width: 1024px) {
+    .selector-grid {
+        gap: 1rem;
+    }
+
+    .selector-label {
+        font-size: 1rem;
+    }
+
+    .console-select {
+        padding: 0.95rem 1.1rem;
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 900px) {
+    .selector-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .selector-vs {
+        order: 1;
+    }
+
+    .selector-box:first-child {
+        order: 0;
+    }
+
+    .selector-box:last-child {
+        order: 2;
+    }
+
+    .selector-vs span {
+        width: 40px;
+        height: 40px;
+        font-size: 0.9rem;
+    }
+
+    .selector-label {
+        font-size: 0.95rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .selector-box {
+        padding: 1rem;
+    }
+
+    .console-select {
+        padding: 0.85rem 1rem;
+        font-size: 0.93rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-compact {
+        min-height: 30vh;
+        padding: 90px 0 30px;
+    }
+
+    .hero-compact .hero-content h1 {
+        font-size: clamp(1.75rem, 5vw, 2.5rem);
+    }
+
+    .hero-compact .hero-content p {
+        font-size: clamp(0.95rem, 2.5vw, 1.15rem);
+    }
+
+    .selector-section {
+        padding: 1.75rem 0;
+    }
+
+    .selector-label {
+        font-size: 0.9rem;
+        margin-bottom: 0.65rem;
+    }
+
+    .selector-box {
+        padding: 1rem;
+    }
+
+    .selector-badge {
+        width: 26px;
+        height: 26px;
+        font-size: 0.8rem;
+    }
+
+    .console-select {
+        padding: 0.85rem 1rem;
+        font-size: 0.93rem;
+    }
+
+    /* Comparison Grid - Stack on mobile */
+    .comparison-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .console-card-image {
+        padding: 1.5rem;
+    }
+
+    .console-card-image img {
+        max-height: 140px;
+    }
+
+    .console-card-info {
+        padding: 1.25rem;
+    }
+
+    .console-card-info h3 {
+        font-size: 1.25rem;
+    }
+
+    /* Specs - Stack values */
+    .spec-row {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "label"
+            "left"
+            "right";
+        gap: 0.35rem;
+        text-align: center;
+        padding: 0.75rem;
+    }
+
+    .spec-label {
+        margin-bottom: 0.25rem;
+    }
+
+    .spec-value {
+        text-align: center;
+    }
+
+    /* Verdict - Stack on mobile */
+    .verdict-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .verdict-card {
+        padding: 1.5rem;
+    }
+
+    .verdict-console-name {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .selector-label {
+        font-size: 1rem;
+    }
+
+    .console-select {
+        padding: 0.8rem;
+        font-size: 0.9rem;
+    }
+
+    .specs-title,
+    .verdict-title {
+        font-size: 1.25rem;
+    }
+
+    .spec-label {
+        font-size: 0.75rem;
+        min-width: auto;
+        padding: 0.4rem 0.75rem;
+    }
+
+    .spec-value {
+        font-size: 0.85rem;
+    }
+}

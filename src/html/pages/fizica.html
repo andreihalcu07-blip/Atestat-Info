@@ -105,7 +105,7 @@
                 <div class="formula">
                     $$c = \lambda \cdot f$$
                 </div>
-                <p style="font-size: 0.9rem; color: var(--text-gray); margin-top: 0.5rem;">
+                <p class="formula-description">
                     Pentru Bluetooth 2.4 GHz: $\lambda = \frac{3 \times 10^8 \text{ m/s}}{2.4 \times 10^9 \text{ Hz}} \approx 0.125 \text{ m} = 12.5 \text{ cm}$
                 </p>
 
@@ -439,8 +439,6 @@
     <script type="module" src="../../js/pages/fizica.js"></script>
     
     <!-- Hamburger Menu Fallback -->
-    <script>
-        (function(){const h=document.querySelector('.hamburger'),n=document.querySelector('.nav-links'),b=document.body;if(!h||!n)return;const t=()=>n.classList.contains('active')?c():o(),o=()=>{h.classList.add('active');n.classList.add('active');b.classList.add('menu-open');h.setAttribute('aria-expanded','true')},c=()=>{h.classList.remove('active');n.classList.remove('active');b.classList.remove('menu-open');h.setAttribute('aria-expanded','false')};h.addEventListener('click',t);n.querySelectorAll('a').forEach(l=>l.addEventListener('click',c));document.addEventListener('keydown',e=>{if(e.key==='Escape'&&n.classList.contains('active'))c()});document.addEventListener('click',e=>{if(n.classList.contains('active')&&!n.contains(e.target)&&!h.contains(e.target))c()})})();
-    </script>
+    <script src="../../js/fallback/hamburger.js"></script>
 </body>
 </html>
