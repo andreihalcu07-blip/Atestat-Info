@@ -94,66 +94,49 @@
     font-size: 1.05rem;
 }
 
+/* Back Button - Modern App-Style (Desktop + Mobile) */
 .back-link {
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.65rem;
+    padding: 0.75rem 1.25rem;
+    background: rgba(91, 164, 230, 0.08);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(91, 164, 230, 0.2);
+    border-radius: 12px;
     color: var(--accent-color);
     text-decoration: none;
     margin-bottom: 2rem;
     font-weight: 500;
-    transition: opacity 0.3s;
+    font-size: 0.95rem;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
 }
 
 .back-link:hover {
-    opacity: 0.8;
+    background: rgba(91, 164, 230, 0.15);
+    border-color: rgba(91, 164, 230, 0.35);
+    transform: translateX(-3px);
+    box-shadow: 0 4px 12px rgba(91, 164, 230, 0.2);
 }
-+/* Back Button - Modern Mobile-First Design */
-+.back-link {
-+    display: inline-flex;
-+    align-items: center;
-+    gap: 0.65rem;
-+    padding: 0.75rem 1.25rem;
-+    background: rgba(91, 164, 230, 0.08);
-+    backdrop-filter: blur(8px);
-+    border: 1px solid rgba(91, 164, 230, 0.2);
-+    border-radius: 12px;
-+    color: var(--accent-color);
-+    text-decoration: none;
-+    margin-bottom: 2rem;
-+    font-weight: 500;
-+    font-size: 0.95rem;
-+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-+    position: relative;
-+    overflow: hidden;
-+}
-+
-+/* Hover Effect - Desktop */
-+.back-link:hover {
-+    background: rgba(91, 164, 230, 0.15);
-+    border-color: rgba(91, 164, 230, 0.35);
-+    transform: translateX(-3px);
-+    box-shadow: 0 4px 12px rgba(91, 164, 230, 0.2);
-+}
-+
-+/* Active/Tap Effect - Mobile */
-+.back-link:active {
-+    transform: scale(0.97) translateX(-2px);
-+    background: rgba(91, 164, 230, 0.2);
-+}
-+
-+/* Săgeata stilizată */
-+.back-link::before {
-+    content: '←';
-+    font-size: 1.2em;
-+    font-weight: 700;
-+    transition: transform 0.2s;
-+}
-+
-+.back-link:hover::before {
-+    transform: translateX(-3px);
-+}
+
+.back-link:active {
+    transform: scale(0.97) translateX(-2px);
+    background: rgba(91, 164, 230, 0.2);
+}
+
+.back-link::before {
+    content: '←';
+    font-size: 1.2em;
+    font-weight: 700;
+    transition: transform 0.2s;
+}
+
+.back-link:hover::before {
+    transform: translateX(-3px);
+}
 
 /* === MOBILE RESPONSIVE === */
 
@@ -248,41 +231,32 @@
         margin: 0 auto;
     }
     
-    /* Back link - mai vizibil */
+    /* Back Button - Touch-Friendly Mobile */
     .back-link {
-        margin-bottom: 1.5rem;
-        font-size: 0.95rem;
-        display: inline-flex;
-        justify-content: center;
-        width: auto;
+        padding: 0.95rem 1.5rem;
+        font-size: 1rem;
+        margin-bottom: 1.75rem;
+        gap: 0.75rem;
+        background: rgba(91, 164, 230, 0.12);
+        border-width: 1.5px;
+        border-radius: 14px;
+        box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+        /* Touch target minim 44px (Apple HIG) */
+        min-height: 44px;
+        /* Previne accidental zoom-in pe iOS */
+        touch-action: manipulation;
     }
-    
-        /* Back Button - Touch-Friendly Mobile */
-        .back-link {
-            padding: 0.95rem 1.5rem;
-            font-size: 1rem;
-            margin-bottom: 1.75rem;
-            gap: 0.75rem;
-            background: rgba(91, 164, 230, 0.12);
-            border-width: 1.5px;
-            border-radius: 14px;
-            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
-            /* Touch target minim 44px (Apple HIG) */
-            min-height: 44px;
-            /* Previne accidental zoom-in pe iOS */
-            touch-action: manipulation;
-        }
-    
-        .back-link::before {
-            font-size: 1.3em;
-        }
-    
-        /* Tap feedback mai puternic pe mobile */
-        .back-link:active {
-            transform: scale(0.95);
-            background: rgba(91, 164, 230, 0.25);
-            box-shadow: 0 2px 8px rgba(91, 164, 230, 0.3);
-        }
+
+    .back-link::before {
+        font-size: 1.3em;
+    }
+
+    /* Tap feedback mai puternic pe mobile */
+    .back-link:active {
+        transform: scale(0.95);
+        background: rgba(91, 164, 230, 0.25);
+        box-shadow: 0 2px 8px rgba(91, 164, 230, 0.3);
+    }
     
     /* === SPECS SECTION === */
     /* Single column pentru lizibilitate maximă */
