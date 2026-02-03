@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ro">
 <head>
     <meta charset="UTF-8">
@@ -135,5 +135,11 @@
     </footer>
 
     <script type="module" src="../../../js/main.js"></script>
+
+    
+    <!-- Hamburger Menu Fallback -->
+    <script>
+        (function(){const h=document.querySelector('.hamburger'),n=document.querySelector('.nav-links'),b=document.body;if(!h||!n)return;const t=()=>n.classList.contains('active')?c():o(),o=()=>{h.classList.add('active');n.classList.add('active');b.classList.add('menu-open');h.setAttribute('aria-expanded','true')},c=()=>{h.classList.remove('active');n.classList.remove('active');b.classList.remove('menu-open');h.setAttribute('aria-expanded','false')};h.addEventListener('click',t);n.querySelectorAll('a').forEach(l=>l.addEventListener('click',c));document.addEventListener('keydown',e=>{if(e.key==='Escape'&&n.classList.contains('active'))c()});document.addEventListener('click',e=>{if(n.classList.contains('active')&&!n.contains(e.target)&&!h.contains(e.target))c()})})();
+    </script>
 </body>
 </html>
