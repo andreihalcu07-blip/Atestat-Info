@@ -107,3 +107,43 @@
     color: var(--text-light);
     border-color: rgba(255, 255, 255, 0.12);
 }
+/* === MOBILE RESPONSIVE === */
+@media (max-width: 768px) {
+    /* Butoane full-width și touch-friendly pe mobile */
+    .btn {
+        display: block;
+        width: 100%;
+        padding: 0.9rem 1.5rem;
+        font-size: 1rem;
+        text-align: center;
+    }
+    
+    .demo-button {
+        display: block;
+        width: 100%;
+        padding: 0.9rem 1.5rem;
+        font-size: 1rem;
+        text-align: center;
+        margin-top: 1rem;
+    }
+    
+    /* Tab buttons - stack pe mobile */
+    .tab-btn {
+        width: 100%;
+        padding: 0.85rem 1.25rem;
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .btn,
+    .demo-button {
+        padding: 0.85rem 1.25rem;
+        font-size: 0.95rem;
+    }
+    
+    .tab-btn {
+        padding: 0.8rem 1rem;
+        font-size: 0.9rem;
+    }
+}

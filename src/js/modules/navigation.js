@@ -1,6 +1,6 @@
 /**
  * Navigation Module
- * Smooth scrolling, active links
+ * Smooth scrolling, active links, mobile hamburger menu
  */
 
 import { DOMUtils } from '../utils/dom.js';
@@ -9,6 +9,7 @@ export const NavigationModule = {
     init() {
         this.setupSmoothScroll();
         this.setupActiveLinks();
+        this.setupMobileMenu();
     },
 
     /**
@@ -22,6 +23,9 @@ export const NavigationModule = {
                 const target = document.querySelector(href);
                 if (target) {
                     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    
+                    // Închide meniul mobile după navigare
+                    this.closeMobileMenu();
                 }
             }
         });
@@ -37,5 +41,96 @@ export const NavigationModule = {
                 link.classList.add('active');
             }
         });
+    },
+
+    /**
+     * Mobile Hamburger Menu
+     */
+    setupMobileMenu() {
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        const navLinksItems = document.querySelectorAll('.nav-links a');
+        
+        if (!hamburger || !navLinks) return;
+        
+        // Toggle menu când se apasă hamburger
+        hamburger.addEventListener('click', () => {
+            this.toggleMobileMenu();
+        });
+        
+        // Închide meniul când se apasă un link
+        navLinksItems.forEach(link => {
+            link.addEventListener('click', () => {
+                this.closeMobileMenu();
+            });
+        });
+        
+        // Închide meniul când se apasă ESC
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && navLinks.classList.contains('active')) {
+                this.closeMobileMenu();
+            }
+        });
+        
+        // Închide meniul când se face click în afara lui
+        document.addEventListener('click', (e) => {
+            if (navLinks.classList.contains('active') && 
+                !navLinks.contains(e.target) && 
+                !hamburger.contains(e.target)) {
+                this.closeMobileMenu();
+            }
+        });
+    },
+
+    /**
+     * Toggle mobile menu
+     */
+    toggleMobileMenu() {
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        
+        if (!hamburger || !navLinks) return;
+        
+        const isActive = navLinks.classList.contains('active');
+        
+        if (isActive) {
+            this.closeMobileMenu();
+        } else {
+            this.openMobileMenu();
+        }
+    },
+
+    /**
+     * Deschide mobile menu
+     */
+    openMobileMenu() {
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        
+        if (!hamburger || !navLinks) return;
+        
+        hamburger.classList.add('active');
+        navLinks.classList.add('active');
+        document.body.classList.add('menu-open');
+        
+        // Update ARIA
+        hamburger.setAttribute('aria-expanded', 'true');
+    },
+
+    /**
+     * Închide mobile menu
+     */
+    closeMobileMenu() {
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        
+        if (!hamburger || !navLinks) return;
+        
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('active');
+        document.body.classList.remove('menu-open');
+        
+        // Update ARIA
+        hamburger.setAttribute('aria-expanded', 'false');
     }
 };

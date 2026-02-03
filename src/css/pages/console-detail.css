@@ -109,9 +109,16 @@
     opacity: 0.8;
 }
 
+/* === MOBILE RESPONSIVE === */
+
+/* Tablets & Small Desktops */
 @media (max-width: 900px) {
     .console-hero .container {
         grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .console-hero-text {
         text-align: center;
     }
 
@@ -121,5 +128,166 @@
 
     .console-hero-text .console-meta {
         justify-content: center;
+    }
+    
+    .specs-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* === MOBILE PHONES (max-width: 768px) === */
+@media (max-width: 768px) {
+    /* Hero Section - Mobile Optimized */
+    .console-hero {
+        min-height: auto;
+        padding: 80px 0 40px;
+    }
+    
+    .console-hero .container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        /* Imaginea sus, apoi textul */
+        grid-template-areas:
+            "image"
+            "text";
+    }
+    
+    .console-hero-image {
+        grid-area: image;
+        padding: 0 20px;
+    }
+    
+    .console-hero-text {
+        grid-area: text;
+        text-align: center;
+    }
+    
+    /* Imagine - centrată și optimizată */
+    .console-hero-image img {
+        max-width: 90%;
+        max-height: 250px;
+        margin: 0 auto;
+        display: block;
+    }
+    
+    /* Titlu mai compact */
+    .console-hero-text h1 {
+        font-size: clamp(1.75rem, 7vw, 2.25rem);
+        line-height: 1.2;
+        margin-bottom: 1rem;
+        letter-spacing: -0.5px;
+    }
+    
+    /* Meta info - stack frumos */
+    .console-hero-text .console-meta {
+        justify-content: center;
+        gap: 1rem;
+        margin-bottom: 1.25rem;
+        flex-wrap: wrap;
+    }
+    
+    .console-hero-text .console-meta span {
+        font-size: 0.9rem;
+        padding: 0.4rem 0.8rem;
+        background: rgba(91, 164, 230, 0.1);
+        border-radius: 8px;
+        border: 1px solid rgba(91, 164, 230, 0.2);
+    }
+    
+    /* Tagline mai compact */
+    .console-hero-text .console-tagline {
+        font-size: clamp(1rem, 3vw, 1.15rem);
+        line-height: 1.6;
+        max-width: 90%;
+        margin: 0 auto;
+    }
+    
+    /* Back link - mai vizibil */
+    .back-link {
+        margin-bottom: 1.5rem;
+        font-size: 0.95rem;
+        display: inline-flex;
+        justify-content: center;
+        width: auto;
+    }
+    
+    /* === SPECS SECTION === */
+    /* Single column pentru lizibilitate maximă */
+    .specs-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .spec-card {
+        padding: 1.25rem;
+        border-radius: 14px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .spec-card h3 {
+        font-size: 0.8rem;
+        margin-bottom: 0;
+        flex: 1;
+    }
+    
+    .spec-card p {
+        font-size: 1rem;
+        font-weight: 600;
+        text-align: right;
+        flex: 1;
+    }
+    
+    /* === HISTORY SECTION === */
+    .history-section p {
+        font-size: 0.95rem;
+        line-height: 1.7;
+        margin-bottom: 1.25rem;
+    }
+}
+
+/* === SMALL MOBILE (max-width: 480px) === */
+@media (max-width: 480px) {
+    .console-hero {
+        padding: 70px 0 30px;
+    }
+    
+    .console-hero .container {
+        gap: 1.5rem;
+    }
+    
+    .console-hero-image img {
+        max-height: 200px;
+    }
+    
+    .console-hero-text h1 {
+        font-size: 1.65rem;
+    }
+    
+    .console-hero-text .console-meta span {
+        font-size: 0.85rem;
+        padding: 0.35rem 0.7rem;
+    }
+    
+    .console-hero-text .console-tagline {
+        font-size: 0.95rem;
+    }
+    
+    .spec-card {
+        padding: 1rem;
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+    }
+    
+    .spec-card h3,
+    .spec-card p {
+        text-align: center;
+        flex: none;
+    }
+    
+    .spec-card p {
+        font-size: 1.1rem;
     }
 }

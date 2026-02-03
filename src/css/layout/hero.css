@@ -94,20 +94,64 @@
 /* === RESPONSIVE === */
 @media (max-width: 768px) {
     .hero-cinematic {
-        min-height: 100svh;
+        min-height: 100svh; /* Support pentru mobile browsers */
+        padding-top: 60px;
     }
     
+    .hero-content {
+        padding: 0 24px;
+    }
+    
+    /* Titlu optimizat - compact dar lizibil */
     .hero-cinematic h1 {
+        font-size: clamp(2rem, 10vw, 3rem);
         letter-spacing: -1px;
+        line-height: 1.15;
+        margin-bottom: 1.25rem;
+    }
+    
+    /* Subtitlu pe 2-3 rânduri, max-width mai mic */
+    .hero-content p {
+        font-size: clamp(0.95rem, 4vw, 1.15rem);
+        line-height: 1.5;
+        max-width: 90%;
+        margin: 0 auto 2rem;
+    }
+    
+    /* Buton full-width, touch-friendly */
+    .hero-button {
+        display: block;
+        width: 100%;
+        max-width: 320px;
+        margin: 0 auto;
+        padding: 18px 32px;
+        font-size: 1rem;
+        text-align: center;
+    }
+    
+    /* Reduce glow effect pe mobile pentru performanță */
+    .hero-cinematic::before {
+        width: 400px;
+        height: 200px;
+        opacity: 0.6;
+    }
+}
+
+/* Mobile foarte mic (< 400px) */
+@media (max-width: 400px) {
+    .hero-cinematic h1 {
+        font-size: 1.75rem;
+        letter-spacing: -0.5px;
+    }
+    
+    .hero-content p {
+        font-size: 0.9rem;
+        line-height: 1.45;
     }
     
     .hero-button {
-        padding: 14px 28px;
+        padding: 16px 28px;
         font-size: 0.95rem;
-    }
-    
-    .hero-cinematic::after {
-        bottom: 20px;
     }
 }
 
