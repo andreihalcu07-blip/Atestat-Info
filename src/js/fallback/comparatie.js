@@ -138,7 +138,7 @@
         // === GENERAȚIA 8 ===
         'playstation-4': {
             name: 'PlayStation 4', manufacturer: 'Sony', year: 2013, generation: 8,
-            image: '../../assets/images/consoles/playstation-4.png',
+            image: '../../assets/images/consoles/ps4.png',
             specs: {
                 cpu: { arch: 'AMD Jaguar', node: '28 nm', cores: '8C/8T', clock: '1.6 GHz', ipc: 'Jaguar', tdp: '~150W' },
                 gpu: { arch: 'GCN 1.1', cu: '18 CUs', clock: '800 MHz', tflops: '1.84 TFLOPS', features: 'Compute', api: 'GNM/GNMX' },
@@ -196,7 +196,7 @@
         // === GENERAȚIA 7 ===
         'playstation-3': {
             name: 'PlayStation 3', manufacturer: 'Sony', year: 2006, generation: 7,
-            image: '../../assets/images/consoles/playstation-3.png',
+            image: '../../assets/images/consoles/ps3.png',
             specs: {
                 cpu: { arch: 'Cell BE', node: '90/65 nm', cores: '1 PPE + 7 SPE', clock: '3.2 GHz', ipc: 'Cell', tdp: '~200W' },
                 gpu: { arch: 'RSX', cu: '24 ROPs', clock: '550 MHz', tflops: '0.23 TFLOPS', features: 'N/A', api: 'PSGL/OpenGL' },
@@ -210,7 +210,7 @@
         },
         'xbox-360': {
             name: 'Xbox 360', manufacturer: 'Microsoft', year: 2005, generation: 7,
-            image: '../../assets/images/consoles/xbox-360.png',
+            image: '../../assets/images/consoles/xbox360.png',
             specs: {
                 cpu: { arch: 'PowerPC Xenon', node: '90 nm', cores: '3C/6T', clock: '3.2 GHz', ipc: 'PowerPC', tdp: '~175W' },
                 gpu: { arch: 'ATI Xenos', cu: '48 ALU', clock: '500 MHz', tflops: '0.24 TFLOPS', features: 'Unified shaders', api: 'DX9c' },
@@ -240,7 +240,7 @@
         // === GENERAȚIA 6 ===
         'playstation-2': {
             name: 'PlayStation 2', manufacturer: 'Sony', year: 2000, generation: 6,
-            image: '../../assets/images/consoles/playstation-2.png',
+            image: '../../assets/images/consoles/ps2.png',
             specs: {
                 cpu: { arch: 'Emotion Engine', node: '180 nm', cores: 'MIPS + VU', clock: '300 MHz', ipc: 'MIPS', tdp: '~50W' },
                 gpu: { arch: 'Graphics Synthesizer', cu: 'N/A', clock: '147 MHz', tflops: 'N/A', features: 'N/A', api: 'N/A' },
@@ -298,7 +298,7 @@
         // === GENERAȚIA 5 ===
         'playstation-1': {
             name: 'PlayStation 1', manufacturer: 'Sony', year: 1994, generation: 5,
-            image: '../../assets/images/consoles/playstation-1.png',
+            image: '../../assets/images/consoles/ps1.png',
             specs: {
                 cpu: { arch: 'MIPS R3000A', node: '0.8 µm', cores: '1C', clock: '33.8 MHz', ipc: 'MIPS I', tdp: '~10W' },
                 gpu: { arch: 'GPU custom', cu: '360K poly/s', clock: '33.8 MHz', tflops: 'N/A', features: 'Texture mapping', api: 'N/A' },

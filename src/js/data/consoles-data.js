@@ -10,7 +10,7 @@ export const consolesData = {
         manufacturer: 'Sony',
         year: 2020,
         generation: 9,
-        image: '../../assets/images/consoles/playstation-5.png',
+        image: '../../assets/images/consoles/ps5.png',
         specs: {
             cpu: 'AMD Zen 2, 8 cores @ 3.5 GHz',
             gpu: 'AMD RDNA 2, 10.3 TFLOPS',
@@ -126,7 +126,7 @@ export const consolesData = {
         manufacturer: 'Sony',
         year: 2013,
         generation: 8,
-        image: '../../assets/images/consoles/playstation-4.png',
+        image: '../../assets/images/consoles/ps4.png',
         specs: {
             cpu: 'AMD Jaguar, 8 cores @ 1.6 GHz',
             gpu: 'AMD GCN, 1.84 TFLOPS',
@@ -183,7 +183,7 @@ export const consolesData = {
         manufacturer: 'Sony',
         year: 2006,
         generation: 7,
-        image: '../../assets/images/consoles/playstation-3.png',
+        image: '../../assets/images/consoles/ps3.png',
         specs: {
             cpu: 'Cell BE @ 3.2 GHz',
             gpu: 'RSX @ 550 MHz, 0.23 TFLOPS',
@@ -211,7 +211,7 @@ export const consolesData = {
         manufacturer: 'Microsoft',
         year: 2005,
         generation: 7,
-        image: '../../assets/images/consoles/xbox-360.png',
+        image: '../../assets/images/consoles/xbox360.png',
         specs: {
             cpu: 'IBM Xenon @ 3.2 GHz',
             gpu: 'ATI Xenos, 0.24 TFLOPS',
@@ -267,7 +267,7 @@ export const consolesData = {
         manufacturer: 'Sony',
         year: 2000,
         generation: 6,
-        image: '../../assets/images/consoles/playstation-2.png',
+        image: '../../assets/images/consoles/ps2.png',
         specs: {
             cpu: 'Emotion Engine @ 300 MHz',
             gpu: 'Graphics Synthesizer',
