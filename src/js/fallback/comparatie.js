@@ -1,6 +1,7 @@
 /**
  * Comparatie Fallback (non-module)
  * Includes hamburger menu + comparison logic for file:// usage
+ * Toate consolele cu specificații complete extrase din paginile individuale
  */
 
 (function(){
@@ -38,19 +39,19 @@
         {slug:'magnavox-odyssey',name:'Magnavox Odyssey',mfg:'Magnavox',year:1972,gen:'Generația 1'},
         {slug:'atari-home-pong',name:'Atari Home Pong',mfg:'Atari',year:1975,gen:'Generația 1'},
         {slug:'coleco-telstar',name:'Coleco Telstar',mfg:'Coleco',year:1976,gen:'Generația 1'},
-        {slug:'atari-2600',name:'Atari 2600',mfg:'Atari',year:1977,gen:'Generația 1'},
-        {slug:'magnavox-odyssey-2',name:'Magnavox Odyssey 2',mfg:'Magnavox',year:1978,gen:'Generația 1'},
-        {slug:'intellivision',name:'Intellivision',mfg:'Mattel',year:1979,gen:'Generația 1'},
+        {slug:'atari-2600',name:'Atari 2600',mfg:'Atari',year:1977,gen:'Generația 2'},
+        {slug:'magnavox-odyssey-2',name:'Magnavox Odyssey 2',mfg:'Magnavox',year:1978,gen:'Generația 2'},
+        {slug:'intellivision',name:'Intellivision',mfg:'Mattel',year:1979,gen:'Generația 2'},
         {slug:'microvision',name:'Microvision',mfg:'Milton Bradley',year:1979,gen:'Handheld'},
         {slug:'atari-5200',name:'Atari 5200',mfg:'Atari',year:1982,gen:'Generația 2'},
         {slug:'colecovision',name:'ColecoVision',mfg:'Coleco',year:1982,gen:'Generația 2'},
-        {slug:'vectrex',name:'Vectrex',mfg:'General Consumer Electronics',year:1982,gen:'Generația 2'},
-        {slug:'famicom',name:'Nintendo Famicom',mfg:'Nintendo',year:1983,gen:'Generația 2'},
-        {slug:'sega-sg-1000',name:'Sega SG-1000',mfg:'Sega',year:1983,gen:'Generația 2'},
+        {slug:'vectrex',name:'Vectrex',mfg:'GCE',year:1982,gen:'Generația 2'},
+        {slug:'famicom',name:'Nintendo Famicom',mfg:'Nintendo',year:1983,gen:'Generația 3'},
+        {slug:'sega-sg-1000',name:'Sega SG-1000',mfg:'Sega',year:1983,gen:'Generația 3'},
         {slug:'nes',name:'Nintendo NES',mfg:'Nintendo',year:1985,gen:'Generația 3'},
         {slug:'sega-master-system',name:'Sega Master System',mfg:'Sega',year:1985,gen:'Generația 3'},
         {slug:'atari-7800',name:'Atari 7800',mfg:'Atari',year:1986,gen:'Generația 3'},
-        {slug:'pc-engine',name:'PC Engine',mfg:'Hudson Soft',year:1987,gen:'Generația 4'},
+        {slug:'pc-engine',name:'PC Engine',mfg:'NEC/Hudson',year:1987,gen:'Generația 4'},
         {slug:'sega-genesis',name:'Sega Genesis',mfg:'Sega',year:1988,gen:'Generația 4'},
         {slug:'atari-lynx',name:'Atari Lynx',mfg:'Atari',year:1989,gen:'Handheld'},
         {slug:'game-boy',name:'Game Boy',mfg:'Nintendo',year:1989,gen:'Handheld'},
@@ -58,8 +59,8 @@
         {slug:'sega-game-gear',name:'Sega Game Gear',mfg:'Sega',year:1990,gen:'Handheld'},
         {slug:'snes',name:'Super Nintendo',mfg:'Nintendo',year:1990,gen:'Generația 4'},
         {slug:'philips-cd-i',name:'Philips CD-i',mfg:'Philips',year:1991,gen:'Generația 4'},
-        {slug:'3do',name:'3DO',mfg:'The 3DO Company',year:1993,gen:'Generația 4'},
-        {slug:'atari-jaguar',name:'Atari Jaguar',mfg:'Atari',year:1993,gen:'Generația 4'},
+        {slug:'3do',name:'3DO Interactive',mfg:'Panasonic',year:1993,gen:'Generația 5'},
+        {slug:'atari-jaguar',name:'Atari Jaguar',mfg:'Atari',year:1993,gen:'Generația 5'},
         {slug:'sega-saturn',name:'Sega Saturn',mfg:'Sega',year:1994,gen:'Generația 5'},
         {slug:'playstation-1',name:'PlayStation 1',mfg:'Sony',year:1994,gen:'Generația 5'},
         {slug:'nintendo-64',name:'Nintendo 64',mfg:'Nintendo',year:1996,gen:'Generația 5'},
