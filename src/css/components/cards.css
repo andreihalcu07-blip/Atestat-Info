@@ -27,9 +27,9 @@
 .card:hover {
     background: rgba(255, 255, 255, 0.05);
     border-color: rgba(255, 255, 255, 0.1);
-    transform: translateY(-4px);
+    transform: translateY(-6px);
     box-shadow: 
-        0 12px 40px rgba(0, 0, 0, 0.2),
+        0 20px 60px rgba(0, 0, 0, 0.28),
         inset 0 1px 0 rgba(255, 255, 255, 0.06);
 }
 
@@ -91,6 +91,15 @@
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: var(--spacing-lg);
     margin-bottom: var(--spacing-lg);
+}
+
+/* Home page: enforce 2x2 layout on wider screens for the main cards section */
+@media (min-width: 992px) {
+    #content .cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-xl);
+        align-items: start;
+    }
 }
 
 /* === MOBILE RESPONSIVE === */

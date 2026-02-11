@@ -52,8 +52,30 @@ class App {
             console.log('✓ Calculator module initialized');
             
             console.log('✅ All modules initialized successfully');
+            // Small, non-destructive enhancement for the Home page:
+            // wrap the first sentence of the intro in a <strong> so it appears bold.
+            this._wrapHomeIntroFirstSentence();
         } catch (error) {
             console.error('❌ Error initializing modules:', error);
+        }
+    }
+
+    _wrapHomeIntroFirstSentence() {
+        try {
+            const el = document.querySelector('#content .section-intro');
+            if (!el) return;
+
+            const raw = el.textContent.trim();
+            const match = raw.match(/^([\s\S]*?[\.\!\?])(\s+|$)([\s\S]*)/);
+            if (match) {
+                const first = match[1].trim();
+                const rest = match[3] ? match[3].trim() : '';
+                // Replace content safely: first sentence wrapped in <strong>
+                el.innerHTML = '<span class="first-sentence"><strong>' + first + '</strong></span>' + (rest ? ' ' + rest : '');
+            }
+        } catch (e) {
+            // Fail silently - enhancement only
+            console.debug('Home intro enhancement skipped', e);
         }
     }
 }
