@@ -26,7 +26,18 @@
 
     const toggleMenu = () => (navLinks.classList.contains('active') ? closeMenu() : openMenu());
 
-    hamburger.addEventListener('click', toggleMenu);
+    // Ensure button has explicit type to avoid form submit behavior
+    if (hamburger && hamburger.tagName === 'BUTTON' && !hamburger.getAttribute('type')) {
+        hamburger.setAttribute('type', 'button');
+    }
+
+    // Support both click and touch on mobile to improve reliability
+    const bindToggle = (el) => {
+        el.addEventListener('click', toggleMenu);
+        el.addEventListener('touchstart', (e) => { e.preventDefault(); toggleMenu(); }, { passive: false });
+    };
+
+    bindToggle(hamburger);
     navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
 
     document.addEventListener('keydown', event => {

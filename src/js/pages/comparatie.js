@@ -150,9 +150,9 @@ function renderSpecsComparison(a, b) {
 
         html += `
             <div class="spec-row">
-                <div class="spec-value ${comparison === 'a' ? 'winner' : ''}">${valA}</div>
+                <div class="spec-value spec-left ${comparison === 'a' ? 'winner' : ''}">${valA}</div>
                 <div class="spec-label">${specLabels[key]}</div>
-                <div class="spec-value ${comparison === 'b' ? 'winner' : ''}">${valB}</div>
+                <div class="spec-value spec-right ${comparison === 'b' ? 'winner' : ''}">${valB}</div>
             </div>
         `;
     });

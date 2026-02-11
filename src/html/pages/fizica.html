@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ro">
 <head>
     <meta charset="UTF-8">
@@ -383,7 +383,7 @@
                     <h3>Calculator Lungime Undă</h3>
                     <div class="input-group">
                         <label>Frecvență (MHz):</label>
-                        <input type="number" id="frequency-input" value="2400" min="1">
+                        <input type="number" id="frequency-input" value="2400" min="1" placeholder="Introduceți frecvența în MHz">
                     </div>
                     <button onclick="calculateWavelength()">Calculează</button>
                     <div id="wavelength-result" class="result"></div>
@@ -393,11 +393,11 @@
                     <h3>Calculator Căldură Generată</h3>
                     <div class="input-group">
                         <label>Putere (W):</label>
-                        <input type="number" id="heat-power" value="150" min="1">
+                        <input type="number" id="heat-power" value="150" min="1" placeholder="Introduceți puterea în Wați">
                     </div>
                     <div class="input-group">
                         <label>Timp (ore):</label>
-                        <input type="number" id="heat-time" value="4" min="0.1">
+                        <input type="number" id="heat-time" value="4" min="0.1" placeholder="Introduceți timpul în ore">
                     </div>
                     <button onclick="calculateHeat()">Calculează</button>
                     <div id="heat-result" class="result"></div>
@@ -407,15 +407,15 @@
                     <h3>Calculator Efect Doppler</h3>
                     <div class="input-group">
                         <label>Frecvență (Hz):</label>
-                        <input type="number" id="doppler-freq" value="440" min="1">
+                        <input type="number" id="doppler-freq" value="440" min="1" placeholder="Introduceți frecvența în Hz">
                     </div>
                     <div class="input-group">
                         <label>Vit. sursă (m/s):</label>
-                        <input type="number" id="doppler-source-vel" value="10">
+                        <input type="number" id="doppler-source-vel" value="10" placeholder="Introduceți viteza sursei în m/s">
                     </div>
                     <div class="input-group">
-                        <label>Direcție:</label>
-                        <select id="doppler-direction">
+                        <label for="doppler-direction">Direcție:</label>
+                        <select id="doppler-direction" aria-label="Direcția de mișcare a sursei">
                             <option value="approach">Se apropie</option>
                             <option value="away">Se depărtează</option>
                         </select>
@@ -442,3 +442,4 @@
     <script src="../../js/fallback/hamburger.js"></script>
 </body>
 </html>
+

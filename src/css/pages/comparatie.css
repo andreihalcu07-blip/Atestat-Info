@@ -51,6 +51,7 @@
 
 .selector-box {
     background: rgba(255, 255, 255, 0.03);
+    -webkit-backdrop-filter: blur(12px);
     backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 16px;
@@ -188,6 +189,7 @@
 
 .console-card {
     background: rgba(255, 255, 255, 0.03);
+    -webkit-backdrop-filter: blur(12px);
     backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 20px;
@@ -401,6 +403,7 @@
 
 .verdict-card {
     background: rgba(255, 255, 255, 0.03);
+    -webkit-backdrop-filter: blur(12px);
     backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 16px;
@@ -579,24 +582,27 @@
         font-size: 1.25rem;
     }
 
-    /* Specs - Stack values */
+    /* Specs - Mobile: keep label centered, values left/right if space allows */
     .spec-row {
-        grid-template-columns: 1fr;
-        grid-template-areas:
-            "label"
-            "left"
-            "right";
+        grid-template-columns: 1fr minmax(120px, 160px) 1fr;
+        grid-template-areas: "left label right";
         gap: 0.35rem;
-        text-align: center;
+        align-items: center;
         padding: 0.75rem;
     }
 
     .spec-label {
-        margin-bottom: 0.25rem;
+        text-align: center;
+        padding: 0 0.5rem;
     }
 
-    .spec-value {
-        text-align: center;
+    /* Ensure left/right values align to edges on mobile */
+    .spec-value.spec-left {
+        text-align: left;
+    }
+
+    .spec-value.spec-right {
+        text-align: right;
     }
 
     /* Verdict - Stack on mobile */

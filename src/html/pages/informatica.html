@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ro">
 <head>
     <meta charset="UTF-8">
@@ -282,11 +282,11 @@
                     <h3>Calculator FLOPS</h3>
                     <div class="input-group">
                         <label>Cores:</label>
-                        <input type="number" id="cores-input" value="8" min="1">
+                        <input type="number" id="cores-input" value="8" min="1" placeholder="Introduceți cores">
                     </div>
                     <div class="input-group">
                         <label>Frecvență (GHz):</label>
-                        <input type="number" id="freq-input" value="3.5" step="0.1" min="0.1">
+                        <input type="number" id="freq-input" value="3.5" step="0.1" min="0.1" placeholder="Introduceți frecvență">
                     </div>
                     <button onclick="calculateFLOPS()">Calculează</button>
                     <div id="flops-result" class="result"></div>
@@ -296,11 +296,11 @@
                     <h3>Calculator Transfer Date</h3>
                     <div class="input-group">
                         <label>Bandwidth (GB/s):</label>
-                        <input type="number" id="bandwidth-input" value="5.5" step="0.1" min="0.1">
+                        <input type="number" id="bandwidth-input" value="5.5" step="0.1" min="0.1" placeholder="Introduceți bandwidth">
                     </div>
                     <div class="input-group">
                         <label>Dimensiune (GB):</label>
-                        <input type="number" id="data-size" value="100" min="1">
+                        <input type="number" id="data-size" value="100" min="1" placeholder="Introduceți dimensiune">
                     </div>
                     <button onclick="calculateTransfer()">Calculează</button>
                     <div id="transfer-result" class="result"></div>
@@ -310,10 +310,10 @@
                     <h3>Calculator Complexitate Timp</h3>
                     <div class="input-group">
                         <label>Dimensiune input (n):</label>
-                        <input type="number" id="input-size" value="1000" min="1">
+                        <input type="number" id="input-size" value="1000" min="1" placeholder="Introduceți dimensiune">
                     </div>
                     <div class="input-group">
-                        <label>Algoritm:</label>
+                        <label for="algo-select">Algoritm:</label>
                         <select id="algo-select">
                             <option value="linear">O(n) - Linear</option>
                             <option value="log">O(log n) - Logaritmic</option>
@@ -343,3 +343,4 @@
     <script src="../../js/fallback/hamburger.js"></script>
 </body>
 </html>
+

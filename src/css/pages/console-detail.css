@@ -72,6 +72,26 @@
     background: rgba(255, 255, 255, 0.02);
 }
 
+/* Spec Group - visual separation between card groups */
+.specs-group {
+    margin-bottom: 2rem;
+}
+
+.specs-group:last-child {
+    margin-bottom: 0;
+}
+
+.specs-group-title {
+    color: var(--text-gray);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    font-weight: 500;
+}
+
 .specs-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -80,13 +100,15 @@
 
 .spec-card {
     background: rgba(255, 255, 255, 0.03);
+    -webkit-backdrop-filter: blur(12px);
     backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.06);
     border-radius: 16px;
     padding: 1.5rem;
 }
 
-.spec-card h3 {
+.spec-card h3,
+.spec-card h4 {
     color: var(--accent-color);
     font-size: 0.85rem;
     text-transform: uppercase;
@@ -117,6 +139,7 @@
     gap: 0.65rem;
     padding: 0.75rem 1.25rem;
     background: rgba(91, 164, 230, 0.08);
+    -webkit-backdrop-filter: blur(8px);
     backdrop-filter: blur(8px);
     border: 1px solid rgba(91, 164, 230, 0.2);
     border-radius: 12px;
@@ -276,6 +299,15 @@
     
     /* === SPECS SECTION === */
     /* Single column pentru lizibilitate maximă */
+    .specs-group {
+        margin-bottom: 1.5rem;
+    }
+
+    .specs-group-title {
+        font-size: 0.7rem;
+        margin-bottom: 0.75rem;
+    }
+
     .specs-grid {
         grid-template-columns: 1fr;
         gap: 1rem;
@@ -289,7 +321,8 @@
         align-items: center;
     }
     
-    .spec-card h3 {
+    .spec-card h3,
+    .spec-card h4 {
         font-size: 0.8rem;
         margin-bottom: 0;
         flex: 1;
@@ -345,6 +378,7 @@
     }
     
     .spec-card h3,
+    .spec-card h4,
     .spec-card p {
         text-align: center;
         flex: none;

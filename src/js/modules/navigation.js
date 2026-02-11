@@ -53,10 +53,19 @@ export const NavigationModule = {
         
         if (!hamburger || !navLinks) return;
         
-        // Toggle menu când se apasă hamburger
-        hamburger.addEventListener('click', () => {
+        // Ensure button has explicit type to avoid form submit behavior
+        if (hamburger && hamburger.tagName === 'BUTTON' && !hamburger.getAttribute('type')) {
+            hamburger.setAttribute('type', 'button');
+        }
+
+        // Toggle menu când se apasă hamburger (suport click + touchstart pentru mobile)
+        const toggleHandler = (e) => {
+            if (e.type === 'touchstart') e.preventDefault();
             this.toggleMobileMenu();
-        });
+        };
+
+        hamburger.addEventListener('click', toggleHandler);
+        hamburger.addEventListener('touchstart', toggleHandler, { passive: false });
         
         // Închide meniul când se apasă un link
         navLinksItems.forEach(link => {

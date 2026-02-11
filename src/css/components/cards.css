@@ -5,8 +5,8 @@
 .card {
     /* Glass effect */
     background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
     
     /* Subtle border */
     border: 1px solid rgba(255, 255, 255, 0.06);
