@@ -55,6 +55,8 @@ class App {
             // Small, non-destructive enhancement for the Home page:
             // wrap the first sentence of the intro in a <strong> so it appears bold.
             this._wrapHomeIntroFirstSentence();
+            // Ensure a consistent global footer across all pages
+            this._injectGlobalFooter();
         } catch (error) {
             console.error('❌ Error initializing modules:', error);
         }
@@ -76,6 +78,33 @@ class App {
         } catch (e) {
             // Fail silently - enhancement only
             console.debug('Home intro enhancement skipped', e);
+        }
+    }
+
+    _injectGlobalFooter() {
+        try {
+            const footerHTML = `
+                <div class="container footer-grid">
+                    <div class="footer-left">
+                        <h3>Console Notebook</h3>
+                        <p>Analiză tehnică și evoluția consolelor de jocuri.</p>
+                    </div>
+                    <div class="footer-right">
+                        <div class="footer-links">
+                            <a href="mailto:contact@consolenotebook.ro">contact@consolenotebook.ro</a>
+                            <a href="https://github.com/ConsoleNotebook" target="_blank" rel="noopener">GitHub</a>
+                        </div>
+                        <p>© 2026 Console Notebook. Proiect educațional.</p>
+                    </div>
+                </div>
+            `;
+
+            document.querySelectorAll('.footer').forEach(f => {
+                // Preserve the footer element but replace its inner content
+                f.innerHTML = footerHTML;
+            });
+        } catch (e) {
+            console.debug('Footer injection skipped', e);
         }
     }
 }
