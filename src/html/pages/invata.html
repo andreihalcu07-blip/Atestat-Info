@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Învață fizica și informatica din spatele consolelor de gaming">
+    <meta name="theme-color" content="#0B0F1A">
+    
+    <title>Învață — Console Notebook</title>
+    
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="../../css/main.css">
+    
+    <!-- KaTeX pentru ecuații matematice -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+        onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">Console Notebook</a>
+            
+            <!-- Hamburger Button - Mobile Only -->
+            <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <ul class="nav-links">
+                <li><a href="index.html">Acasă</a></li>
+                <li><a href="invata.html" class="active">Învață</a></li>
+                <li><a href="evolutie.html">Evoluție</a></li>
+                <li><a href="comparatie.html">Comparație</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero hero-cinematic">
+        <div class="hero-content">
+            <h1>Învață Cum Funcționează Consolele</h1>
+            <p>Fizică și informatică explicate aplicat.</p>
+            <a href="#fizica" class="hero-button">Descoperă</a>
+        </div>
+    </section>
+
+    <!-- ========================== -->
+    <!-- SECȚIUNEA 1 – FIZICA       -->
+    <!-- ========================== -->
+    <section class="section" id="fizica">
+        <div class="container">
+            <h2 class="section-title">Fizica Consolelor</h2>
+            <p class="section-intro">
+                Performanța hardware-ului este direct influențată de legile fizicii. De la transferul termic la consumul energetic, fiecare componentă a unei console funcționează în limitele impuse de natură.
+            </p>
+
+            <div class="cards-grid">
+                <div class="card physics-card">
+                    <h3>🌡️ Transfer Termic</h3>
+                    <p>Cum se disipează căldura generată de procesoare și GPU-uri, și de ce contează în designul consolelor.</p>
+                    <a href="#" class="demo-button">Explorează</a>
+                </div>
+
+                <div class="card physics-card">
+                    <h3>❄️ Răcire Activă vs Pasivă</h3>
+                    <p>Ventilatoare, heat pipes sau radiatoare pasive — avantaje, dezavantaje și compromisuri.</p>
+                    <a href="#" class="demo-button">Explorează</a>
+                </div>
+
+                <div class="card physics-card">
+                    <h3>🔥 Conducție și Convecție</h3>
+                    <p>Principiile fizice care guvernează mișcarea căldurii prin materiale solide și fluide.</p>
+                    <a href="#" class="demo-button">Explorează</a>
+                </div>
+
+                <div class="card physics-card">
+                    <h3>⚡ Consum Energetic</h3>
+                    <p>Cât curent consumă o consolă modernă și cum influențează asta designul sursei de alimentare.</p>
+                    <a href="#" class="demo-button">Explorează</a>
+                </div>
+
+                <div class="card physics-card">
+                    <h3>📡 Electromagnetism și Surse</h3>
+                    <p>Interferențe electromagnetice, ecranare și principiile din spatele alimentării cu energie.</p>
+                    <a href="#" class="demo-button">Explorează</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Divider -->
+    <div class="divider"></div>
+
+    <!-- ========================== -->
+    <!-- SECȚIUNEA 2 – INFORMATICA  -->
+    <!-- ========================== -->
+    <section class="section" id="informatica">
+        <div class="container">
+            <h2 class="section-title">Informatica Consolelor</h2>
+            <p class="section-intro">
+                Performanța consolelor este rezultatul arhitecturii hardware și al optimizărilor software. Fiecare generație aduce inovații în modul în care datele sunt procesate, randate și livrate jucătorilor.
+            </p>
+
+            <div class="cards-grid">
+                <div class="card cs-card">
+                    <h3>🧠 Arhitectura CPU & GPU</h3>
+                    <p>De la procesoare scalare la unități grafice masiv paralele — cum sunt proiectate chipurile din console.</p>
+                    <a href="#" class="demo-button">Explorează</a>
+                </div>
+
+                <div class="card cs-card">
+                    <h3>⚙️ Paralelizare</h3>
+                    <p>Cum distribuie consolele moderne sarcinile pe mai multe nuclee și threaduri simultan.</p>
+                    <a href="#" class="demo-button">Explorează</a>
+                </div>
+
+                <div class="card cs-card">
+                    <h3>🎮 Randare 3D</h3>
+                    <p>Pipeline-ul grafic, rasterizare, ray tracing și tehnicile care transformă geometria în imagini.</p>
+                    <a href="#" class="demo-button">Explorează</a>
+                </div>
+
+                <div class="card cs-card">
+                    <h3>💡 Optimizări Software</h3>
+                    <p>LOD, culling, upscaling și alte trucuri prin care dezvoltatorii maximizează performanța.</p>
+                    <a href="#" class="demo-button">Explorează</a>
+                </div>
+
+                <div class="card cs-card">
+                    <h3>🖥️ Sisteme de Operare pentru Console</h3>
+                    <p>De la firmware simplu la OS-uri complete — cum gestionează consolele resursele hardware.</p>
+                    <a href="#" class="demo-button">Explorează</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Console Notebook — Proiect Atestat Informatică</p>
+            <p class="footer-note">Documentat cu pasiune pentru hardware și gaming</p>
+        </div>
+    </footer>
+
+    <!-- Main JavaScript (Module-based) -->
+    <script type="module" src="../../js/main.js"></script>
+    
+    <!-- Hamburger Menu Fallback -->
+    <script src="../../js/fallback/hamburger.js"></script>
+</body>
+</html>
