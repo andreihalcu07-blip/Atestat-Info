@@ -50,9 +50,11 @@ function populateSelects() {
         8: 'Generația 8 (2012-2017)',
         7: 'Generația 7 (2005-2006)',
         6: 'Generația 6 (1998-2001)',
+        5: 'Generația 5 (1993-1996)',
         4: 'Generația 4 (1988-1990)',
         3: 'Generația 3 (1983-1987)',
-        2: 'Generația 2 (1976-1982)'
+        2: 'Generația 2 (1976-1982)',
+        1: 'Generația 1 (1972-1976)'
     };
 
     [selectA, selectB].forEach(select => {
@@ -144,9 +146,11 @@ function renderSpecsComparison(a, b) {
     let html = '<div class="specs-rows">';
 
     Object.keys(specLabels).forEach(key => {
-        const valA = formatSpecValue(a.specs[key], key);
-        const valB = formatSpecValue(b.specs[key], key);
-        const comparison = compareSpecs(a.specs[key], b.specs[key], key);
+        const valueA = getSpecValue(a, key);
+        const valueB = getSpecValue(b, key);
+        const valA = formatSpecValue(valueA, key);
+        const valB = formatSpecValue(valueB, key);
+        const comparison = compareSpecs(valueA, valueB, key);
 
         html += `
             <div class="spec-row">
@@ -169,6 +173,73 @@ function formatSpecValue(value, key) {
     return value || 'N/A';
 }
 
+function getSpecValue(consoleData, key) {
+    const specs = consoleData.specs || {};
+
+    if (key === 'rayTracing') {
+        if (typeof specs.rayTracing === 'boolean') return specs.rayTracing;
+        if (specs.tech && typeof specs.tech.rt === 'boolean') return specs.tech.rt;
+        return false;
+    }
+
+    if (typeof specs[key] === 'string') return specs[key];
+
+    if (key === 'cpu') return formatCpuSpec(specs.cpu);
+    if (key === 'gpu') return formatGpuSpec(specs.gpu);
+    if (key === 'ram') return formatMemorySpec(specs.memory);
+    if (key === 'storage') return formatStorageSpec(specs.storage);
+    if (key === 'resolution') return formatVideoSpec(specs.video);
+
+    return null;
+}
+
+function formatCpuSpec(cpu) {
+    if (!cpu || typeof cpu !== 'object') return cpu || 'N/A';
+    const arch = normalizeSpecValue(cpu.arch);
+    const cores = normalizeSpecValue(cpu.cores);
+    const clock = normalizeSpecValue(cpu.clock);
+    const parts = [arch, cores, clock ? `@ ${clock}` : null].filter(Boolean);
+    return parts.join(' ');
+}
+
+function formatGpuSpec(gpu) {
+    if (!gpu || typeof gpu !== 'object') return gpu || 'N/A';
+    const arch = normalizeSpecValue(gpu.arch);
+    const tflops = normalizeSpecValue(gpu.tflops);
+    const clock = !tflops && normalizeSpecValue(gpu.clock) ? `@ ${gpu.clock}` : null;
+    const parts = [arch, tflops || clock].filter(Boolean);
+    return parts.join(', ');
+}
+
+function formatMemorySpec(memory) {
+    if (!memory || typeof memory !== 'object') return memory || 'N/A';
+    const size = normalizeSpecValue(memory.size);
+    const type = normalizeSpecValue(memory.type);
+    const parts = [size, type].filter(Boolean);
+    return parts.join(' ');
+}
+
+function formatStorageSpec(storage) {
+    if (!storage || typeof storage !== 'object') return storage || 'N/A';
+    const type = normalizeSpecValue(storage.type);
+    const speed = normalizeSpecValue(storage.speed);
+    const iface = !speed && normalizeSpecValue(storage.interface) ? storage.interface : null;
+    const parts = [type, speed || iface].filter(Boolean);
+    return parts.join(' ');
+}
+
+function formatVideoSpec(video) {
+    if (!video || typeof video !== 'object') return video || 'N/A';
+    const max = normalizeSpecValue(video.max);
+    const refresh = normalizeSpecValue(video.refresh);
+    if (!max) return 'N/A';
+    return refresh ? `${max} @ ${refresh}` : max;
+}
+
+function normalizeSpecValue(value) {
+    return value && value !== 'N/A' ? value : null;
+}
+
 // Compare two spec values
 function compareSpecs(valA, valB, key) {
     // Boolean comparison
@@ -179,7 +250,7 @@ function compareSpecs(valA, valB, key) {
     }
 
     // Extract TFLOPS for GPU comparison
-    if (key === 'gpu') {
+    if (key === 'gpu' && typeof valA === 'string' && typeof valB === 'string') {
         const tflopsA = parseFloat((valA.match(/[\d.]+\s*TFLOPS/i) || ['0'])[0]);
         const tflopsB = parseFloat((valB.match(/[\d.]+\s*TFLOPS/i) || ['0'])[0]);
         if (tflopsA > tflopsB) return 'a';
@@ -187,7 +258,7 @@ function compareSpecs(valA, valB, key) {
     }
 
     // Extract GB for RAM/Storage
-    if (key === 'ram' || key === 'storage') {
+    if ((key === 'ram' || key === 'storage') && typeof valA === 'string' && typeof valB === 'string') {
         const gbA = parseFloat((valA.match(/[\d.]+\s*(?:GB|TB)/i) || ['0'])[0]);
         const gbB = parseFloat((valB.match(/[\d.]+\s*(?:GB|TB)/i) || ['0'])[0]);
         // Convert TB to GB
