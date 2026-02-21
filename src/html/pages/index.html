@@ -116,7 +116,12 @@
             <p class="section-intro">Ai întrebări sau sugestii despre proiect?</p>
 
             <div class="contact-card">
-                <form class="contact-form" action="https://formsubmit.co/andrei.halcu.07@licmarghilomanbz.ro" method="POST" novalidate>
+                <!-- Mesaj de succes -->
+                <div id="success-message" class="success-message" style="display: none; margin-bottom: 2rem; padding: 1rem; background: #10b981; color: white; border-radius: 8px; text-align: center; font-weight: 500;">
+                    ✓ Mesaj trimis cu succes! Voi răspunde în curând.
+                </div>
+
+                <form class="contact-form" id="contact-form" novalidate>
                     <div class="input-group">
                         <label for="contact-name">Nume</label>
                         <input id="contact-name" name="name" type="text" placeholder="Numele tău" required>
@@ -135,7 +140,6 @@
                     <!-- FormSubmit hidden fields -->
                     <input type="hidden" name="_captcha" value="false">
                     <input type="hidden" name="_subject" value="Mesaj nou de pe website">
-                    <input type="hidden" name="_next" value="https://andreihalcu07-blip.github.io/Atestat-Info/src/html/pages/index.html#contact">
 
                     <div class="input-group">
                         <button type="submit" class="demo-button">Trimite mesajul</button>
@@ -163,6 +167,43 @@
     
     <!-- Hamburger Menu Fallback (funcționează fără server) -->
     <script src="../../js/fallback/hamburger.js"></script>
+
+    <!-- Contact Form Handler -->
+    <script>
+        // Interceptează formularul și trimite prin FormSubmit
+        const contactForm = document.getElementById('contact-form');
+        const successMessage = document.getElementById('success-message');
+
+        if (contactForm) {
+            contactForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+
+                const formData = new FormData(contactForm);
+                formData.append('_captcha', 'false');
+                formData.append('_subject', 'Mesaj nou de pe website');
+
+                try {
+                    // Trimite datele către FormSubmit
+                    await fetch('https://formsubmit.co/andrei.halcu.07@licmarghilomanbz.ro', {
+                        method: 'POST',
+                        body: formData
+                    });
+
+                    // Afișează mesajul de succes
+                    successMessage.style.display = 'block';
+                    contactForm.reset();
+
+                    // Ascunde mesajul după 5 secunde
+                    setTimeout(() => {
+                        successMessage.style.display = 'none';
+                    }, 5000);
+                } catch (error) {
+                    console.error('Eroare la trimiterea mesajului:', error);
+                    alert('Eroare la trimiterea mesajului. Încearcă din nou.');
+                }
+            });
+        }
+    </script>
 </body>
 </html>
 
