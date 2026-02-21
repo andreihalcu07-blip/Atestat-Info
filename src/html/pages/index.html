@@ -116,21 +116,26 @@
             <p class="section-intro">Ai întrebări sau sugestii despre proiect?</p>
 
             <div class="contact-card">
-                <form class="contact-form" novalidate>
+                <form class="contact-form" action="https://formsubmit.co/andrei.halcu.07@licmarghilomanbz.ro" method="POST" novalidate>
                     <div class="input-group">
                         <label for="contact-name">Nume</label>
-                        <input id="contact-name" name="name" type="text" placeholder="Numele tău">
+                        <input id="contact-name" name="name" type="text" placeholder="Numele tău" required>
                     </div>
 
                     <div class="input-group">
                         <label for="contact-email">Email</label>
-                        <input id="contact-email" name="email" type="email" placeholder="adresa@exemplu.com">
+                        <input id="contact-email" name="email" type="email" placeholder="adresa@exemplu.com" required>
                     </div>
 
                     <div class="input-group">
                         <label for="contact-message">Mesaj</label>
-                        <textarea id="contact-message" name="message" placeholder="Scrie mesajul tău aici"></textarea>
+                        <textarea id="contact-message" name="message" placeholder="Scrie mesajul tău aici" required></textarea>
                     </div>
+
+                    <!-- FormSubmit hidden fields -->
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_subject" value="Mesaj nou de pe website">
+                    <input type="hidden" name="_next" value="https://andrehalcu.github.io/console-notebook/#contact">
 
                     <div class="input-group">
                         <button type="submit" class="demo-button">Trimite mesajul</button>
@@ -141,17 +146,16 @@
     </section>
 
     <footer class="footer">
-    <div class="footer-inner container">
-        <div class="footer-left">
-            <p class="footer-main"> 2026 Console Notebook</p>
-            <p class="footer-sub">Proiect Atestat Informatică</p>
+        <div class="footer-inner container">
+            <div class="footer-left">
+                <p class="footer-main"> 2026 Console Notebook</p>
+                <p class="footer-sub">Proiect Atestat Informatica</p>
+            </div>
+            <div class="footer-right">
+                <a href="mailto:andrei.halcu.07@licmarghilomanbz.ro">andrei.halcu.07@licmarghilomanbz.ro</a>
+                <a href="tel:+40758464907">+40 758 464 907</a>
+            </div>
         </div>
-        <div class="footer-right">
-            <a href="mailto:contact@consolenotebook.ro">contact@consolenotebook.ro</a>
-            <a href="tel:+40712345678">+40 712 345 678</a>
-            <a href="https://github.com/ConsoleNotebook" target="_blank" rel="noopener">GitHub</a>
-        </div>
-    </div>
     </footer>
 
     <!-- Main JavaScript (Module-based) -->
