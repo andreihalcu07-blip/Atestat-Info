@@ -70,6 +70,15 @@
     font-weight: 400;
 }
 
+/* Container butoane hero */
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
 /* Buton CTA - stil TradingView */
 .hero-button {
     display: inline-block;
@@ -81,7 +90,7 @@
     text-decoration: none;
     border-radius: 999px;
     transition: all 0.3s ease;
-    border: none;
+    border: 2px solid transparent;
     cursor: pointer;
 }
 
@@ -118,6 +127,12 @@
         margin: 0 auto 2rem;
     }
     
+    /* Butoane stacked pe mobile */
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
     /* Buton full-width, touch-friendly */
     .hero-button {
         display: block;
