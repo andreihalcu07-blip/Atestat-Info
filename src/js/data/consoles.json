@@ -309,28 +309,28 @@
         "lansare":  1979,
         "imagine":  "assets/images/consoles/intellivision.png",
         "cpu":  {
-                    "arhitectura":  "GI CP1610",
+                    "arhitectura":  "General Instrument CP1610",
                     "proces_nm":  "N/A",
                     "nuclee":  "1C",
-                    "frecventa":  "894 kHz",
+                    "frecventa":  "2 MHz",
                     "tdp":  "~10W"
                 },
         "gpu":  {
-                    "arhitectura":  "AY-3-8900",
-                    "unitati":  "Custom",
+                    "arhitectura":  "STIC (Standard Television Interface Chip)",
+                    "unitati":  "8 sprites hardware",
                     "frecventa":  "N/A",
                     "tflops":  "N/A",
-                    "capabilitati":  "8 sprites"
+                    "capabilitati":  "Tile-based playfield, 16 culori"
                 },
         "memorie":  {
                         "tip":  "RAM",
-                        "capacitate":  "1.5 KB",
+                        "capacitate":  "1456 bytes",
                         "magistrala":  "16-bit",
                         "bandwidth":  "N/A"
                     },
         "stocare":  {
-                        "tip":  "Cartridge",
-                        "interfata":  "ROM",
+                        "tip":  "Cartridge ROM",
+                        "interfata":  "Cartridge",
                         "viteza":  "N/A"
                     },
         "output_video":  {
@@ -343,19 +343,25 @@
                            "ray_tracing":  false,
                            "vrr":  false,
                            "backwards_compatibility":  "N/A",
-                           "altele":  "Voice synthesis"
+                           "altele":  "Controller disc 16 direcții, tastatură numerică, Intellivoice, PlayCable"
                        },
         "avantaje":  [
-                         "Grafică superioară 2600",
-                         "Controller disc unic",
-                         "Voice synthesis (Intellivoice)"
+                         "Prima consolă 16-biți cu CP1610",
+                         "Grafică tile-based superioară altor platforme",
+                         "Controller disc capabil de 16 direcții",
+                         "Syntheza vocală integrată (Intellivoice)",
+                         "PlayCable: primul serviciu descărcare jocuri TV (1981)",
+                         "Las Vegas Poker & Blackjack: 1,939 milioane unități"
                      ],
         "dezavantaje":  [
-                            "Controller dificil de folosit",
-                            "Rezoluție scăzută",
-                            "Crash 1983"
+                            "Doar 1456 bytes RAM extrem de limitant",
+                            "Controller disc dificil de folosit pentru unii jucători",
+                            "Keyboard Component (Blue Whale) anulat, doar 4.000 unități",
+                            "Frecvența cadru limitată la 20 Hz prin Exec ROM",
+                            "Pierderi financiare masive ($280 milioane) în 1983",
+                            "Acorduri de licență au forțat întreruperea producției în 1990"
                         ],
-        "istorie":  ""
+        "istorie":  "Intellivision: Primul Crai al Consolelor\n\nLansat în 1979 de Mattel Electronics, Intellivision (o contracție a cuvintelor \"intelligent\" și \"television\") a reprezentat o provocare frontală Atari 2600 și a inițiat primul \"război al consolelor\" din istoria jocurilor video. Cu o arhitectură pe 16 biți și promisiuni de grafică și sunet superioare, consola a consolidat piața jocurilor de acasă și a redefinit standardele pentru generația care urmează.\n\nInovație Tehnologică și Arhitectură\n\nCeea ce a plasat Intellivision în poziția de pionier a fost deciza de a folosi microprocesor General Instrument CP1610 pe 16 biți la 2 MHz în locul alternativelor pe 8 biți. Deși frecvența pare mică în zilele noastre, aceasta era un salt semnificativ în 1979. Cip grafic STIC (Standard Television Interface Chip) utiliza o abordare inovatoare: tile-based playfield, unde peisajele erau construite din celule mici în loc să se stockeze fiecare pixel individual. Aceasta economia sever și din RAM-ul extrem de limitat (1456 bytes) și din puterea de procesare. Consola suporta 8 sprite-uri hardware și o paletă de 16 culori.\n\nControllerul Unic și Tastatură\n\nMattel a reinventat controlul prin introducerea unui disc direcțional (nu joystick-ul tradițional) care detecta 16 direcții, oferind precizie mult mai mare. Peste disc se montau suprapuneri din plastic unice pentru fiecare joc, transformând butoanele simple din plastic în interfețe contextuale. Acest design era inovator, dar controvers — unii utilizatori îl găseau neintuitiv. Tastaura numerică cu 12 butoane permitea input-uri complexe, necesare pentru jocurile de strategie și simulări.\n\nDominația Segmentului Sportiv\n\nIntellivision și-a făcut o reputație pe simulari sportive precise. Major League Baseball și World Series Major League Baseball au introdus perspecive multiple și statistici reale, revolucionând genul. Las Vegas Poker & Blackjack a devenit cel mai vândut joc al consoanei cu aproximativ 1,939 milioane de unități. Utopia (1982) este recunoscut de istoriografi ca precursor al genului de simulare a managementului și construcției. Aceste titluri nu depășeau doar în gameplay competitia — grafica Intellivision, deși raster-based, era vizibil superioară adaptărilor arcade pe platforma Atari.\n\nEcosistemul Software și Exec ROM\n\nDezvoltorii au beneficiat de \"Exec\", un cod ROM rezident de 4K care accelera crearea jocurilor. Cu toate acestea aceasta avea un cost — frecvența cadrelor era limitată la 20 Hz pentru jocurile care foloseau Exec, față de 60 Hz pentru jocurile care ocoleau acest sistem. Diferența era perceptibilă, dar trade-off-ul permitea dezvoltatorilor să creeze experiențe mai complexe cu puțini recursos.\n\nPerifericele Ambițioase și Controversele\n\nMattel a încercat să transforme consola într-o mașină de uz general prin numeroase extensii. Keyboard Component (supranumit \"Blue Whale\" din cauza volumului ridicol) a fost promis ca allowing acces la computer, dar a suferit întârzieri masive și a dus la investigație FTC pentru publicitate falsă. Doar aproximativ 4.000 de unități au fost produse înainte de anulare în 1982. Entertainment Computer System (ECS) a fost propus ca alternativă mai ieftină, oferind cip audio GI AY-3-8914 și suport BASIC. Intellivoice a adus sinteză vocală reală în jocuri. Cel mai inovator a fost PlayCable (1981), care permitea descărcarea jocurilor prin cablul TV — un concept revoluționar care a precedat cu decenii modelul de distribuție digital.\n\nPrăbușirea și Revitalizare Moderă\n\nPe vârful succesului comercial (peste 3,75 milioane de unități între 1980-1983), Intellivision a fost lovit de criza jocurilor video din 1983. Pierderi financiare masive depășind 280 milioane USD au forțat Mattel să vândă activele. INTV Corporation a preluat apoi consola, dar acorduri de licență cu Nintendo și Sega au forțat întreruperea producției în 1990. După decenii de conservare prin Intellivision Productions, brandul a fost achiziționat de Atari în mai 2024, marcând simbolic sfârșitul celui mai lung conflict comercial din istoria consolelor.\n\nIntellivision Sprint și Moștenire Contemporană\n\nSub conducerea Atari, brandul s-a revitalizat prin Intellivision Sprint, programat pentru lansare în decembrie 2025. Consola modernă păstrează esenția originalului — controller cu disc și tastatură — dar cu upgrades: 45 de jocuri preinstalate, wireless Bluetooth, ieșire HDMI și capacitatea de a rula ROM-uri proprii. Sistemul pe Rockchip și suportul mai de 90 de suprapuneri din plastic demonstrează aprecierea pentru istoria și designul original. Intellivision rămâne respectat în comunitatea retrogaming, fiind clasată de IGN pe locul 14 în topul absolut al tuturor consolelor. Moștenirea sa continuă prin standarde în jocurile sportive bazate pe date și prin comunitatea activate de \"homebrew\" development."
     },
     {
         "id":  "microvision",

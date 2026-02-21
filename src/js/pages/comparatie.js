@@ -240,7 +240,7 @@ function updateComparison() {
 
     comparisonContainer.innerHTML = `
         <div class="comparison-grid">
-            <div class="console-card">
+            <div class="console-card" data-console-id="${a.id}">
                 <div class="console-card-image">
                     <img src="${resolveImagePath(a.imagine)}" alt="${a.nume}" onerror="this.style.display='none'">
                 </div>
@@ -256,7 +256,7 @@ function updateComparison() {
             <div class="comparison-vs">
                 <span class="vs-badge">VS</span>
             </div>
-            <div class="console-card">
+            <div class="console-card" data-console-id="${b.id}">
                 <div class="console-card-image">
                     <img src="${resolveImagePath(b.imagine)}" alt="${b.nume}" onerror="this.style.display='none'">
                 </div>
@@ -273,6 +273,15 @@ function updateComparison() {
         ${specsSection}
         ${verdictSection}
     `;
+
+    // Add click handlers to console cards
+    document.querySelectorAll('.console-card[data-console-id]').forEach(card => {
+        card.style.cursor = 'pointer';
+        card.addEventListener('click', function() {
+            const consoleId = this.getAttribute('data-console-id');
+            window.location.href = `./consoles/${consoleId}.html`;
+        });
+    });
 
     comparisonContainer.classList.add('fade-in');
     setTimeout(() => comparisonContainer.classList.remove('fade-in'), 300);
