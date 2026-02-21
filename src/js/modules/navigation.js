@@ -10,6 +10,7 @@ export const NavigationModule = {
         this.setupSmoothScroll();
         this.setupActiveLinks();
         this.setupMobileMenu();
+        this.setupAutoHideNavbar();
     },
 
     /**
@@ -141,5 +142,61 @@ export const NavigationModule = {
         
         // Update ARIA
         hamburger.setAttribute('aria-expanded', 'false');
+    },
+
+    /**
+     * Auto-hide navbar on scroll down, show on scroll up
+     * Anti-jitter: ignoră mișcări < 15px, rămâne vizibil aproape de top (< 80px)
+     */
+    setupAutoHideNavbar() {
+        const navbar = document.querySelector('.navbar');
+        if (!navbar) return;
+
+        let lastScrollY = window.scrollY;
+        let ticking = false;
+
+        const onScroll = () => {
+            const currentY = window.scrollY;
+            const delta = currentY - lastScrollY;
+
+            // Nu ascunde dacă meniul mobil e deschis
+            if (document.body.classList.contains('menu-open')) {
+                lastScrollY = currentY;
+                ticking = false;
+                return;
+            }
+
+            // Rămâne vizibil aproape de top
+            if (currentY < 80) {
+                navbar.classList.remove('navbar--hidden');
+                lastScrollY = currentY;
+                ticking = false;
+                return;
+            }
+
+            // Anti-jitter: ignoră mișcări mici
+            if (Math.abs(delta) < 15) {
+                ticking = false;
+                return;
+            }
+
+            if (delta > 0) {
+                // Scroll în jos → ascunde
+                navbar.classList.add('navbar--hidden');
+            } else {
+                // Scroll în sus → arată
+                navbar.classList.remove('navbar--hidden');
+            }
+
+            lastScrollY = currentY < 0 ? 0 : currentY; // Protecție iOS elastic scroll
+            ticking = false;
+        };
+
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                window.requestAnimationFrame(onScroll);
+                ticking = true;
+            }
+        }, { passive: true });
     }
 };

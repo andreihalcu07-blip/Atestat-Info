@@ -51,4 +51,45 @@
             closeMenu();
         }
     });
+
+    /* Auto-hide navbar on scroll (fallback, fără module) */
+    const navbar = document.querySelector('.navbar');
+    if (navbar) {
+        let lastScrollY = window.scrollY;
+        let ticking = false;
+
+        const onScroll = () => {
+            const currentY = window.scrollY;
+            const delta = currentY - lastScrollY;
+
+            if (body.classList.contains('menu-open')) {
+                lastScrollY = currentY;
+                ticking = false;
+                return;
+            }
+
+            if (currentY < 80) {
+                navbar.classList.remove('navbar--hidden');
+                lastScrollY = currentY;
+                ticking = false;
+                return;
+            }
+
+            if (Math.abs(delta) < 15) {
+                ticking = false;
+                return;
+            }
+
+            navbar.classList.toggle('navbar--hidden', delta > 0);
+            lastScrollY = currentY < 0 ? 0 : currentY;
+            ticking = false;
+        };
+
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                window.requestAnimationFrame(onScroll);
+                ticking = true;
+            }
+        }, { passive: true });
+    }
 })();

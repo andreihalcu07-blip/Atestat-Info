@@ -27,6 +27,15 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    /* Auto-hide smooth transition */
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+}
+
+/* Navbar ascuns la scroll în jos */
+.navbar.navbar--hidden {
+    transform: translateY(-100%);
 }
 
 /* Container interior */
