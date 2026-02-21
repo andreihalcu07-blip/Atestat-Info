@@ -180,9 +180,9 @@
 /* === COMPARISON GRID (Console Cards) === */
 .comparison-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr auto 1fr;
     gap: 1.5rem;
-    align-items: stretch;
+    align-items: center;
     margin: 0 auto 2.5rem;
     max-width: 1000px;
 }
@@ -564,6 +564,18 @@
     .comparison-grid {
         grid-template-columns: 1fr;
         gap: 1rem;
+    }
+
+    .comparison-vs {
+        order: 1;
+    }
+
+    .comparison-grid > .console-card:first-child {
+        order: 0;
+    }
+
+    .comparison-grid > .console-card:last-child {
+        order: 2;
     }
 
     .console-card-image {

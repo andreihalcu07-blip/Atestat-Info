@@ -1,26 +1,35 @@
-/**
+﻿/**
  * Comparatie.js - Dynamic Console Comparison
- * Handles console selection and dynamic comparison rendering
+ * Loads all data from consoles.json via data-loader
  */
 
-import { consolesData, getConsolesList, getConsole } from '../data/consoles-data.js';
+import { loadConsoles, resolveImagePath } from '../data/data-loader.js';
 
 // DOM Elements
 const selectA = document.getElementById('console-a-select');
 const selectB = document.getElementById('console-b-select');
 const comparisonContainer = document.getElementById('comparison-display');
 
-// Initialize comparison page
-function init() {
+// Cached consoles array
+let allConsoles = [];
+
+/**
+ * Initialize comparison page
+ */
+async function init() {
     if (!selectA || !selectB || !comparisonContainer) {
         console.warn('Comparison elements not found');
         return;
     }
 
-    // Populate dropdowns
+    allConsoles = await loadConsoles();
+    if (!allConsoles || allConsoles.length === 0) {
+        console.warn('No console data loaded');
+        return;
+    }
+
     populateSelects();
 
-    // Add event listeners
     selectA.addEventListener('change', updateComparison);
     selectB.addEventListener('change', updateComparison);
 
@@ -28,269 +37,245 @@ function init() {
     selectA.value = 'playstation-5';
     selectB.value = 'xbox-series-x';
 
-    // Initial render
     updateComparison();
 }
 
-// Populate select dropdowns with consoles
+/**
+ * Generation labels for optgroup display
+ */
+const GEN_LABELS = {
+    9: 'Generatia 9 (2020+)',
+    8: 'Generatia 8 (2012-2017)',
+    7: 'Generatia 7 (2005-2006)',
+    6: 'Generatia 6 (1998-2001)',
+    5: 'Generatia 5 (1993-1996)',
+    4: 'Generatia 4 (1988-1990)',
+    3: 'Generatia 3 (1983-1987)',
+    2: 'Generatia 2 (1976-1982)',
+    1: 'Generatia 1 (1972-1976)'
+};
+
+/**
+ * Populate select dropdowns grouped by generation
+ */
 function populateSelects() {
-    const consoles = getConsolesList();
-    
-    // Group by generation
     const generations = {};
-    consoles.forEach(c => {
-        const gen = consolesData[c.id].generation;
+    allConsoles.forEach(c => {
+        const gen = c.generatie;
         if (!generations[gen]) generations[gen] = [];
         generations[gen].push(c);
     });
 
-    // Create optgroups
-    const genLabels = {
-        9: 'Generația 9 (2020+)',
-        8: 'Generația 8 (2012-2017)',
-        7: 'Generația 7 (2005-2006)',
-        6: 'Generația 6 (1998-2001)',
-        5: 'Generația 5 (1993-1996)',
-        4: 'Generația 4 (1988-1990)',
-        3: 'Generația 3 (1983-1987)',
-        2: 'Generația 2 (1976-1982)',
-        1: 'Generația 1 (1972-1976)'
-    };
-
     [selectA, selectB].forEach(select => {
         select.innerHTML = '';
-        
+
         Object.keys(generations)
             .sort((a, b) => b - a)
             .forEach(gen => {
                 const optgroup = document.createElement('optgroup');
-                optgroup.label = genLabels[gen] || `Generația ${gen}`;
-                
-                generations[gen].forEach(console => {
-                    const option = document.createElement('option');
-                    option.value = console.id;
-                    option.textContent = `${console.name} (${console.year})`;
-                    optgroup.appendChild(option);
-                });
-                
+                optgroup.label = GEN_LABELS[gen] || `Generatia ${gen}`;
+
+                generations[gen]
+                    .sort((a, b) => b.lansare - a.lansare)
+                    .forEach(consola => {
+                        const option = document.createElement('option');
+                        option.value = consola.id;
+                        option.textContent = `${consola.nume} (${consola.lansare})`;
+                        optgroup.appendChild(option);
+                    });
+
                 select.appendChild(optgroup);
             });
     });
 }
 
-// Update comparison display
-function updateComparison() {
-    const consoleA = getConsole(selectA.value);
-    const consoleB = getConsole(selectB.value);
+/**
+ * Spec comparison sections definition
+ */
+const SPEC_SECTIONS = [
+    {
+        key: 'cpu',
+        label: 'CPU',
+        fields: [
+            { key: 'arhitectura', label: 'Arhitectura' },
+            { key: 'proces_nm', label: 'Proces (nm)' },
+            { key: 'nuclee', label: 'Nuclee/Fire' },
+            { key: 'frecventa', label: 'Frecventa' },
+            { key: 'tdp', label: 'TDP' }
+        ]
+    },
+    {
+        key: 'gpu',
+        label: 'GPU',
+        fields: [
+            { key: 'arhitectura', label: 'Arhitectura' },
+            { key: 'unitati', label: 'Unitati/CUs' },
+            { key: 'frecventa', label: 'Frecventa' },
+            { key: 'tflops', label: 'TFLOPS' },
+            { key: 'capabilitati', label: 'Capabilitati' }
+        ]
+    },
+    {
+        key: 'memorie',
+        label: 'Memorie',
+        fields: [
+            { key: 'tip', label: 'Tip' },
+            { key: 'capacitate', label: 'Capacitate' },
+            { key: 'magistrala', label: 'Magistrala' },
+            { key: 'bandwidth', label: 'Bandwidth' }
+        ]
+    },
+    {
+        key: 'stocare',
+        label: 'Stocare',
+        fields: [
+            { key: 'tip', label: 'Tip' },
+            { key: 'interfata', label: 'Interfata' },
+            { key: 'viteza', label: 'Viteza' }
+        ]
+    },
+    {
+        key: 'output_video',
+        label: 'Output Video',
+        fields: [
+            { key: 'rezolutie', label: 'Rezolutie' },
+            { key: 'refresh', label: 'Refresh' },
+            { key: 'hdr', label: 'HDR' },
+            { key: 'upscaling', label: 'Upscaling' }
+        ]
+    },
+    {
+        key: 'tehnologii',
+        label: 'Tehnologii',
+        fields: [
+            { key: 'ray_tracing', label: 'Ray Tracing' },
+            { key: 'vrr', label: 'VRR' },
+            { key: 'backwards_compatibility', label: 'Backwards Compat' },
+            { key: 'altele', label: 'Altele' }
+        ]
+    }
+];
 
-    if (!consoleA || !consoleB) return;
+/**
+ * Format a spec value for display
+ */
+function formatValue(val) {
+    if (val === true) return '<span class="flag yes"></span>';
+    if (val === false) return '<span class="flag no"></span>';
+    return val && String(val).trim().length && val !== 'N/A' ? val : 'N/A';
+}
+
+/**
+ * Get a nested spec value safely
+ */
+function getVal(consola, sectionKey, fieldKey) {
+    return consola && consola[sectionKey] && consola[sectionKey][fieldKey] !== undefined
+        ? consola[sectionKey][fieldKey]
+        : null;
+}
+
+/**
+ * Update the comparison display
+ */
+function updateComparison() {
+    const a = allConsoles.find(c => c.id === selectA.value);
+    const b = allConsoles.find(c => c.id === selectB.value);
+    if (!a || !b) return;
+
+    const specsHtml = SPEC_SECTIONS.map(section => {
+        const rows = section.fields.map(field => {
+            const vA = getVal(a, section.key, field.key);
+            const vB = getVal(b, section.key, field.key);
+            if (vA === null && vB === null) return '';
+            return `
+                <div class="spec-row">
+                    <div class="spec-value spec-left">${formatValue(vA)}</div>
+                    <div class="spec-label">${field.label}</div>
+                    <div class="spec-value spec-right">${formatValue(vB)}</div>
+                </div>
+            `;
+        }).filter(r => r.length > 0).join('');
+
+        return rows ? `
+            <div class="spec-section">
+                <div class="spec-section-header">${section.label}</div>
+                ${rows}
+            </div>
+        ` : '';
+    }).filter(s => s.length > 0).join('');
+
+    const prosA = (a.avantaje || []).map(p => `<li class="pro-item"> ${p}</li>`).join('');
+    const consA = (a.dezavantaje || []).map(c => `<li class="con-item"> ${c}</li>`).join('');
+    const prosB = (b.avantaje || []).map(p => `<li class="pro-item"> ${p}</li>`).join('');
+    const consB = (b.dezavantaje || []).map(c => `<li class="con-item"> ${c}</li>`).join('');
+
+    const specsSection = specsHtml ? `
+        <div class="specs-comparison">
+            <h3 class="specs-title">Fisa Tehnica</h3>
+            <div class="spec-sheet">${specsHtml}</div>
+        </div>
+    ` : '';
+
+    const verdictSection = (prosA || consA || prosB || consB) ? `
+        <div class="verdict-section">
+            <h3 class="verdict-title">Overview Rapid</h3>
+            <div class="verdict-grid">
+                <div class="verdict-card">
+                    <h4 class="verdict-console-name">${a.nume}</h4>
+                    <div class="verdict-lists">
+                        ${prosA ? '<div class="pros-list"><h5 class="list-title pros-title">Avantaje</h5><ul>' + prosA + '</ul></div>' : ''}
+                        ${consA ? '<div class="cons-list"><h5 class="list-title cons-title">Dezavantaje</h5><ul>' + consA + '</ul></div>' : ''}
+                    </div>
+                </div>
+                <div class="verdict-card">
+                    <h4 class="verdict-console-name">${b.nume}</h4>
+                    <div class="verdict-lists">
+                        ${prosB ? '<div class="pros-list"><h5 class="list-title pros-title">Avantaje</h5><ul>' + prosB + '</ul></div>' : ''}
+                        ${consB ? '<div class="cons-list"><h5 class="list-title cons-title">Dezavantaje</h5><ul>' + consB + '</ul></div>' : ''}
+                    </div>
+                </div>
+            </div>
+        </div>
+    ` : '';
 
     comparisonContainer.innerHTML = `
         <div class="comparison-grid">
-            ${renderConsoleCard(consoleA, 'a')}
+            <div class="console-card">
+                <div class="console-card-image">
+                    <img src="${resolveImagePath(a.imagine)}" alt="${a.nume}" onerror="this.style.display='none'">
+                </div>
+                <div class="console-card-info">
+                    <h3>${a.nume}</h3>
+                    <div class="console-meta-tags">
+                        <span class="meta-tag">${a.producator}</span>
+                        <span class="meta-tag">${a.lansare}</span>
+                        <span class="meta-tag">Gen ${a.generatie}</span>
+                    </div>
+                </div>
+            </div>
             <div class="comparison-vs">
                 <span class="vs-badge">VS</span>
             </div>
-            ${renderConsoleCard(consoleB, 'b')}
-        </div>
-
-        <div class="specs-comparison">
-            <h3 class="specs-title">Specificații Tehnice</h3>
-            ${renderSpecsComparison(consoleA, consoleB)}
-        </div>
-
-        <div class="verdict-section">
-            <h3 class="verdict-title">Verdict Rapid</h3>
-            <div class="verdict-grid">
-                ${renderVerdict(consoleA)}
-                ${renderVerdict(consoleB)}
+            <div class="console-card">
+                <div class="console-card-image">
+                    <img src="${resolveImagePath(b.imagine)}" alt="${b.nume}" onerror="this.style.display='none'">
+                </div>
+                <div class="console-card-info">
+                    <h3>${b.nume}</h3>
+                    <div class="console-meta-tags">
+                        <span class="meta-tag">${b.producator}</span>
+                        <span class="meta-tag">${b.lansare}</span>
+                        <span class="meta-tag">Gen ${b.generatie}</span>
+                    </div>
+                </div>
             </div>
         </div>
+        ${specsSection}
+        ${verdictSection}
     `;
 
-    // Add animation class
     comparisonContainer.classList.add('fade-in');
     setTimeout(() => comparisonContainer.classList.remove('fade-in'), 300);
-}
-
-// Render individual console card
-function renderConsoleCard(console, side) {
-    return `
-        <div class="console-card console-${side}">
-            <div class="console-card-image">
-                <img src="${console.image}" alt="${console.name}" loading="lazy">
-            </div>
-            <div class="console-card-info">
-                <h3>${console.name}</h3>
-                <div class="console-meta-tags">
-                    <span class="meta-tag">${console.manufacturer}</span>
-                    <span class="meta-tag">${console.year}</span>
-                    <span class="meta-tag">Gen ${console.generation}</span>
-                </div>
-            </div>
-        </div>
-    `;
-}
-
-// Render specs comparison
-function renderSpecsComparison(a, b) {
-    const specLabels = {
-        cpu: 'Procesor (CPU)',
-        gpu: 'Grafică (GPU)',
-        ram: 'Memorie RAM',
-        storage: 'Stocare',
-        resolution: 'Rezoluție Max',
-        rayTracing: 'Ray Tracing'
-    };
-
-    let html = '<div class="specs-rows">';
-
-    Object.keys(specLabels).forEach(key => {
-        const valueA = getSpecValue(a, key);
-        const valueB = getSpecValue(b, key);
-        const valA = formatSpecValue(valueA, key);
-        const valB = formatSpecValue(valueB, key);
-        const comparison = compareSpecs(valueA, valueB, key);
-
-        html += `
-            <div class="spec-row">
-                <div class="spec-value spec-left ${comparison === 'a' ? 'winner' : ''}">${valA}</div>
-                <div class="spec-label">${specLabels[key]}</div>
-                <div class="spec-value spec-right ${comparison === 'b' ? 'winner' : ''}">${valB}</div>
-            </div>
-        `;
-    });
-
-    html += '</div>';
-    return html;
-}
-
-// Format spec value for display
-function formatSpecValue(value, key) {
-    if (key === 'rayTracing') {
-        return value ? '<span class="has-feature">✓ Da</span>' : '<span class="no-feature">✗ Nu</span>';
-    }
-    return value || 'N/A';
-}
-
-function getSpecValue(consoleData, key) {
-    const specs = consoleData.specs || {};
-
-    if (key === 'rayTracing') {
-        if (typeof specs.rayTracing === 'boolean') return specs.rayTracing;
-        if (specs.tech && typeof specs.tech.rt === 'boolean') return specs.tech.rt;
-        return false;
-    }
-
-    if (typeof specs[key] === 'string') return specs[key];
-
-    if (key === 'cpu') return formatCpuSpec(specs.cpu);
-    if (key === 'gpu') return formatGpuSpec(specs.gpu);
-    if (key === 'ram') return formatMemorySpec(specs.memory);
-    if (key === 'storage') return formatStorageSpec(specs.storage);
-    if (key === 'resolution') return formatVideoSpec(specs.video);
-
-    return null;
-}
-
-function formatCpuSpec(cpu) {
-    if (!cpu || typeof cpu !== 'object') return cpu || 'N/A';
-    const arch = normalizeSpecValue(cpu.arch);
-    const cores = normalizeSpecValue(cpu.cores);
-    const clock = normalizeSpecValue(cpu.clock);
-    const parts = [arch, cores, clock ? `@ ${clock}` : null].filter(Boolean);
-    return parts.join(' ');
-}
-
-function formatGpuSpec(gpu) {
-    if (!gpu || typeof gpu !== 'object') return gpu || 'N/A';
-    const arch = normalizeSpecValue(gpu.arch);
-    const tflops = normalizeSpecValue(gpu.tflops);
-    const clock = !tflops && normalizeSpecValue(gpu.clock) ? `@ ${gpu.clock}` : null;
-    const parts = [arch, tflops || clock].filter(Boolean);
-    return parts.join(', ');
-}
-
-function formatMemorySpec(memory) {
-    if (!memory || typeof memory !== 'object') return memory || 'N/A';
-    const size = normalizeSpecValue(memory.size);
-    const type = normalizeSpecValue(memory.type);
-    const parts = [size, type].filter(Boolean);
-    return parts.join(' ');
-}
-
-function formatStorageSpec(storage) {
-    if (!storage || typeof storage !== 'object') return storage || 'N/A';
-    const type = normalizeSpecValue(storage.type);
-    const speed = normalizeSpecValue(storage.speed);
-    const iface = !speed && normalizeSpecValue(storage.interface) ? storage.interface : null;
-    const parts = [type, speed || iface].filter(Boolean);
-    return parts.join(' ');
-}
-
-function formatVideoSpec(video) {
-    if (!video || typeof video !== 'object') return video || 'N/A';
-    const max = normalizeSpecValue(video.max);
-    const refresh = normalizeSpecValue(video.refresh);
-    if (!max) return 'N/A';
-    return refresh ? `${max} @ ${refresh}` : max;
-}
-
-function normalizeSpecValue(value) {
-    return value && value !== 'N/A' ? value : null;
-}
-
-// Compare two spec values
-function compareSpecs(valA, valB, key) {
-    // Boolean comparison
-    if (typeof valA === 'boolean' && typeof valB === 'boolean') {
-        if (valA && !valB) return 'a';
-        if (valB && !valA) return 'b';
-        return null;
-    }
-
-    // Extract TFLOPS for GPU comparison
-    if (key === 'gpu' && typeof valA === 'string' && typeof valB === 'string') {
-        const tflopsA = parseFloat((valA.match(/[\d.]+\s*TFLOPS/i) || ['0'])[0]);
-        const tflopsB = parseFloat((valB.match(/[\d.]+\s*TFLOPS/i) || ['0'])[0]);
-        if (tflopsA > tflopsB) return 'a';
-        if (tflopsB > tflopsA) return 'b';
-    }
-
-    // Extract GB for RAM/Storage
-    if ((key === 'ram' || key === 'storage') && typeof valA === 'string' && typeof valB === 'string') {
-        const gbA = parseFloat((valA.match(/[\d.]+\s*(?:GB|TB)/i) || ['0'])[0]);
-        const gbB = parseFloat((valB.match(/[\d.]+\s*(?:GB|TB)/i) || ['0'])[0]);
-        // Convert TB to GB
-        const sizeA = valA.includes('TB') ? gbA * 1000 : gbA;
-        const sizeB = valB.includes('TB') ? gbB * 1000 : gbB;
-        if (sizeA > sizeB) return 'a';
-        if (sizeB > sizeA) return 'b';
-    }
-
-    return null;
-}
-
-// Render verdict (pros/cons)
-function renderVerdict(console) {
-    const prosHtml = console.pros.map(p => `<li class="pro-item">✓ ${p}</li>`).join('');
-    const consHtml = console.cons.map(c => `<li class="con-item">✗ ${c}</li>`).join('');
-
-    return `
-        <div class="verdict-card">
-            <h4 class="verdict-console-name">${console.name}</h4>
-            <div class="verdict-lists">
-                <div class="pros-list">
-                    <h5 class="list-title pros-title">Avantaje</h5>
-                    <ul>${prosHtml}</ul>
-                </div>
-                <div class="cons-list">
-                    <h5 class="list-title cons-title">Dezavantaje</h5>
-                    <ul>${consHtml}</ul>
-                </div>
-            </div>
-        </div>
-    `;
 }
 
 // Initialize when DOM is ready
@@ -300,5 +285,4 @@ if (document.readyState === 'loading') {
     init();
 }
 
-// Export for testing
-export { updateComparison, renderConsoleCard };
+export { init, updateComparison };

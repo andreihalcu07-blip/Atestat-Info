@@ -1,0 +1,2905 @@
+﻿[
+    {
+        "id":  "magnavox-odyssey",
+        "nume":  "Magnavox Odyssey",
+        "producator":  "Magnavox",
+        "generatie":  1,
+        "lansare":  1972,
+        "imagine":  "assets/images/consoles/magnavox-odyssey.png",
+        "cpu":  {
+                    "arhitectura":  "Diode-transistor logic",
+                    "proces_nm":  "N/A",
+                    "nuclee":  "N/A",
+                    "frecventa":  "N/A",
+                    "tdp":  "~5W"
+                },
+        "gpu":  {
+                    "arhitectura":  "Analog",
+                    "unitati":  "N/A",
+                    "frecventa":  "N/A",
+                    "tflops":  "N/A",
+                    "capabilitati":  "3 dots + 1 vertical line"
+                },
+        "memorie":  {
+                        "tip":  "N/A",
+                        "capacitate":  "N/A",
+                        "magistrala":  "N/A",
+                        "bandwidth":  "N/A"
+                    },
+        "stocare":  {
+                        "tip":  "Game cards (circuit boards with jumpers)",
+                        "interfata":  "Jumper",
+                        "viteza":  "N/A"
+                    },
+        "output_video":  {
+                             "rezolutie":  "RF output",
+                             "refresh":  "60 Hz",
+                             "hdr":  "N/A",
+                             "upscaling":  "N/A"
+                         },
+        "tehnologii":  {
+                           "ray_tracing":  false,
+                           "vrr":  false,
+                           "backwards_compatibility":  "N/A",
+                           "altele":  "Screen overlays, light gun, discrete components"
+                       },
+        "avantaje":  [
+                         "Prima consolă de jocuri de casă din lume",
+                         "Stabilit concepte fundamentale (jocuri interschimbabile)",
+                         "Brevetul de pionierat generat 100M+ USD"
+                     ],
+        "dezavantaje":  [
+                            "Fără sunet",
+                            "Fără culoare",
+                            "Necesită overlay-uri pentru grafică"
+                        ],
+        "istorie":  "Prima Consolă de Jocuri Video de Casă din Lume\n\nMagnavox Odyssey marcează începutul unui nou capitol în istoria divertismentului. Fiind prima consolă de jocuri video pentru casă lansată la nivel mondial, Odyssey a stabilit fundamentele unei industrii care și astazi continuă să se dezvolte. Concepută de Ralph H. Baer la Sanders Associates și fabricată de Magnavox, consola a fost lansată în septembrie 1972, transformând modul în care oamenii se distrau acasă.\n\nCu tehnologia ei simplă și componentele discrete, Odyssey nu competea pe baza performanței. În schimb, a introdus concepte care au definit viitorul industriei: jocuri interschimbabile, periferice modulare și posibilitatea de expanziune. Deși succesul inițial comercial a fost moderat—aproximativ 350.000 de unități vândute—impactul ei legal s-a dovedit transformator, generând peste 100 de milioane de dolari în daune și licențe pe parcursul a două decenii.\n\nOrigine și Dezvoltare\n\nConceptul unei console de jocuri s-a născut în august 1966, când Ralph H. Baer lucra la Sanders Associates, un contractant militar american. Dezvoltarea nu a fost lineară. Între 1966 și 1969, Baer și echipa sa—Bill Harrison și Bill Rusch—au construit șapte prototipuri succesive, fiecare mai apropiat de un concept viabil. Primul prototip, TV Game #1, era primitiv: putea afișa doar o linie verticală.\n\nCel de-al șaptelea prototip, finalizat în ianuarie 1969, a reprezentat punctul de cotitură. Denumit \"Brown Box\" din cauza autocolantelor cu aspect de lemn, acest prototip includea deja mecanici de joc Pong și un pistol optic—idei care vor deveni caracteristice Odyssey-ului.\n\nDupă refuzuri din partea RCA și altor producători, Magnavox a acceptat. În ianuarie 1971, acordul de producție a fost semnat. George Kent și echipa Magnavox au rafinat designul și au luat o decizie strategică importantă: eliminarea capacității de a afișa culori pentru a reduce costurile și a simplifica procedurile de aprobare FCC.\n\nTehnologie și Arhitectură\n\nOdyssey funcționa pe principii analogice, nu digitale. Arhitectura folosea logică diodă-tranzistor cu componente discrete—tranzistori și diode—în loc de microchipuri integrate. Sistemul era alimentat de șase baterii de tip C sau printr-un adaptor AC opțional.\n\nCapacitățile grafice erau minimaliste, dar deliberate. Consola putea afișa trei puncte pătrate și o linie verticală de înălțime variabilă pe un ecran negru. Două dintre puncte erau controlate de jucători; al treilea era controlat de sistem. Această simplitate extremă a forțat inovație în alte zone. Consola nu avea sunet și nici nu calculat scoruri automate—jucătorii notau manual.\n\nCardurile de joc nu erau cartușe ROM. Erau plăci de circuite care funcționau ca jumperi programabili, modificând comportamentul electronic al sistemului. Pentru a compensa limitarea grafică, Magnavox a inclus suprapuneri de plastic transparent cu imagini care se aplicau direct pe ecranul televizorului—terenuri de fotbal, case bântuite, table de joc. Consola venea și cu accesorii fizice: zaruri, bani de joc, jetoane de poker și foi de scor, transformând experiența într-un hibrid între joc de societate și joc video.\n\nLansare și Piață\n\nLansată la 99,95 USD—echivalentul a aproximativ 750 USD în valori actuale—Odyssey a avut o recepție mixtă. În primul an calendaristic, au fost vândute 69.000 de unități. Până la încetarea producției în 1975, totalul a atins între 350.000 și 367.000 de unități.\n\nStrategia de distribuție a creat confuzie. Consola era disponibilă exclusiv prin distribuitorii Magnavox, ceea ce a determinat mulți consumatori să creadă incorect că funcționează doar cu televizoare Magnavox, deși publicitatea menționa compatibilitatea universală.\n\nExpand internațional a fost semnificativ. În 1973, consola a fost lansată în Regatul Unit. În 1974, a ajuns în alte zece țări—inclusiv Uniunea Sovietică și Venezuela. În Mexic a fost vândută sub numele Magnavox Odisea.\n\nCatalogul de jocuri includea 28 de titluri distribuite pe 11 carduri diferite. Table Tennis era inclus odată cu consola. Shooting Gallery venea cu Electronic Rifle, produs de Nintendo, și patru jocuri asociate. Unele jocuri, cum ar fi Percepts, erau oferite gratuit jucătorilor care trimiteau un card de sondaj.\n\nMoștenire Juridică și Impactul Durat\n\nImportanța Odyssey depășește cifrele de vânzări. Brevetele sale au definit cadrul legal al întregii industrii.\n\nNolan Bushnell de la Atari a vizionat o demonstrație a Table Tennis pe Odyssey și s-a inspirat pentru Pong. Magnavox a dat în judecată Atari în 1974, obținând un acord de licențiere de 1,5 milioane de dolari. În 1977, judecătorul John Grady a declarat că brevetul lui Baer era \"brevetul de pionierat al artei jocurilor video\"—o recunoaștere legală semnificativă.\n\nSanders și Magnavox au câștigat peste 100 de milioane de dolari din procese și acorduri cu producători majori: Coleco, Mattel, Activision și chiar Nintendo, care a încercat fără succes să invalideze brevetele în 1985.\n\nProducția s-a încheiat în 1975 din cauza inflației și costurilor ridicate de fabricație. Magnavox a trecut la console dedicate cu circuite integrate Texas Instruments. În 1978 a venit succesorul propriu-zis, Magnavox Odyssey 2.\n\nRalph Baer, recunoscut ca \"Tatăl Jocurilor Video\", a primit Medalia Națională de Tehnologie în 2004. Prototipurile originale sunt conservate la Smithsonian Institution. Consola Odyssey face parte din colecția permanentă a Museum of Modern Art (MoMA) din New York."
+    },
+    {
+        "id":  "atari-home-pong",
+        "nume":  "Atari Home Pong",
+        "producator":  "Atari",
+        "generatie":  1,
+        "lansare":  1975,
+        "imagine":  "assets/images/consoles/atari-home-pong.png",
+        "cpu":  {
+                    "arhitectura":  "LSI integrated circuits",
+                    "proces_nm":  "N/A",
+                    "nuclee":  "N/A",
+                    "frecventa":  "N/A",
+                    "tdp":  "~5W"
+                },
+        "gpu":  {
+                    "arhitectura":  "Analog",
+                    "unitati":  "N/A",
+                    "frecventa":  "N/A",
+                    "tflops":  "N/A",
+                    "capabilitati":  "Black-white display, digital score, audio synthesis"
+                },
+        "memorie":  {
+                        "tip":  "N/A",
+                        "capacitate":  "N/A",
+                        "magistrala":  "N/A",
+                        "bandwidth":  "N/A"
+                    },
+        "stocare":  {
+                        "tip":  "N/A",
+                        "interfata":  "N/A",
+                        "viteza":  "N/A"
+                    },
+        "output_video":  {
+                             "rezolutie":  "RF output",
+                             "refresh":  "60 Hz",
+                             "hdr":  "N/A",
+                             "upscaling":  "N/A"
+                         },
+        "tehnologii":  {
+                           "ray_tracing":  false,
+                           "vrr":  false,
+                           "backwards_compatibility":  "N/A",
+                           "altele":  "LSI chip, integrated circuits, RF output, digital score"
+                       },
+        "avantaje":  [
+                         "Primul joc video cu succes comercial din istorie",
+                         "Venituri de 4 ori mai mari decât arcade-urile standard",
+                         "Parteneriat Sears: 150.000 unități vândute în 1975",
+                         "Cip LSI cel mai performant din piață de consum",
+                         "Recunoscut permanent de Smithsonian și Hall of Fame"
+                     ],
+        "dezavantaje":  [
+                            "Rapid inundat de clonuri (Nintendo, Coleco, Taito)",
+                            "Litigiu Magnavox a costat 1,5 milioane dolari",
+                            "Limitat la tenis electronic ca principal gameplay",
+                            "Marje de profit erodată de competiție rapidă"
+                        ],
+        "istorie":  "Geneza unei Industrii: PONG și Revoluția Jocurilor Video\n\nPONG nu este doar un joc video istoric — este punctul de pornire al unei industrii de miliarde de dolari. Lansat în iunie 1972, acest joc aparent simplu de tenis pe ecran alb-negru a transformat o competență de inginerie în fenomen cultural și economic. Dezvoltat de Atari sub conducerea lui Nolan Bushnell și Ted Dabney, PONG a fost conceput inițial ca exercițiu de instruire pentru inginerul Allan Alcorn, devenind rapid catalizatorul pentru industria modernă a jocurilor video.\n\nOrigini și Inovație Tehnică\n\nInspirul direct al lui Bushnell provenea din demonstrația Magnavox Odyssey din mai 1972, unde a jucat versiunea digitală a tenisului electronic creată de Ralph Baer. Diferența decisivă a venit de la Allan Alcorn, care a adus trei inovații fundamentale. Prima a fost divizarea paletei în opt segmente cu comportament diferit — segmentele centrale returnau mingea la 90 de grade, iar capetele ofereau unghiuri mai ascuțite, adăugând strategie în gameplay. A doua inovație a fost accelerarea progresivă — mingea se mișca mai repede pe măsură ce jocul dura mai mult, creând tensiune crescândă. A treia a fost generarea sunetului direct din circuitul de sincronizare video, producând tonuri caracteristice în loc de circuite audio dedicate, o soluție elegantă de design constrangeri în limitări de spațiu.\n\nSucces Arcade Fără Precedent\n\nPrimul prototip a fost instalat în august 1972 la Andy Capp's Tavern. Răspunsul consumatorilor a fost instantaneu — mecanismul de acceptare a monedelor s-a blocat din cauza supraîncărcării cu sferturi de dolar. Fiecare consolă arcade PONG genera venituri zilnice de 35 la 40 de dolari, echivalent cu aproximativ 140 la 160 de jocuri zilnic. Prețul de vânzare era de trei ori mai mare decât costul de producție. Comanda din 1973 pentru 2.500 de unități a marcat doar începutul unei expansiuni masive — peste 35.000 de unități arcade PONG au fost eventual vândute și instalate.\n\nRevoluția Casnică: Home Pong\n\nÎn 1974, inginerul Harold Lee a propus un pas radical — o versiune PONG care se conecta direct la televizoarele casnice, codenumită Darlene. Inovația utilizat cip LSI (Large-Scale Integration), cel mai performant cip dintr-un produs de consum de larg răspândire la acea vreme. Acest design oferea scor digital pe ecran și sunet real, caracteristici anteriormente considerate inaccesibile pentru produse casnice.\n\nTehnologia LSI a oferit avantaje decisive. Producția în masă a devenit mai ieftină, permițând marje de profit substanțiale, iar designul cu cip era mult mai greu de copiat prin inginerie inversă decât versiunile arcade. După finalizare, Atari a descoperit că detailiștii tradiționale considerau prețul prohibitiv. Soluția a venit printr-un parteneriat strategic cu Sears, retailerul american lider. Sears a vândut Home Pong sub Brand propriu — Sears Tele-Games — și a plasat o comandă inițială de 150.000 de unități pentru sezonul Crăciunului 1975. Comanda a fost onorată integral, transformând Home Pong în cel mai vândut produs Sears din acel an.\n\nProvocări Legale și Competiție\n\nSuccesul PONG a atras și atenție juridică negativă. În aprilie 1974, Magnavox a dat în judecată Atari, susținând că jocul încalcă brevetele Sanders Associates referitoare la jocurile video pe televizor. Dovezile au inclus un detaliu devastator — jurnal de oaspeți semnat de Bushnell la demonstrația Magnavox Odyssey din mai 1972. Costurile legale estimate ar fi epuizat resursele unei companii în dezvoltare, dar Bushnell a ales pragmatismul. În iunie 1976, Atari a ajuns la o înțelegere care plătea 1,5 milioane de dolari în opt rate.\n\nSuccesul PONG a generat și o piață vastă de imitații — ceea ce Bushnell a numim „șacali”. Nintendo, Coleco și Taito au lansat propriile console dedicate de tenis electronic, inundând piața cu variante. Această explozie de produse concurente a eroza profitabilitatea pe termen mediu, dar a legitimat și categoria pe care Atari a creat-o.\n\nVariante și Moștenire\n\nAtari a continuat să lanseze sisteme dedicate PONG sub diferite marci și pachete — PONG Original (1976), PONG Doubles cu patru jucători, Super PONG cu patru variante, Super PONG Ten cu zece variante, Ultra PONG cu șaisprezece jocuri. Fiecare era produs dedicat cu hardware și ROM-uri proprii, demonstrând capacitatea Atari de a diferenția oferta în fața competiției crescânde. Notabil, varianta Sears Motocross a combinat Stunt Cycle cu 16 variante PONG, o caracteristică unică pe care versiunea Atari nu o deținea.\n\nImpact Cultural și Social\n\nCeea ce a făcut PONG special nu a fost doar tehnologia sau veniturile. Nolan Bushnell a subliniat un aspect psihosocial crucial — designul jocului necesita o singură mână și era exclusiv pentru doi jucători, transformând-o într-o activitate de interacțiune socială. În baruri și săli de jocuri, PONG a devenit catalizator pentru discuție și competiție amicală — ceea ce Bushnell numea „lubrifiant social”.\n\nAstazi, PONG ocupă un loc permanent în colecția Smithsonian Institution din Washington, D.C. În 2015, a fost inclus în World Video Game Hall of Fame. Jocul a apărut în producții culturale precum That '70s Show și Saturday Night Live. Relevanta continuă a été demonstrată prin lansări moderne — Pong World pe iOS în 2012 și Pong Quest în 2020 — dovadă că designul original rămâne fundamental în DNA al industriei."
+    },
+    {
+        "id":  "coleco-telstar",
+        "nume":  "Coleco Telstar",
+        "producator":  "Coleco",
+        "generatie":  1,
+        "lansare":  1976,
+        "imagine":  "assets/images/consoles/coleco-telstar.png",
+        "cpu":  {
+                    "arhitectura":  "GI AY-3-8500 (Telstar), AY-3-8700 (Combat), MOS Technology MPS-7600 (Arcade)",
+                    "proces_nm":  "N/A",
+                    "nuclee":  "Single integrated chip",
+                    "frecventa":  "N/A",
+                    "tdp":  "~5W"
+                },
+        "gpu":  {
+                    "arhitectura":  "Integrated graphics",
+                    "unitati":  "N/A",
+                    "frecventa":  "N/A",
+                    "tflops":  "N/A",
+                    "capabilitati":  "Ball & paddle games, color variants (Colortron), cartridge-based (Arcade)"
+                },
+        "memorie":  {
+                        "tip":  "N/A",
+                        "capacitate":  "N/A",
+                        "magistrala":  "N/A",
+                        "bandwidth":  "N/A"
+                    },
+        "stocare":  {
+                        "tip":  "Cartridges (Arcade model only)",
+                        "interfata":  "Proprietary (Arcade)",
+                        "viteza":  "N/A"
+                    },
+        "output_video":  {
+                             "rezolutie":  "RF output",
+                             "refresh":  "60 Hz",
+                             "hdr":  "N/A",
+                             "upscaling":  "N/A"
+                         },
+        "tehnologii":  {
+                           "ray_tracing":  false,
+                           "vrr":  false,
+                           "backwards_compatibility":  "N/A",
+                           "altele":  "Detachable controllers, light gun (Nintendo Co Gen Sue), partial user assembly, cartridge support (Arcade)"
+                       },
+        "avantaje":  [
+                         "Peste un milion de unități vândute la preț de 50 dolari",
+                         "14+ variante unice adresând diverse segmente de piață",
+                         "Telstar Arcade cu inovație de cartușe interschimbabile",
+                         "Parteneriat cu Nintendo pentru componente optice",
+                         "Design geometric futurist apreciat de colecționari",
+                         "Asigurare constantă a cipurilor ca preferatul General Instrument"
+                     ],
+        "dezavantaje":  [
+                            "14-15 modele lansate în doi ani inundând piața",
+                            "Limitate la jocuri simple de tip Pong și derivate",
+                            "Erori de programare: punctaje infinite și bucle nesfârșite",
+                            "Criză de inventar masivă aducând compania la prag faliment",
+                            "Ruptura totală cu arhitectura ColecoVision succesor",
+                            "Dominanță de piață erodată rapid de saturație piață"
+                        ],
+        "istorie":  "Seria Coleco Telstar marcheaza un capitol semnificativ în istoria timpurie a jocurilor video de acasă. Lansată în 1976, această familie de console a demonstrat cum inovația tehnologică și o strategie comercială agresivă pot duce atât la succes spectaculos, cât și la o criză neașteptată. Parteneriatul dintre Coleco și General Instrument a permis companiei să devină primul beneficiar major al cipului revoluționar AY-3-8500, propulsând vânzările primului model Telstar la peste un milion de unități la un preț atractiv de 50 de dolari.\n\nGeneza parteneriatului strategic\n\nGeneza seriei este strâns legată de inovația componentelor din mijlocul anilor '70. În 1975, inginerii General Instrument din Scoția au dezvoltat cipul AY-3-8500, cunoscut și sub numele Ball & Paddle, care integra logica completă a jocurilor de tenis electronic într-o singură bucată de silicon. Ralph Baer, inventatorul celebrei Magnavox Odyssey, a facilitat o întâlnire crucială între președintele Coleco, Arnold Greenberg, și conducerea GI. Această conexiune s-a dovedit transformatoare pentru industrie.\n\nColeco a devenit rapid clientul preferat al General Instrument, asigurând-și aprovizionarea constantă cu cipuri în perioadele când deficiturile de componente paralizau alți producători. Acest avantaj logistic s-a tradus în capacitatea de a lansa modelul original Telstar cu o jumătate din costul unui sistem Atari Home Pong. O particularitate interesantă a strategiei de producție Coleco era asamblarea parțială de către utilizator—consolele veneau aproape finalizate din punct de vedere electronic, dar cumpărătorii trebuiau să monteze butoanele de control și să aplice abțibildurile decorative. Această abordare a redus semnificativ costurile de fabricație și a permis marje de profit substanțiale.\n\nDiversificarea și proliferarea modelelor\n\nÎntre 1976 și 1978, Coleco a lansat cel puțin 14 variante ale seriei Telstar, fiecare adresând un segment diferit de piață. Modelul Telstar Classic oferea o carcasă de lux din lemn pentru consumatorii mai sofisticați. Telstar Ranger era echipat cu un pistol optic și controlere detașabile pentru mai multă versatilitate. Telstar Alpha featured servire automată și trei niveluri de dificultate. Telstar Combat! utiliza un cip diferit (AY-3-8700) și oferea jocuri cu tancuri cu patru joystick-uri fixe. Telstar Colortron, lansat în 1978, a fost primul din serie cu grafică color și sunet integrat.\n\nInovația Telstar Arcade\n\nModelul Telstar Arcade, lansat în 1977, reprezintă cea mai ambiționată și neobișnuită consolă din întreaga familie. Consola prezintă o formă geometric unică—un triunghi cu trei laturi, fiecare dedicată unui stil de joc diferit. Prima latură include un volan detașabil și schimbător de viteze pentru jocuri de conducere. A doua este echipată cu un pistol optic pentru jocuri de tragere și țintă. A treia oferă două butoane rotative (paddles) clasice pentru jocuri cu minge.\n\nCe a făcut Telstar Arcade cu adevărat revoluționar era arhitectura sa de cartușe. Spre deosebire de generațiile ulterioare de console, fiecare cartuș conținea propriul cip MOS Technology MPS-7600. Consola în sine funcționa mai mult ca un set sofisticat de controlere—procesarea jocului avea loc direct pe cipul din interiorul cartușului. Doar patru cartușe oficiale au fost produse pentru acest sistem inovator.\n\nParteneriatul cu Nintendo\n\nUn detaliu remarcabil în istoria Telstar este implicarea Nintendo. Pistolul optic (light gun) utilizat pentru multiple modele Telstar, inclusiv Arcade, nu era o creație a General Instrument, ci de fapt o inovație Nintendo. Coleco a achiziționat aceste componente și le-a integrat în sistemele sale, evidențiind prezența timpurie a Nintendo în industria jocurilor video, cu mult înainte de lansarea Game Boy sau NES.\n\nLimitări tehnice și defecte de design\n\nÎn ciuda succesului comercial inițial, sursele documentează erori evidente în design și programare ale jocurilor Telstar Arcade. În Road Race, jucătorul putea parca mașina în partea de sus a ecranului pentru a evita orice coliziune, acumulând puncte la infinit fără niciun risc real. În Speedball, sistemul putea intra într-o buclă infinită în care mingea ricoșa constant între obstacole, forțând jucătorul să piardă intenționat puncte pentru a debloca situația.\n\nCăderea și succesiune\n\nDurabilitatea avantajului Coleco s-a dovedit efemeră. Strategia de a lansa 14-15 modele în doar doi ani a inundat piața cu prea multe variante, iar interesul publicului pentru jocurile de tip Pong a scăzut accelerat. Până în 1980, Coleco s-a confruntat cu o criză de inventar severă din cauza stocurilor masive de sisteme Telstar nevândute. Doar o reformulare radicală a companiei—lansarea ColecoVision în 1982, o consolă de generație nouă cu arhitectură complet diferită—a salvat-o de faliment.\n\nMoștenirea și aprecierea contemporană\n\nAstazi, seria Telstar este apreciată de colecționari pentru designul futurist și locul unic în evoluția tehnologiei jocurilor video. Modelul Arcade, cu forma sa distinctă și cartușele interschimbabile, este o piesă de colecție rară. Exemplarele în stare bună variază între 120 și peste 200 de dolari, fiind prețuite pentru inovația pe care o reprezentau și pentru rolul istoric în demonstrarea riscurilor unei piețe prea saturate."
+    },
+    {
+        "id":  "atari-2600",
+        "nume":  "Atari 2600",
+        "producator":  "Atari",
+        "generatie":  2,
+        "lansare":  1977,
+        "imagine":  "assets/images/consoles/atari-2600.png",
+        "cpu":  {
+                    "arhitectura":  "MOS 6507",
+                    "proces_nm":  "N/A",
+                    "nuclee":  "1C",
+                    "frecventa":  "1.19 MHz",
+                    "tdp":  "~5W"
+                },
+        "gpu":  {
+                    "arhitectura":  "TIA",
+                    "unitati":  "Custom",
+                    "frecventa":  "1.19 MHz",
+                    "tflops":  "N/A",
+                    "capabilitati":  "Sprite/playfield"
+                },
+        "memorie":  {
+                        "tip":  "RAM",
+                        "capacitate":  "128 bytes",
+                        "magistrala":  "8-bit",
+                        "bandwidth":  "N/A"
+                    },
+        "stocare":  {
+                        "tip":  "Cartridge",
+                        "interfata":  "ROM",
+                        "viteza":  "N/A"
+                    },
+        "output_video":  {
+                             "rezolutie":  "160×192",
+                             "refresh":  "60 Hz",
+                             "hdr":  "N/A",
+                             "upscaling":  "N/A"
+                         },
+        "tehnologii":  {
+                           "ray_tracing":  false,
+                           "vrr":  false,
+                           "backwards_compatibility":  "N/A",
+                           "altele":  "Cartridge pioneer"
+                       },
+        "avantaje":  [
+                         "Prima care a popularizat cartușe interschimbabile la scară",
+                         "Peste 30 de milioane de unități vândute (1977-1992)",
+                         "Bibliotecă de 523 de jocuri oficiale",
+                         "Space Invaders ca aplicație decisivă pentru adopție",
+                         "Porturi de control compatibile cu MSX, Commodore 64, Amiga",
+                         "Pionere în dezvoltare third-party (Activision)",
+                         "Carol Shaw: prima femeie designer de jocuri video"
+                     ],
+        "dezavantaje":  [
+                            "128 bytes RAM extrem de limitant",
+                            "Criza jocurilor video 1983 din Pac-Man și E.T.",
+                            "Multe jocuri necesitau manuale pentru context",
+                            "Preț inițial ridicat $199.99 (echiv. $1.064 în 2025)",
+                            "Grafică primitivă comparativ cu arcade originals",
+                            "Paletă de culori și capacități sprite limitate"
+                        ],
+        "istorie":  "Atari 2600: Consola care a Definit o Generație\n\nLansată în octombrie 1977 ca Video Computer System (VCS), consola Atari 2600 nu a fost prima cu cartușe interschimbabile, dar a fost cea care a popularizat conceptul la scară masivă. Transformând jocurile video dintr-un sistem hardware dedicat într-o platformă software versatilă, Atari 2600 a consolidat o industrie care abia se dezvolta. Cu vânzări estimate la peste 30 de milioane de unități pe parcursul unui ciclu de viață extins de 15 ani (1977-1992), a devenit definiția generației a doua de console și sinonim cu jocurile video în anii '80.\n\nLansare și Piață de Consum\n\nPrețul inițial de 199,99 USD a fost considerabil pentru epoca — ajustat la valoarea din 2025, ar echivala cu aproximativ 1.064,50 USD. Pentru consola originală VCS, aceasta era poziționa ca produs premium. Adevăratul catalizator comercial a venit în 1980 cu portarea Space Invaders, prima «killer app» (aplicație decisivă) a sistemului. Succesul acestui joc a transformar percepția consumatorilor asupra potențialului software pentru platformă. În noiembrie 1982, consola a fost oficial redenumită Atari 2600, pentru a o diferenția de succesorul planificat Atari 5200.\n\nHardware și Limitări Tehnice\n\nProcesor MOS 6507 funcționând la 1,19 MHz și 128 bytes de RAM — cifre care par imposibile astăzi. Pentru context, aceasta este semnificativ mai mic decât memoria unui simplu text editor modern. Totuși, aceasta nu a fost o barieră insurmontabilă — programatorii au explorat fiecare bit cu inovație remarcabilă. Cartușele au crescut de la 2 KB inițiali la 32 KB la finalul ciclului de viață, iar River Raid a demonstrat cum formule matematice pentru generarea de nivele și distribuția inamicilor pot economisi spațiu radical. Titluri precum Enduro au introdus efecte meteo și cicluri zi-noapte care creeau imersivitate în ciuda limitărilor hardware.\n\nBiblioteca Jocurilor și Evoluția Calității\n\nCu 523 de titluri oficiale, Atari 2600 a oferit varietate remarcabilă. Pac-Man, cel mai bine vândut joc cu 7-8 milioane de unități, a fost criticat pentru calitatea inferioară versiunii arcade, însă acest lucru nu a diminuat atracția sa comercială. Jocuri precum Combat (inclus în pachetul consacru) și Space Invaders au demonstrat potențialul portărilor. Pitfall II: Lost Caverns a reprezentat un salt tehnic cu ROM de patru ori mai mare pentru a oferi aventuri complexe cu scrolling. Fatal Run, lansat în 1990, a fost cel mai mare joc creat pentru platformă cu 32 KB, evidențiind evoluția constant a capabilităților sistemului.\n\nCalitatea Percepută și Descoperire\n\nDeși mulți consideră jocurile Atari 2600 ca «primitive», analiza mai atentă relevă nuanțe importante. Manualele jocurilor nu erau simple instrucțiuni — erau cheia pentru a debloca experiența reală. River Raid de Carol Shaw este recunoscut ca precursor al jocurilor generate procedural. Frogs and Flies și alte titluri simple și-au păstrat atractivitatea prin dinamica multiplayer subtilă și schimbările ambianța care creeau progresie perceptibilă. Aceasta nu era doar «trecut primitiv» — era design deliberat și constrangat de limitări hardware care forța inovație.\n\nProvocări Comerciale și Criza 1983\n\nSuccesul inicial a atraga mii de dezvoltatori și editori, dar nu toți au înțeles necesitatea de calitate. Criza jocurilor video din 1983 a fost determinată parțial de eșecruri comerciale majore — adaptarea Pac-Man a lui Atari și E.T. The Extra-Terrestrial de Atari au fost dezamăgitoare din punct de vedere tehnic și design. Inventarelor nevândute și pierderii de încredere a consumatorilor au urmat. Suportul oficial pentru consolă a fost întrerupt în 1992, dar relevanța sa a persistat.\n\nMoștenire și Influență Tehnică\n\nÎn 1982, Activision a devenit primul dezvoltator third-party major, stabilind un precedent ce a transformat industria în ecosistem de distribuție. Carol Shaw, cu River Raid, a fost recunoscută ca prima femeie designer major de jocuri video. Atari 2600+ (2023), o replică modernă lansat de actuala companie Atari Inc., demonstrează relevanța continuă — capabilă să ruleze cartușe originale de 2600 și 7800, aceasta conectează trecutul la prezent.\n\nJoystick-urile standard Atari au fost compatibile chiar și cu computerele MSX, Commodore 64, Amiga, Atari ST și Sega Master System, o demonstrație surprinzătoare a standardizării timpurii. Acest lucru nu a fost accident — a fost design deliberat care a facilitat adopția. Atari 2600 a stabilit paradigme de consum și dezvoltare care sunt valabile și în prezent: platforme software, ecosisteme third-party, și cicluri de viață extinsă. Nu este doar o notă de curs despre trecut — este fundamentul pe care industria jocurilor video a fost construită."
+    },
+    {
+        "id":  "magnavox-odyssey-2",
+        "nume":  "Magnavox Odyssey 2",
+        "producator":  "Magnavox",
+        "generatie":  2,
+        "lansare":  1978,
+        "imagine":  "assets/images/consoles/magnavox-odyssey-2.png",
+        "cpu":  {
+                    "arhitectura":  "Intel 8048",
+                    "proces_nm":  "N/A",
+                    "nuclee":  "1C",
+                    "frecventa":  "5.37 MHz",
+                    "tdp":  "~5W"
+                },
+        "gpu":  {
+                    "arhitectura":  "Intel 8244/8245",
+                    "unitati":  "Custom",
+                    "frecventa":  "N/A",
+                    "tflops":  "N/A",
+                    "capabilitati":  "4 sprites 8x8, 16 culori, caractere bitmap"
+                },
+        "memorie":  {
+                        "tip":  "RAM",
+                        "capacitate":  "128 bytes",
+                        "magistrala":  "8-bit",
+                        "bandwidth":  "N/A"
+                    },
+        "stocare":  {
+                        "tip":  "Cartridge ROM",
+                        "interfata":  "Cartridge",
+                        "viteza":  "N/A"
+                    },
+        "output_video":  {
+                             "rezolutie":  "160×200",
+                             "refresh":  "60 Hz",
+                             "hdr":  "N/A",
+                             "upscaling":  "N/A"
+                         },
+        "tehnologii":  {
+                           "ray_tracing":  false,
+                           "vrr":  false,
+                           "backwards_compatibility":  "N/A",
+                           "altele":  "Tastatură membrană QWERTY, modul sinteză vocală, jocuri hibride board game"
+                       },
+        "avantaje":  [
+                         "Tastatură membrană QWERTY unică pe piață",
+                         "Modul sinteză vocală The Voice cu sunet îmbunătățit",
+                         "Jocuri educaționale și Master Strategy hibride",
+                         "Suport internațional (Videopac G7000 în Europa)",
+                         "Câmpionul în Brazilia și Europa",
+                         "50 titluri lansate cu identitate vizuală distinctivă"
+                     ],
+        "dezavantaje":  [
+                            "Doar 128 bytes RAM extern extrem de limitant",
+                            "Grafică folosind caractere BIOS predefinite",
+                            "Doar 4 sprite-uri monocolore 8x8",
+                            "Procesul K.C. Munchkin vs Atari (retras de pe piață)",
+                            "Sprijin limitat third-party în America de Nord",
+                            "Joystick-uri cu formă în stea limitând mișcarea fluidă"
+                        ],
+        "istorie":  "Magnavox Odyssey 2: Hibridul Visionar\n\nLansată în septembrie 1978, Magnavox Odyssey 2 a reprezentat succesorul primei console de jocuri video din istorie, dar cu o abordare radical diferită. Poziționată ca o fuziune între o consolă de jocuri și un computer personal, Odyssey 2 s-a distins prin includerea unei tastaturi alfanumerice cu membrană QWERTY — o caracteristică unică care a separat-o clar de competitorii direcți. Cu aproximativ 2 milioane de unități vândute și un plasman onorabil pe locul trei în topul vânzărilor pre-1983, consola a demonstrat o viziune alternativă asupra viitorului jocurilor video.\n\nLansare și Prezență Globală\n\nMagnavox, un pioneer care a pierdut teren în fața Atari în anii '70, a încercat să recupereze prin Odyssey 2. Consola a purtat denumiri diferite în funcție de piață, reflectând prezența globală a corporației Philips. În America de Nord, a fost Magnavox Odyssey 2. În Europa, a devenit Philips Videopac G7000, lansat în decembrie 1978. Japonia a primit consola în septembrie 1982 la un preț ridicat de 49.800 yeni, transformând-o într-o raritate pentru colecționari. Brazilia și Peru au primi versiones traduse, cu jocuri localizate în portugheză.\n\nArhitectură și Limitări Hardware\n\nProcesor Intel 8048 pe 8 biți rulând la 5.37 MHz (NTSC) cu 64 bytes RAM intern și 1024 bytes ROM pentru BIOS — cifre care evidențiază constrângerile severe ale erei. RAM extern era de 128 bytes, plus alți 128 bytes dedicați audio/video. Cip video Intel 8244 (NTSC) sau 8245 (PAL) oferea 160×200 pixeli, 16 culori fixe (8 culori de bază cu variații de luminozitate), și doar 4 sprite-uri monocolore de 8×8 pixeli. Pentru text, consola se baza pe 12 caractere predefinite în BIOS, cu un set de 64 forme total disponibile — litere, cifre, și obiecte simple precum copaci sau avioane.\n\nControlele consoanei au evoluat în timp. Primele modele aveau joystick-uri argintii detașabile cu conector DB9, iar modelele ulterioare aveau joystick-uri negre cablate direct. Caracteristic, manetele aveau o carcasă în formă de stea cu 8 puncte, care limita uneori fluiditatea mișcării. Tastaura membrană QWERTY era integrată direct în consolă, oferind posibilitatea introducerii numelor pentru scoruri mari și acces la programare simplă prin cartușul Computer Intro!.\n\nInovații și Diferențiation\n\nOdyssey 2 a încercat să transcende jocurile de arcade prin mai multe căi. Seria Master Strategy (Quest for the Rings! și altele) oferea o fuziune neobișnuită — plăci fizice, jetoane și piese de joc care completau experiența digitală, oferind o profunzime narativă rară pentru acea perioadă. Modulul sinteză vocală The Voice era un upgrade major, adăugând vorbire, muzică și efecte sonore îmbunătățite. Spre deosebire de alte sisteme, jocurile compatibile nu necesitau obligatoriu acest modul pentru a funcționa — acesta era o caracteristică opțională.\n\nEn Europa, consola a primit suport mai sofisticat. Moduleul de șah C7010 conținea propriul procesor secundar (NSC800) pentru a compensa memoria limitată. Această abordare de hardware personalizat pentru anumite jocuri a fost inovatoare, dar și costly.\n\nBiblioteca de Software și Recepții Miste\n\nApibrox. 50 de jocuri au fost lansate în America de Nord. Magnavox a fost celebră pentru adăugarea unui semn de exclamare la finalul aproape fiecărui titlu — K.C. Munchkin!, Killer Bees!, Pick-axe Pete! — o strategie de marketing distinctivă care a devenit iconică. Ed Averett, un programator prolific, a fost responsabil singur pentru 24 de titluri, aproape jumătate din biblioteca nord-americană.\n\nK.C. Munchkin! a fost pentru Odyssey 2 ceea ce Pac-Man a fost pentru arcade, dar cu un element dramatic — Atari a dat în judecată Magnavox, susținând că jocul era o copie. Inițial Magnavox a câștigat, dar Atari a învins în apel, iar jocul a fost retras de pe piață. Parker Brothers a oferit apoi suport prin portări de celebre titluri ca Popeye, Frogger și Qbert.\n\nRecepție Geografică\n\nSituația comercială a variat drastic după regiune. În Statele Unite, Odyssey 2 a dominat împreună cu Atari 2600 până în 1980, dar a căzut pe locul trei după lansarea Intellivision. Marketingul a pus accent pe sloganul «The Ultimate Computer Video Game System», o aluzie clara la componentele computerului. În Europa și Brazilia, consola a avut un succes mult mai mare. În Brazilia, jocurile au fost traduse în portugheză și turneele erau evenimente comune. Producția a încetat oficial pe 20 martie 1984.\n\nMoștenire și Impactul Designului\n\nMagnavox Odyssey 2 este amintită ca o consolă care a încercat să depășească barierele jocurilor de arcade simple. Limitările grafice (caracterele predefinite din BIOS care făceau ca multe jocuri să arate similar) au împiedicat-o să iasă în evidență în fața Atari. Totuși, inovațiile în sinteză vocală și fuziunea jocurilor de strategie hibridă rămân puncte de referință în evoluția hardware-ului video. Biblioteca sa emană o identitate vizuală distinctivă și inconfundabilă, cu box art care a devenit o marcă registrată a erei."
+    },
+    {
+        "id":  "intellivision",
+        "nume":  "Intellivision",
+        "producator":  "Mattel",
+        "generatie":  2,
+        "lansare":  1979,
+        "imagine":  "assets/images/consoles/intellivision.png",
+        "cpu":  {
+                    "arhitectura":  "GI CP1610",
+                    "proces_nm":  "N/A",
+                    "nuclee":  "1C",
+                    "frecventa":  "894 kHz",
+                    "tdp":  "~10W"
+                },
+        "gpu":  {
+                    "arhitectura":  "AY-3-8900",
+                    "unitati":  "Custom",
+                    "frecventa":  "N/A",
+                    "tflops":  "N/A",
+                    "capabilitati":  "8 sprites"
+                },
+        "memorie":  {
+                        "tip":  "RAM",
+                        "capacitate":  "1.5 KB",
+                        "magistrala":  "16-bit",
+                        "bandwidth":  "N/A"
+                    },
+        "stocare":  {
+                        "tip":  "Cartridge",
+                        "interfata":  "ROM",
+                        "viteza":  "N/A"
+                    },
+        "output_video":  {
+                             "rezolutie":  "159×96",
+                             "refresh":  "60 Hz",
+                             "hdr":  "N/A",
+                             "upscaling":  "N/A"
+                         },
+        "tehnologii":  {
+                           "ray_tracing":  false,
+                           "vrr":  false,
+                           "backwards_compatibility":  "N/A",
+                           "altele":  "Voice synthesis"
+                       },
+        "avantaje":  [
+                         "Grafică superioară 2600",
+                         "Controller disc unic",
+                         "Voice synthesis (Intellivoice)"
+                     ],
+        "dezavantaje":  [
+                            "Controller dificil de folosit",
+                            "Rezoluție scăzută",
+                            "Crash 1983"
+                        ],
+        "istorie":  ""
+    },
+    {
+        "id":  "microvision",
+        "nume":  "Microvision",
+        "producator":  "Milton Bradley",
+        "generatie":  2,
+        "lansare":  1979,
+        "imagine":  "assets/images/consoles/microvision.png",
+        "cpu":  {
+                    "arhitectura":  "Intel 8021",
+                    "proces_nm":  "N/A",
+                    "nuclee":  "1C",
+                    "frecventa":  "100 kHz",
+                    "tdp":  "~0.5W"
+                },
+        "gpu":  {
+                    "arhitectura":  "LCD direct",
+                    "unitati":  "N/A",
+                    "frecventa":  "N/A",
+                    "tflops":  "N/A",
+                    "capabilitati":  "16×16 LCD"
+                },
+        "memorie":  {
+                        "tip":  "RAM",
+                        "capacitate":  "64 bytes",
+                        "magistrala":  "8-bit",
+                        "bandwidth":  "N/A"
+                    },
+        "stocare":  {
+                        "tip":  "Cartridge",
+                        "interfata":  "ROM",
+                        "viteza":  "N/A"
+                    },
+        "output_video":  {
+                             "rezolutie":  "16×16",
+                             "refresh":  "N/A",
+                             "hdr":  "N/A",
+                             "upscaling":  "N/A"
+                         },
+        "tehnologii":  {
+                           "ray_tracing":  false,
+                           "vrr":  false,
+                           "backwards_compatibility":  "N/A",
+                           "altele":  "First LCD handheld"
+                       },
+        "avantaje":  [
+                         "Prima consolă handheld cu LCD",
+                         "Cartridge interschimbabile"
+                     ],
+        "dezavantaje":  [
+                            "Ecran minuscul",
+                            "Foarte fragil",
+                            "CPU în cartușe"
+                        ],
+        "istorie":  ""
+    },
+    {
+        "id":  "atari-5200",
+        "nume":  "Atari 5200",
+        "producator":  "Atari",
+        "generatie":  2,
+        "lansare":  1982,
+        "imagine":  "assets/images/consoles/atari-5200.png",
+        "cpu":  {
+                    "arhitectura":  "MOS 6502C",
+                    "proces_nm":  "N/A",
+                    "nuclee":  "1C",
+                    "frecventa":  "1.79 MHz",
+                    "tdp":  "~10W"
+                },
+        "gpu":  {
+                    "arhitectura":  "ANTIC/GTIA",
+                    "unitati":  "Custom",
+                    "frecventa":  "1.79 MHz",
+                    "tflops":  "N/A",
+                    "capabilitati":  "Player/missile"
+                },
+        "memorie":  {
+                        "tip":  "RAM",
+                        "capacitate":  "16 KB",
+                        "magistrala":  "8-bit",
+                        "bandwidth":  "N/A"
+                    },
+        "stocare":  {
+                        "tip":  "Cartridge",
+                        "interfata":  "ROM",
+                        "viteza":  "N/A"
+                    },
+        "output_video":  {
+                             "rezolutie":  "320×192",
+                             "refresh":  "60 Hz",
+                             "hdr":  "N/A",
+                             "upscaling":  "N/A"
+                         },
+        "tehnologii":  {
+                           "ray_tracing":  false,
+                           "vrr":  false,
+                           "backwards_compatibility":  "N/A",
+                           "altele":  "Analog controller"
+                       },
+        "avantaje":  [
+                         "Grafică superioară 2600",
+                         "Analog controller",
+                         "Bazat pe Atari 400/800"
+                     ],
+        "dezavantaje":  [
+                            "Controller fragil și non-centering",
+                            "Incompatibil cu 2600",
+                            "Design masiv"
+                        ],
+        "istorie":  ""
+    },
+    {
+        "id":  "colecovision",
+        "nume":  "ColecoVision",
+        "producator":  "Coleco",
+        "generatie":  2,
+        "lansare":  1982,
+        "imagine":  "assets/images/consoles/colecovision.png",
+        "cpu":  {
+                    "arhitectura":  "Zilog Z80",
+                    "proces_nm":  "N/A",
+                    "nuclee":  "1C",
+                    "frecventa":  "3.58 MHz",
+                    "tdp":  "~10W"
+                },
+        "gpu":  {
+                    "arhitectura":  "TMS9918A",
+                    "unitati":  "Custom",
+                    "frecventa":  "10.74 MHz",
+                    "tflops":  "N/A",
+                    "capabilitati":  "32 sprites"
+                },
+        "memorie":  {
+                        "tip":  "RAM",
+                        "capacitate":  "1 KB",
+                        "magistrala":  "8-bit",
+                        "bandwidth":  "N/A"
+                    },
+        "stocare":  {
+                        "tip":  "Cartridge",
+                        "interfata":  "ROM",
+                        "viteza":  "N/A"
+                    },
+        "output_video":  {
+                             "rezolutie":  "256×192",
+                             "refresh":  "60 Hz",
+                             "hdr":  "N/A",
+                             "upscaling":  "N/A"
+                         },
+        "tehnologii":  {
+                           "ray_tracing":  false,
+                           "vrr":  false,
+                           "backwards_compatibility":  "Atari 2600 (adapter)",
+                           "altele":  "Arcade ports"
+                       },
+        "avantaje":  [
+                         "Grafică arcade-quality",
+                         "Donkey Kong bundle",
+                         "Z80 puternic"
+                     ],
+        "dezavantaje":  [
+                            "Controller numeric complex",
+                            "Crash 1983",
+                            "Scurtă durată"
+                        ],
+        "istorie":  ""
+    },
+    {
+        "id":  "vectrex",
+        "nume":  "Vectrex",
+        "producator":  "GCE",
+        "generatie":  2,
+        "lansare":  1982,
+        "imagine":  "assets/images/consoles/vectrex.png",
+        "cpu":  {
+                    "arhitectura":  "Motorola 68A09",
+                    "proces_nm":  "N/A",
+                    "nuclee":  "1C",
+                    "frecventa":  "1.5 MHz",
+                    "tdp":  "~20W"
+                },
+        "gpu":  {
+                    "arhitectura":  "Vector display",
+                    "unitati":  "CRT vector",
+                    "frecventa":  "N/A",
+                    "tflops":  "N/A",
+                    "capabilitati":  "Vector graphics"
+                },
+        "memorie":  {
+                        "tip":  "RAM",
+                        "capacitate":  "1 KB",
+                        "magistrala":  "8-bit",
+                        "bandwidth":  "N/A"
+                    },
+        "stocare":  {
+                        "tip":  "Cartridge",
+                        "interfata":  "ROM",
+                        "viteza":  "N/A"
+                    },
+        "output_video":  {
+                             "rezolutie":  "Vector (no pixels)",
+                             "refresh":  "Analog",
+                             "hdr":  "N/A",
+                             "upscaling":  "N/A"
+                         },
+        "tehnologii":  {
+                           "ray_tracing":  false,
+                           "vrr":  false,
+                           "backwards_compatibility":  "N/A",
+                           "altele":  "Built-in monitor"
+                       },
+        "avantaje":  [
+                         "Display vector integrat",
+                         "Grafică crisp fără pixeli",
+                         "Design unic"
+                     ],
+        "dezavantaje":  [
+                            "Doar monocrom",
+                            "Bibliotecă limitată",
+                            "Crash 1983"
+                        ],
+        "istorie":  ""
+    },
+    {
+        "id":  "famicom",
+        "nume":  "Nintendo Famicom",
+        "producator":  "Nintendo",
+        "generatie":  3,
+        "lansare":  1983,
+        "imagine":  "assets/images/consoles/famicom.png",
+        "cpu":  {
+                    "arhitectura":  "Ricoh 2A03",
+                    "proces_nm":  "2.0 µm",
+                    "nuclee":  "1C",
+                    "frecventa":  "1.79 MHz",
+                    "tdp":  "~5W"
+                },
+        "gpu":  {
+                    "arhitectura":  "PPU",
+                    "unitati":  "Custom",
+                    "frecventa":  "5.37 MHz",
+                    "tflops":  "N/A",
+                    "capabilitati":  "64 sprites"
+                },
+        "memorie":  {
+                        "tip":  "RAM",
+                        "capacitate":  "2 KB",
+                        "magistrala":  "8-bit",
+                        "bandwidth":  "N/A"
+                    },
+        "stocare":  {
+                        "tip":  "Cartridge",
+                        "interfata":  "ROM",
+                        "viteza":  "N/A"
+                    },
+        "output_video":  {
+                             "rezolutie":  "256×240",
+                             "refresh":  "60 Hz",
+                             "hdr":  "N/A",
+                             "upscaling":  "N/A"
+                         },
+        "tehnologii":  {
+                           "ray_tracing":  false,
+                           "vrr":  false,
+                           "backwards_compatibility":  "N/A",
+                           "altele":  "Famicom Disk System"
+                       },
+        "avantaje":  [
+                         "Design compact",
+                         "Controller hardwired",
+                         "Disk System expansion",
+                         "Piață JP enormă"
+                     ],
+        "dezavantaje":  [
+                            "Controlere fixe",
+                            "Doar RF output",
+                            "Fără NES lockout chip"
+                        ],
+        "istorie":  ""
+    },
+    {
+        "id":  "sega-sg-1000",
+        "nume":  "Sega SG-1000",
+        "producator":  "Sega",
+        "generatie":  3,
+        "lansare":  1983,
+        "imagine":  "assets/images/consoles/sega-sg-1000.png",
+        "cpu":  {
+                    "arhitectura":  "Zilog Z80",
+                    "proces_nm":  "N/A",
+                    "nuclee":  "1C",
+                    "frecventa":  "3.58 MHz",
+                    "tdp":  "~5W"
+                },
+        "gpu":  {
+                    "arhitectura":  "TMS9918A",
+                    "unitati":  "Custom",
+                    "frecventa":  "10.74 MHz",
+                    "tflops":  "N/A",
+                    "capabilitati":  "32 sprites"
+                },
+        "memorie":  {
+                        "tip":  "RAM",
+                        "capacitate":  "1 KB",
+                        "magistrala":  "8-bit",
+                        "bandwidth":  "N/A"
+                    },
+        "stocare":  {
+                        "tip":  "Cartridge",
+                        "interfata":  "ROM",
+                        "viteza":  "N/A"
+                    },
+        "output_video":  {
+                             "rezolutie":  "256×192",
+                             "refresh":  "60 Hz",
+                             "hdr":  "N/A",
+                             "upscaling":  "N/A"
+                         },
+        "tehnologii":  {
+                           "ray_tracing":  false,
+                           "vrr":  false,
+                           "backwards_compatibility":  "N/A",
+                           "altele":  "First Sega console"
+                       },
+        "avantaje":  [
+                         "Prima consolă Sega",
+                         "Hardware decent pentru epocă"
+                     ],
+        "dezavantaje":  [
+                            "Eclipsată de Famicom",
+                            "Distribuție limitată",
+                            "Bibliotecă mică"
+                        ],
+        "istorie":  ""
+    },
+    {
+        "id":  "nes",
+        "nume":  "Nintendo NES",
+        "producator":  "Nintendo",
+        "generatie":  3,
+        "lansare":  1985,
+        "imagine":  "assets/images/consoles/nes.png",
+        "cpu":  {
+                    "arhitectura":  "Ricoh 2A03",
+                    "proces_nm":  "2.0 µm",
+                    "nuclee":  "1C",
+                    "frecventa":  "1.79 MHz",
+                    "tdp":  "~5W"
+                },
+        "gpu":  {
+                    "arhitectura":  "PPU (2C02)",
+                    "unitati":  "Custom",
+                    "frecventa":  "5.37 MHz",
+                    "tflops":  "N/A",
+                    "capabilitati":  "64 sprites"
+                },
+        "memorie":  {
+                        "tip":  "RAM",
+                        "capacitate":  "2 KB",
+                        "magistrala":  "8-bit",
+                        "bandwidth":  "N/A"
+                    },
+        "stocare":  {
+                        "tip":  "Cartridge",
+                        "interfata":  "ROM",
+                        "viteza":  "N/A"
+                    },
+        "output_video":  {
+                             "rezolutie":  "256×240",
+                             "refresh":  "60 Hz",
+                             "hdr":  "N/A",
+                             "upscaling":  "N/A"
+                         },
+        "tehnologii":  {
+                           "ray_tracing":  false,
+                           "vrr":  false,
+                           "backwards_compatibility":  "N/A",
+                           "altele":  "Zapper, R.O.B."
+                       },
+        "avantaje":  [
+                         "A salvat industria jocurilor",
+                         "Jocuri iconice (Mario, Zelda)",
+                         "Bibliotecă vastă",
+                         "Control calitate strict"
+                     ],
+        "dezavantaje":  [
+                            "Blinking cartridge issue",
+                            "Grafică limitată",
+                            "Fără save intern",
+                            "2 KB RAM"
+                        ],
+        "istorie":  ""
+    },
+    {
+        "id":  "sega-master-system",
+        "nume":  "Sega Master System",
+        "producator":  "Sega",
+        "generatie":  3,
+        "lansare":  1985,
+        "imagine":  "assets/images/consoles/sega-master-system.png",
+        "cpu":  {
+                    "arhitectura":  "Zilog Z80",
+                    "proces_nm":  "N/A",
+                    "nuclee":  "1C",
+                    "frecventa":  "3.58 MHz",
+                    "tdp":  "~5W"
+                },
+        "gpu":  {
+                    "arhitectura":  "VDP (TMS9918)",
+                    "unitati":  "Custom",
+                    "frecventa":  "10.74 MHz",
+                    "tflops":  "N/A",
+                    "capabilitati":  "64 sprites"
+                },
+        "memorie":  {
+                        "tip":  "RAM",
+                        "capacitate":  "8 KB",
+                        "magistrala":  "8-bit",
+                        "bandwidth":  "N/A"
+                    },
+        "stocare":  {
+                        "tip":  "Cartridge/Card",
+                        "interfata":  "ROM",
+                        "viteza":  "N/A"
+                    },
+        "output_video":  {
+                             "rezolutie":  "256×192",
+                             "refresh":  "60 Hz",
+                             "hdr":  "N/A",
+                             "upscaling":  "N/A"
+                         },
+        "tehnologii":  {
+                           "ray_tracing":  false,
+                           "vrr":  false,
+                           "backwards_compatibility":  "SG-1000",
+                           "altele":  "3D glasses"
+                       },
+        "avantaje":  [
+                         "Hardware superior NES",
+                         "Paletă de culori mai mare",
+                         "Succes în Europa/Brazilia"
+                     ],
+        "dezavantaje":  [
+                            "Bibliotecă mai mică",
+                            "Marketing slab în SUA",
+                            "Fără third-party major"
+                        ],
+        "istorie":  ""
+    },
+    {
+        "id":  "atari-7800",
+        "nume":  "Atari 7800",
+        "producator":  "Atari",
+        "generatie":  3,
+        "lansare":  1986,
+        "imagine":  "assets/images/consoles/atari-7800.png",
+        "cpu":  {
+                    "arhitectura":  "Atari SALLY",
+                    "proces_nm":  "N/A",
+                    "nuclee":  "1C",
+                    "frecventa":  "1.79 MHz",
+                    "tdp":  "~5W"
+                },
+        "gpu":  {
+                    "arhitectura":  "MARIA",
+                    "unitati":  "Custom",
+                    "frecventa":  "7.16 MHz",
+                    "tflops":  "N/A",
+                    "capabilitati":  "100 sprites"
+                },
+        "memorie":  {
+                        "tip":  "RAM",
+                        "capacitate":  "4 KB",
+                        "magistrala":  "8-bit",
+                        "bandwidth":  "N/A"
+                    },
+        "stocare":  {
+                        "tip":  "Cartridge",
+                        "interfata":  "ROM",
+                        "viteza":  "N/A"
+                    },
+        "output_video":  {
+                             "rezolutie":  "320×240",
+                             "refresh":  "60 Hz",
+                             "hdr":  "N/A",
+                             "upscaling":  "N/A"
+                         },
+        "tehnologii":  {
+                           "ray_tracing":  false,
+                           "vrr":  false,
+                           "backwards_compatibility":  "Atari 2600",
+                           "altele":  "Backward compat"
+                       },
+        "avantaje":  [
+                         "Backward compat 2600",
+                         "Grafică superioară 2600",
+                         "Arcade ports bune"
+                     ],
+        "dezavantaje":  [
+                            "Lansare întârziată",
+                            "Sunet 2600 de bază",
+                            "Prea târziu pe piață"
+                        ],
+        "istorie":  ""
+    },
+    {
+        "id":  "pc-engine",
+        "nume":  "PC Engine",
+        "producator":  "NEC/Hudson",
+        "generatie":  4,
+        "lansare":  1987,
+        "imagine":  "assets/images/consoles/pc-engine.png",
+        "cpu":  {
+                    "arhitectura":  "HuC6280",
+                    "proces_nm":  "N/A",
+                    "nuclee":  "1C",
+                    "frecventa":  "7.16 MHz",
+                    "tdp":  "~5W"
+                },
+        "gpu":  {
+                    "arhitectura":  "HuC6270",
+                    "unitati":  "Custom VDC",
+                    "frecventa":  "7.16 MHz",
+                    "tflops":  "N/A",
+                    "capabilitati":  "512 sprites"
+                },
+        "memorie":  {
+                        "tip":  "RAM",
+                        "capacitate":  "8 KB",
+                        "magistrala":  "8-bit",
+                        "bandwidth":  "N/A"
+                    },
+        "stocare":  {
+                        "tip":  "HuCard",
+                        "interfata":  "Card",
+                        "viteza":  "N/A"
+                    },
+        "output_video":  {
+                             "rezolutie":  "256×239",
+                             "refresh":  "60 Hz",
+                             "hdr":  "N/A",
+                             "upscaling":  "N/A"
+                         },
+        "tehnologii":  {
+                           "ray_tracing":  false,
+                           "vrr":  false,
+                           "backwards_compatibility":  "N/A",
+                           "altele":  "CD gaming pioneer"
+                       },
+        "avantaje":  [
+                         "Compact și puternic",
+                         "CD-ROM add-on",
+                         "Grafică excelentă pentru epocă"
+                     ],
+        "dezavantaje":  [
+                            "8-bit CPU",
+                            "Puțină expunere în Occident",
+                            "HuCards proprietare"
+                        ],
+        "istorie":  ""
+    },
+    {
+        "id":  "sega-genesis",
+        "nume":  "Sega Genesis",
+        "producator":  "Sega",
+        "generatie":  4,
+        "lansare":  1988,
+        "imagine":  "assets/images/consoles/sega-genesis.png",
+        "cpu":  {
+                    "arhitectura":  "Motorola 68000",
+                    "proces_nm":  "N/A",
+                    "nuclee":  "1C",
+                    "frecventa":  "7.6 MHz",
+                    "tdp":  "~10W"
+                },
+        "gpu":  {
+                    "arhitectura":  "VDP (Yamaha)",
+                    "unitati":  "Custom",
+                    "frecventa":  "7.6 MHz",
+                    "tflops":  "N/A",
+                    "capabilitati":  "Blast Processing"
+                },
+        "memorie":  {
+                        "tip":  "RAM",
+                        "capacitate":  "64 KB + 64 KB VRAM",
+                        "magistrala":  "16-bit",
+                        "bandwidth":  "N/A"
+                    },
+        "stocare":  {
+                        "tip":  "Cartridge",
+                        "interfata":  "ROM",
+                        "viteza":  "N/A"
+                    },
+        "output_video":  {
+                             "rezolutie":  "320×224",
+                             "refresh":  "60 Hz",
+                             "hdr":  "N/A",
+                             "upscaling":  "N/A"
+                         },
+        "tehnologii":  {
+                           "ray_tracing":  false,
+                           "vrr":  false,
+                           "backwards_compatibility":  "N/A",
+                           "altele":  "Blast Processing"
+                       },
+        "avantaje":  [
+                         "Procesor mai rapid ca SNES",
+                         "Sonic The Hedgehog",
+                         "Marketing agresiv",
+                         "Hardware extensibil"
+                     ],
+        "dezavantaje":  [
+                            "Sunet inferior SNES",
+                            "Paletă de culori limitată",
+                            "Add-on-uri scumpe"
+                        ],
+        "istorie":  ""
+    },
+    {
+        "id":  "game-boy",
+        "nume":  "Game Boy",
+        "producator":  "Nintendo",
+        "generatie":  4,
+        "lansare":  1989,
+        "imagine":  "assets/images/consoles/game-boy.png",
+        "cpu":  {
+                    "arhitectura":  "Sharp LR35902",
+                    "proces_nm":  "N/A",
+                    "nuclee":  "1C",
+                    "frecventa":  "4.19 MHz",
+                    "tdp":  "~0.5W"
+                },
+        "gpu":  {
+                    "arhitectura":  "Custom LCD",
+                    "unitati":  "N/A",
+                    "frecventa":  "N/A",
+                    "tflops":  "N/A",
+                    "capabilitati":  "40 sprites"
+                },
+        "memorie":  {
+                        "tip":  "RAM",
+                        "capacitate":  "8 KB",
+                        "magistrala":  "8-bit",
+                        "bandwidth":  "N/A"
+                    },
+        "stocare":  {
+                        "tip":  "Cartridge",
+                        "interfata":  "ROM",
+                        "viteza":  "N/A"
+                    },
+        "output_video":  {
+                             "rezolutie":  "160×144",
+                             "refresh":  "60 Hz",
+                             "hdr":  "N/A",
+                             "upscaling":  "N/A"
+                         },
+        "tehnologii":  {
+                           "ray_tracing":  false,
+                           "vrr":  false,
+                           "backwards_compatibility":  "N/A",
+                           "altele":  "Link Cable"
+                       },
+        "avantaje":  [
+                         "Portabilitate revoluționară",
+                         "Baterie durabilă",
+                         "Tetris bundle",
+                         "Bibliotecă imensă"
+                     ],
+        "dezavantaje":  [
+                            "Ecran monocrom fără backlight",
+                            "Grafică limitată",
+                            "Fără color"
+                        ],
+        "istorie":  ""
+    },
+    {
+        "id":  "atari-lynx",
+        "nume":  "Atari Lynx",
+        "producator":  "Atari",
+        "generatie":  4,
+        "lansare":  1989,
+        "imagine":  "assets/images/consoles/atari-lynx.png",
+        "cpu":  {
+                    "arhitectura":  "MOS 65C02",
+                    "proces_nm":  "N/A",
+                    "nuclee":  "1C",
+                    "frecventa":  "4 MHz",
+                    "tdp":  "~2W"
+                },
+        "gpu":  {
+                    "arhitectura":  "Custom Suzy",
+                    "unitati":  "N/A",
+                    "frecventa":  "16 MHz",
+                    "tflops":  "N/A",
+                    "capabilitati":  "Hardware scaling"
+                },
+        "memorie":  {
+                        "tip":  "RAM",
+                        "capacitate":  "64 KB",
+                        "magistrala":  "16-bit",
+                        "bandwidth":  "N/A"
+                    },
+        "stocare":  {
+                        "tip":  "Cartridge",
+                        "interfata":  "ROM",
+                        "viteza":  "N/A"
+                    },
+        "output_video":  {
+                             "rezolutie":  "160×102 color",
+                             "refresh":  "60 Hz",
+                             "hdr":  "N/A",
+                             "upscaling":  "N/A"
+                         },
+        "tehnologii":  {
+                           "ray_tracing":  false,
+                           "vrr":  false,
+                           "backwards_compatibility":  "N/A",
+                           "altele":  "Ambidextrous flip"
+                       },
+        "avantaje":  [
+                         "Ecran color backlit",
+                         "Hardware scaling sprites",
+                         "Design ambidextru"
+                     ],
+        "dezavantaje":  [
+                            "Baterie teribilă",
+                            "Mare și greu",
+                            "Puține jocuri"
+                        ],
+        "istorie":  ""
+    },
+    {
+        "id":  "sega-game-gear",
+        "nume":  "Sega Game Gear",
+        "producator":  "Sega",
+        "generatie":  4,
+        "lansare":  1990,
+        "imagine":  "assets/images/consoles/sega-game-gear.png",
+        "cpu":  {
+                    "arhitectura":  "Zilog Z80",
+                    "proces_nm":  "N/A",
+                    "nuclee":  "1C",
+                    "frecventa":  "3.58 MHz",
+                    "tdp":  "~2W"
+                },
+        "gpu":  {
+                    "arhitectura":  "VDP (SMS)",
+                    "unitati":  "Custom",
+                    "frecventa":  "10.74 MHz",
+                    "tflops":  "N/A",
+                    "capabilitati":  "64 sprites"
+                },
+        "memorie":  {
+                        "tip":  "RAM",
+                        "capacitate":  "8 KB",
+                        "magistrala":  "8-bit",
+                        "bandwidth":  "N/A"
+                    },
+        "stocare":  {
+                        "tip":  "Cartridge",
+                        "interfata":  "ROM",
+                        "viteza":  "N/A"
+                    },
+        "output_video":  {
+                             "rezolutie":  "160×144 color",
+                             "refresh":  "60 Hz",
+                             "hdr":  "N/A",
+                             "upscaling":  "N/A"
+                         },
+        "tehnologii":  {
+                           "ray_tracing":  false,
+                           "vrr":  false,
+                           "backwards_compatibility":  "SMS (adapter)",
+                           "altele":  "Backlit color"
+                       },
+        "avantaje":  [
+                         "Ecran color cu backlight",
+                         "Compatibil SMS (adapter)",
+                         "Hardware solid"
+                     ],
+        "dezavantaje":  [
+                            "6 baterii AA, 3-5 ore",
+                            "Greu și mare",
+                            "Bibliotecă mai mică decât GB"
+                        ],
+        "istorie":  ""
+    },
+    {
+        "id":  "neo-geo-aes",
+        "nume":  "Neo Geo AES",
+        "producator":  "SNK",
+        "generatie":  4,
+        "lansare":  1990,
+        "imagine":  "assets/images/consoles/neo-geo-aes.png",
+        "cpu":  {
+                    "arhitectura":  "Motorola 68000",
+                    "proces_nm":  "N/A",
+                    "nuclee":  "1C",
+                    "frecventa":  "12 MHz",
+                    "tdp":  "~15W"
+                },
+        "gpu":  {
+                    "arhitectura":  "SNK Custom",
+                    "unitati":  "N/A",
+                    "frecventa":  "12 MHz",
+                    "tflops":  "N/A",
+                    "capabilitati":  "380 sprites"
+                },
+        "memorie":  {
+                        "tip":  "RAM",
+                        "capacitate":  "64 KB",
+                        "magistrala":  "16-bit",
+                        "bandwidth":  "N/A"
+                    },
+        "stocare":  {
+                        "tip":  "Cartridge",
+                        "interfata":  "ROM (up to 330MB)",
+                        "viteza":  "N/A"
+                    },
+        "output_video":  {
+                             "rezolutie":  "320×224",
+                             "refresh":  "60 Hz",
+                             "hdr":  "N/A",
+                             "upscaling":  "N/A"
+                         },
+        "tehnologii":  {
+                           "ray_tracing":  false,
+                           "vrr":  false,
+                           "backwards_compatibility":  "N/A",
+                           "altele":  "Arcade-perfect"
+                       },
+        "avantaje":  [
+                         "Calitate arcade acasă",
+                         "Sprite-uri imense",
+                         "Bibliotecă fighting games"
+                     ],
+        "dezavantaje":  [
+                            "Preț prohibitiv",
+                            "Cartridge foarte scumpe",
+                            "Nici o economie de scală"
+                        ],
+        "istorie":  ""
+    },
+    {
+        "id":  "snes",
+        "nume":  "Super Nintendo",
+        "producator":  "Nintendo",
+        "generatie":  4,
+        "lansare":  1990,
+        "imagine":  "assets/images/consoles/snes.png",
+        "cpu":  {
+                    "arhitectura":  "65C816",
+                    "proces_nm":  "1.0 µm",
+                    "nuclee":  "1C",
+                    "frecventa":  "3.58 MHz",
+                    "tdp":  "~10W"
+                },
+        "gpu":  {
+                    "arhitectura":  "PPU (dual)",
+                    "unitati":  "2 PPU chips",
+                    "frecventa":  "3.58 MHz",
+                    "tflops":  "N/A",
+                    "capabilitati":  "Mode 7"
+                },
+        "memorie":  {
+                        "tip":  "WRAM",
+                        "capacitate":  "128 KB",
+                        "magistrala":  "16-bit",
+                        "bandwidth":  "N/A"
+                    },
+        "stocare":  {
+                        "tip":  "Cartridge",
+                        "interfata":  "ROM",
+                        "viteza":  "N/A"
+                    },
+        "output_video":  {
+                             "rezolutie":  "256×224",
+                             "refresh":  "60 Hz",
+                             "hdr":  "N/A",
+                             "upscaling":  "N/A"
+                         },
+        "tehnologii":  {
+                           "ray_tracing":  false,
+                           "vrr":  false,
+                           "backwards_compatibility":  "N/A",
+                           "altele":  "DSP audio, Mode 7"
+                       },
+        "avantaje":  [
+                         "Audio superior (Sony SPC700)",
+                         "Mode 7 hardware",
+                         "Controller SNES iconic",
+                         "Jocuri legendare"
+                     ],
+        "dezavantaje":  [
+                            "CPU mai lent decât Genesis",
+                            "Cartridge scumpe",
+                            "Procesare lentă uneori"
+                        ],
+        "istorie":  ""
+    },
+    {
+        "id":  "philips-cd-i",
+        "nume":  "Philips CD-i",
+        "producator":  "Philips",
+        "generatie":  4,
+        "lansare":  1991,
+        "imagine":  "assets/images/consoles/philips-cd-i.png",
+        "cpu":  {
+                    "arhitectura":  "Motorola 68000",
+                    "proces_nm":  "N/A",
+                    "nuclee":  "1C",
+                    "frecventa":  "15.5 MHz",
+                    "tdp":  "~20W"
+                },
+        "gpu":  {
+                    "arhitectura":  "Custom",
+                    "unitati":  "N/A",
+                    "frecventa":  "N/A",
+                    "tflops":  "N/A",
+                    "capabilitati":  "FMV"
+                },
+        "memorie":  {
+                        "tip":  "RAM",
+                        "capacitate":  "1 MB",
+                        "magistrala":  "16-bit",
+                        "bandwidth":  "N/A"
+                    },
+        "stocare":  {
+                        "tip":  "CD-ROM",
+                        "interfata":  "CD",
+                        "viteza":  "1x"
+                    },
+        "output_video":  {
+                             "rezolutie":  "384×280",
+                             "refresh":  "60 Hz",
+                             "hdr":  "N/A",
+                             "upscaling":  "N/A"
+                         },
+        "tehnologii":  {
+                           "ray_tracing":  false,
+                           "vrr":  false,
+                           "backwards_compatibility":  "N/A",
+                           "altele":  "Multimedia"
+                       },
+        "avantaje":  [
+                         "Format CD interactiv",
+                         "Multimedia versatil",
+                         "Filme interactive"
+                     ],
+        "dezavantaje":  [
+                            "Nu e o consolă de gaming reală",
+                            "Controller slab",
+                            "Jocuri Zelda/Mario teribile"
+                        ],
+        "istorie":  ""
+    },
+    {
+        "id":  "3do",
+        "nume":  "3DO Interactive",
+        "producator":  "Panasonic",
+        "generatie":  5,
+        "lansare":  1993,
+        "imagine":  "assets/images/consoles/3do.png",
+        "cpu":  {
+                    "arhitectura":  "ARM60",
+                    "proces_nm":  "600 nm",
+                    "nuclee":  "1C",
+                    "frecventa":  "12.5 MHz",
+                    "tdp":  "~20W"
+                },
+        "gpu":  {
+                    "arhitectura":  "Custom CEL",
+                    "unitati":  "N/A",
+                    "frecventa":  "N/A",
+                    "tflops":  "N/A",
+                    "capabilitati":  "CEL animation"
+                },
+        "memorie":  {
+                        "tip":  "DRAM",
+                        "capacitate":  "2 MB",
+                        "magistrala":  "32-bit",
+                        "bandwidth":  "N/A"
+                    },
+        "stocare":  {
+                        "tip":  "CD-ROM",
+                        "interfata":  "CD",
+                        "viteza":  "2x"
+                    },
+        "output_video":  {
+                             "rezolutie":  "640×480",
+                             "refresh":  "60 Hz",
+                             "hdr":  "N/A",
+                             "upscaling":  "N/A"
+                         },
+        "tehnologii":  {
+                           "ray_tracing":  false,
+                           "vrr":  false,
+                           "backwards_compatibility":  "N/A",
+                           "altele":  "FMV games"
+                       },
+        "avantaje":  [
+                         "Hardware avansat la lansare",
+                         "CD-ROM",
+                         "Design modular"
+                     ],
+        "dezavantaje":  [
+                            "Preț foarte ridicat ($699)",
+                            "Puține jocuri de calitate",
+                            "Depășit rapid"
+                        ],
+        "istorie":  ""
+    },
+    {
+        "id":  "atari-jaguar",
+        "nume":  "Atari Jaguar",
+        "producator":  "Atari",
+        "generatie":  5,
+        "lansare":  1993,
+        "imagine":  "assets/images/consoles/atari-jaguar.png",
+        "cpu":  {
+                    "arhitectura":  "Motorola 68000",
+                    "proces_nm":  "N/A",
+                    "nuclee":  "1C + 2 RISC",
+                    "frecventa":  "13.3 MHz",
+                    "tdp":  "~15W"
+                },
+        "gpu":  {
+                    "arhitectura":  "Tom + Jerry",
+                    "unitati":  "Custom RISC",
+                    "frecventa":  "26.6 MHz",
+                    "tflops":  "N/A",
+                    "capabilitati":  "64-bit bus"
+                },
+        "memorie":  {
+                        "tip":  "DRAM",
+                        "capacitate":  "2 MB",
+                        "magistrala":  "64-bit",
+                        "bandwidth":  "N/A"
+                    },
+        "stocare":  {
+                        "tip":  "Cartridge",
+                        "interfata":  "ROM",
+                        "viteza":  "N/A"
+                    },
+        "output_video":  {
+                             "rezolutie":  "720×576",
+                             "refresh":  "60 Hz",
+                             "hdr":  "N/A",
+                             "upscaling":  "N/A"
+                         },
+        "tehnologii":  {
+                           "ray_tracing":  false,
+                           "vrr":  false,
+                           "backwards_compatibility":  "N/A",
+                           "altele":  "64-bit marketing"
+                       },
+        "avantaje":  [
+                         "Arhitectură 64-bit",
+                         "Potential tehnic mare",
+                         "Tempest 2000"
+                     ],
+        "dezavantaje":  [
+                            "Programare dificilă",
+                            "Controller complex",
+                            "Puține jocuri"
+                        ],
+        "istorie":  ""
+    },
+    {
+        "id":  "playstation-1",
+        "nume":  "PlayStation 1",
+        "producator":  "Sony",
+        "generatie":  5,
+        "lansare":  1994,
+        "imagine":  "assets/images/consoles/ps1.png",
+        "cpu":  {
+                    "arhitectura":  "MIPS R3000A",
+                    "proces_nm":  "0.8 µm",
+                    "nuclee":  "1C",
+                    "frecventa":  "33.8 MHz",
+                    "tdp":  "~10W"
+                },
+        "gpu":  {
+                    "arhitectura":  "GPU custom",
+                    "unitati":  "360K poly/s",
+                    "frecventa":  "33.8 MHz",
+                    "tflops":  "N/A",
+                    "capabilitati":  "Texture mapping"
+                },
+        "memorie":  {
+                        "tip":  "EDO DRAM",
+                        "capacitate":  "2 MB",
+                        "magistrala":  "32-bit",
+                        "bandwidth":  "132 MB/s"
+                    },
+        "stocare":  {
+                        "tip":  "CD-ROM",
+                        "interfata":  "CD",
+                        "viteza":  "2x"
+                    },
+        "output_video":  {
+                             "rezolutie":  "640×480",
+                             "refresh":  "60 Hz",
+                             "hdr":  "N/A",
+                             "upscaling":  "N/A"
+                         },
+        "tehnologii":  {
+                           "ray_tracing":  false,
+                           "vrr":  false,
+                           "backwards_compatibility":  "N/A",
+                           "altele":  "CD Audio"
+                       },
+        "avantaje":  [
+                         "Trecere la CD (cost redus)",
+                         "GPU 3D timpuriu",
+                         "Bibliotecă definitorie",
+                         "Jocuri legendare"
+                     ],
+        "dezavantaje":  [
+                            "Încărcare lentă de pe CD",
+                            "Texturi instabile (wobble)",
+                            "Fără RAM pentru textură"
+                        ],
+        "istorie":  ""
+    },
+    {
+        "id":  "sega-saturn",
+        "nume":  "Sega Saturn",
+        "producator":  "Sega",
+        "generatie":  5,
+        "lansare":  1994,
+        "imagine":  "assets/images/consoles/sega-saturn.png",
+        "cpu":  {
+                    "arhitectura":  "Hitachi SH-2 (dual)",
+                    "proces_nm":  "350 nm",
+                    "nuclee":  "2C",
+                    "frecventa":  "28.6 MHz × 2",
+                    "tdp":  "~25W"
+                },
+        "gpu":  {
+                    "arhitectura":  "VDP1 + VDP2",
+                    "unitati":  "Dual video",
+                    "frecventa":  "28.6 MHz",
+                    "tflops":  "N/A",
+                    "capabilitati":  "Sprites, 3D"
+                },
+        "memorie":  {
+                        "tip":  "SDRAM",
+                        "capacitate":  "2 MB + 1.5 MB VRAM",
+                        "magistrala":  "32-bit",
+                        "bandwidth":  "N/A"
+                    },
+        "stocare":  {
+                        "tip":  "CD-ROM",
+                        "interfata":  "CD",
+                        "viteza":  "2x"
+                    },
+        "output_video":  {
+                             "rezolutie":  "704×480",
+                             "refresh":  "60 Hz",
+                             "hdr":  "N/A",
+                             "upscaling":  "N/A"
+                         },
+        "tehnologii":  {
+                           "ray_tracing":  false,
+                           "vrr":  false,
+                           "backwards_compatibility":  "N/A",
+                           "altele":  "CD Audio"
+                       },
+        "avantaje":  [
+                         "2D sprites excelente",
+                         "Jocuri arcade perfecte",
+                         "Bibliotecă JP bogată"
+                     ],
+        "dezavantaje":  [
+                            "Arhitectură complexă",
+                            "3D inferior PS1",
+                            "Lansare grăbită"
+                        ],
+        "istorie":  ""
+    },
+    {
+        "id":  "nintendo-64",
+        "nume":  "Nintendo 64",
+        "producator":  "Nintendo",
+        "generatie":  5,
+        "lansare":  1996,
+        "imagine":  "assets/images/consoles/nintendo-64.png",
+        "cpu":  {
+                    "arhitectura":  "NEC VR4300",
+                    "proces_nm":  "350 nm",
+                    "nuclee":  "1C",
+                    "frecventa":  "93.75 MHz",
+                    "tdp":  "~15W"
+                },
+        "gpu":  {
+                    "arhitectura":  "SGI RCP",
+                    "unitati":  "Reality Co-Processor",
+                    "frecventa":  "62.5 MHz",
+                    "tflops":  "N/A",
+                    "capabilitati":  "Z-buffer, AA"
+                },
+        "memorie":  {
+                        "tip":  "RDRAM",
+                        "capacitate":  "4 MB (8 w/ Exp)",
+                        "magistrala":  "9-bit",
+                        "bandwidth":  "562 MB/s"
+                    },
+        "stocare":  {
+                        "tip":  "Cartridge",
+                        "interfata":  "ROM",
+                        "viteza":  "~5 MB/s"
+                    },
+        "output_video":  {
+                             "rezolutie":  "640×480",
+                             "refresh":  "60 Hz",
+                             "hdr":  "N/A",
+                             "upscaling":  "N/A"
+                         },
+        "tehnologii":  {
+                           "ray_tracing":  false,
+                           "vrr":  false,
+                           "backwards_compatibility":  "N/A",
+                           "altele":  "Analog stick"
+                       },
+        "avantaje":  [
+                         "Grafică 3D excelentă",
+                         "Controller cu analog stick",
+                         "Multiplayer local 4 jucători",
+                         "Fără timpi de încărcare"
+                     ],
+        "dezavantaje":  [
+                            "Cartridge scumpe",
+                            "Memorie limitată",
+                            "Sunet comprimat"
+                        ],
+        "istorie":  ""
+    },
+    {
+        "id":  "game-boy-color",
+        "nume":  "Game Boy Color",
+        "producator":  "Nintendo",
+        "generatie":  5,
+        "lansare":  1998,
+        "imagine":  "assets/images/consoles/game-boy-color.png",
+        "cpu":  {
+                    "arhitectura":  "Sharp LR35902",
+                    "proces_nm":  "N/A",
+                    "nuclee":  "1C",
+                    "frecventa":  "8.39 MHz",
+                    "tdp":  "~0.6W"
+                },
+        "gpu":  {
+                    "arhitectura":  "Custom LCD",
+                    "unitati":  "N/A",
+                    "frecventa":  "N/A",
+                    "tflops":  "N/A",
+                    "capabilitati":  "40 sprites"
+                },
+        "memorie":  {
+                        "tip":  "RAM",
+                        "capacitate":  "32 KB",
+                        "magistrala":  "8-bit",
+                        "bandwidth":  "N/A"
+                    },
+        "stocare":  {
+                        "tip":  "Cartridge",
+                        "interfata":  "ROM",
+                        "viteza":  "N/A"
+                    },
+        "output_video":  {
+                             "rezolutie":  "160×144 color",
+                             "refresh":  "60 Hz",
+                             "hdr":  "N/A",
+                             "upscaling":  "N/A"
+                         },
+        "tehnologii":  {
+                           "ray_tracing":  false,
+                           "vrr":  false,
+                           "backwards_compatibility":  "Game Boy",
+                           "altele":  "Infrared"
+                       },
+        "avantaje":  [
+                         "Ecran color",
+                         "Backward compat GB",
+                         "Pokémon Gold/Silver",
+                         "Baterie bună"
+                     ],
+        "dezavantaje":  [
+                            "Fără backlight",
+                            "Hardware modest",
+                            "Upgrade incremental"
+                        ],
+        "istorie":  ""
+    },
+    {
+        "id":  "neo-geo-pocket",
+        "nume":  "Neo Geo Pocket",
+        "producator":  "SNK",
+        "generatie":  5,
+        "lansare":  1998,
+        "imagine":  "assets/images/consoles/neo-geo-pocket.png",
+        "cpu":  {
+                    "arhitectura":  "Toshiba TLCS-900H",
+                    "proces_nm":  "N/A",
+                    "nuclee":  "1C",
+                    "frecventa":  "6.144 MHz",
+                    "tdp":  "~1W"
+                },
+        "gpu":  {
+                    "arhitectura":  "Custom",
+                    "unitati":  "N/A",
+                    "frecventa":  "N/A",
+                    "tflops":  "N/A",
+                    "capabilitati":  "64 sprites"
+                },
+        "memorie":  {
+                        "tip":  "RAM",
+                        "capacitate":  "12 KB",
+                        "magistrala":  "8-bit",
+                        "bandwidth":  "N/A"
+                    },
+        "stocare":  {
+                        "tip":  "Cartridge",
+                        "interfata":  "ROM",
+                        "viteza":  "N/A"
+                    },
+        "output_video":  {
+                             "rezolutie":  "160×152 mono",
+                             "refresh":  "60 Hz",
+                             "hdr":  "N/A",
+                             "upscaling":  "N/A"
+                         },
+        "tehnologii":  {
+                           "ray_tracing":  false,
+                           "vrr":  false,
+                           "backwards_compatibility":  "N/A",
+                           "altele":  "Clicky joystick"
+                       },
+        "avantaje":  [
+                         "Joystick clicky excelent",
+                         "Baterie durabilă",
+                         "Jocuri SNK"
+                     ],
+        "dezavantaje":  [
+                            "Doar monocrom",
+                            "Scurtă durată",
+                            "Bibliotecă mică"
+                        ],
+        "istorie":  ""
+    },
+    {
+        "id":  "sega-dreamcast",
+        "nume":  "Sega Dreamcast",
+        "producator":  "Sega",
+        "generatie":  6,
+        "lansare":  1998,
+        "imagine":  "assets/images/consoles/sega-dreamcast.png",
+        "cpu":  {
+                    "arhitectura":  "Hitachi SH-4",
+                    "proces_nm":  "180 nm",
+                    "nuclee":  "1C",
+                    "frecventa":  "200 MHz",
+                    "tdp":  "~30W"
+                },
+        "gpu":  {
+                    "arhitectura":  "PowerVR2",
+                    "unitati":  "100M poly/s",
+                    "frecventa":  "100 MHz",
+                    "tflops":  "N/A",
+                    "capabilitati":  "T\u0026L"
+                },
+        "memorie":  {
+                        "tip":  "SDRAM",
+                        "capacitate":  "16 MB",
+                        "magistrala":  "64-bit",
+                        "bandwidth":  "800 MB/s"
+                    },
+        "stocare":  {
+                        "tip":  "GD-ROM",
+                        "interfata":  "Proprietary",
+                        "viteza":  "12x"
+                    },
+        "output_video":  {
+                             "rezolutie":  "480p",
+                             "refresh":  "60 Hz",
+                             "hdr":  "N/A",
+                             "upscaling":  "N/A"
+                         },
+        "tehnologii":  {
+                           "ray_tracing":  false,
+                           "vrr":  false,
+                           "backwards_compatibility":  "N/A",
+                           "altele":  "Modem integrat"
+                       },
+        "avantaje":  [
+                         "Prima consolă cu modem integrat",
+                         "Jocuri inovatoare",
+                         "VMU cu ecran",
+                         "Grafică impresionantă"
+                     ],
+        "dezavantaje":  [
+                            "Viață comercială scurtă",
+                            "Fără DVD",
+                            "Piraterie ușoară"
+                        ],
+        "istorie":  ""
+    },
+    {
+        "id":  "neo-geo-pocket-color",
+        "nume":  "Neo Geo Pocket Color",
+        "producator":  "SNK",
+        "generatie":  5,
+        "lansare":  1999,
+        "imagine":  "assets/images/consoles/neo-geo-pocket-color.png",
+        "cpu":  {
+                    "arhitectura":  "Toshiba TLCS-900H",
+                    "proces_nm":  "N/A",
+                    "nuclee":  "1C",
+                    "frecventa":  "6.144 MHz",
+                    "tdp":  "~1W"
+                },
+        "gpu":  {
+                    "arhitectura":  "Custom",
+                    "unitati":  "N/A",
+                    "frecventa":  "N/A",
+                    "tflops":  "N/A",
+                    "capabilitati":  "64 sprites"
+                },
+        "memorie":  {
+                        "tip":  "RAM",
+                        "capacitate":  "12 KB",
+                        "magistrala":  "8-bit",
+                        "bandwidth":  "N/A"
+                    },
+        "stocare":  {
+                        "tip":  "Cartridge",
+                        "interfata":  "ROM",
+                        "viteza":  "N/A"
+                    },
+        "output_video":  {
+                             "rezolutie":  "160×152 color",
+                             "refresh":  "60 Hz",
+                             "hdr":  "N/A",
+                             "upscaling":  "N/A"
+                         },
+        "tehnologii":  {
+                           "ray_tracing":  false,
+                           "vrr":  false,
+                           "backwards_compatibility":  "NGP",
+                           "altele":  "Dreamcast link"
+                       },
+        "avantaje":  [
+                         "Ecran color",
+                         "Joystick superb",
+                         "Jocuri fighting excelente",
+                         "Dreamcast connectivity"
+                     ],
+        "dezavantaje":  [
+                            "Bibliotecă mică",
+                            "Fără backlight",
+                            "SNK a dat faliment"
+                        ],
+        "istorie":  ""
+    },
+    {
+        "id":  "wonderswan",
+        "nume":  "WonderSwan",
+        "producator":  "Bandai",
+        "generatie":  5,
+        "lansare":  1999,
+        "imagine":  "assets/images/consoles/wonderswan.png",
+        "cpu":  {
+                    "arhitectura":  "NEC V30MZ",
+                    "proces_nm":  "N/A",
+                    "nuclee":  "1C",
+                    "frecventa":  "3.072 MHz",
+                    "tdp":  "~0.5W"
+                },
+        "gpu":  {
+                    "arhitectura":  "Custom",
+                    "unitati":  "N/A",
+                    "frecventa":  "N/A",
+                    "tflops":  "N/A",
+                    "capabilitati":  "128 sprites"
+                },
+        "memorie":  {
+                        "tip":  "RAM",
+                        "capacitate":  "16 KB",
+                        "magistrala":  "16-bit",
+                        "bandwidth":  "N/A"
+                    },
+        "stocare":  {
+                        "tip":  "Cartridge",
+                        "interfata":  "ROM",
+                        "viteza":  "N/A"
+                    },
+        "output_video":  {
+                             "rezolutie":  "224×144",
+                             "refresh":  "60 Hz",
+                             "hdr":  "N/A",
+                             "upscaling":  "N/A"
+                         },
+        "tehnologii":  {
+                           "ray_tracing":  false,
+                           "vrr":  false,
+                           "backwards_compatibility":  "N/A",
+                           "altele":  "Vertical/Horizontal play"
+                       },
+        "avantaje":  [
+                         "Design ultra-slim",
+                         "O baterie AA (30h+)",
+                         "Orientare rotativă"
+                     ],
+        "dezavantaje":  [
+                            "Doar monocrom",
+                            "Doar Japonia",
+                            "Fără localizare"
+                        ],
+        "istorie":  ""
+    },
+    {
+        "id":  "playstation-2",
+        "nume":  "PlayStation 2",
+        "producator":  "Sony",
+        "generatie":  6,
+        "lansare":  2000,
+        "imagine":  "assets/images/consoles/ps2.png",
+        "cpu":  {
+                    "arhitectura":  "Emotion Engine",
+                    "proces_nm":  "180 nm",
+                    "nuclee":  "MIPS + VU",
+                    "frecventa":  "300 MHz",
+                    "tdp":  "~50W"
+                },
+        "gpu":  {
+                    "arhitectura":  "Graphics Synthesizer",
+                    "unitati":  "N/A",
+                    "frecventa":  "147 MHz",
+                    "tflops":  "N/A",
+                    "capabilitati":  "N/A"
+                },
+        "memorie":  {
+                        "tip":  "RDRAM",
+                        "capacitate":  "32 MB",
+                        "magistrala":  "128-bit",
+                        "bandwidth":  "3.2 GB/s"
+                    },
+        "stocare":  {
+                        "tip":  "DVD-ROM",
+                        "interfata":  "ATA",
+                        "viteza":  "10x"
+                    },
+        "output_video":  {
+                             "rezolutie":  "480i/480p",
+                             "refresh":  "60 Hz",
+                             "hdr":  "N/A",
+                             "upscaling":  "N/A"
+                         },
+        "tehnologii":  {
+                           "ray_tracing":  false,
+                           "vrr":  false,
+                           "backwards_compatibility":  "PS1",
+                           "altele":  "DVD playback"
+                       },
+        "avantaje":  [
+                         "Cea mai vândută consolă vreodată",
+                         "Bibliotecă masivă",
+                         "DVD player integrat",
+                         "Backward compat PS1"
+                     ],
+        "dezavantaje":  [
+                            "Hardware depășit rapid",
+                            "Memory cards mici",
+                            "Grafică inferioară Xbox"
+                        ],
+        "istorie":  ""
+    },
+    {
+        "id":  "game-boy-advance",
+        "nume":  "Game Boy Advance",
+        "producator":  "Nintendo",
+        "generatie":  6,
+        "lansare":  2001,
+        "imagine":  "assets/images/consoles/game-boy-advance.png",
+        "cpu":  {
+                    "arhitectura":  "ARM7TDMI",
+                    "proces_nm":  "N/A",
+                    "nuclee":  "1C",
+                    "frecventa":  "16.78 MHz",
+                    "tdp":  "~0.5W"
+                },
+        "gpu":  {
+                    "arhitectura":  "Custom 2D",
+                    "unitati":  "N/A",
+                    "frecventa":  "N/A",
+                    "tflops":  "N/A",
+                    "capabilitati":  "128 sprites, rotation"
+                },
+        "memorie":  {
+                        "tip":  "RAM",
+                        "capacitate":  "256 KB + 96 KB VRAM",
+                        "magistrala":  "16-bit",
+                        "bandwidth":  "N/A"
+                    },
+        "stocare":  {
+                        "tip":  "Cartridge",
+                        "interfata":  "ROM",
+                        "viteza":  "N/A"
+                    },
+        "output_video":  {
+                             "rezolutie":  "240×160",
+                             "refresh":  "60 Hz",
+                             "hdr":  "N/A",
+                             "upscaling":  "N/A"
+                         },
+        "tehnologii":  {
+                           "ray_tracing":  false,
+                           "vrr":  false,
+                           "backwards_compatibility":  "Game Boy/Color",
+                           "altele":  "GC Link"
+                       },
+        "avantaje":  [
+                         "Grafică aproape SNES",
+                         "Backward compat GB/GBC",
+                         "Bibliotecă excelentă",
+                         "Formă ergonomică"
+                     ],
+        "dezavantaje":  [
+                            "Fără backlight (original)",
+                            "Ecran mic",
+                            "Baterie AA"
+                        ],
+        "istorie":  ""
+    },
+    {
+        "id":  "nintendo-gamecube",
+        "nume":  "Nintendo GameCube",
+        "producator":  "Nintendo",
+        "generatie":  6,
+        "lansare":  2001,
+        "imagine":  "assets/images/consoles/nintendo-gamecube.png",
+        "cpu":  {
+                    "arhitectura":  "IBM Gekko",
+                    "proces_nm":  "180 nm",
+                    "nuclee":  "1C",
+                    "frecventa":  "485 MHz",
+                    "tdp":  "~35W"
+                },
+        "gpu":  {
+                    "arhitectura":  "ATI Flipper",
+                    "unitati":  "4 pipelines",
+                    "frecventa":  "162 MHz",
+                    "tflops":  "N/A",
+                    "capabilitati":  "T\u0026L"
+                },
+        "memorie":  {
+                        "tip":  "MoSys 1T-SRAM",
+                        "capacitate":  "43 MB total",
+                        "magistrala":  "64-bit",
+                        "bandwidth":  "2.6 GB/s"
+                    },
+        "stocare":  {
+                        "tip":  "Mini-DVD",
+                        "interfata":  "Proprietary",
+                        "viteza":  "N/A"
+                    },
+        "output_video":  {
+                             "rezolutie":  "480p",
+                             "refresh":  "60 Hz",
+                             "hdr":  "N/A",
+                             "upscaling":  "N/A"
+                         },
+        "tehnologii":  {
+                           "ray_tracing":  false,
+                           "vrr":  false,
+                           "backwards_compatibility":  "N/A",
+                           "altele":  "GBA Player"
+                       },
+        "avantaje":  [
+                         "Jocuri Nintendo excelente",
+                         "Design compact",
+                         "Controller ergonomic",
+                         "Fiabilitate ridicată"
+                     ],
+        "dezavantaje":  [
+                            "Mini-DVD proprietar",
+                            "Fără DVD playback",
+                            "Online inexistent"
+                        ],
+        "istorie":  ""
+    },
+    {
+        "id":  "xbox",
+        "nume":  "Xbox",
+        "producator":  "Microsoft",
+        "generatie":  6,
+        "lansare":  2001,
+        "imagine":  "assets/images/consoles/xbox.png",
+        "cpu":  {
+                    "arhitectura":  "Intel Pentium III",
+                    "proces_nm":  "180 nm",
+                    "nuclee":  "1C/1T",
+                    "frecventa":  "733 MHz",
+                    "tdp":  "~60W"
+                },
+        "gpu":  {
+                    "arhitectura":  "NVIDIA NV2A",
+                    "unitati":  "4 pipelines",
+                    "frecventa":  "233 MHz",
+                    "tflops":  "~0.02 TFLOPS",
+                    "capabilitati":  "T\u0026L, PS"
+                },
+        "memorie":  {
+                        "tip":  "DDR",
+                        "capacitate":  "64 MB",
+                        "magistrala":  "128-bit",
+                        "bandwidth":  "6.4 GB/s"
+                    },
+        "stocare":  {
+                        "tip":  "HDD",
+                        "interfata":  "ATA",
+                        "viteza":  "8-10 GB"
+                    },
+        "output_video":  {
+                             "rezolutie":  "480p/720p/1080i",
+                             "refresh":  "60 Hz",
+                             "hdr":  "N/A",
+                             "upscaling":  "N/A"
+                         },
+        "tehnologii":  {
+                           "ray_tracing":  false,
+                           "vrr":  false,
+                           "backwards_compatibility":  "N/A",
+                           "altele":  "Xbox Live pioneer"
+                       },
+        "avantaje":  [
+                         "Hardware puternic pentru epocă",
+                         "Xbox Live pioneer",
+                         "HDD integrat",
+                         "Controller S îmbunătățit"
+                     ],
+        "dezavantaje":  [
+                            "Controller original imens",
+                            "Dimensiuni mari",
+                            "Puține jocuri japoneze"
+                        ],
+        "istorie":  ""
+    },
+    {
+        "id":  "nintendo-ds",
+        "nume":  "Nintendo DS",
+        "producator":  "Nintendo",
+        "generatie":  7,
+        "lansare":  2004,
+        "imagine":  "assets/images/consoles/nintendo-ds.png",
+        "cpu":  {
+                    "arhitectura":  "ARM9 + ARM7",
+                    "proces_nm":  "130 nm",
+                    "nuclee":  "2C",
+                    "frecventa":  "67 + 33 MHz",
+                    "tdp":  "~1W"
+                },
+        "gpu":  {
+                    "arhitectura":  "Custom 3D",
+                    "unitati":  "N/A",
+                    "frecventa":  "67 MHz",
+                    "tflops":  "N/A",
+                    "capabilitati":  "Basic 3D"
+                },
+        "memorie":  {
+                        "tip":  "RAM",
+                        "capacitate":  "4 MB",
+                        "magistrala":  "16-bit",
+                        "bandwidth":  "N/A"
+                    },
+        "stocare":  {
+                        "tip":  "Cartridge",
+                        "interfata":  "ROM",
+                        "viteza":  "N/A"
+                    },
+        "output_video":  {
+                             "rezolutie":  "256×192 × 2",
+                             "refresh":  "60 Hz",
+                             "hdr":  "N/A",
+                             "upscaling":  "N/A"
+                         },
+        "tehnologii":  {
+                           "ray_tracing":  false,
+                           "vrr":  false,
+                           "backwards_compatibility":  "GBA",
+                           "altele":  "Touch screen, Wi-Fi"
+                       },
+        "avantaje":  [
+                         "Dual screen cu touch",
+                         "Backward compat GBA",
+                         "Wi-Fi integrat",
+                         "Microfon"
+                     ],
+        "dezavantaje":  [
+                            "3D graphics limitate",
+                            "Rezoluție mică",
+                            "Build plastic"
+                        ],
+        "istorie":  ""
+    },
+    {
+        "id":  "psp",
+        "nume":  "PlayStation Portable",
+        "producator":  "Sony",
+        "generatie":  7,
+        "lansare":  2004,
+        "imagine":  "assets/images/consoles/psp.png",
+        "cpu":  {
+                    "arhitectura":  "MIPS R4000",
+                    "proces_nm":  "90 nm",
+                    "nuclee":  "2C",
+                    "frecventa":  "333 MHz",
+                    "tdp":  "~2W"
+                },
+        "gpu":  {
+                    "arhitectura":  "Graphics Core",
+                    "unitati":  "N/A",
+                    "frecventa":  "166 MHz",
+                    "tflops":  "N/A",
+                    "capabilitati":  "PS2-like"
+                },
+        "memorie":  {
+                        "tip":  "RAM",
+                        "capacitate":  "32 MB",
+                        "magistrala":  "128-bit",
+                        "bandwidth":  "2.6 GB/s"
+                    },
+        "stocare":  {
+                        "tip":  "UMD",
+                        "interfata":  "Optical",
+                        "viteza":  "1.4 MB/s"
+                    },
+        "output_video":  {
+                             "rezolutie":  "480×272",
+                             "refresh":  "60 Hz",
+                             "hdr":  "N/A",
+                             "upscaling":  "N/A"
+                         },
+        "tehnologii":  {
+                           "ray_tracing":  false,
+                           "vrr":  false,
+                           "backwards_compatibility":  "N/A",
+                           "altele":  "Wi-Fi, UMD Video"
+                       },
+        "avantaje":  [
+                         "Grafică aproape PS2",
+                         "Ecran mare și frumos",
+                         "Media player",
+                         "Wi-Fi"
+                     ],
+        "dezavantaje":  [
+                            "Baterie slabă",
+                            "UMD lent",
+                            "Loading times lungi"
+                        ],
+        "istorie":  ""
+    },
+    {
+        "id":  "xbox-360",
+        "nume":  "Xbox 360",
+        "producator":  "Microsoft",
+        "generatie":  7,
+        "lansare":  2005,
+        "imagine":  "assets/images/consoles/xbox360.png",
+        "cpu":  {
+                    "arhitectura":  "PowerPC Xenon",
+                    "proces_nm":  "90 nm",
+                    "nuclee":  "3C/6T",
+                    "frecventa":  "3.2 GHz",
+                    "tdp":  "~175W"
+                },
+        "gpu":  {
+                    "arhitectura":  "ATI Xenos",
+                    "unitati":  "48 ALU",
+                    "frecventa":  "500 MHz",
+                    "tflops":  "0.24 TFLOPS",
+                    "capabilitati":  "Unified shaders"
+                },
+        "memorie":  {
+                        "tip":  "GDDR3",
+                        "capacitate":  "512 MB",
+                        "magistrala":  "128-bit",
+                        "bandwidth":  "22.4 GB/s"
+                    },
+        "stocare":  {
+                        "tip":  "2.5\" HDD",
+                        "interfata":  "SATA",
+                        "viteza":  "~100 MB/s"
+                    },
+        "output_video":  {
+                             "rezolutie":  "1080p",
+                             "refresh":  "60 Hz",
+                             "hdr":  "N/A",
+                             "upscaling":  "N/A"
+                         },
+        "tehnologii":  {
+                           "ray_tracing":  false,
+                           "vrr":  false,
+                           "backwards_compatibility":  "Xbox (select)",
+                           "altele":  "Kinect"
+                       },
+        "avantaje":  [
+                         "Xbox Live excelent",
+                         "Controller iconic",
+                         "GPU unified shaders",
+                         "Kinect inovator"
+                     ],
+        "dezavantaje":  [
+                            "Red Ring of Death",
+                            "Ventilator zgomotos",
+                            "DVD în loc de Blu-ray"
+                        ],
+        "istorie":  ""
+    },
+    {
+        "id":  "nintendo-wii",
+        "nume":  "Nintendo Wii",
+        "producator":  "Nintendo",
+        "generatie":  7,
+        "lansare":  2006,
+        "imagine":  "assets/images/consoles/nintendo-wii.png",
+        "cpu":  {
+                    "arhitectura":  "IBM Broadway",
+                    "proces_nm":  "90 nm",
+                    "nuclee":  "1C",
+                    "frecventa":  "729 MHz",
+                    "tdp":  "~18W"
+                },
+        "gpu":  {
+                    "arhitectura":  "ATI Hollywood",
+                    "unitati":  "N/A",
+                    "frecventa":  "243 MHz",
+                    "tflops":  "~0.01 TFLOPS",
+                    "capabilitati":  "N/A"
+                },
+        "memorie":  {
+                        "tip":  "GDDR3",
+                        "capacitate":  "88 MB",
+                        "magistrala":  "64-bit",
+                        "bandwidth":  "3.9 GB/s"
+                    },
+        "stocare":  {
+                        "tip":  "Flash",
+                        "interfata":  "NAND",
+                        "viteza":  "N/A"
+                    },
+        "output_video":  {
+                             "rezolutie":  "480p",
+                             "refresh":  "60 Hz",
+                             "hdr":  "N/A",
+                             "upscaling":  "N/A"
+                         },
+        "tehnologii":  {
+                           "ray_tracing":  false,
+                           "vrr":  false,
+                           "backwards_compatibility":  "GameCube",
+                           "altele":  "Motion controls"
+                       },
+        "avantaje":  [
+                         "Motion controls revoluționare",
+                         "Preț accesibil",
+                         "Jocuri pentru toată familia",
+                         "Backwards compat GameCube"
+                     ],
+        "dezavantaje":  [
+                            "Grafică inferioară",
+                            "Fără HD output",
+                            "Online slab"
+                        ],
+        "istorie":  ""
+    },
+    {
+        "id":  "playstation-3",
+        "nume":  "PlayStation 3",
+        "producator":  "Sony",
+        "generatie":  7,
+        "lansare":  2006,
+        "imagine":  "assets/images/consoles/ps3.png",
+        "cpu":  {
+                    "arhitectura":  "Cell BE",
+                    "proces_nm":  "90/65 nm",
+                    "nuclee":  "1 PPE + 7 SPE",
+                    "frecventa":  "3.2 GHz",
+                    "tdp":  "~200W"
+                },
+        "gpu":  {
+                    "arhitectura":  "RSX",
+                    "unitati":  "24 ROPs",
+                    "frecventa":  "550 MHz",
+                    "tflops":  "0.23 TFLOPS",
+                    "capabilitati":  "N/A"
+                },
+        "memorie":  {
+                        "tip":  "XDR + GDDR3",
+                        "capacitate":  "256 + 256 MB",
+                        "magistrala":  "64 + 128-bit",
+                        "bandwidth":  "25.6 + 22.4 GB/s"
+                    },
+        "stocare":  {
+                        "tip":  "2.5\" HDD",
+                        "interfata":  "SATA",
+                        "viteza":  "~100 MB/s"
+                    },
+        "output_video":  {
+                             "rezolutie":  "1080p",
+                             "refresh":  "60 Hz",
+                             "hdr":  "N/A",
+                             "upscaling":  "N/A"
+                         },
+        "tehnologii":  {
+                           "ray_tracing":  false,
+                           "vrr":  false,
+                           "backwards_compatibility":  "PS1/PS2 (modele timpurii)",
+                           "altele":  "Blu-ray"
+                       },
+        "avantaje":  [
+                         "Blu-ray player integrat",
+                         "Jocuri exclusive legendare",
+                         "PSN gratuit",
+                         "Cell puternic"
+                     ],
+        "dezavantaje":  [
+                            "Arhitectură greu de programat",
+                            "Preț mare la lansare",
+                            "Consum ridicat"
+                        ],
+        "istorie":  ""
+    },
+    {
+        "id":  "nintendo-3ds",
+        "nume":  "Nintendo 3DS",
+        "producator":  "Nintendo",
+        "generatie":  8,
+        "lansare":  2011,
+        "imagine":  "assets/images/consoles/nintendo-3ds.png",
+        "cpu":  {
+                    "arhitectura":  "ARM11 MPCore",
+                    "proces_nm":  "40 nm",
+                    "nuclee":  "2C",
+                    "frecventa":  "268 MHz",
+                    "tdp":  "~2W"
+                },
+        "gpu":  {
+                    "arhitectura":  "PICA200",
+                    "unitati":  "N/A",
+                    "frecventa":  "268 MHz",
+                    "tflops":  "N/A",
+                    "capabilitati":  "Autostereoscopic 3D"
+                },
+        "memorie":  {
+                        "tip":  "RAM",
+                        "capacitate":  "128 MB",
+                        "magistrala":  "64-bit",
+                        "bandwidth":  "N/A"
+                    },
+        "stocare":  {
+                        "tip":  "Cartridge + SD",
+                        "interfata":  "ROM",
+                        "viteza":  "N/A"
+                    },
+        "output_video":  {
+                             "rezolutie":  "800×240 (3D)",
+                             "refresh":  "60 Hz",
+                             "hdr":  "N/A",
+                             "upscaling":  "N/A"
+                         },
+        "tehnologii":  {
+                           "ray_tracing":  false,
+                           "vrr":  false,
+                           "backwards_compatibility":  "DS",
+                           "altele":  "3D fără ochelari"
+                       },
+        "avantaje":  [
+                         "3D fără ochelari",
+                         "Backward compat DS",
+                         "StreetPass",
+                         "Bibliotecă vastă"
+                     ],
+        "dezavantaje":  [
+                            "3D obositor pentru ochi",
+                            "Hardware modest",
+                            "Baterie slabă"
+                        ],
+        "istorie":  ""
+    },
+    {
+        "id":  "ps-vita",
+        "nume":  "PlayStation Vita",
+        "producator":  "Sony",
+        "generatie":  8,
+        "lansare":  2011,
+        "imagine":  "assets/images/consoles/ps-vita.png",
+        "cpu":  {
+                    "arhitectura":  "ARM Cortex-A9",
+                    "proces_nm":  "40 nm",
+                    "nuclee":  "4C",
+                    "frecventa":  "2 GHz",
+                    "tdp":  "~3W"
+                },
+        "gpu":  {
+                    "arhitectura":  "PowerVR SGX543MP4+",
+                    "unitati":  "128 cores",
+                    "frecventa":  "200 MHz",
+                    "tflops":  "N/A",
+                    "capabilitati":  "PS3-like"
+                },
+        "memorie":  {
+                        "tip":  "RAM",
+                        "capacitate":  "512 MB",
+                        "magistrala":  "128-bit",
+                        "bandwidth":  "3.2 GB/s"
+                    },
+        "stocare":  {
+                        "tip":  "Game Card",
+                        "interfata":  "Proprietary",
+                        "viteza":  "N/A"
+                    },
+        "output_video":  {
+                             "rezolutie":  "960×544 OLED",
+                             "refresh":  "60 Hz",
+                             "hdr":  "N/A",
+                             "upscaling":  "N/A"
+                         },
+        "tehnologii":  {
+                           "ray_tracing":  false,
+                           "vrr":  false,
+                           "backwards_compatibility":  "PSP (digital)",
+                           "altele":  "Touch front+back, 3G"
+                       },
+        "avantaje":  [
+                         "Ecran OLED superb",
+                         "Hardware puternic",
+                         "Dual analog sticks",
+                         "Remote Play"
+                     ],
+        "dezavantaje":  [
+                            "Memory card proprietary scump",
+                            "Support abandonat",
+                            "Puține jocuri exclusive"
+                        ],
+        "istorie":  ""
+    },
+    {
+        "id":  "nintendo-wii-u",
+        "nume":  "Nintendo Wii U",
+        "producator":  "Nintendo",
+        "generatie":  8,
+        "lansare":  2012,
+        "imagine":  "assets/images/consoles/nintendo-wii-u.png",
+        "cpu":  {
+                    "arhitectura":  "IBM Espresso",
+                    "proces_nm":  "45 nm",
+                    "nuclee":  "3C/3T",
+                    "frecventa":  "1.24 GHz",
+                    "tdp":  "~75W"
+                },
+        "gpu":  {
+                    "arhitectura":  "AMD GX2",
+                    "unitati":  "320 shaders",
+                    "frecventa":  "550 MHz",
+                    "tflops":  "0.35 TFLOPS",
+                    "capabilitati":  "N/A"
+                },
+        "memorie":  {
+                        "tip":  "DDR3",
+                        "capacitate":  "2 GB",
+                        "magistrala":  "64-bit",
+                        "bandwidth":  "12.8 GB/s"
+                    },
+        "stocare":  {
+                        "tip":  "Flash",
+                        "interfata":  "eMMC",
+                        "viteza":  "N/A"
+                    },
+        "output_video":  {
+                             "rezolutie":  "1080p",
+                             "refresh":  "60 Hz",
+                             "hdr":  "N/A",
+                             "upscaling":  "N/A"
+                         },
+        "tehnologii":  {
+                           "ray_tracing":  false,
+                           "vrr":  false,
+                           "backwards_compatibility":  "Wii",
+                           "altele":  "GamePad tablet"
+                       },
+        "avantaje":  [
+                         "Backward compatibility Wii",
+                         "GamePad inovator",
+                         "Off-TV play"
+                     ],
+        "dezavantaje":  [
+                            "Marketing confuz",
+                            "Support scurt",
+                            "Hardware slab pentru generație"
+                        ],
+        "istorie":  ""
+    },
+    {
+        "id":  "playstation-4",
+        "nume":  "PlayStation 4",
+        "producator":  "Sony",
+        "generatie":  8,
+        "lansare":  2013,
+        "imagine":  "assets/images/consoles/ps4.png",
+        "cpu":  {
+                    "arhitectura":  "AMD Jaguar",
+                    "proces_nm":  "28 nm",
+                    "nuclee":  "8C/8T",
+                    "frecventa":  "1.6 GHz",
+                    "tdp":  "~150W"
+                },
+        "gpu":  {
+                    "arhitectura":  "GCN 1.1",
+                    "unitati":  "18 CUs",
+                    "frecventa":  "800 MHz",
+                    "tflops":  "1.84 TFLOPS",
+                    "capabilitati":  "Compute"
+                },
+        "memorie":  {
+                        "tip":  "GDDR5",
+                        "capacitate":  "8 GB",
+                        "magistrala":  "256-bit",
+                        "bandwidth":  "176 GB/s"
+                    },
+        "stocare":  {
+                        "tip":  "2.5\" HDD",
+                        "interfata":  "SATA II",
+                        "viteza":  "~100 MB/s"
+                    },
+        "output_video":  {
+                             "rezolutie":  "1080p",
+                             "refresh":  "60 Hz",
+                             "hdr":  "PS4 Pro only",
+                             "upscaling":  "Checkerboard (Pro)"
+                         },
+        "tehnologii":  {
+                           "ray_tracing":  false,
+                           "vrr":  false,
+                           "backwards_compatibility":  "N/A",
+                           "altele":  "Share Play, PS VR"
+                       },
+        "avantaje":  [
+                         "Bibliotecă vastă de jocuri",
+                         "Exclusive excelente",
+                         "DualShock 4 confortabil",
+                         "PlayStation VR support"
+                     ],
+        "dezavantaje":  [
+                            "Hardware depășit",
+                            "HDD lent",
+                            "Ventilator zgomotos"
+                        ],
+        "istorie":  ""
+    },
+    {
+        "id":  "xbox-one",
+        "nume":  "Xbox One",
+        "producator":  "Microsoft",
+        "generatie":  8,
+        "lansare":  2013,
+        "imagine":  "assets/images/consoles/xbox-one.png",
+        "cpu":  {
+                    "arhitectura":  "AMD Jaguar",
+                    "proces_nm":  "28 nm",
+                    "nuclee":  "8C/8T",
+                    "frecventa":  "1.75 GHz",
+                    "tdp":  "~120W"
+                },
+        "gpu":  {
+                    "arhitectura":  "GCN 1.1",
+                    "unitati":  "12 CUs",
+                    "frecventa":  "853 MHz",
+                    "tflops":  "1.31 TFLOPS",
+                    "capabilitati":  "N/A"
+                },
+        "memorie":  {
+                        "tip":  "DDR3",
+                        "capacitate":  "8 GB",
+                        "magistrala":  "256-bit",
+                        "bandwidth":  "68.3 GB/s"
+                    },
+        "stocare":  {
+                        "tip":  "2.5\" HDD",
+                        "interfata":  "SATA II",
+                        "viteza":  "~100 MB/s"
+                    },
+        "output_video":  {
+                             "rezolutie":  "1080p",
+                             "refresh":  "60 Hz",
+                             "hdr":  "One S/X",
+                             "upscaling":  "N/A"
+                         },
+        "tehnologii":  {
+                           "ray_tracing":  false,
+                           "vrr":  false,
+                           "backwards_compatibility":  "Xbox 360 (select)",
+                           "altele":  "Kinect 2.0"
+                       },
+        "avantaje":  [
+                         "Backward compatibility excelentă",
+                         "Game Pass value",
+                         "Media center capabilities"
+                     ],
+        "dezavantaje":  [
+                            "Mai slabă decât PS4",
+                            "Dimensiuni mari",
+                            "Puține exclusive memorabile"
+                        ],
+        "istorie":  ""
+    },
+    {
+        "id":  "nintendo-switch",
+        "nume":  "Nintendo Switch",
+        "producator":  "Nintendo",
+        "generatie":  8,
+        "lansare":  2017,
+        "imagine":  "assets/images/consoles/nintendo-switch.png",
+        "cpu":  {
+                    "arhitectura":  "ARM Cortex-A57",
+                    "proces_nm":  "20 nm",
+                    "nuclee":  "4C/4T",
+                    "frecventa":  "1.02 GHz",
+                    "tdp":  "~40W"
+                },
+        "gpu":  {
+                    "arhitectura":  "NVIDIA Maxwell",
+                    "unitati":  "256 CUDA",
+                    "frecventa":  "768 MHz (docked)",
+                    "tflops":  "0.4 TFLOPS",
+                    "capabilitati":  "N/A"
+                },
+        "memorie":  {
+                        "tip":  "LPDDR4",
+                        "capacitate":  "4 GB",
+                        "magistrala":  "64-bit",
+                        "bandwidth":  "25.6 GB/s"
+                    },
+        "stocare":  {
+                        "tip":  "Flash",
+                        "interfata":  "eMMC",
+                        "viteza":  "~100 MB/s"
+                    },
+        "output_video":  {
+                             "rezolutie":  "1080p",
+                             "refresh":  "60 Hz",
+                             "hdr":  "N/A",
+                             "upscaling":  "N/A"
+                         },
+        "tehnologii":  {
+                           "ray_tracing":  false,
+                           "vrr":  false,
+                           "backwards_compatibility":  "N/A",
+                           "altele":  "Hybrid TV/Portable"
+                       },
+        "avantaje":  [
+                         "Portabilitate completă",
+                         "Exclusive Nintendo legendare",
+                         "Moduri TV/Handheld/Tabletop",
+                         "Joy-Con detașabili"
+                     ],
+        "dezavantaje":  [
+                            "Hardware slab vs concurență",
+                            "Joy-Con drift issues",
+                            "720p în modul portabil"
+                        ],
+        "istorie":  ""
+    },
+    {
+        "id":  "playstation-5",
+        "nume":  "PlayStation 5",
+        "producator":  "Sony",
+        "generatie":  9,
+        "lansare":  2020,
+        "imagine":  "assets/images/consoles/ps5.png",
+        "cpu":  {
+                    "arhitectura":  "AMD Zen 2",
+                    "proces_nm":  "7 nm",
+                    "nuclee":  "8C/16T",
+                    "frecventa":  "3.5 GHz (var)",
+                    "tdp":  "~200W"
+                },
+        "gpu":  {
+                    "arhitectura":  "RDNA 2",
+                    "unitati":  "36 CUs",
+                    "frecventa":  "2.23 GHz",
+                    "tflops":  "10.3 TFLOPS",
+                    "capabilitati":  "RT, mesh, VRS"
+                },
+        "memorie":  {
+                        "tip":  "GDDR6",
+                        "capacitate":  "16 GB",
+                        "magistrala":  "256-bit",
+                        "bandwidth":  "448 GB/s"
+                    },
+        "stocare":  {
+                        "tip":  "Custom NVMe SSD",
+                        "interfata":  "PCIe 4.0",
+                        "viteza":  "5.5 GB/s (raw)"
+                    },
+        "output_video":  {
+                             "rezolutie":  "4K",
+                             "refresh":  "120 Hz",
+                             "hdr":  "HDR10",
+                             "upscaling":  "Checkerboard, FSR"
+                         },
+        "tehnologii":  {
+                           "ray_tracing":  true,
+                           "vrr":  true,
+                           "backwards_compatibility":  "PS4",
+                           "altele":  "Tempest 3D Audio"
+                       },
+        "avantaje":  [
+                         "SSD NVMe 5.5 GB/s ultra-rapid",
+                         "Ray tracing hardware",
+                         "DualSense cu haptic feedback",
+                         "Încărcare aproape instantanee"
+                     ],
+        "dezavantaje":  [
+                            "Stocare internă limitată",
+                            "Dimensiuni mari",
+                            "Preț ridicat la lansare"
+                        ],
+        "istorie":  ""
+    },
+    {
+        "id":  "xbox-series-x",
+        "nume":  "Xbox Series X",
+        "producator":  "Microsoft",
+        "generatie":  9,
+        "lansare":  2020,
+        "imagine":  "assets/images/consoles/xbox-series-x.png",
+        "cpu":  {
+                    "arhitectura":  "AMD Zen 2",
+                    "proces_nm":  "7 nm",
+                    "nuclee":  "8C/16T",
+                    "frecventa":  "3.8 GHz",
+                    "tdp":  "~200W"
+                },
+        "gpu":  {
+                    "arhitectura":  "RDNA 2",
+                    "unitati":  "52 CUs",
+                    "frecventa":  "1.825 GHz",
+                    "tflops":  "12 TFLOPS",
+                    "capabilitati":  "RT, mesh, VRS"
+                },
+        "memorie":  {
+                        "tip":  "GDDR6",
+                        "capacitate":  "16 GB",
+                        "magistrala":  "320-bit",
+                        "bandwidth":  "560 GB/s"
+                    },
+        "stocare":  {
+                        "tip":  "NVMe SSD",
+                        "interfata":  "PCIe 4.0",
+                        "viteza":  "2.4 GB/s"
+                    },
+        "output_video":  {
+                             "rezolutie":  "4K",
+                             "refresh":  "120 Hz",
+                             "hdr":  "HDR10, Dolby Vision",
+                             "upscaling":  "Auto HDR"
+                         },
+        "tehnologii":  {
+                           "ray_tracing":  true,
+                           "vrr":  true,
+                           "backwards_compatibility":  "Xbox/360/One",
+                           "altele":  "Quick Resume"
+                       },
+        "avantaje":  [
+                         "12 TFLOPS - cea mai puternică",
+                         "Game Pass valoare excelentă",
+                         "Backward compatibility extinsă",
+                         "1 TB stocare standard"
+                     ],
+        "dezavantaje":  [
+                            "SSD mai lent decât PS5",
+                            "Puține exclusive la lansare",
+                            "Design polarizant"
+                        ],
+        "istorie":  ""
+    },
+    {
+        "id":  "xbox-series-s",
+        "nume":  "Xbox Series S",
+        "producator":  "Microsoft",
+        "generatie":  9,
+        "lansare":  2020,
+        "imagine":  "assets/images/consoles/xbox-series-s.png",
+        "cpu":  {
+                    "arhitectura":  "AMD Zen 2",
+                    "proces_nm":  "7 nm",
+                    "nuclee":  "8C/16T",
+                    "frecventa":  "3.6 GHz",
+                    "tdp":  "~100W"
+                },
+        "gpu":  {
+                    "arhitectura":  "RDNA 2",
+                    "unitati":  "20 CUs",
+                    "frecventa":  "1.565 GHz",
+                    "tflops":  "4 TFLOPS",
+                    "capabilitati":  "RT, VRS"
+                },
+        "memorie":  {
+                        "tip":  "GDDR6",
+                        "capacitate":  "10 GB",
+                        "magistrala":  "128-bit",
+                        "bandwidth":  "224 GB/s"
+                    },
+        "stocare":  {
+                        "tip":  "NVMe SSD",
+                        "interfata":  "PCIe 4.0",
+                        "viteza":  "2.4 GB/s"
+                    },
+        "output_video":  {
+                             "rezolutie":  "1440p",
+                             "refresh":  "120 Hz",
+                             "hdr":  "HDR10",
+                             "upscaling":  "N/A"
+                         },
+        "tehnologii":  {
+                           "ray_tracing":  true,
+                           "vrr":  true,
+                           "backwards_compatibility":  "Xbox One",
+                           "altele":  "All-Digital"
+                       },
+        "avantaje":  [
+                         "Preț accesibil",
+                         "Compactă și silențioasă",
+                         "Game Pass inclus",
+                         "Next-gen la buget redus"
+                     ],
+        "dezavantaje":  [
+                            "Doar 4 TFLOPS",
+                            "Fără disc optic",
+                            "512 GB stocare limitată"
+                        ],
+        "istorie":  ""
+    }
+]
