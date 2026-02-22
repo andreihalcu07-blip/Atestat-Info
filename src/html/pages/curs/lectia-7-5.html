@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lecția 7.5 — Memorie și bandwidth ca limitare de performanță">
+    <meta name="theme-color" content="#0B0F1A">
+    <link rel="icon" type="image/x-icon" href="../../../../favicon.ico">
+    <title>Lecția 7.5 — Memorie și Bandwidth — Console Notebook</title>
+    <link rel="stylesheet" href="../../../css/production.css">
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="../index.html" class="logo">Console Notebook</a>
+            <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="../index.html">Acasă</a></li>
+                <li><a href="../invata.html" class="active">Învață</a></li>
+                <li><a href="../evolutie.html">Evoluție</a></li>
+                <li><a href="../comparatie.html">Comparație</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero hero-cinematic">
+        <div class="hero-content">
+            <p style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 3px; color: rgba(237,233,227,0.5); margin-bottom: 0.5rem;">Modul 7 — Memoria și Stocare</p>
+            <h1>Lecția 7.5 — Memorie și Bandwidth ca Limitare de Performanță</h1>
+            <p>Nu CPU-ul decide viteza. Nu GPU-ul. Memorie și bandwidth-ul acesteia sunt adevărații regi.</p>
+            <a href="#introducere" class="hero-button">Începe Lecția</a>
+        </div>
+    </section>
+
+    <!-- ===========================
+         CAPITOLUL 1: INTRODUCERE
+         =========================== -->
+    <section class="section" id="introducere">
+        <div class="container">
+            <h2 class="section-title">Introducere</h2>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <p>
+                    Marketing zice: "PS5 are CPU octo-core la 3.5 GHz și GPU cu 2304 RDNA cores." Sună incredibil. Dar adevărul e mai adânc. Acele core-uri sunt <em>doar utilaje</em>. Adevărata limitare nu e puterea de calcul — e <em>viteza cu care pot accesa datele</em>.
+                </p>
+                <p>
+                    Te gândești la un supermarket. Casă e rapid de scanat coduri de bare și calculat suma. Dar dacă raioanele sunt în altă clădire și trebuie să mergi acolo de fiecare dată să iei un produs, checkout-ul e lent. Banda e raioanele. Memoria e Checkout. Banda lipsă = CPU și GPU așteptând idle, inutil.
+                </p>
+                <p>
+                    Această lecție expliccă de ce o generație nouă de consolă nu doar are procesor mai rapid, ci și memorie cu bandwidth mult mai mare. Și cum inginerii optimizează software-ul pentru a-și maximiza folosirea acestei bande.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===========================
+         CAPITOLUL 2: TEORIE
+         =========================== -->
+    <section class="section" id="teorie">
+        <div class="container">
+            <h2 class="section-title">Teorie Structurată</h2>
+
+            <!-- 2.1 Definiția bandwidth -->
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>2.1 — Ce Este Bandwidth?</h3>
+                <p>
+                    <strong>Bandwidth</strong> = rata de transfer de date dintr-o memorie în alt component pe secundă. Măsurat în <strong>GB/s (gigabytes pe secundă)</strong>.
+                </p>
+                <p>
+                    Formula simplă: <strong>Bandwidth = Clock Frequency × Data Width × Number of Lanes</strong>
+                </p>
+                <p>
+                    <strong>Exemplu GDDR6 (PS5 VRAM):</strong>
+                </p>
+                <ul class="specs-list">
+                    <li>Clock frequency: 448 MHz (pentru GDDR6, e o frecvență efectivă după prefetch)</li>
+                    <li>Data width: 256 bites (32 bytes) pe ciclu</li>
+                    <li>Result: 448 MHz × 32 bytes = 14.3 GB/s... dar GDDR6 mai are 4 layer access, deci 448 MHz × 128 bytes = <strong>~448 GB/s</strong> (teoretică)</li>
+                </ul>
+                <p>
+                    În practice, PS5 raportează <strong>448 GB/s total bandwidth pentru GDDR6</strong>. Aceasta e pentru GPU. CPU din PS5 are acces la o parte din aceasta prin UMA.
+                </p>
+            </div>
+
+            <!-- 2.2 Memory Bandwidth Limitations -->
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>2.2 — Limitări Fizice ale Bandwidth-ului</h3>
+                <p>
+                    Bandwidth nu e nelimitat. Există restricții hardware:
+                </p>
+                <ul class="specs-list">
+                    <li><strong>Numărul de fire pe PCB</strong> — fiecare linie de date e un fir. Mai multe fire = mai scump, mai greu de ruta pe placa</li>
+                    <li><strong>Frecvența de ceas</strong> — limita fizică a la ce viteză pot comuta tranzistorii fără erori</li>
+                    <li><strong>Capacitate calorică</strong> — mai multă date pe secundă = mai multă energie consumată = mai multă căldură</li>
+                    <li><strong>Latență</strong> — chiar dacă bandwidth e mare, dacă latența e înaltă, efectul e diminuat</li>
+                </ul>
+                <p>
+                    De aceea console-urile generațiilor anterioare aveau bandwidth mult mai mic. Xbox 360: 22.4 GB/s (GDR3). PS4: 176 GB/s (GDDR5). PS5: 448 GB/s (GDDR6). Fiecare generație a găsit cale să pompe mai mulți bytes prin aceeași dimensiune de chip.
+                </p>
+            </div>
+
+            <!-- 2.3 Bandwidth vs Latency -->
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>2.3 — Bandwidth vs Latență (Throughput vs Access Time)</h3>
+                <p>
+                    <strong>Bandwidth</strong> = cât de mult (GB pe secundă)
+                    <strong>Latență</strong> = cât de repede ajung (nanosecunde până la cicle)
+                </p>
+                <p>
+                    Ambele sunt importante. Exemplu:
+                </p>
+                <ul class="specs-list">
+                    <li><strong>Scenario A:</strong> Bandwidth ridicat (448 GB/s) dar latență înaltă (200 cicli). Am pot transfera mult date, dar trebuie să aștept mult timp pentru prima dată.</li>
+                    <li><strong>Scenario B:</strong> Bandwidth scăzut (50 GB/s) dar latență joasă (10 cicli). Primesc data repede, dar pot pune ceva date pe secundă.</li>
+                </ul>
+                <p>
+                    De obicei preferi un mix: latență moderată + bandwidth ridicat. Cache-uri ajută: L1/L2/L3 sunt lent, dar au latență scăzută (4-40 cicli). RAM e mai lent, dar latență mai înaltă (200 cicli). Strategia: păstrează datele folosite frecvent în cache.
+                </p>
+            </div>
+
+            <!-- 2.4 Bottleneck la memorie -->
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>2.4 — Memory Bottleneck: Când Memoria Limitează CPU-ul</h3>
+                <p>
+                    Scenario: procesorul poate executa 10 miliarde de instrucțiuni pe secundă. Dar fiecare instrucțiune necesită citire de date din memorie. Memorie poate furniza doar 5 miliarde de date pe secundă (bandwidth-limited).
+                </p>
+                <p>
+                    Rezultat: CPU asteaptă memoria. Cores-ul e idle, așteptând date, nu poate executa instrucțiunea următoare. Performance e limitat de memoria, nu de CPU.
+                </p>
+                <p>
+                    Aceasta e definiția Memory Bottleneck. Și contra-intuitiv, e un lucru pozitiv dacă e managementat: dacă CPU-ul e bottleneck-ed de memorie, asta înseamnă CPU-ul și-a folosit puterea maximă până la punct. E optimizat perfect.
+                </p>
+                <p>
+                    Dar dacă software-ul e prost scris și CPU asteaptă memorie prea des, jocul ruleaza lent deși core-urile ar putea mai mult.
+                </p>
+            </div>
+
+            <!-- 2.5 Cache locality optimization -->
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>2.5 — Optimizarea din Spatial și Temporal Locality</h3>
+                <p>
+                    Programatorii nu pot modifica hardware, dar pot rescrie cod pentru a-l accesa memoria eficient.
+                </p>
+                <p>
+                    <strong>Spatial Locality:</strong> Dacă accesezi un element din memorie, accesul următoarele element din aproape e mai rapid. Hardware prefetch-ează automativ bytes-ul care urmează.
+                </p>
+                <p>
+                    <strong>Temporal Locality:</strong> Dacă ai accesat o dată, e probabil să o accesezi iar în viitorul apropiat. Cache-ul o ține gata.
+                </p>
+                <p>
+                    Exemplu real de optimizare PS5:
+                </p>
+                <ol class="specs-list">
+                    <li>Organizează datele jocului (modele, texturile) în RAM în ordine secvențială (spatial locality)</li>
+                    <li>Preîncarcă în cache L3 datele pe care stii că vor fi folosite în următoarele frame (temporal locality)</li>
+                    <li>Evita random access la memorie — aceasta sparge cache hit-urile și forța latență înaltă</li>
+                </ol>
+            </div>
+
+            <!-- 2.6 Bandwidth in context-ul renderarii -->
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>2.6 — Bandwidth în Contextul Rendering-ului grafic</h3>
+                <p>
+                    GPU-ul trebuie să:
+                </p>
+                <ol class="specs-list">
+                    <li>Citească geometrie (modele 3D) din memorie — datele de vertex, indici</li>
+                    <li>Citească texturile — culori pentru fiecare pixel</li>
+                    <li>Citească normal maps, roughness maps, material properties</li>
+                    <li>Scrie framebuffer-ul (imaginea finală)</li>
+                </ol>
+                <p>
+                    Un joc PS5 la 4K 60 FPS necesită:
+                </p>
+                <ul class="specs-list">
+                    <li>3840 × 2160 × 4 bytes color (RGBA) × 60 fps = 3.1 GB/s (doar framebuffer write)</li>
+                    <li>Texturile referite: 50-100 GB/s (estimat)</li>
+                    <li>Geometrie și constante: 50 GB/s (estimat)</li>
+                    <li>Total: ~150-200 GB/s din memorie la o scenă complexă</li>
+                </ul>
+                <p>
+                    PS5 cu 448 GB/s poate gestiona asta confortabil. Dar dacă ar trebui 500 GB/s, nu e posibil — jocul downgrades resolution sau frame rate.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===========================
+         CAPITOLUL 3: LEGATURA FIZICA-INFORMATICA
+         =========================== -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Legătura Fizică – Informatică</h2>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <p>
+                    <strong>Fizica:</strong> Bandwidth e o proprietate fizică a canalului de comunicație. Fiecare linie de date e un fir pe placa de bază. Semnale electrice se propagă ca impulsuri de tensiune. Cât de repede se poate schimba tensiune = cât de repede se transmit biți = resultâ bandwidth.
+                </p>
+                <p>
+                    GDDR6 e proiectat pentru a transmite 8 biți pe ceas (octet) la 448 MHz efectiv. Placheta de memorie conține sute de mii de tranzistore care amplificam și repeți acele semnale, mii de capacitoare care stabilizează tensiunile, izolație perfis între liniile de date.
+                </p>
+                <p>
+                    <strong>Informatica:</strong> Bandwidth matematic = rata de transfer. Dacă programul accesează memorie aleatoriu, CPU asteaptă — latență înaltă, utulizare scăzută de bandwidth. Dacă accesează secvențial (cache-friendly), latență joasă, utilizare înaltă. Aceasta e ceea ce optimizează programatori.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===========================
+         CAPITOLUL 4: APLICARE DIRECTA IN CONSOLE
+         =========================== -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Aplicare Directă în Console</h2>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>De Ce Consoles Noi Au Memorie Cu Bandwidth Mai Mare</h3>
+                <p>
+                    <strong>PS4 (2013):</strong> 8 GB GDDR5, 176 GB/s. Jocuri la 1080p 30-60 FPS cu detalii moderate.
+                </p>
+                <p>
+                    <strong>PS5 (2020):</strong> 16 GB GDDR6, 448 GB/s — 2.5× mai mult bandwidth. Jocuri la 4K 60 FPS cu texturile gigantice, model-e complicate, light-ing complex.
+                </p>
+                <p>
+                    Diferența: PS5 poate transfera 3× mai many bytes pe secundă. Asta îi permite:
+                </p>
+                <ul class="specs-list">
+                    <li>Încărcări texture full 4K în timp real (nu "pop-in" de textură low-res care devin high-res)</li>
+                    <li>Renderare rapid cu many light sources (ray-tracing partial)</li>
+                    <li>Post-processing efecte (bloom, motion blur) la 60 FPS fără lag</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===========================
+         CAPITOLUL 5: EXEMPLU REAL DE HARDWARE
+         =========================== -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Exemplu Real: GPU Memory Bandwidth Comparison</h2>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <strong>Comparație Bandwidth Memorie - Gaming Consoles:</strong>
+                <ul class="specs-list">
+                    <li><strong>Xbox 360 (2005):</strong> 22.4 GB/s GDDR3 — Jocuri sub 720p, texture compressed</li>
+                    <li><strong>PS3 (2006):</strong> 25.6 GB/s XDR + 22.4 GB/s RSX VRAM — Complexitate medie</li>
+                    <li><strong>Xbox One (2013):</strong> 68 GB/s GDDR3 + 32 GB/s DDR3 — Principala 1080p 30 FPS</li>
+                    <li><strong>PS4 (2013):</strong> 176 GB/s GDDR5 — Benchmark pentru generația 8</li>
+                    <li><strong>Xbox Series X (2020):</strong> 560 GB/s (448 GB/s GDDR6 + 72 GB/s DDR5) — 4K 60 FPS, ray-tracing</li>
+                    <li><strong>PS5 (2020):</strong> 448 GB/s GDDR6C (GDDR6 extended) — Standard 4K 60 FPS, upscaling 8K posibil</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <p>
+                    <strong>Observație:</strong> Xbox Series X are mai mult bandwidth (560 vs 448) deoarece combină GDDR6 rapid + DDR5 mai lent. PS5 folosește GDDR6C (versiune mai rapid). Rezultatul: amândouă pot renda 4K 60 FPS, dar Xbox cu full ray-tracing e mai robust.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===========================
+         CAPITOLUL 6: PROBLEME FRECVENTE
+         =========================== -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Probleme Frecvente Asociate</h2>
+
+            <div class="card">
+                <h3>⚠️ Texture pop-in (texturi apărând cu delay)</h3>
+                <p>
+                    Cauză: bandwidth insuficient pentru a transfera toate texture-urile la detail înalt. GPU încarcă o textură la rezoluție joasă, apoi, pe măsură ce memoria e disponibilă, upgrade-ează. Soluție: update shader-ul să preloadeze texturile; optim-ize memoria.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>⚠️ Frame rate cade dramatic în zone cu mulți inimici sau obiecte</h3>
+                <p>
+                    Cauză: bandwidth bottleneck. GPU trebuie să render-ez mii de modele + texturile fiecăruia. Memorie nu can țineți pasul. Soluție: LOD (Level of Detail) — folosește modele simple departe, detaliate aproape.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>⚠️ Jocul lag-uiește pe efecte de post-processing</h3>
+                <p>
+                    Cauză: post-processing (bloom, motion blur) necesită citiți și scriere frecventă a framebuffer-ului. Bandwidth-ul este hot. Soluție: dezactivează efecte de post-processing; use lower resolution intermediare.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>⚠️ AMD Infinity Cache nu ajută dacă dataset-ul e mai mare decât cache</h3>
+                <p>
+                    Cauză: conștient design limitation. Cache e mic (128 MB). Dacă dataset-ul necesită mai mult, memoria trebuie accesată mereu. Fără caching advantage, latență crește. Soluție: organizează date să se potrivesc în cache; sau use SSD streaming.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>⚠️ Raytracing produce frame lags chiar la PS5</h3>
+                <p>
+                    Cauză: ray-tracing requere milioane de ray-memory acccess-uri per frame. Chiar 448 GB/s rămâne la limit. Soluție: hybrid rendering — raytracing în timp real pe selectate obiecte; rasterization pe background.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===========================
+         CAPITOLUL 7: RECAPITULARE
+         =========================== -->
+    <section class="section" id="recapitulare">
+        <div class="container">
+            <h2 class="section-title">Recapitulare</h2>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <ul class="specs-list">
+                    <li><strong>Bandwidth</strong> = rata de transfer de date din memorie, măsurat în GB/s</li>
+                    <li><strong>Frequency × Data Width</strong> = formula de calcul a bandwidth-ului fizic</li>
+                    <li><strong>GDDR6 PS5:</strong> 448 GB/s total (teoretică); 380+ GB/s practic cu overhead</li>
+                    <li><strong>Latență vs Bandwidth:</strong> ambele importante; latență joasă + bandwidth ridicat = optim</li>
+                    <li><strong>Memory Bottleneck</strong> = datele se transferă mai lent decât CPU/GPU pot procesa</li>
+                    <li><strong>Cache Hit</strong> = data e în cache rapid; <strong>Cache Miss</strong> = data e în RAM lent</li>
+                    <li><strong>Spatial Locality</strong> = accesa date consecutive; hardware prefetch-ează automat</li>
+                    <li><strong>Temporal Locality</strong> = accesa aceleași date; cache-ul le ține gata</li>
+                    <li>Gameplay la 4K 60 FPS necesită 150-200 GB/s din memorie la scene complexe</li>
+                    <li>PS5 (448 GB/s) > PS4 (176 GB/s) = 2.5× mai mult; permite 4K vs 1080p și textură detail</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===========================
+         CAPITOLUL 8: QUIZ
+         =========================== -->
+    <section class="section" id="quiz">
+        <div class="container">
+            <h2 class="section-title">Quiz — 5 Întrebări</h2>
+
+            <!-- Quiz Q1 -->
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 1</h3>
+                <p><strong>Ce este bandwidth-ul și cum se măsoară?</strong></p>
+                <ul class="specs-list">
+                    <li>a) Lățimea cablului de memorie</li>
+                    <li>b) Rata de transfer de date, măsurată în GB/s</li>
+                    <li>c) Viteza procesorului în GHz</li>
+                    <li>d) Capacitatea totală de memorie în GB</li>
+                </ul>
+                <details style="margin-top: 1rem;">
+                    <summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary>
+                    <p style="margin-top: 0.5rem;"><strong>b) Rata de transfer de date, măsurată în GB/s</strong> — Bandwidth = cât de mult (GB) pe secundă.</p>
+                </details>
+            </div>
+
+            <!-- Quiz Q2 -->
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 2</h3>
+                <p><strong>De ce e Memory Bottleneck considerat un lucru bun în optimizare?</strong></p>
+                <ul class="specs-list">
+                    <li>a) Nu e bun; e întotdeauna o problemă</li>
+                    <li>b) Deoarece CPU și-a folosit puterea maximă până ce memoria nu mai țineți pasul</li>
+                    <li>c) Deoarece memoria se regenerează mai rapid</li>
+                    <li>d) Deoarece latența scade dramatic</li>
+                </ul>
+                <details style="margin-top: 1rem;">
+                    <summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary>
+                    <p style="margin-top: 0.5rem;"><strong>b) Deoarece CPU și-a folosit puterea maximă până ce memoria nu mai țineți pasul</strong> — E o semn că software-ul e bine optimizat; CPU-ul nu stă idle.</p>
+                </details>
+            </div>
+
+            <!-- Quiz Q3 -->
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 3</h3>
+                <p><strong>Care e bandwidth-ul GDDR6 în PS5?</strong></p>
+                <ul class="specs-list">
+                    <li>a) 176 GB/s</li>
+                    <li>b) 256 GB/s</li>
+                    <li>c) 448 GB/s</li>
+                    <li>d) 560 GB/s</li>
+                </ul>
+                <details style="margin-top: 1rem;">
+                    <summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary>
+                    <p style="margin-top: 0.5rem;"><strong>c) 448 GB/s</strong> — PS5 folosește GDDR6C (versiune extinsă); cel mai ridicat bandwidth pentru memorie de consum gaming.</p>
+                </details>
+            </div>
+
+            <!-- Quiz Q4 -->
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 4</h3>
+                <p><strong>Care e diferența între Spatial și Temporal Locality?</strong></p>
+                <ul class="specs-list">
+                    <li>a) Nu e nicio diferență; e același concept</li>
+                    <li>b) Spatial = date consecutive; Temporal = data refolosită în scurt timp</li>
+                    <li>c) Spatial e pentru CPU; Temporal e pentru GPU</li>
+                    <li>d) Spatial e permanent; Temporal e temporar</li>
+                </ul>
+                <details style="margin-top: 1rem;">
+                    <summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary>
+                    <p style="margin-top: 0.5rem;"><strong>b) Spatial = date consecutive; Temporal = data refolosită în scurt timp</strong> — Ambele țelevize ajută hardware prefetch și cache efficiency.</p>
+                </details>
+            </div>
+
+            <!-- Quiz Q5 -->
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 5</h3>
+                <p><strong>Cât bandwidth aproximativ necesită rendering-ul 4K 60 FPS la PS5?</strong></p>
+                <ul class="specs-list">
+                    <li>a) 50 GB/s</li>
+                    <li>b) 150-200 GB/s</li>
+                    <li>c) 300 GB/s</li>
+                    <li>d) 448 GB/s (maxim)</li>
+                </ul>
+                <details style="margin-top: 1rem;">
+                    <summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary>
+                    <p style="margin-top: 0.5rem;"><strong>b) 150-200 GB/s</strong> — Framebuffer + texturile + geometrie + post-processing. PS5 cu 448 GB/s poate confortabil gestiona chiar și ray-tracing partial.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===========================
+         CAPITOLUL 9: EXERCITIU
+         =========================== -->
+    <section class="section" id="exercitiu">
+        <div class="container">
+            <h2 class="section-title">Exercițiu Aplicat de Gândire</h2>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>🧠 Exercițiu: Optimizarea Bandwidth-ului</h3>
+                <p>
+                    <strong>Scenariu:</strong> Scrii cod pentru PS5 care trebuie să proceseze o hartă de teren de 4000×4000 pixeles, fiecare cu normal map, roughness map și color texture. Fiecare pixel necesită citire a 3 texturi × 4 bytes = 12 bytes. Harta se actualiza 60 ori pe secundă.
+                </p>
+                <p><strong>Sarcini:</strong></p>
+                <ul class="specs-list">
+                    <li>1. Calculează bandwidth-ul pur necesar pentru a transfera toți pixelii × 3 texturi × 60 fps. Cât trebuie din cei 448 GB/s ai PS5?</li>
+                    <li>2. Dacă fiecare acces la memorie are latență de 100 ns (o vânzare pentru RAM), cât timp pierde procesul așteptând?</li>
+                    <li>3. Pentru a optimiza, propune o strategie de caching. Ce date ar trebui în L1, L2, L3?</li>
+                    <li>4. Cum poate Spatial Locality ajuta? Rescrie procesarea să acceseze texturi în ordine secvențială.</li>
+                    <li>5. Ce e compression ratio-ul. Cum poate compresiunea texture-urilor reduce necesarul de bandwidth?</li>
+                </ul>
+                <details style="margin-top: 1.5rem;">
+                    <summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată rezolvarea</summary>
+                    <div style="margin-top: 1rem;">
+                        <p><strong>1.</strong> 4000×4000 × 12 bytes × 60 fps = 11.52 GB/s. Asta e ~2.6% din capacitate PS5 de 448 GB/s. E multă ram disponibil!</p>
+                        <p><strong>2.</strong> Latență 100 ns per acces. Pentru 4000×4000×3 = 48 milioni accuse. Dacă fiecare e serial, 48M × 100ns = 4.8 secunde. Dar în realitate, am multi-threadsit, so latency hiding cu pipelining. Dar e o ilustrare.</p>
+                        <p><strong>3.</strong> L1 cache (32 KB per core) — ține pixelmapping mici (256×256). L2 (256 KB) — o jumătate din hartă. L3 (8 MB) — întreaga hartă. RAM — backup.</p>
+                        <p><strong>4.</strong> Spatial Locality: în loc de a accesa pixel la (100, 100), apoi (4000, 4000), apoi (50, 50), accesezi în ordine: (0,0), (1,0), (2,0), ... (4000, 4000). Hardware-ul prefetch-ează pixelul următor automat. Cache hit rate urca de la ~30% la ~90%.</p>
+                        <p><strong>5.</strong> Compression ratio: texturi compresate (BC7 la PC, ASTC pe mobile) pot reduce dimensiune de 4-8×. O textură de 1 GB devine 125-250 MB. Bandwidth necesar scade proporțional. PS5 GPU dezcomprimeaza ASTC in-flight; programatorul doar citiți compressed texturi.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- NAVIGARE LECȚII -->
+    <section class="section">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+            <a href="index.html" class="hero-button" style="font-size: 0.9rem;">← Planul Cursului</a>
+            <a href="lectia-8-5.html" class="hero-button" style="font-size: 0.9rem;">Lecția 8.5 — Diagnostic Hardware →</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-inner container">
+            <div class="footer-left">
+                <p class="footer-main">&copy; 2026 Console Notebook</p>
+                <p class="footer-sub">Proiect Atestat Informatică</p>
+            </div>
+            <div class="footer-right">
+                <a href="mailto:andrei.halcu.07@licmarghilomanbz.ro">andrei.halcu.07@licmarghilomanbz.ro</a>
+                <a href="tel:+40758464907">+40 758 464 907</a>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="../../../js/main.js"></script>
+    <script src="../../../js/fallback/hamburger.js"></script>
+</body>
+</html>

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lecția 4.3 — RAM și Cache: Ierarhia Memoriei">
+    <meta name="theme-color" content="#0B0F1A">
+    <link rel="icon" type="image/x-icon" href="../../../../favicon.ico">
+    <title>Lecția 4.3 — RAM și Cache — Console Notebook</title>
+    <link rel="stylesheet" href="../../../css/production.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="../index.html" class="logo">Console Notebook</a>
+            <button class="hamburger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+            <ul class="nav-links">
+                <li><a href="../index.html">Acasă</a></li>
+                <li><a href="../invata.html" class="active">Învață</a></li>
+                <li><a href="../evolutie.html">Evoluție</a></li>
+                <li><a href="../comparatie.html">Comparație</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero hero-cinematic">
+        <div class="hero-content">
+            <p style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 3px; color: rgba(237,233,227,0.5); margin-bottom: 0.5rem;">Modul 4 — Arhitectură Hardware</p>
+            <h1>Lecția 4.3 — RAM și Cache: Ierarhia Memoriei</h1>
+            <p>De ce avem L1, L2, L3 și RAM? Viteză vs capacitate. Ierarhia e cheia performanței.</p>
+            <a href="#introducere" class="hero-button">Începe Lecția</a>
+        </div>
+    </section>
+
+    <section class="section" id="introducere">
+        <div class="container">
+            <h2 class="section-title">Introducere</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <p><strong>Memorie ierarhică:</strong> Cu cât e mai rapidă, cu atât e mai mică și mai scumpă. Cu cât e mai mare, cu atât e mai lentă.</p>
+                <p><strong>PS5:</strong> Cache L1 (32KB per core), L2 (512KB), L3 (8MB). RAM = 16 GB GDDR6 la 448 GB/s.</p>
+                <p>Scop: CPU să aibă date rapide aproape. Cache reduce latența de la 200 ns (RAM) la 1 ns (L1).</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="teorie">
+        <div class="container">
+            <h2 class="section-title">Teorie Structurată</h2>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>4.1 — RAM (DRAM)</h3>
+                <p><strong>DRAM:</strong> Fiecare bit stocat într-un condensator mic + tranzistor. Se descarcă, deci necesita refresh la fiecare 64 ms.</p>
+                <p><strong>Latency:</strong> 50-100 ns (100+ ciclu la 3.5 GHz). Complex. Dar capacitate mare.</p>
+                <p><strong>GDDR6:</strong> VRAM high-speed. 16 GB PS5, 448 GB/s bandwidth.</p>
+            </div>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>4.2 — Cache L1, L2, L3</h3>
+                <p><strong>L1:</strong> 32 KB, 1-3 ns latență. Ultra rapid, stocat aproape de core.</p>
+                <p><strong>L2:</strong> 512 KB, 4-10 ns. Mai lent dar încă rapid.</p>
+                <p><strong>L3:</strong> 8 MB shared, 15-25 ns. Un cache pentru tot CPU.</p>
+                <p><strong>SRAM:</strong> Cache = SRAM (flip-flop) — nu necesită refresh, dar ocupă mult silicon.</p>
+            </div>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>4.3 — Cache Hit &amp; Miss</h3>
+                <p><strong>Hit:</strong> Data găsită în cache → latență mică.</p>
+                <p><strong>Miss:</strong> Data absentă → se fetch-ează din memorie. Penalty 100+ ciclu.</p>
+                <p><strong>Hit rate:</strong> CPU modern > 90%. În game loops, tipic 95-98% dacă data locală. Cache miss rate de 2% = degrade performance 20%.</p>
+            </div>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>4.4 — Localitate Temporală și Spațială</h3>
+                <p><strong>Temporal:</strong> Dacă accesezi data acum, probabil o vei accesa curând din nou. Cache reține.</p>
+                <p><strong>Spațial:</strong> Dacă accesezi un address, probabil vei accesa și vecinii. Cache line = 64 bytes. Încarcă întreg bloc.</p>
+                <p>Exemplu: Array de 1000 ints. Acces secvențial = 1000/16 cache lines. Acces random = 1000 cache lines = 16× mai multe misses.</p>
+            </div>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>4.5 — Eviction și Prefetch</h3>
+                <p><strong>Eviction:</strong> Cache full. Trebuie să scoată o linie veche. Algoritm LRU (Least Recently Used).</p>
+                <p><strong>Prefetch:</strong> CPU ghicește ce data vei folosi și o aduce înainte. Dacă ghicește bine = minus latență. Dacă greșește = ocupă cache inutil.</p>
+                <p><strong>Preload in PS5:</strong> Game engine prefetch-ează asset-uri înainte de frame render (streaming textures).</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Legătura Fizică – Informatică</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <p><strong>Fizică:</strong> SRAM (cache) = flip-flop → rapid, scump. DRAM (RAM) = condensator → lent, ieftin.</p>
+                <p><strong>Informatică:</strong> Algoritmi cache-friendly (localitate bună) → FPS mai mare.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Aplicare Directă</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>Exemplu: Traversare Array în Engine</h3>
+                <p>Array 1,000,000 vectori (12 bytes each). Traversare secvențială = cache friendly.</p>
+                <p>Cache line 64 bytes. Încarcă 5 vectori per line. Total = 200,000 cache lines.</p>
+                <p>Acces random: 1,000,000 cache lines. 5× mai multe miss. FPS scade drastic.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Exemplu Real: PS5 Streaming Textures</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <p><strong>Scenario:</strong> Open-world game. Player merge rapid. Engine trebuie să încarce textures ahead of time.</p>
+                <p><strong>Cache usage:</strong> Textures sunt mari (MB). L3 cache mic (8 MB) → miss rate mare dacă nu prefetch.</p>
+                <p><strong>Solution:</strong> Streaming system: anticipare camera movement. Încarcă textures înainte (prefetch). L3 cache și VRAM se umple cu data necesara. FPS constant.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Probleme Frecvente</h2>
+            <div class="card"><h3>⚠️ De ce cache miss rate mic produce impact mare?</h3><p>Miss penalty = 200 ciclu. 1% miss rate × 200 = +2 ciclu mediu per instr. CPU 3.5 GHz, latenta ridicată. Perf -30%.</p></div>
+            <div class="card"><h3>⚠️ De ce L1 cache este mic?</h3><p>SRAM costă mult. 32 KB la fiecare core = ~2 milioane tranzistori. L1 mai mare ar crește latenta și consumul.</p></div>
+        </div>
+    </section>
+
+    <section class="section" id="recapitulare">
+        <div class="container">
+            <h2 class="section-title">Recapitulare</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <ul class="specs-list">
+                    <li><strong>RAM:</strong> DRAM mare, 50-100 ns latență. 16 GB GDDR6 PS5.</li>
+                    <li><strong>L1/L2/L3:</strong> SRAM rapid, mic. L1 ~1 ns, L3 ~15 ns.</li>
+                    <li><strong>Cache hit:</strong> Data găsită local → rapid. Miss → penalty 100+ cicli.</li>
+                    <li><strong>Localitate:</strong> Temporală &amp; spațială. Access pattern defineste performance.</li>
+                    <li><strong>Prefetch:</strong> aduce data înainte. Dacă ghicește corect, reduce latență.</li>
+                    <li>Game engine optimizează structuri de date pentru cache-friendly behavior.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="quiz">
+        <div class="container">
+            <h2 class="section-title">Quiz — 5 Întrebări</h2>
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 1</h3>
+                <p><strong>RAM (DRAM) stocheaza bitul prin:</strong></p>
+                <ul class="specs-list"><li>a) Flip-flop</li><li>b) Condensator</li><li>c) Releu</li><li>d) Curent continuu stabil</li></ul>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Condensator</strong> — Necesită refresh periodic.</p></details>
+            </div>
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 2</h3>
+                <p><strong>L1 cache latență aproximativ?</strong></p>
+                <ul class="specs-list"><li>a) 1-3 ns</li><li>b) 10-20 ns</li><li>c) 50-100 ns</li><li>d) 1 ms</li></ul>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>a) 1-3 ns</strong> — L1 e cel mai rapid.</p></details>
+            </div>
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 3</h3>
+                <p><strong>Localitate spațială înseamnă:</strong></p>
+                <ul class="specs-list"><li>a) Acces repetat aceeași adresă</li><li>b) Acces vecini consecutivi în memorie</li><li>c) Acces random</li><li>d) Acces la GPU</li></ul>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Acces vecini consecutivi</strong> — Cache line profită.</p></details>
+            </div>
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 4</h3>
+                <p><strong>Cache miss rate 1% cu penalty 200 ciclu produce CPI extra:</strong></p>
+                <ul class="specs-list"><li>a) 0.02 ciclu</li><li>b) 1 ciclu</li><li>c) 2 ciclu</li><li>d) 200 ciclu</li></ul>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>c) 2 ciclu</strong> — 0.01 × 200 = 2.</p></details>
+            </div>
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 5</h3>
+                <p><strong>Prefetch ajută când:</strong></p>
+                <ul class="specs-list"><li>a) Acces random total</li><li>b) Există pattern predictibil de acces</li><li>c) Datele nu sunt folosite</li><li>d) Cache e infinita</li></ul>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Pattern predictibil</strong> — Prefetch ghicește următoarele adrese.</p></details>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="exercitiu">
+        <div class="container">
+            <h2 class="section-title">Exercițiu Aplicat</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>🧠 Exercițiu: Cache Efficiency</h3>
+                <p><strong>Cerință:</strong> Vector 1,000,000 ints. Cache line 64 bytes (16 ints). Acces secvențial vs random.</p>
+                <ol class="specs-list"><li>Cache lines necesare secvențial</li><li>Cache lines necesare random</li><li>Raport miss rate</li><li>Impact pe perf dacă miss penalty 200 ciclu</li></ol>
+                <details style="margin-top: 1.5rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată rezolvarea</summary><div style="margin-top: 1rem;">
+                    <p><strong>1. Secvențial:</strong> 1,000,000 / 16 = 62,500 cache lines.</p>
+                    <p><strong>2. Random:</strong> 1,000,000 cache lines (1 per int).</p>
+                    <p><strong>3. Ratio:</strong> Random/Sequential = 16× misses.</p>
+                    <p><strong>4. Perf impact:</strong> Dacă secvențial: miss rate 6.25%. Random: 100% miss rate. CPI +200 ciclu per access. Perf drop ~16× (dramatic).</p>
+                </div></details>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+            <a href="lectia-4-2.html" class="hero-button" style="font-size: 0.9rem;">← Lecția 4.2 — GPU</a>
+            <a href="lectia-4-4.html" class="hero-button" style="font-size: 0.9rem;">Lecția 4.4 — Bus și Interconectări →</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-inner container">
+            <div class="footer-left"><p class="footer-main">&copy; 2026 Console Notebook</p><p class="footer-sub">Proiect Atestat Informatică</p></div>
+            <div class="footer-right"><a href="mailto:andrei.halcu.07@licmarghilomanbz.ro">andrei.halcu.07@licmarghilomanbz.ro</a><a href="tel:+40758464907">+40 758 464 907</a></div>
+        </div>
+    </footer>
+
+    <script type="module" src="../../../js/main.js"></script>
+    <script src="../../../js/fallback/hamburger.js"></script>
+</body>
+</html>

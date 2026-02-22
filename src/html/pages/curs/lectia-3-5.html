@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lecția 3.5 — Construcția Logică a unui Procesor: ALU și Control">
+    <meta name="theme-color" content="#0B0F1A">
+    <link rel="icon" type="image/x-icon" href="../../../../favicon.ico">
+    <title>Lecția 3.5 — Construcția CPU — Console Notebook</title>
+    <link rel="stylesheet" href="../../../css/production.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="../index.html" class="logo">Console Notebook</a>
+            <button class="hamburger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+            <ul class="nav-links">
+                <li><a href="../index.html">Acasă</a></li>
+                <li><a href="../invata.html" class="active">Învață</a></li>
+                <li><a href="../evolutie.html">Evoluție</a></li>
+                <li><a href="../comparatie.html">Comparație</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero hero-cinematic">
+        <div class="hero-content">
+            <p style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 3px; color: rgba(237,233,227,0.5); margin-bottom: 0.5rem;">Modul 3 — Logică Digitală</p>
+            <h1>Lecția 3.5 — Construcția Logică a unui Procesor</h1>
+            <p>De la biți și porți logice la ALU care calculează. Cum se pune totul laolaltă.</p>
+            <a href="#introducere" class="hero-button">Începe Lecția</a>
+        </div>
+    </section>
+
+    <section class="section" id="introducere">
+        <div class="container">
+            <h2 class="section-title">Introducere</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <p><strong>CPU:</strong> Assemblare de logică digitală. Porți logice → ALU (Arithmetic Logic Unit) → Control logic → Registre → Memorie interface.</p>
+                <p><strong>Scopul CPU:</strong> Ia instrucție din memorie, decode-o, execute operație (ADD, LOAD, STORE, JUMP), ține rezultat în registre.</p>
+                <p>PS5 CPU = 8 ARM cores, fiecare cu propriul decode logic, ALU, cache. Miliarde porți logice coordinate pe clock.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="teorie">
+        <div class="container">
+            <h2 class="section-title">Teorie Structurată</h2>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>3.1 — ALU (Arithmetic Logic Unit)</h3>
+                <p><strong>Meniu operații:</strong> ADD, SUB, AND, OR, XOR, SHIFT, CMP.</p>
+                <p><strong>Implementare:</strong> Cascadă adder-itori cu propagare carry. 64 biți ALU = 64 1-bit adder-uri în serie (carry ripple) sau paralel (carry lookahead = mai rapid).</p>
+                <p><strong>Exemplu ADD:</strong> 32-bit adder: XOR porți (biți), carry propagare la fiecare bit, output = sumă 32-bit + carry out (overflow flag).</p>
+                <p><strong>Selector:</strong> MUX selecteaza operație (ADD vs OR vs etc.). OpCode (3-5 biți) selecteaza ce ALU operare.</p>
+            </div>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>3.2 — Registre și Register File</h3>
+                <p><strong>Register file:</strong> 32× 64-bit flip-flop registry. Fiecare registru (RAX, RBX, ..., R31) ține 64 biți.</p>
+                <p><strong>Multiplexing:</strong> Instrucție specifica "read RAX, write a RBX". MUX selecteaza care bit din register file să scoată.</p>
+                <p><strong>Timing:</strong> Read latență ~1 ciclu. Write latență 1 ciclu cu clock edge. Registre sunt SRAM = ultra-rapid.</p>
+            </div>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>3.3 — Control Logic și Decoder</h3>
+                <p><strong>Instruction decoder:</strong> Ia 32-bit OpCode. Decode-aza în semnale control: ALU opcode, register selectori, memory read/write, branch condition.</p>
+                <p><strong>Example:</strong> OpCode = 0x8B45 (MOV RBX, [RAP+offset]). Decoder vede: memory load, RAP + offset calcul în ALU, rezultat → RBX.</p>
+                <p><strong>Microcode ROM:</strong> Tabel de lookup. OpCode → microinstrucții. Modern: direct logic combinațional (decode hardware).</p>
+            </div>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>3.4 — Data Path: Fetch-Decode-Execute</h3>
+                <p><strong>Fetch:</strong> PC (program counter) → adresa memorie. Citesc instrucție 32-bit din cache/RAM.</p>
+                <p><strong>Decode:</strong> Instrucție în control semnale. Selecteaza registre sursa, ALU opcode, destinație.</p>
+                <p><strong>Execute:</strong> Citesc din registru file (1 ciclu), ALU calculează (1 ciclu), rezultat în registru destinație (1 ciclu).</p>
+                <p><strong>Latență típic:</strong> 3-5 ciclu per instrucție (legacy). Pipeline modern reduce la 1 ciclu/instrucție (throughput).</p>
+            </div>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>3.5 — Pipelining și Parallélism</h3>
+                <p><strong>Pipeline:</strong> Fetch,  Decode, Execute, Memory, Writeback runeaza simultan pe instrucții diferite.</p>
+                <p><strong>Exemplu:</strong> Ciclu 1: Instr1 fetch. Ciclu 2: Instr1 decode, Instr2 fetch. Ciclu 3: Instr1 execute, Instr2 decode, Instr3 fetch.</p>
+                <p><strong>Throughput:</strong> 1 instrucție/ciclu (daca fără pipeline stalls). 3.5 GHz × 1 instrucție/ciclu = 3.5 miliarde instrucții/sec.</p>
+                <p><strong>Hazard-uri:</strong> Data dependency (instr2 citire rezultat instr1 care nu-i gata). Branch misprediction. Cache miss.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Legătura Fizică – Informatică</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <p><strong>Fizică:</strong> Porți logice comutează în nanosecunde. Registre memorează în nanoSec. Clock coordonează timing.</p>
+                <p><strong>Informatică:</strong> Ciclu de fetch-decode-execute se repetă miliarde ori/sec, dând iluzia "program care rulează".</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Aplicare Directă</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>Exemplu: Execuție MOV RBX, [RAX]</h3>
+                <p><strong>Instrucție:</strong> Mut conținut memorie de la adresa RAX în registrul RBX.</p>
+                <p><strong>Ciclu 1 (Fetch):</strong> PC = instrucție address. Citesc 4 bytes = MOV opcode.</p>
+                <p><strong>Ciclu 2 (Decode):</strong> Decoder vede MOV. Register selector = RAX. Operație ALU = ADD (RAX+0 offset).</p>
+                <p><strong>Ciclu 3 (Execute):</strong> ALU calculează: RAX valoare (ex. 0x1000). Trimite adresa memorie.</p>
+                <p><strong>Ciclu 4 (Memory):</strong> L1 cache primeste 0x1000. Citire 8 bytes de data.</p>
+                <p><strong>Ciclu 5 (Writeback):</strong> Data → RBX registru via register file MUX selectare.</p>
+                <p><strong>Total latență:</strong> 5 ciclu. Dar pipeline: Instr2 în ciclu 2, Instr3 în ciclu 3, etc. Output: 1 instrucție/ciclu throughput.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Exemplu Real: ARM64 Instrucție cu Branch</h3>
+            <div class="card" style="margin-bottom: 2rem;">
+                <p><strong>Instrucție MOV:</strong> mov x1, #0x1000 (move constant 0x1000 în registru x1).</p>
+                <p><strong>Branch:</strong> cmp x1, x0 (compare x1 cu x0). bne .skip_func (branch if not equal).</p>
+                <p><strong>Problem:</strong> CPU nu stie dacă sare până cmp se termina. Decode trebuie specesa că bne e conditional.</p>
+                <p><strong>Branch prediction:</strong> CPU ghiceste dacă sare. Fetch instr de la skip_func address. Daca ghicire greș, pipeline flush = 10+ ciclu penalty!</p>
+                <p><strong>Penalty impact:</strong> 3.5 GHz. Misprediction = 10 ciclu penalty. 1 misprediction la 20 instrucții = 0.5 ciclu latență medie. Performance = 70% din teoretic.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Probleme Frecvente</h2>
+            <div class="card"><h3>⚠️ De ce pipeline hazard-urile problematice?</h3><p>Data dependency: Instrucție n+1 trebuie data din n care nu-i gata. Trebuie stall (trage) ciclu. Performance cade.</p></div>
+            <div class="card"><h3>⚠️ De ce branch misprediction e costisitor?</h3><p>Pipeline flush = 10-15 ciclu wasted. Per instr rata 20%, misprediction rata 10% → 1 ciclu penalty medie. Performance -30%+.</p></div>
+        </div>
+    </section>
+
+    <section class="section" id="recapitulare">
+        <div class="container">
+            <h2 class="section-title">Recapitulare</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <ul class="specs-list">
+                    <li><strong>ALU:</strong> Cascadă de porți logice. ADD, SUB, AND, OR, XOR, SHIFT.</li>
+                    <li><strong>Register file:</strong> 32× 64-bit flip-flop registru. Citire/scriere SRAM-speed.</li>
+                    <li><strong>Control decoder:</strong> OpCode → microinstrucții → semnale control ALU, registre, memorie.</li>
+                    <li><strong>Fetch-Decode-Execute:</strong> 3-5 ciclu latență. Pipeline reduce throughput latență la 1 ciclu/instrucție.</li>
+                    <li><strong>Data hazard &amp; branch misprediction:</strong> Pipeline stalls și flushes. Control processor performance.</li>
+                    <li>PS5 3.5 GHz × 8 cores × 4+ IPC (instructions per cycle) = 100+ miliarde instrucții/sec potential.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="quiz">
+        <div class="container">
+            <h2 class="section-title">Quiz — 5 Întrebări</h2>
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 1</h3>
+                <p><strong>ALU primește operanzi din:</strong></p>
+                <ul class="specs-list"><li>a) Direct din memorie RAM</li><li>b) Register file (SRAM)</li><li>c) Cache L3</li><li>d) Constantă în instrucție</li></ul>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Register file</strong> — Citire latență 1 ciclu vs RAM 100+ cicli. ALU trebuie rapid.</p></details>
+            </div>
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 2</h3>
+                <p><strong>Instrucție decoder decodează OpCode în:</strong></p>
+                <ul class="specs-list"><li>a) Binary valoare 0/1</li><li>b) Control semnale (ALU opcode, registru selectori, memory R/W)</li><li>c) CPU frecvență</li><li>d) Temperatura target</li></ul>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Control semnale</strong> — OpCode → microcode</p></details>
+            </div>
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 3</h3>
+                <p><strong>Pipeline latență pentru MOV: Fetch, Decode, Execute, Memory, Writeback = ? cicli?</strong></p>
+                <ul class="specs-list"><li>a) 1</li><li>b) 3</li><li>c) 5</li><li>d) 10</li></ul>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>c) 5 cicli</strong> — Pe ciclu per stage</p></details>
+            </div>
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 4</h3>
+                <p><strong>Pipeline dă throughput 1 instrucție/ciclu dacă:</strong></p>
+                <ul class="specs-list"><li>a) Fără data hazard, branches, cache misses</li><li>b) ALU e super rapid</li><li>c) Register file are 128 biți</li><li>d) Clock &gt; 5 GHz</li></ul>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>a) Fără hazard-uri sau cache misses</strong> — Ideally perfect, impossible real.</p></details>
+            </div>
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 5</h3>
+                <p><strong>Branch misprediction penalty:</strong></p>
+                <ul class="specs-list"><li>a) 1 ciclu</li><li>b) 3 ciclu</li><li>c) 10-15 ciclu (pipeline flush)</li><li>d) Program crash</li></ul>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>c) 10-15 ciclu</strong> — Pipeline flush când predict greș</p></details>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="exercitiu">
+        <div class="container">
+            <h2 class="section-title">Exercițiu Aplicat</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>🧠 Exercițiu: Performance Calculation cu Pipeline</h3>
+                <p><strong>Cerință:</strong> PS5 3.5 GHz. 4 instrucțiuni pipeline stages. 1% cache miss rate (latență 200 ciclu) și 5% branch misprediction rate (latență 10 ciclu).</p>
+                <ol class="specs-list"><li>Calculează ciclu mediu per instrucție (CPI) fără hazard-uri</li><li>Calculează impact cache misses pe CPI</li><li>Calculează impact branch mispredictions pe CPI</li><li>Total CPI cu hazard-uri</li><li>IPC (instrucțiuni per ciclu) și throughput instrucțional</li></ol>
+                <details style="margin-top: 1.5rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată rezolvarea</summary><div style="margin-top: 1rem;">
+                    <p><strong>1. Base CPI (fără hazarduri):</strong> 1 ciclu per instrucție (pipeline perfect).</p>
+                    <p><strong>2. Cache miss impact:</strong> 1% instruc miss → 0.01 × (200 ciclu penalty per miss) = 2 ciclu penalty mediu.</p>
+                    <p><strong>3. Branch misprediction impact:</strong> 5% misprediction rate × 10 ciclu penalty = 0.5 ciclu penalty mediu.</p>
+                    <p><strong>4. Total CPI:</strong> 1 + 2 + 0.5 = 3.5 ciclu mediu per instrucție.</p>
+                    <p><strong>5. IPC &amp; throughput:</strong> IPC = 1/CPI = 1/3.5 = 0.286 instruc/ciclu. Throughput: 3.5 GHz × 0.286 = 1 miliard instruc/sec (afront de 3.5 miliarde în perfect case!).</p>
+                    <p><strong>Impact performance:</strong> 3.5 CPI vs 1 CPI = 3.5× slowdown din ideal. Realist: 70% din teoric peak performance.</p>
+                </div></details>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+            <a href="lectia-3-4.html" class="hero-button" style="font-size: 0.9rem;">← Lecția 3.4 — Ceas și Frecvență</a>
+            <a href="index.html" class="hero-button" style="font-size: 0.9rem;">Planul Cursului →</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-inner container">
+            <div class="footer-left"><p class="footer-main">&copy; 2026 Console Notebook</p><p class="footer-sub">Proiect Atestat Informatică</p></div>
+            <div class="footer-right"><a href="mailto:andrei.halcu.07@licmarghilomanbz.ro">andrei.halcu.07@licmarghilomanbz.ro</a><a href="tel:+40758464907">+40 758 464 907</a></div>
+        </div>
+    </footer>
+
+    <script type="module" src="../../../js/main.js"></script>
+    <script src="../../../js/fallback/hamburger.js"></script>
+</body>
+</html>

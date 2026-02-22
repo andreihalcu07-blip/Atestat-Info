@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lecția 5.2 — APU: CPU + GPU pe același cip">
+    <meta name="theme-color" content="#0B0F1A">
+    <link rel="icon" type="image/x-icon" href="../../../../favicon.ico">
+    <title>Lecția 5.2 — APU — Console Notebook</title>
+    <link rel="stylesheet" href="../../../css/production.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="../index.html" class="logo">Console Notebook</a>
+            <button class="hamburger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+            <ul class="nav-links">
+                <li><a href="../index.html">Acasă</a></li>
+                <li><a href="../invata.html" class="active">Învață</a></li>
+                <li><a href="../evolutie.html">Evoluție</a></li>
+                <li><a href="../comparatie.html">Comparație</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero hero-cinematic">
+        <div class="hero-content">
+            <p style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 3px; color: rgba(237,233,227,0.5); margin-bottom: 0.5rem;">Modul 5 — Anatomia unei Console</p>
+            <h1>Lecția 5.2 — APU (CPU + GPU pe un singur cip)</h1>
+            <p>De ce consolele folosesc APU? Latenta mică, cost redus, eficiență mare.</p>
+            <a href="#introducere" class="hero-button">Începe Lecția</a>
+        </div>
+    </section>
+
+    <section class="section" id="introducere">
+        <div class="container">
+            <h2 class="section-title">Introducere</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <p><strong>APU (Accelerated Processing Unit):</strong> CPU și GPU integrate pe același die de siliciu.</p>
+                <p>Avantaj: comunicație internă rapidă, memorie comună (UMA), cost și consum reduse.</p>
+                <p>PS5 APU: 7 nm, ~308 mm² die, CPU Zen 2 + GPU RDNA pe același chip.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="teorie">
+        <div class="container">
+            <h2 class="section-title">Teorie Structurată</h2>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>5.1 — CPU și GPU pe același die</h3>
+                <p><strong>CPU:</strong> Control logic, AI, physics, game loop.</p>
+                <p><strong>GPU:</strong> Rendering grafic și compute masiv.</p>
+                <p>Integrarea reduce distanță și latență: datele trec prin Infinity Fabric intern, nu prin PCIe extern.</p>
+            </div>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>5.2 — Memorie unificată (UMA)</h3>
+                <p><strong>UMA:</strong> CPU și GPU împart aceeași RAM (GDDR6). Elimină copierea între VRAM și RAM.</p>
+                <p><strong>Beneficiu:</strong> Fără duplicare asset-uri. Texture, mesh, audio în același spațiu memorie.</p>
+                <p><strong>Dezavantaj:</strong> CPU și GPU concurează pentru bandwidth. QoS și scheduling sunt critice.</p>
+            </div>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>5.3 — Cache Coherency</h3>
+                <p><strong>Problemă:</strong> CPU scrie date în cache. GPU citește. Dacă GPU citește înainte de writeback, vede date vechi.</p>
+                <p><strong>Coherency:</strong> Protocol hardware (MESI) asigură că GPU vede ultima versiune. Necesită invalidare cache și semnale bus.</p>
+                <p><strong>Cost:</strong> Coherency adaugă latență și overhead.</p>
+            </div>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>5.4 — Die Size și Yield</h3>
+                <p><strong>Die mare:</strong> APU combină CPU+GPU, deci die = mare. 308 mm² PS5. Mai mare = mai multe defecte per wafer.</p>
+                <p><strong>Yield:</strong> Procent de chip-uri funcționale. Die mare reduce yield → cost ridicat.</p>
+                <p><strong>Compromis:</strong> Console preferă APU pentru cost global și simplitate producție.</p>
+            </div>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>5.5 — Power și Thermal Budget</h3>
+                <p><strong>TDP total:</strong> CPU + GPU împart același buget termic. PS5 TDP ~200W pentru întreg APU + rest sistem.</p>
+                <p><strong>Dynamic allocation:</strong> Dacă GPU lucrează intens, CPU reduce frecvența (DVFS). Alternativ, CPU high, GPU throttle.</p>
+                <p>APU necesită răcire eficientă, heat spreader mare și presiune constantă a radiatorului.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Legătura Fizică – Informatică</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <p><strong>Fizică:</strong> APU = un singur chip masiv cu miliarde de tranzistori. Interconnect intern mai rapid decât PCB.</p>
+                <p><strong>Informatică:</strong> UMA reduce overhead. Memory management e unificat, dar impune scheduling atent.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Aplicare Directă</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>Exemplu: Shared Buffer CPU-GPU</h3>
+                <p>CPU calculează poziții pentru 100,000 obiecte și scrie într-un buffer. GPU citește același buffer pentru rendering.</p>
+                <p>În APU, buffer este în GDDR6 comun. Nu mai este nevoie de copy CPU→VRAM. Latenta scade cu 2-3 ms per frame.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Exemplu Real: PS5 APU Specs</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <p>PS5 APU: 8-core Zen 2 @ 3.5 GHz și 36 CU RDNA @ 2.23 GHz. Fabricat 7 nm.</p>
+                <p>Die size ~308 mm². Consum total APU ~160W în full load. VRM livrează 1.0-1.2V core, 90A+ curent.</p>
+                <p>APU și RAM pe același PCB scurtează trasee, reduce latență pentru memory bus.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Probleme Frecvente</h2>
+            <div class="card"><h3>⚠️ De ce APU este greu de reparat?</h3><p>BGA cu mii de bile. Reballing este delicat. O singură bile defectă = no boot sau artifacting.</p></div>
+            <div class="card"><h3>⚠️ Thermal throttling</h3><p>Dacă APU depășește 95°C, firmware reduce frecvența. FPS scade. Cauze: praf, pastă termică uscată, ventilație slabă.</p></div>
+        </div>
+    </section>
+
+    <section class="section" id="recapitulare">
+        <div class="container">
+            <h2 class="section-title">Recapitulare</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <ul class="specs-list">
+                    <li><strong>APU:</strong> CPU + GPU pe același die.</li>
+                    <li><strong>UMA:</strong> Memorie comună. Fără copy CPU↔GPU.</li>
+                    <li><strong>Coherency:</strong> Protocol asigură date consistente între CPU și GPU.</li>
+                    <li><strong>Die mare:</strong> Cost mai mare, yield mai mic.</li>
+                    <li><strong>Thermal:</strong> CPU și GPU împart buget termic. DVFS indispensabil.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="quiz">
+        <div class="container">
+            <h2 class="section-title">Quiz — 5 Întrebări</h2>
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 1</h3>
+                <p><strong>APU înseamnă:</strong></p>
+                <ul class="specs-list"><li>a) CPU separat de GPU</li><li>b) CPU și GPU pe același die</li><li>c) Doar GPU dedicat</li><li>d) Doar CPU dedicat</li></ul>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) CPU și GPU pe același die</strong></p></details>
+            </div>
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 2</h3>
+                <p><strong>UMA permite:</strong></p>
+                <ul class="specs-list"><li>a) Memorie separată</li><li>b) Copy CPU↔GPU obligatoriu</li><li>c) Memorie comună CPU+GPU</li><li>d) Fără cache</li></ul>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>c) Memorie comună</strong></p></details>
+            </div>
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 3</h3>
+                <p><strong>Coherency protocol asigură:</strong></p>
+                <ul class="specs-list"><li>a) Putere mai mare</li><li>b) Date consistente între CPU și GPU</li><li>c) FPS mai mare întotdeauna</li><li>d) Latență zero</li></ul>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Date consistente</strong></p></details>
+            </div>
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 4</h3>
+                <p><strong>Die mare →</strong></p>
+                <ul class="specs-list"><li>a) Yield mai mic</li><li>b) Cost mai mic</li><li>c) Fără defecte</li><li>d) Mai puțin complex</li></ul>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>a) Yield mai mic</strong></p></details>
+            </div>
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 5</h3>
+                <p><strong>PS5 APU fabricat la:</strong></p>
+                <ul class="specs-list"><li>a) 14 nm</li><li>b) 10 nm</li><li>c) 7 nm</li><li>d) 5 nm</li></ul>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>c) 7 nm</strong></p></details>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="exercitiu">
+        <div class="container">
+            <h2 class="section-title">Exercițiu Aplicat</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>🧠 Exercițiu: Bandwidth UMA</h3>
+                <p><strong>Cerință:</strong> CPU cere 40 GB/s, GPU cere 300 GB/s. RAM total 448 GB/s. Cât headroom rămâne?</p>
+                <ol class="specs-list"><li>Calculează total demand</li><li>Este saturat bus-ul?</li><li>Ce headroom rămâne pentru I/O?</li></ol>
+                <details style="margin-top: 1.5rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată rezolvarea</summary><div style="margin-top: 1rem;">
+                    <p><strong>1.</strong> Total = 40 + 300 = 340 GB/s.</p>
+                    <p><strong>2.</strong> 340 &lt; 448, deci nu e saturat.</p>
+                    <p><strong>3.</strong> Headroom = 448 - 340 = 108 GB/s pentru I/O, audio, streaming.</p>
+                </div></details>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+            <a href="lectia-5-1.html" class="hero-button" style="font-size: 0.9rem;">← Lecția 5.1 — PCB</a>
+            <a href="lectia-5-3.html" class="hero-button" style="font-size: 0.9rem;">Lecția 5.3 — VRM pe Placă →</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-inner container">
+            <div class="footer-left"><p class="footer-main">&copy; 2026 Console Notebook</p><p class="footer-sub">Proiect Atestat Informatică</p></div>
+            <div class="footer-right"><a href="mailto:andrei.halcu.07@licmarghilomanbz.ro">andrei.halcu.07@licmarghilomanbz.ro</a><a href="tel:+40758464907">+40 758 464 907</a></div>
+        </div>
+    </footer>
+
+    <script type="module" src="../../../js/main.js"></script>
+    <script src="../../../js/fallback/hamburger.js"></script>
+</body>
+</html>

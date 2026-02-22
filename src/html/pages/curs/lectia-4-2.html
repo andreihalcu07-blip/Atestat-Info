@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lecția 4.2 — GPU: Geometrie, Shadere și Pixeli">
+    <meta name="theme-color" content="#0B0F1A">
+    <link rel="icon" type="image/x-icon" href="../../../../favicon.ico">
+    <title>Lecția 4.2 — GPU — Console Notebook</title>
+    <link rel="stylesheet" href="../../../css/production.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="../index.html" class="logo">Console Notebook</a>
+            <button class="hamburger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+            <ul class="nav-links">
+                <li><a href="../index.html">Acasă</a></li>
+                <li><a href="../invata.html" class="active">Învață</a></li>
+                <li><a href="../evolutie.html">Evoluție</a></li>
+                <li><a href="../comparatie.html">Comparație</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero hero-cinematic">
+        <div class="hero-content">
+            <p style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 3px; color: rgba(237,233,227,0.5); margin-bottom: 0.5rem;">Modul 4 — Arhitectură Hardware</p>
+            <h1>Lecția 4.2 — GPU: Geometrie, Shadere și Pixeli</h1>
+            <p>Render-gu imaginu: De la vârf virtual la pixel pe ecran. Miliarde operații paralel.</p>
+            <a href="#introducere" class="hero-button">Începe Lecția</a>
+        </div>
+    </section>
+
+    <section class="section" id="introducere">
+        <div class="container">
+            <h2 class="section-title">Introducere</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <p><strong>GPU (Graphics Processing Unit):</strong> Specialista paralelismului. Mii de thread-uri mici executa simultan pixeli diferite.</p>
+                <p><strong>Diferență CPU vs GPU:</strong> CPU = putere de calcul serială (IPC mare per core). GPU = bandwidth masiv (mii calcule paralel pe pixeli).</p>
+                <p>PS5 GPU: 36 compute units, 2304 stream processors. 10.28 TFLOPS (tera-floating-point-operații/sec). AMD RDNA arch.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="teorie">
+        <div class="container">
+            <h2 class="section-title">Teorie Structurată</h2>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>4.1 — Rendering Pipeline</h3>
+                <p><strong>Input:</strong> Vertex buffer (liste de (x,y,z,w,u,v) coordonate). Triangle definit de 3 vertice.</p>
+                <p><strong>Vertex shader:</strong> GPU lanseaza 1 shader per vertex (paralel). Transforma vertex coords din model space la screen space. Mii de vertice simultane.</p>
+                <p><strong>Rasterization:</strong> Determina care pixeli curg în interioru triunghi. Hardware scanline.</p>
+                <p><strong>Fragment shader:</strong> GPU lanseaza 1 shader per pixel in triung. Calculeaza culoare (texture lookup, lighting, etc). PARALEL pe toate pixeli.</p>
+                <p><strong>Output:</strong> Framebuffer. Pixel culori => VRAM => monitor 60 Hz.</p>
+            </div>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>4.2 — Warp &amp; Thread Organization</h3>
+                <p><strong>Warp:</strong> Grup 32 thread-uri (AMD) executa aceeași instrucție pe date diferite (SIMD).</p>
+                <p><strong>Wave (AMD):</strong> 64 thread-uri per compute unit. Lanseaza mii simultan pe 36 CU = 36×64 = 2304 paralel.</p>
+                <p><strong>Execution model:</strong> Thread-uri gândesc local (care pixel? care vertex?). Hardware synchronizeaza operații globale (atomic, barrier).</p>
+            </div>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>4.3 — Shaders și Instruction Latency</h3>
+                <p><strong>Vertex shader:</strong> ~10-50 instrucțiuni per vertex. Matrici transform (4×4), projections.</p>
+                <p><strong>Fragment shader:</strong> ~50-500 instrucțiuni per pixel. Textură lookups (~4 ciclu latență), lighting math, depth test.</p>
+                <p><strong>Latency hiding:</strong> Compute unit are 1000+ thread-uri în flight. Cand 1 warp stall (memory latency), executor switchează la alt warp. Zero stall daca suficiente waveleți!</p>
+            </div>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>4.4 — Texture Cache &amp; Bandwidth</h3>
+                <p><strong>Texture unit:</strong> Specialista cache pentru imagini. 64K L1-texture cache per CU. Rapid texture lookups (ex. Samplu normal map pe 2304 pixeli simultane).</p>
+                <p><strong>Bandwidth:</strong> GPU → VRAM = 448 GB/sec (PS5 GDDR6). CPU → VRAM = 448 GB/sec shared. Throughput = fiecare shader lanse output + fetch input rapid.</p>
+            </div>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>4.5 — GPU Limitations și Occupancy</h3>
+                <p><strong>Occupancy:</strong> % CU compute units efectiv cu waveleți. Ocupanță bună 70-90%. Slabă &lt;25% = stalls.</p>
+                <p><strong>Bottleneck:</strong> ALU-bound shaders (calcul intens) vs memory-bound (texture lookups, G-buffer access).</p>
+                <p><strong>PS5 limite:</strong> 10.28 TFLOPS. Dar dacă memory-bound, throughput AI (arithmetic intensity, operații per byte fetched) control real perf.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Legătura Fizică – Informatică</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <p><strong>Fizică:</strong> Mii de tranzistori comutează în paralel pe pixeli diferite. GDDR6 memorie transferu 14 GBps bandwidth.</p>
+                <p><strong>Informatică:</strong> Shader code transformat în maschinsprog. Fiecare pixel = independent task. Procesare masiv paralelă.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Aplicare Directă</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>Exemplu: Render Frame 1080p 60 FPS</h3>
+                <p><strong>Framebuffer:</strong> 1920 × 1080 = 2,073,600 pixeli. 4 bytes RGBA = 8.3 MB per frame.</p>
+                <p><strong>60 FPS:</strong> 60 × 60 FPS = 60 frames/sec. Throughput pixel: 2 × 60/sec × 60 = 124.4 megapixel/sec.</p>
+                <p><strong>GPU task:</strong> Lanseaza 2M fragment shader threads simultane (paralle pe waveleți). Fiecare shader: texture fetch + lighting = ~200 instrucțiuni.</p>
+                <p><strong>Bandwidth:</strong> 2M pixeli × 8 bytes output + textură lookups ~1KB per pixel = 2 GB/sec effective utilization din 448 GB/sec max (0.4% utilizare!).</p>
+                <p>→ GPU super ocup. Vertex shader ~ 1M thread (mii triungi, 3M vertex total). parallelism masiv.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Exemplu Real: Unreal Engine 5 Exemplo PS5</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <p><strong>Scenario:</strong> Rendering 4K resolución (3840×2160) cu 60 FPS, Ray-traced shadows.</p>
+                <p><strong>Challenge:</strong> 8.3M pixeli × 60 = 498M pixeli/sec. Cu ray-trace, ~100 instruc/pixel = 49 miliarde instruc/sec = 4.7 TFLOPS.</p>
+                <p><strong>PS5 utilization:</strong> 10.28 TFLOPS / 4.7 = 45% occupanță. Plenty of  headroom. Deci putem adaugă mai mulți pixeli (post-effects) sau mai complex shader.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Probleme Frecvente</h2>
+            <div class="card"><h3>⚠️ De ce 4K pe PS5 = problema?</h3><p>4K = 4× pixeli decât 1080p. Framebuffer 3× mai mare. Bandwidth 3× plus. Shaders ~3× mai lungă. Score IPC cade dacă overhead mari. 30 FPS normal, 60 FPS rare.</p></div>
+            <div class="card"><h3>⚠️ De ce ray-tracing scump per pixel?</h3><p>Ray-trace = 5-10 instruc per pixel vs 100 per standard shader. GPU-ul trebuie să facă milioane calcule simultaneas. Thermal power limitează.</p></div>
+        </div>
+    </section>
+
+    <section class="section" id="recapitulare">
+        <div class="container">
+            <h2 class="section-title">Recapitulare</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <ul class="specs-list">
+                    <li><strong>GPU:</strong> Specialista paralelismului. Mii thread-uri pe pixeli simultan.</li>
+                    <li><strong>Pipeline:</strong> Vertex → Rasterize → Fragment shader → Framebuffer.</li>
+                    <li><strong>Compute unit:</strong> 36 CU × 64 thread-uri = 2304 paralel.</li>
+                    <li><strong>Latency hiding:</strong> Wavelet-uri switch cand memory stall.</li>
+                    <li><strong>PS5:</strong> 10.28 TFLOPS, 448 GB/sec GDDR6, 10.7 GB texture cache.</li>
+                    <li>Shader optimization = key pentru 60 FPS + 4K (dificil pe PS5).</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="quiz">
+        <div class="container">
+            <h2 class="section-title">Quiz — 5 Întrebări</h2>
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 1</h3>
+                <p><strong>GPU vs CPU: GPU especializa în:</strong></p>
+                <ul class="specs-list"><li>a) Instrucțiuni singulare rapid</li><li>b) Paralelismul masiv de mii calcule</li><li>c) Integer arithmetic</li><li>d) Subroutine calls</li></ul>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Paralelismul masiv</strong></p></details>
+            </div>
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 2</h3>
+                <p><strong>Vertex shader lanseaza 1 shader per:</strong></p>
+                <ul class="specs-list"><li>a) Pixel</li><li>b) Vertex</li><li>c) Triangle</li><li>d) Frame</li></ul>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Vertex</strong></p></details>
+            </div>
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 3</h3>
+                <p><strong>Wavy (warp) = thread-uri. PS5 per CU?</strong></p>
+                <ul class="specs-list"><li>a) 32</li><li>b) 64</li><li>c) 256</li><li>d) 2304</li></ul>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) 64</strong> — Per wave. 36 CU × 64 = 2304 total.</p></details>
+            </div>
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 4</h3>
+                <p><strong>PS5 GPU TFLOPS?</strong></p>
+                <ul class="specs-list"><li>a) 4.2</li><li>b) 8.5</li><li>c) 10.28</li><li>d) 15</li></ul>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>c) 10.28 TFLOPS</strong></p></details>
+            </div>
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 5</h3>
+                <p><strong>4K (3840×2160) vs 1080p (1920×1080) pixeli ratio?</strong></p>
+                <ul class="specs-list"><li>a) 2×</li><li>b) 3×</li><li>c) 4×</li><li>d) 9×</li></ul>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>c) 4× (3840/1920 × 2160/1080 = 2×2 = 4×)</strong></p></details>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="exercitiu">
+        <div class="container">
+            <h2 class="section-title">Exercițiu Aplicat</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>🧠 Exercițiu: Shader Throughput Analiza</h3>
+                <p><strong>Cerință:</strong> Fragment shader: 300 instrucțiuni (float, ALU, texture lookups). Fiecare lookup latență 4 ciclu. Clock 1 GHz (GPU = slower ALU, latenci masqué).</p>
+                <ol class="specs-list"><li>Instrucțiuni critical path (latență dominator)?</li><li>Waveleți necesare pentru hide latență texture (4 ciclu)?</li><li>Throughput pixel/sec dacă 64 waveleți per CU, 36 CU?</li></ol>
+                <details style="margin-top: 1.5rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată rezolvarea</summary><div style="margin-top: 1rem;">
+                    <p><strong>1. Critical path:</strong> Texture lookup = 4 ciclu dominator. ALU e mai rapid (1-2 ciclu). Optimal: launch next wavelet cand current waitem.</p>
+                    <p><strong>2. Waveleți hide latență:</strong> 4 ciclu latență / (1 ciclu per ALU) = need 4 waveleți în flight (simplice). Real cu dependencies: 8-16 waveleți.</p>
+                    <p><strong>3. Throughput:</strong> 64 waveleți per CU × 36 CU = 2304 thread-uri simultane. Daca fiecare shader = 10 ciclu latență (texture 4 + ALU 6), throughput = 2304 × 100 MHz = 230 mpixel/sec.</p>
+                    <p>Comparație: 1080p 60 FPS = 124 mpixel/sec. Shader can handle 1.8× load. Good ocupanță!</p>
+                </div></details>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+            <a href="lectia-4-1.html" class="hero-button" style="font-size: 0.9rem;">← Lecția 4.1 — CPU</a>
+            <a href="lectia-4-3.html" class="hero-button" style="font-size: 0.9rem;">Lecția 4.3 — RAM Și Cache →</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-inner container">
+            <div class="footer-left"><p class="footer-main">&copy; 2026 Console Notebook</p><p class="footer-sub">Proiect Atestat Informatică</p></div>
+            <div class="footer-right"><a href="mailto:andrei.halcu.07@licmarghilomanbz.ro">andrei.halcu.07@licmarghilomanbz.ro</a><a href="tel:+40758464907">+40 758 464 907</a></div>
+        </div>
+    </footer>
+
+    <script type="module" src="../../../js/main.js"></script>
+    <script src="../../../js/fallback/hamburger.js"></script>
+</body>
+</html>

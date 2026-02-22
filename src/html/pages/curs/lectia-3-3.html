@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lecția 3.3 — Flip-flop și Registre: Memorie Digitală">
+    <meta name="theme-color" content="#0B0F1A">
+    <link rel="icon" type="image/x-icon" href="../../../../favicon.ico">
+    <title>Lecția 3.3 — Flip-flop — Console Notebook</title>
+    <link rel="stylesheet" href="../../../css/production.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="../index.html" class="logo">Console Notebook</a>
+            <button class="hamburger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+            <ul class="nav-links">
+                <li><a href="../index.html">Acasă</a></li>
+                <li><a href="../invata.html" class="active">Învață</a></li>
+                <li><a href="../evolutie.html">Evoluție</a></li>
+                <li><a href="../comparatie.html">Comparație</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero hero-cinematic">
+        <div class="hero-content">
+            <p style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 3px; color: rgba(237,233,227,0.5); margin-bottom: 0.5rem;">Modul 3 — Logică Digitală</p>
+            <h1>Lecția 3.3 — Flip-flop și Registre</h1>
+            <p>Cum computerele memorează? Circuite cu feedback care țin biți "țintuiți".</p>
+            <a href="#introducere" class="hero-button">Începe Lecția</a>
+        </div>
+    </section>
+
+    <section class="section" id="introducere">
+        <div class="container">
+            <h2 class="section-title">Introducere</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <p><strong>Flip-flop:</strong> Circuit cu 2 stări stabile. Ține un bit memorat (0 sau 1) până cand Signal de set/reset îl schimbă.</p>
+                <p><strong>Registru:</strong> Grup de flip-flop-uri. Exemplu: 32 flip-flop-uri în paralel = registru 32-bit care ține o valoare de 32 biți.</p>
+                <p>Fără flip-flop, computerul nu ar putea ține valori între operații. Ar uita totul la ciclu următor.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="teorie">
+        <div class="container">
+            <h2 class="section-title">Teorie Structurată</h2>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>3.1 — SR Flip-flop (Set-Reset)</h3>
+                <p><strong>Intrări:</strong> S (Set) și R (Reset).</p>
+                <p><strong>Comportament:</strong> S=1 → Q=1 (memorat). R=1 → Q=0. Daca ambii 0, stare anterioară ținută. S=R=1 = undefined.</p>
+                <p><strong>Implementare:</strong> 2 porți NOR cu feedback. Ieșirea unui NOR intră în celălalt. Feedback-ul menține starea.</p>
+            </div>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>3.2 — D Flip-flop (Data)</h3>
+                <p><strong>Intrări:</strong> D (data) și CLK (clock).</p>
+                <p><strong>Comportament:</strong> La fiecare flanc de clock (0→1), valoarea D se captează și memorează în Q.</p>
+                <p><strong>Aplicație:</strong> Cel mai des folosit. Preia și ține daata sincrona cu clock.</p>
+            </div>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>3.3 — JK Flip-flop (Jack-Killer)</h3>
+                <p><strong>Intrări:</strong> J, K, CLK.</p>
+                <p><strong>Comportament:</strong> J=1 K=0 → Set Q=1. J=0 K=1 → Reset Q=0. J=K=1 → toggle (comută starea). J=K=0 → fără schimbare.</p>
+                <p><strong>Avantaj:</strong> Versiune "imbunătățit" a SR, fără stat nedefinit.</p>
+            </div>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>3.4 — Registre 32-bit și Cache</h3>
+                <p><strong>Registru CPU:</strong> 32 flip-flop-uri în paralel. Fiecare bit ține o valoare. La clock tick, toți biții se actualizează simultan.</p>
+                <p><strong>Exemplu PS5:</strong> EAX registru (32-bit) ține rezultatul ultimei operații. Next instruction poate citi din EAX.</p>
+                <p><strong>Cache:</strong> Mii de registre mici în silicon = SRAM (Static RAM). Ultra-rapid, fierbinte, scump în curent.</p>
+            </div>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>3.5 — Timing și Setup/Hold Time</h3>
+                <p><strong>Setup time:</strong> D trebuie stabil ÎNAINTE de flanc clock (ex. 0.5 ns înainte).</p>
+                <p><strong>Hold time:</strong> D trebuie stabil DUPĂ flanc (ex. 0.3 ns după).</p>
+                <p><strong>Violație timing:</strong> Daca D se schimbă în fereastra setup/hold, flip-flop nimeresc stare metastabila → output oscilează → eroare.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Legătura Fizică – Informatică</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <p><strong>Fizică:</strong> Feedback-ul în porți NOR creeaza stare stabila care nu se schimbă spontan.</p>
+                <p><strong>Informatică:</strong> Acea stare stabilă = memorie pentru 1 bit. Miliarde de biți stocați în CPU/cache.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Aplicare Directă</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>Exemplu: Program Counter</h3>
+                <p>Registru special = Program Counter (PC). Ține adresa instrukciunii curente (ex. 0x80000000).</p>
+                <p>Fiecare instrucție: incrementeaza PC cu 4 (32-bit ARM = 4-byte instrucțiuni). Flip-flop-uri iau valoarea noua, o memoreaza.</p>
+                <p>Următoarea instrucțiune: citește din PC, executa, apoi incrementează din nou. Proces repetat 2 GHz pe PS5.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Exemplu Real: Cache Hit/Miss Detectare</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <p><strong>Scenario:</strong> CPU cere data de la adresa 0x1000. Cache controller compară adresa cu 64 D flip-flop-uri (tag bits).</p>
+                <p>Daca match (cache hit): Flip-flop-uri memorează valid bit = 1. Data se serveste din cache (~3 ciclu CPU).</p>
+                <p>Daca nu match (miss): Fetch din RAM (~200 ciclu). Flip-flop-uri se actualizeaza cu noul tag și valid=1.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Probleme Frecvente</h2>
+            <div class="card"><h3>⚠️ De ce timing violations sunt grave?</h3><p>Flip-flop în metastabilitate = ieșire neobservabil. Poate lua orice valoare. Propagă erori în calcule ulterioare. Debug = imposibil.</p></div>
+            <div class="card"><h3>⚠️ De ce cache mai rapid decât RAM?</h3><p>Cache = SRAM (flip-flop-uri) = milioane per milimetru pătrat. RAM = DRAM (capacitori) = trebuie refresh periodic. Latență SRAM 3ns vs DRAM 50ns+.</p></div>
+        </div>
+    </section>
+
+    <section class="section" id="recapitulare">
+        <div class="container">
+            <h2 class="section-title">Recapitulare</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <ul class="specs-list">
+                    <li><strong>Flip-flop:</strong> Circuit cu 2 stări stabile. Ține 1 bit memorat.</li>
+                    <li><strong>SR:</strong> Set/Reset, cu stare nedefinită.</li>
+                    <li><strong>D:</strong> Data, sincrona cu clock. Cel mai comun.</li>
+                    <li><strong>JK:</strong> Improved, cu toggle capability.</li>
+                    <li><strong>Registru:</strong> Mii de flip-flop = cache, program counter, CPU flags.</li>
+                    <li>Setup &amp; hold time violații = metastabilitate = bugs imposibili de reprodus.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="quiz">
+        <div class="container">
+            <h2 class="section-title">Quiz — 5 Întrebări</h2>
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 1</h3>
+                <p><strong>Flip-flop cu feedback ține información datorită:</strong></p>
+                <ul class="specs-list"><li>a) Condensatorilor mari</li><li>b) Circuitului cu feedback în stare stabila</li><li>c) Tensiunii VCC constant</li><li>d) Clock-ului regulat</li></ul>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Circuitul cu feedback în stare stabila</strong></p></details>
+            </div>
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 2</h3>
+                <p><strong>Ce face D flip-flop?</strong></p>
+                <ul class="specs-list"><li>a) Memorează valoarea D la flanc clock</li><li>b) Comută alternativ 0-1</li><li>c) Set/Reset după logică</li><li>d) Stochează cu intârziere aleatoare</li></ul>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>a) Memorează valoarea D la flanc clock</strong></p></details>
+            </div>
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 3</h3>
+                <p><strong>32 flip-flop-uri în paralel se numesc:</strong></p>
+                <ul class="specs-list"><li>a) Cache line</li><li>b) Registru 32-bit</li><li>c) Memorie RAM</li><li>d) Buffer serial</li></ul>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Registru 32-bit</strong></p></details>
+            </div>
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 4</h3>
+                <p><strong>JK flip-flop cu J=1 K=1 face:</strong></p>
+                <ul class="specs-list"><li>a) Set Q=1</li><li>b) Reset Q=0</li><li>c) Toggle (schimbă starea)</li><li>d) Nimic (hold)</li></ul>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>c) Toggle (comută starea)</strong></p></details>
+            </div>
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 5</h3>
+                <p><strong>Timing violation = metastabilitate. Ce se întâmplă?</strong></p>
+                <ul class="specs-list"><li>a) Cicle pierdute</li><li>b) Flip-flop ia stare nedefinita, output oscilează, calcule eronate</li><li>c) Clock se opreste</li><li>d) Nevoie de reboot</li></ul>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Flip-flop în stare nedefinita, oscilație, erori</strong> — Very serious!</p></details>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="exercitiu">
+        <div class="container">
+            <h2 class="section-title">Exercițiu Aplicat</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>🧠 Exercițiu: Registru 4-bit SRAM</h3>
+                <p><strong>Cerință:</strong> Simulează 4 D flip-flop-uri. Input = 1010 binar, Clock = 1. Memoreaza.</p>
+                <ol class="specs-list"><li>Înainte: Q3 Q2 Q1 Q0 = 0000 (neinițializat)</li><li>Setup: D3 D2 D1 D0 = 1010</li><li>Clock tick: Flip-flop-uri captează → Q3 Q2 Q1 Q0 = 1010 memorat</li><li>Clock inactiv: Data la D se schimbă. Q rămâne 1010.</li><li>Ciclu următor: Input = 0101. Clock tick: Q = 0101 (nou memorat)</li></ol>
+                <details style="margin-top: 1.5rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată rezolvarea</summary><div style="margin-top: 1rem;">
+                    <p><strong>Simulare 4-bit D Flip-flop Registry:</strong></p>
+                    <ul class="specs-list">
+                        <li>Initial: Q = 0000 (unknown/reset)</li>
+                        <li>Ciclu 1: D = 1010 → Clock → Q = 1010 (memorat)</li>
+                        <li>Ciclu 2: D = 0101 → Clock → Q = 0101 (memorat)</li>
+                        <li>Ciclu 3: D = 1111 → Clock → Q = 1111 (memorat)</li>
+                    </ul>
+                    <p>Caracteristica: Orice date D se captureaza și ține până ciclu următor. Sincron cu clock.</p>
+                    <p>Timp răspuns: ~1-2 ns (propagation delay prin 4 flip-flop).</p>
+                </div></details>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+            <a href="lectia-3-2.html" class="hero-button" style="font-size: 0.9rem;">← Lecția 3.2 — Porți Logice</a>
+            <a href="lectia-3-4.html" class="hero-button" style="font-size: 0.9rem;">Lecția 3.4 — Ceas și Frecvență →</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-inner container">
+            <div class="footer-left"><p class="footer-main">&copy; 2026 Console Notebook</p><p class="footer-sub">Proiect Atestat Informatică</p></div>
+            <div class="footer-right"><a href="mailto:andrei.halcu.07@licmarghilomanbz.ro">andrei.halcu.07@licmarghilomanbz.ro</a><a href="tel:+40758464907">+40 758 464 907</a></div>
+        </div>
+    </footer>
+
+    <script type="module" src="../../../js/main.js"></script>
+    <script src="../../../js/fallback/hamburger.js"></script>
+</body>
+</html>

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lecția 2.5 — Surse în Comutație (SMPS): Alimentare Modernă">
+    <meta name="theme-color" content="#0B0F1A">
+    <link rel="icon" type="image/x-icon" href="../../../../favicon.ico">
+    <title>Lecția 2.5 — SMPS — Console Notebook</title>
+    <link rel="stylesheet" href="../../../css/production.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="../index.html" class="logo">Console Notebook</a>
+            <button class="hamburger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+            <ul class="nav-links">
+                <li><a href="../index.html">Acasă</a></li>
+                <li><a href="../invata.html" class="active">Învață</a></li>
+                <li><a href="../evolutie.html">Evoluție</a></li>
+                <li><a href="../comparatie.html">Comparație</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero hero-cinematic">
+        <div class="hero-content">
+            <p style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 3px; color: rgba(237,233,227,0.5); margin-bottom: 0.5rem;">Modul 2 — Electronică de Bază</p>
+            <h1>Lecția 2.5 — Surse în Comutație (SMPS)</h1>
+            <p>Cum PSU-ul PS5 convertește AC din priză în DC stabil pentru toată consola.</p>
+            <a href="#introducere" class="hero-button">Începe Lecția</a>
+        </div>
+    </section>
+
+    <section class="section" id="introducere">
+        <div class="container">
+            <h2 class="section-title">Introducere</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <p><strong>SMPS (Switch-Mode Power Supply):</strong> Sursă de alimentare care folosește comutarea rapidă a MOSFET-urilor pentru a converti și regula tensiuni.</p>
+                <p>Alternativa la Linear PSU (vechi, fierbinte, ineficient). Dominator în console și electronice moderne.</p>
+                <p>PS5: SMPS 450W cu eficiență 88-92%. Mic, compact, răcit bine. AC 230V → DC 12V, 5V, 3.3V, 1.05V core CPU/GPU.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="teorie">
+        <div class="container">
+            <h2 class="section-title">Teorie Structurată</h2>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>2.1 — Arhitectura SMPS</h3>
+                <p><strong>Cinci etape principale:</strong></p>
+                <ul class="specs-list">
+                    <li><strong>1. AC Input:</strong> 230V AC din priză. Frecvență 50Hz.</li>
+                    <li><strong>2. Rectificare:</strong> Diode Schottky în punte, 4 diode. AC → DC pulsant ~320V.</li>
+                    <li><strong>3. Filtrare:</strong> Condensatori electroliți masivi (4700µF, 3000µF) netezesc la ~310V.</li>
+                    <li><strong>4. Invertor de comutare:</strong> MOSFET-uri comută la 50-150kHz. Transformator mic reduce la tensiuni secundare.</li>
+                    <li><strong>5. Rectificare secundară:</strong> Diode pe secundar (Schottky). DC la ieșire.</li>
+                </ul>
+            </div>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>2.2 — Transformator în SMPS vs Linear</h3>
+                <p><strong>Linear PSU:</strong> Transformator mare (50Hz), necesită volum. Eficiență 60-70%.</p>
+                <p><strong>SMPS:</strong> Transformator mic (100kHz+). Comutare rapidă permite fier mai puțin. 500mL, eficiență 88-92%.</p>
+                <p>Raportul transformării: N = f_primary / f_secondary. Din 320V la 5V: 320/5 = 64:1.</p>
+            </div>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>2.3 — Feedback și Control Tensiune</h3>
+                <p>Transformator secundar măsoară tensiune și completează feedback la controller IC pe primar.</p>
+                <p><strong>Optocoupler (optoisolator):</strong> Transmite semnal de feedback prin izolație optic (LED + fotodiodf). Protejează circuitul primar de perturbații secundar.</p>
+                <p><strong>Feedback loop:</strong> Dacă V_output scade, feedback reduce, PWM crește (comutare mai lungă), output crește. Compensare automată.</p>
+            </div>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>2.4 — Protecții SMPS</h3>
+                <ul class="specs-list">
+                    <li><strong>OCP (Over-Current):</strong> Dacă curent depășiți, PWM se oprește. Protecție scurtcircuit.</li>
+                    <li><strong>OVP (Over-Voltage):</strong> Dacă V_output > limita, PWM reduce sau oprește.</li>
+                    <li><strong>OTP (Over-Temperature):</strong> Termistor pe PCB. Dacă > 80°C, PWM reduce. > 100°C oprire urgență.</li>
+                    <li><strong>Soft-start:</strong> La pornire, PWM creşte încet în loc de salt. Protecție șoc.</li>
+                    <li><strong>Hold-up time:</strong> Dacă AC se pierde, condensatori mari dau putere pentru câteva milisecunde. Consola nu se resetează instantaneu.</li>
+                </ul>
+            </div>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>2.5 — Eficiență și Pierderi</h3>
+                <p>Pierderi SMPS modern:</p>
+                <ul class="specs-list">
+                    <li>Diode rectificare: 3-5% (0.35V × curent)</li>
+                    <li>Transformator (cuore, cupru): 3-4%</li>
+                    <li>MOSFET invertor: 2-3%</li>
+                    <li>Circuite control si standby: 1-2%</li>
+                    <li><strong>Total:</strong> 8-12% pierderi → eficiență 88-92%</li>
+                </ul>
+                <p>PS5 PSU 450W: 450W × 0.10 = 45W pierderi. Asta e puterce care devine căldură. Ventilatoare și radiatori evacuează.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Legătura Fizică – Informatică</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <p><strong>Fizica:</strong> SMPS folosește inducție (transformator), semiconductori (MOSFET, diode) și feedback loop pentru a converti și regula putere.</p>
+                <p><strong>Informatica:</strong> CPU/GPU au nevoie de tensiuni precise. Firmware comunică feedback (solicită mai mult/mai puțin curent). SMPS ajustează automat.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Aplicare Directă</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>Exemplu: Secvență Pornire PS5</h3>
+                <p>1. Apesez butonul ON.</p>
+                <p>2. SMPS (în standby) se activează, PWM soft-start încet.</p>
+                <p>3. Tensiuni secundare (12V, 5V, 3.3V) cresc progresiv.</p>
+                <p>4. Feedback vede V_output reaching nominal, PWM ajustează la normal.</p>
+                <p>5. Rail 1.05V core (pe placa) primește comand de la firmware pentru a activa. VRM local pe placa (buck converter) pornește.</p>
+                <p>6. CPU core 1.05V activat, firmware-ul startează. Consola porneste.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Exemplu Real: Calcul Pierderi SMPS</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <p><strong>Scenar:</strong> PS5 la 200W load. Intrare AC 230V RMS, curent AC ≈ 1A RMS.</p>
+                <p><strong>Putere absorbita din priză:</strong> 230V × 1A = 230W (cu ceva PF < 1, real ≈ 210-220W).</p>
+                <p><strong>Putere pe consolă:</strong> 200W.</p>
+                <p><strong>Pierderi:</strong> 220W - 200W = 20W = 9.1% pierderi.</p>
+                <p><strong>Distribuție pierderi:</strong> Diode 7W, transformator 6W, MOSFET 4W, control 3W.</p>
+                <p>Eficiență: 200/220 = 90.9%.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Probleme Frecvente</h2>
+            <div class="card"><h3>⚠️ PSU furnizează 0V (mort)</h3><p>Cauza: MOSFET invertor ars, transformator defect, controller IC mort. Nu-i comutare.</p></div>
+            <div class="card"><h3>⚠️ Tensiuni scăzute sub nominal</h3><p>Cauza: Diode defecte, transformator diminuat, feedback rupt.</p></div>
+            <div class="card"><h3>⚠️ PSU se oprește sub load</h3><p>Cauza: OCP declanșat din cauza scurtcircuit pe consolă, sau PSU degradat nu mai furnizează.</p></div>
+        </div>
+    </section>
+
+    <section class="section" id="recapitulare">
+        <div class="container">
+            <h2 class="section-title">Recapitulare</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <ul class="specs-list">
+                    <li><strong>SMPS:</strong> Switch-Mode Power Supply, comută rapid MOSFET pentru a regula putere.</li>
+                    <li><strong>5 etape:</strong> AC input → rectificare → filtrare → invertor comutare → rectificare secundară → DC ieșire.</li>
+                    <li><strong>Transformator mic:</strong> 100kHz+ permite fier mic vs linear 50Hz mare.</li>
+                    <li><strong>Eficiență:</strong> 88-92% modern vs 60-70% linear.</li>
+                    <li><strong>Feedback:</strong> Optocoupler izolează și transmite semnal de control.</li>
+                    <li><strong>Protecții:</strong> OCP, OVP, OTP, soft-start, hold-up time.</li>
+                    <li>PS5: 450W SMPS, 45W pierderi, răcit pe ventilatoare.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="quiz">
+        <div class="container">
+            <h2 class="section-title">Quiz — 5 Întrebări</h2>
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 1</h3>
+                <p><strong>Avantaj principal SMPS vs Linear PSU?</strong></p>
+                <ul class="specs-list"><li>a) SMPS mai ieftin</li><li>b) SMPS mic, eficiență 88-92% vs linear mare, 60-70%</li><li>c) Linear mai bun pentru audio</li><li>d) Nicio diferență</li></ul>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) SMPS mic și eficiență mare</strong></p></details>
+            </div>
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 2</h3>
+                <p><strong>Frecvență comutare SMPS vs Linear?</strong></p>
+                <ul class="specs-list"><li>a) SMPS 50Hz, Linear 100kHz</li><li>b) SMPS 100kHz+, Linear 50Hz</li><li>c) Identic</li><li>d) SMPS 1MHz</li></ul>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) SMPS 100kHz+, Linear 50Hz</strong></p></details>
+            </div>
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 3</h3>
+                <p><strong>Care-i rolul optocoupler-ului în SMPS?</strong></p>
+                <ul class="specs-list"><li>a) Fermoar comutare</li><li>b) Transmite feedback izolat între primar și secundar</li><li>c) Filtrare zgomot</li><li>d) Protecție supratensiune</li></ul>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Transmite feedback izolat</strong></p></details>
+            </div>
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 4</h3>
+                <p><strong>Ce-i Soft-Start în SMPS?</strong></p>
+                <ul class="specs-list"><li>a) Pornire buton</li><li>b) PWM crește încet la pornire pentru a evita șoc curent</li><li>c) Rezistență serie</li><li>d) Comutare lentă normal</li></ul>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) PWM crește încet pentru protecție</strong></p></details>
+            </div>
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebara 5</h3>
+                <p><strong>Eficiență PS5 SMPS și pierderi la 450W nominal?</strong></p>
+                <ul class="specs-list"><li>a) Eficiență 60%, pierderi 180W</li><li>b) Eficiență 88-92%, pierderi 36-54W</li><li>c) Eficiență 99%, pierderi 5W</li><li>d) Eficiență 75%, pierderi 111W</li></ul>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Eficiență 88-92%, pierderi 36-54W</strong> — Modern SMPS.</p></details>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="exercitiu">
+        <div class="container">
+            <h2 class="section-title">Exercițiu Aplicat</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>🧠 Exercițiu: Design Comparativ PSU</h3>
+                <p><strong>Cerință:</strong> Proiectează o sursă de 450W pentru PS5 în două versiuni: Linear și SMPS.</p>
+                <ol class="specs-list"><li>Linear: Estimează dimensiuni transformator (frecvență 50Hz) și racire</li><li>Linear: Calculează pierderi și eficiență (estimare 65%)</li><li>SMPS: Estimează transformator (130kHz)</li><li>SMPS: Calculează pierderi si eficiență (estimare 90%)</li><li>Comparație: Volum, greutate, cost, consum anual vs timp PSU linear</li></ol>
+                <details style="margin-top: 1.5rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată rezolvarea</summary><div style="margin-top: 1rem;">
+                    <p><strong>1. Linear:</strong> Transformator 50Hz → volum mare (de 5-10 ori mai mare). Răcire activ (ventilator masiv).</p>
+                    <p><strong>2. Linear:</strong> Pierderi = 450W × (1-0.65) = 157.5W. Fierbinte! Necesită radiator imens.</p>
+                    <p><strong>3. SMPS:</strong> Transformator 130kHz → volum mic (1/5 din linear). Răcire pasiv (radiator oțel).</p>
+                    <p><strong>4. SMPS:</strong> Pierderi = 450W × (1-0.90) = 45W. Multe câturi mai puțin!</p>
+                    <p><strong>5.</strong> Comparație:</p>
+                    <ul class="specs-list">
+                        <li>Linear: 5L volum, 3kg, 100$, zgomot ventilator. Consum anual linear = consum constant 45W.</li>
+                        <li>SMPS: 1L volum, 0.8kg, 40$, liniștit. Consum anual = 45W divis.</li>
+                        <li>Costuri anuale: (450W/0.65 - 450W) / 8760h = 91W × 8760h = 797kWh vs (450W/0.90 - 450W) / 8760h = 50W × 8760h = 438kWh. Diferență 359kWh/an ≈ $180 pe an. SMPS plătit în 3 luni din economii energie!</li>
+                    </ul>
+                </div></details>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+            <a href="lectia-2-4.html" class="hero-button" style="font-size: 0.9rem;">← Lecția 2.4 — MOSFET și VRM</a>
+            <a href="index.html" class="hero-button" style="font-size: 0.9rem;">Planul Cursului →</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-inner container">
+            <div class="footer-left"><p class="footer-main">&copy; 2026 Console Notebook</p><p class="footer-sub">Proiect Atestat Informatică</p></div>
+            <div class="footer-right"><a href="mailto:andrei.halcu.07@licmarghilomanbz.ro">andrei.halcu.07@licmarghilomanbz.ro</a><a href="tel:+40758464907">+40 758 464 907</a></div>
+        </div>
+    </footer>
+
+    <script type="module" src="../../../js/main.js"></script>
+    <script src="../../../js/fallback/hamburger.js"></script>
+</body>
+</html>

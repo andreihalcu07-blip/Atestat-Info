@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lecția 8.5 — Interpretarea simptomelor vs cauza reală în diagnostic hardware">
+    <meta name="theme-color" content="#0B0F1A">
+    <link rel="icon" type="image/x-icon" href="../../../../favicon.ico">
+    <title>Lecția 8.5 — Diagnostic Hardware — Console Notebook</title>
+    <link rel="stylesheet" href="../../../css/production.css">
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="../index.html" class="logo">Console Notebook</a>
+            <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="../index.html">Acasă</a></li>
+                <li><a href="../invata.html" class="active">Învață</a></li>
+                <li><a href="../evolutie.html">Evoluție</a></li>
+                <li><a href="../comparatie.html">Comparație</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero hero-cinematic">
+        <div class="hero-content">
+            <p style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 3px; color: rgba(237,233,227,0.5); margin-bottom: 0.5rem;">Modul 8 — Diagnosis și Reparare</p>
+            <h1>Lecția 8.5 — Interpretarea Simptomelor vs Cauza Reală</h1>
+            <p>Simptomul spune ce se vede. Cauza explică ce se întâmplă. Arta diagnosticului e a diferenția între ele.</p>
+            <a href="#introducere" class="hero-button">Începe Lecția</a>
+        </div>
+    </section>
+
+    <!-- ===========================
+         CAPITOLUL 1: INTRODUCERE
+         =========================== -->
+    <section class="section" id="introducere">
+        <div class="container">
+            <h2 class="section-title">Introducere</h2>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <p>
+                    Un pacient vine la medic și zice: "Au dureri de cap." Medicul nu prescrie imediat aspirin. Pune câteva întrebări: de cât timp? E durere constantă? Sub dușă apare mai rau? Se leagă de ceva anume?
+                </p>
+                <p>
+                    Diagnosticul hardware funționează exact la fel. O PS5 spune "Cannot start — ce e amprenta LED roșu." E un simptom. Dar ce-i cauza? Ar putea fi PSU defectă. Ar putea fi RAM defect. Ar putea fi SoC cu defect. Ar putea fi un traseu rupt pe placa de bază. Fiecare necesită strategie de reparare diferită.
+                </p>
+                <p>
+                    Această lecție predă arta diagnosticului: cum se înfruntează un simptom, cum se formulează ipoteze, cum se testează ipotezele, și cum se identifică adevărata cauză. E o abilitate critică pentru oricine lucrează cu hardware.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===========================
+         CAPITOLUL 2: TEORIE
+         =========================== -->
+    <section class="section" id="teorie">
+        <div class="container">
+            <h2 class="section-title">Teorie Structurată</h2>
+
+            <!-- 2.1 Simptomele comune -->
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>2.1 — Simptomele Comune și Interpretările Greșite</h3>
+                <p>
+                    <strong>Simptom: "Consola nu pornește, LED-ul e negru."</strong>
+                </p>
+                <p>
+                    <em>Interpretare greșită:</em> SoC e distrus.
+                </p>
+                <p>
+                    <em>Cauze reale posibile:</em>
+                </p>
+                <ul class="specs-list">
+                    <li>Cablul de putere e decuplat </li>
+                    <li>Priza e defectă (testează cu alt aparat)</li>
+                    <li>PSU e defectă (nu produce 12V; nu trimite PG signal)</li>
+                    <li>Butonul de pornire e rupt (contacte mecanic oxidate)</li>
+                    <li>Placa de bază e defectă (PMIC nu primește semnal, regulatoarele nu funcționează)</li>
+                    <li>SoC e defect (rareori cauza primară a lipsei complete alimentare)</li>
+                </ul>
+                <p>
+                    <strong>Simptom: "LED-ul roșu intermitent. Consola repornește în loop (reboot loop)."</strong>
+                </p>
+                <p>
+                    <em>Cauze reale posibile:</em>
+                </p>
+                <ul class="specs-list">
+                    <li>OCP declanșat — scurtcircuit. CPU resetează PSU, apoi se reîncarcă</li>
+                    <li>Firmware corupt — boot fail, WDT resetează</li>
+                    <li>Memoria RAM e defectă — boot progresează, rămâne fără referință, resetează</li>
+                    <li>SSD defect — boot blocă în prezentarea inițiale, WDT resetează</li>
+                </ul>
+            </div>
+
+            <!-- 2.2 Metodologia de diagnostic -->
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>2.2 — Metodologia Diagnosticului: Ingineria Inversă a Simptomelor</h3>
+                <p>
+                    <strong>Pasul 1: Observație Detaliată</strong>
+                </p>
+                <ul class="specs-list">
+                    <li>Ce exact se întâmplă? (LED color/pattern, sunet, vibrații, miros)</li>
+                    <li>Când se întâmplă? (imediat la pornire, după 5 min, în joc specific)</li>
+                    <li>Istoric: ce s-a schimbat ultimele? (update firmware, defect fizic, apă)</li>
+                </ul>
+                <p>
+                    <strong>Pasul 2: Hipoteze și Testare</strong>
+                </p>
+                <ul class="specs-list">
+                    <li>Listează cauze posibile (de la cel mai simplu la cel mai complex)</li>
+                    <li>Pentru fiecare ipoteză, proiectează test care să o confirme sau infirme</li>
+                    <li>Execută test</li>
+                </ul>
+                <p>
+                    <strong>Exemple de teste eliminate progresiv:</strong>
+                </p>
+                <ol class="specs-list">
+                    <li>Test cabluri: încearcă alt cablu de putere. Dacă merge, problema e cablul, nu hardware-ul.</li>
+                    <li>Test priza: conectează alt aparat (lampă, ventilator). Dacă nu merge, priza e defectă.</li>
+                    <li>Test PSU: deconectează consola, pornește PSU în isolation (în multe PSU, se pornesc dacă nu sunt conectate). Dacă nu se pornește, PSU e defectă.</li>
+                    <li>Test placa de bază: măsoară tensiunile cu multimetrul pe punctele critice (12V línea, 5V, 3.3V, 1V core). Dacă absentă, PMIC e defect.</li>
+                    <li>Test RAM: deconectează DIMM-ul (dacă consolă are SODIMM). Încearcă fără memorie exterioară. Dacă apare alt semnal, RAM trebuia chiar defectă.</li>
+                </ol>
+            </div>
+
+            <!-- 2.3 Tree of Diagnosis -->
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>2.3 — Arborele de Diagnostic (Decision Tree)</h3>
+                <p>
+                    O metodă structurată pentru diagnosticul sistematic:
+                </p>
+                <div style="background: rgba(91, 164, 230, 0.1); padding: 1.5rem; border-radius: 8px; margin: 1rem 0;">
+                    <p style="margin: 0 0 0.5rem 0; text-align: center; font-weight: 600;">Consola nu pornește</p>
+                    <p style="text-align: center; margin: 0.5rem 0;">↓</p>
+                    <p style="text-align: center; font-weight: 500;">LED-ul aprinde? /  LED-ul nu aprinde?</p>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem;">
+                        <div style="border: 1px solid #5ba4e6; padding: 1rem; border-radius: 4px;">
+                            <p style="font-weight: 600; margin: 0 0 0.5rem 0;">LED NU aprinde</p>
+                            <ul style="margin: 0; padding-left: 1rem; font-size: 0.9rem;">
+                                <li>Testează PSU → defect → înlocuiți</li>
+                                <li>Testează cablul → defect → înlocuiți</li>
+                                <li>Testează priza → defectă → mutare</li>
+                                <li>Testează buton → defect → înlocuiți</li>
+                            </ul>
+                        </div>
+                        <div style="border: 1px solid #5ba4e6; padding: 1rem; border-radius: 4px;">
+                            <p style="font-weight: 600; margin: 0 0 0.5rem 0;">LED aprinde (roșu/ verde/albastru)</p>
+                            <ul style="margin: 0; padding-left: 1rem; font-size: 0.9rem;">
+                                <li>Roșu intermitent → OCP/OVP → placa defectă</li>
+                                <li>Roșu solid → RAM defectă / SSD defect</li>
+                                <li>Verde/albastru → firmware blocat  → boot safe mode</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <p>
+                    Fiecare ramură a arborelui conduce la o acțiune specifică. Metodă sistematică = progres garantat.
+                </p>
+            </div>
+
+            <!-- 2.4 Senzori și monitorizare -->
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>2.4 — Utilizarea Senzorilor Pentru Diagnostic</h3>
+                <p>
+                    PS5 și Xbox sunt echipate cu senzori care furnizează date de diagnostic:
+                </p>
+                <ul class="specs-list">
+                    <li><strong>Termosenzori</strong> — temperaturi CPU, GPU, chipset. Lectura anormală = răcire slabă sau senzor defect.</li>
+                    <li><strong>Power Monitoring IC</strong> — măsoară curenți pe fiecare linie de alimentare. Curent anormal = defect component.</li>
+                    <li><strong>Senzori de vibrații/accelerometru</strong> — detectează căzături. Impactul fizic e marcat în firmware, helpand diagnosis.</li>
+                    <li><strong>Diagnostics Firmware</strong> — în Safe Mode, permite testare RAM, SSD, conexiune WiFi.</li>
+                </ul>
+                <p>
+                    Un inginer bun știe să citească aceste senzori. PS5 boot diagnostics spun chiar "SSD not detected" dacă SSD e defect. Abia nu spun cuvintele, dar datele sunt informative.
+                </p>
+            </div>
+
+            <!-- 2.5 Common cause fallacies -->
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>2.5 — Capcane Comune în Diagnostic (Cognitive Biases)</h3>
+                <p>
+                    <strong>1. Anchoring Bias:</strong> "Am auzit că RAM se defectează des pe PS5, deci aceasta sigur e RAM."<br/>
+                    <em>Realitate:</em> Statistic, PSU se defectează mai des. Testează PSU mai întâi.
+                </p>
+                <p>
+                    <strong>2. Confirmation Bias:</strong> "Cred că e SoC defect, deci fiecare simptom confirma teoria."<br/>
+                    <em>Realitate:</em> Chiar și SoC defect are semnale caracteristice (calculare greșit, crash random). Dacă consola nici nu pornește, e mai probabil putere/PMIC, nu SoC.
+                </p>
+                <p>
+                    <strong>3. Disponibilitate Heuristic:</strong> "Cunoscând pe cineva cu HDD defect grav, cred că asta e problema frecventă."<br/>
+                    <em>Realitate:</em> SSD defect = rareori. Și când apare, consola pornește dar nu se bootează. Nu "nu pornește."
+                </p>
+                <p>
+                    <strong>4. Post hoc ergo propter hoc:</strong> "După ce am actualiza firmware-ul, consola s-a stricat. Firmware-ul e vina."<br/>
+                    <em>Realitate:</em> Timing e coincidență. Firmware-ul nu e luat ușor. Un hardware pe punctul de a falire pur-și-simplu alege momentul.
+                </p>
+            </div>
+
+            <!-- 2.6 Studii de caz -->
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>2.6 — Studii de Caz: Diagnostic Real</h3>
+                <p>
+                    <strong>Caz 1: Reboot Loop Red LED</strong>
+                </p>
+                <ul class="specs-list">
+                    <li>Simptom: LED roșu intermitent, consolă repornește la 5 secunde</li>
+                    <li>Ipoteză 1: OCP — defect component scurtcircuiază</li>
+                    <li>Test: măsoară curenți cu multimetru pe 12V linie → curent normal (nu e scurtcircuit)</li>
+                    <li>Ipoteză 2: Firmware corupt — boot fals, WDT resetează</li>
+                    <li>Test: boot în Safe Mode, rulează system diagnostics → "SSD error detected"</li>
+                    <li>Cauza: SSD e defect. Boot se blochează în SSD scan, WDT resetează după timeout.</li>
+                    <li>Soluție: înlocuiți SSD cu NVMe PCIe 4.0 compatibil</li>
+                </ul>
+                <p>
+                    <strong>Caz 2: Thermal Error Pe O Consolă Rece</strong>
+                </p>
+                <ul class="specs-list">
+                    <li>Simptom: "Cannot start — thermal error" chiar dacă consola e rece la atingere</li>
+                    <li>Ipoteză 1: Senzor termostringere defect → firmware crede că e fierbinte</li>
+                    <li>Test: introduceți în frigider 30 min, după din nou pornire → aceeași eroare</li>
+                    <li>Ipoteză 2: placa de bază coruptă. Senzor spune 999°C din cauza SPI/I2C defect</li>
+                    <li>Test: verificare schemă electrică a senzorului, măsurare cu osciloscop pe SDA/SCL liniile</li>
+                    <li>Cauza: pista ruptă pe placa unde conectează senzorul la PMIC</li>
+                    <li>Soluție: micro-welding a piștei, sau replace PMIC dacă e deteriorat și inafiabil</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===========================
+         CAPITOLUL 3: LEGATURA FIZICA-INFORMATICA
+         =========================== -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Legătura Fizică – Informatică</h2>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <p>
+                    <strong>Fizica:</strong> Senzor termostringere măsoară temperatura printr-o schimbare de rezistență. Dacă pista e ruptă, rezistanța devine infinită (circuit deschis). Firmware-ul citeștea ADC — valoarea e maxim (de ex 4095 la 12-bit ADC), interpretat ca 999°C.
+                </p>
+                <p>
+                    <strong>Informatica:</strong> Firmware-ul ia acea valoare și o compară cu praguri. 999°C > 105°C (pragul maxim) → shutdown. Al cadarva Fizica și Informatica: o problemă de hardware (pista ruptă) cauzeaza o problemă de software (lecitură senzor defectă).
+                </p>
+                <p>
+                    Diagnosticul corect trebuie să covere amândouă aspecte: măsurament fizic (osciloscop pentru semnal senzor) + interpretare software (ce vede firmware-ul).
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===========================
+         CAPITOLUL 4: APLICARE DIRECTA IN CONSOLE
+         =========================== -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Aplicare Directă în Console</h2>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>Strategii de Repair Triage</h3>
+                <p>
+                    <strong>Fază 1: Diagnostic Non-Destructiv (30 min)</strong><br/>
+                    Inițial, nu dezasamblezi nimic. Doar observații și teste externe.
+                </p>
+                <ul class="specs-list">
+                    <li>Verifici LED și semnale audio</li>
+                    <li>Încearcă alt PSU</li>
+                    <li>Încearcă alt cablul</li>
+                    <li>Conectează controllerul și observa răspuns</li>
+                    <li>Boot în Safe Mode dacă posibil și rulează tests</li>
+                </ul>
+                <p>
+                    <strong>Fază 2: Diagnostic Mic-Destructiv (1 oră)</strong><br/>
+                    Dezasamblezi parți minore: HDD/SSD, setul de RAM externe, ventilatoare.
+                </p>
+                <ul class="specs-list">
+                    <li>Pornește fără SSD → se blochează în boot? Probleme firmware/NOR.</li>
+                    <li>Pornește fără RAM extern → funcționează cu RAM OS? RAM defectă.</li>
+                    <li>Tastează termistoru: caldo la atingere? Senzor defect; rece? Răcire ruptă.</li>
+                </ul>
+                <p>
+                    <strong>Fază 3: Diagnostic Major (reparare profesională)</strong><br/>
+                    Dacă fazele anterioare nu au diagnozat, placa de bază necesită analiză profundă.
+                </p>
+                <ul class="specs-list">
+                    <li>Microscop electronic: înspectează fisuri, solduri suspecte, componente umflate</li>
+                    <li>X-ray: îndeplinitor soldurii ascunse</li>
+                    <li>Multimetru + osciloscop: măsoară semnale pe chipsuri critice</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===========================
+         CAPITOLUL 5: EXEMPLU REAL DE HARDWARE
+         =========================== -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Exemplu Real: Seria de Defecte PS5 2020-2023</h2>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <strong>Problemă: Consoarele se opriau brusc în jocuri (de obicei după 30-45 min gaming intens)</strong>
+                <p>
+                    <em>Simptom:</em> Jocul se oprește, ecran negru, și consola se reboot-ează.
+                </p>
+                <p>
+                    <em>Ipoteza inițiala:</em> Termic. GPU se supraîncălzește.
+                </p>
+                <p>
+                    <em>Investigație:</em> Terenă analizează puterea consumată: în jocuri heavy, consola consumă până la 200W, dar termostringem arată doar 80°C. Dacă ar fi overheating termic normal, ar vedea 100°C+. Nu se uită.
+                </p>
+                <p>
+                    <em>Cauza reala:</em> Condensatoare defecte pe placa de bază. La 200W consumare intens, condensoare (care stocază și furnizează curent) se epuiază și nu mai stabilizează tensiune. CPU/GPU vedeau fluctuații de 1.05V ± 0.15V. OVP declanșează, PSU shutdownează. Gândire este o opreire de protecție, nu overheatrm.
+                </p>
+                <p>
+                    <em>Soluție:</em> Înlocuiți condensoare 470µF pe linia de 1V CPU. After: consola merge stabil chiar și în sesiuni de 8 ore gaming.
+                </p>
+            </div>
+
+            <div class="card">
+                <p>
+                    <strong>Lecția:</strong> Simptomul (oprire după incălzire) iar inițial indica termic. Dar diagnosticul adânc a relevat cause: alimentare instabilă. A fost o lecție valuabilă de a nu accepta prima ipoteză.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===========================
+         CAPITOLUL 6: PROBLEME FRECVENTE
+         =========================== -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Probleme Frecvente în Diagnostic (Greșeli Comune)</h2>
+
+            <div class="card">
+                <h3>⚠️ Presupunerea că o singură componentă e responsabilă</h3>
+                <p>
+                    Realitate: în 20% din cazuri, sunt defecte multiple. PSU + RAM. Placa + condensoare. O defecțiune poate cauza o alta (PSU defect furnizează voltaj anormal, deteriorând RAM).
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>⚠️ Ignorarea istoricului și contextului</h3>
+                <p>
+                    Dacă consola s-a oprit brusc după update de firmware că nu se mai pornește, firmware e suspect. Iar dacă crash-ul este întâlnit de apă recent, coroziune e probabilă. Context e crucial.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>⚠️ Salturi de la simptom la soluție fără testare</h3>
+                <p>
+                    "Consola nu pornește, înlocuiesc PSU." Dar dacă problema era butonul de pornire? Ai cheltuit 80 EUR zadarnic.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>⚠️ Testare incompletă în Safe Mode</h3>
+                <p>
+                    PS5 diagnostics sunt comprehensive. Dacă nu intri în Safe Mode și ruleaza tess-uri, pierzi informații critice.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>⚠️ Incapacitate de a rula izolat</h3>
+                <p>
+                    Dacă consola pornește cu o anumită configurație (ex: SSD deconectat), asta dă informații. Testarea pasului după pas restrânge cauza.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===========================
+         CAPITOLUL 7: RECAPITULARE
+         =========================== -->
+    <section class="section" id="recapitulare">
+        <div class="container">
+            <h2 class="section-title">Recapitulare</h2>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <ul class="specs-list">
+                    <li><strong>Simptom</strong> = ce se observă (LED, sound, comportament)</li>
+                    <li><strong>Cauza</strong> = de ce se întâmplă (componentă defectă, pista ruptă, firmware corupt)</li>
+                    <li><strong>Diagnostic</strong> = procesul de identificare a causei din simptom</li>
+                    <li><strong>Arborele de diagnostic</strong> = metodă sistematică; întrebări binare care restrâng spațiul posibilităților</li>
+                    <li><strong>Non-destructiv</strong> → <strong>Micro-destructiv</strong> → <strong>Major destructiv</strong> = treptele investigației</li>
+                    <li><strong>Senzori</strong> în consola furnizează date; firmware-ul o interpretează — diagnostic trebuie amândouă</li>
+                    <li><strong>Cognitive biases</strong> (anchoring, confirmation) pot conduce la diagnostic greșit</li>
+                    <li><strong>Teste izolatoare</strong>: fără SSD, fără RAM, alt PSU — elimina variabile șiidentifică limita</li>
+                    <li><strong>Context și istoric</strong> crează ipoteza inițial mai bună decât random guessing</li>
+                    <li>Cea mai bună diagnostic vine din metoda sistematică de eliminare, nu din la-vă intuitiv</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===========================
+         CAPITOLUL 8: QUIZ
+         =========================== -->
+    <section class="section" id="quiz">
+        <div class="container">
+            <h2 class="section-title">Quiz — 5 Întrebări</h2>
+
+            <!-- Quiz Q1 -->
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 1</h3>
+                <p><strong>Care e diferența dintre simptom și cauza?</strong></p>
+                <ul class="specs-list">
+                    <li>a) Nu e diferență; termeni sinonimi</li>
+                    <li>b) Simptom = ce se observă; Cauza = de ce se întâmplă</li>
+                    <li>c) Simptom = hardware; Cauza = software</li>
+                    <li>d) Simptom = ce spune consola; Cauza = ce zice manualul</li>
+                </ul>
+                <details style="margin-top: 1rem;">
+                    <summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary>
+                    <p style="margin-top: 0.5rem;"><strong>b) Simptom = ce se observă; Cauza = de ce se întâmplă</strong> — Exemplu: Simptom "LED roșu". Cauza poate fi OCP, OVP, PSU defectă etc.</p>
+                </details>
+            </div>
+
+            <!-- Quiz Q2 -->
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 2</h3>
+                <p><strong>Cum trebuie să procedeze diagnostic-ul efectiv?</strong></p>
+                <ul class="specs-list">
+                    <li>a) Ghicire aleatoriu ce componente să îi</li>
+                    <li>b) Observație → ipoteză → testare sistematică → care</li>
+                    <li>c) Dezasambla imediat axa placa de bază</li>
+                    <li>d) Înlocuiți PSU, apoi RAM, apoi SSD până merge</li>
+                </ul>
+                <details style="margin-top: 1rem;">
+                    <summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary>
+                    <p style="margin-top: 0.5rem;"><strong>b) Observație → ipoteză → testare sistematică → care</strong> — E metoda științifică: observ; formulez teorii; testez; deduc cauza.</p>
+                </details>
+            </div>
+
+            <!-- Quiz Q3 -->
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 3</h3>
+                <p><strong>Ce înseamnă "arborele de diagnostic"?</strong></p>
+                <ul class="specs-list">
+                    <li>a) Vizualizare a tuturor copacilor din curtea consolei</li>
+                    <li>b) Metodă sistematică cu întrebări binare care restrâng cauze posibile</li>
+                    <li>c) Diagramă de cum se conectează cablurile în consola</li>
+                    <li>d) Înregistrare a tuturor defectelor care au apărut vreodată</li>
+                </ul>
+                <details style="margin-top: 1rem;">
+                    <summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary>
+                    <p style="margin-top: 0.5rem;"><strong>b) Metodă sistematică cu întrebări binare care restrâng cauze posibile</strong> — De exemplu: "LED aprinde?" Da/Nu. Fiecare răspuns elimina jumătate din posibilități.</p>
+                </details>
+            </div>
+
+            <!-- Quiz Q4 -->
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 4</h3>
+                <p><strong>Care din următoarele e o capcană cognitiva în diagnostic?</strong></p>
+                <ul class="specs-list">
+                    <li>a) Confirmation bias — cred că e RAM defect, deci tot ce vad confirmă asta</li>
+                    <li>b) Anchoring bias — prima ipoteză mă ancoramă, ignor alte posibilități</li>
+                    <li>c) Availability heuristic — presup frecvență din experiență personală</li>
+                    <li>d) Toate cele de mai sus</li>
+                </ul>
+                <details style="margin-top: 1rem;">
+                    <summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary>
+                    <p style="margin-top: 0.5rem;"><strong>d) Toate cele de mai sus</strong> — Toate sunt capcane reale care pot duce la diagnostic greșit dacă nu ești conștient.</p>
+                </details>
+            </div>
+
+            <!-- Quiz Q5 -->
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 5</h3>
+                <p><strong>Cum se numesc cele trei faze ale diagnosticului hardware?</strong></p>
+                <ul class="specs-list">
+                    <li>a) Ușor, Mediu, Greu</li>
+                    <li>b) Non-destructiv, Micro-destructiv, Major destructiv</li>
+                    <li>c) Rapid, Mediu, Adânc</li>
+                    <li>d) Exterior, Interior, Component</li>
+                </ul>
+                <details style="margin-top: 1rem;">
+                    <summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary>
+                    <p style="margin-top: 0.5rem;"><strong>b) Non-destructiv, Micro-destructiv, Major destructiv</strong> — Faza 1 nu desfaci nimic; Faza 2 desfaci piese minore; Faza 3 este reparație profesională pe placa de bază.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===========================
+         CAPITOLUL 9: EXERCITIU
+         =========================== -->
+    <section class="section" id="exercitiu">
+        <div class="container">
+            <h2 class="section-title">Exercițiu Aplicat de Gândire</h2>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>🧠 Exercițiu: Cuantifica Diagnostic Complet</h3>
+                <p>
+                    <strong>Scenariu:</strong> Ti se dă o PS5 care are următoarele simptome:
+                </p>
+                <ul class="specs-list">
+                    <li>LED albastru curând după pornire (~3 secunde)</li>
+                    <li>Sunet de boot complet (ventilator zumzai)</li>
+                    <li>Dar ecranul TV rămâne negru, nu HDMI detect</li>
+                    <li>Controller-ul se conectează wireless dar niciun răspuns</li>
+                </ul>
+                <p><strong>Sarcini:</strong></p>
+                <ul class="specs-list">
+                    <li>1. Listează simptomele observate și descrie ce parte a consolei indicând.</li>
+                    <li>2. Propune 5 ipoteze posibile pentru "nu e HDMI output" și "niciun răspuns din controller."</li>
+                    <li>3. Pentru fiecare ipoteză, proiectează MINIMUMul test pentru a o confirma/infirma.</li>
+                    <li>4. Desenează arborele de diagnostic (decision tree) care duce de la simptom la cauza probabilă.</li>
+                    <li>5. Dacă testele din faza 1 nu clarificau, ce dezasamblări din faza 2 ar folosi?</li>
+                </ul>
+                <details style="margin-top: 1.5rem;">
+                    <summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată rezolvarea</summary>
+                    <div style="margin-top: 1rem;">
+                        <p><strong>1.</strong> LED albastru curând = boot așteaptă ceva (normal, se așteaptă HDMI); ventilator zumzai = CPU/GPU pornit; ecran negru = HDMI nu transmit semnal; controller răspund wireless = antenă/I/O OK, dar procesare tastatură blocat.</p>
+                        <p><strong>2. Ipoteze:</strong> A) HDMI chip defect (în I/O Controller). B) Graphics memory corupt (nu e semnal HDMI), C) SSD nu se încarcă corect, CPU blocat acolo (niciun proces disponibil); D) Firmware incomplet sau corupt; E) Integrare software → versiunea OS e incompata cu hardware-ul.</p>
+                        <p><strong>3. Teste minime:</strong> A) Conectează la alt TV cu alt cablu HDMI (testează dacă e echipamentul). B) Boot în Safe Mode cu debbuging console (dacă disponibil) și observă daca sunt mesaje de eroare sarcina VRAM. C) Remove SSD și reattempt boot (dacă consolă pornește fără SSD dar cu HDMI, SSD e culpabil). D) Înearcă recovery restore firmware din USB (dacă OK, era firmware corupt). E) Comparează versiunea OS cu manual (dacă mismatch, actualizare necesar).</p>
+                        <p><strong>4. Arbore:</strong> Consola pornește → HDMI output Nu apare. Fork: 1. Alte TV cu alt HDMI? Dacă e signal, problema e TV/cablu. Dacă nici semnal, merge la 2. 2. Boot Safe Mode diagnostic disponibil? Dacă da, rulează grafică test. Dacă nu, merge la 3. 3. Remove SSD, repornește → apare HDMI? Dacă da, SSD corupt. Dacă nu, HDMI chip defect.</p>
+                        <p><strong>5. Faza 2 dezasamblea:</strong> Deconectează HDMI Port fizic și verifică pentru coroziune. Deconectează SSD și retest. Verifică condensoarele pe I/O Controller pentru umflare. Dacă toate par OK, problema e în SoC interior (care ar necesita reparație profesională Micro-BGA).</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- NAVIGARE LECȚII -->
+    <section class="section">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+            <a href="index.html" class="hero-button" style="font-size: 0.9rem;">← Planul Cursului</a>
+            <span style="font-size: 0.9rem; color: rgba(237,233,227,0.7);">Lecția Finală</span>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-inner container">
+            <div class="footer-left">
+                <p class="footer-main">&copy; 2026 Console Notebook</p>
+                <p class="footer-sub">Proiect Atestat Informatică</p>
+            </div>
+            <div class="footer-right">
+                <a href="mailto:andrei.halcu.07@licmarghilomanbz.ro">andrei.halcu.07@licmarghilomanbz.ro</a>
+                <a href="tel:+40758464907">+40 758 464 907</a>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="../../../js/main.js"></script>
+    <script src="../../../js/fallback/hamburger.js"></script>
+</body>
+</html>

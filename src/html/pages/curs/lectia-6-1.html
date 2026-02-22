@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lecția 6.1 — Secvența de pornire: Power-On Sequence">
+    <meta name="theme-color" content="#0B0F1A">
+    <link rel="icon" type="image/x-icon" href="../../../../favicon.ico">
+    <title>Lecția 6.1 — Secvența de pornire — Console Notebook</title>
+    <link rel="stylesheet" href="../../../css/production.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="../index.html" class="logo">Console Notebook</a>
+            <button class="hamburger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+            <ul class="nav-links">
+                <li><a href="../index.html">Acasă</a></li>
+                <li><a href="../invata.html" class="active">Învață</a></li>
+                <li><a href="../evolutie.html">Evoluție</a></li>
+                <li><a href="../comparatie.html">Comparație</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero hero-cinematic">
+        <div class="hero-content">
+            <p style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 3px; color: rgba(237,233,227,0.5); margin-bottom: 0.5rem;">Modul 6 — Alimentare și Probleme Reale</p>
+            <h1>Lecția 6.1 — Secvența de pornire (Power-On Sequence)</h1>
+            <p>De la 5V standby la init APU. Fiecare rail are un moment precis.</p>
+            <a href="#introducere" class="hero-button">Începe Lecția</a>
+        </div>
+    </section>
+
+    <section class="section" id="introducere">
+        <div class="container">
+            <h2 class="section-title">Introducere</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <p><strong>Power-on sequence:</strong> Ordinea în care rail-urile și subsistemele pornesc.</p>
+                <p>Dacă ordinea e greșită, CPU pornește fără memorie, VRM se oprește, sau consolea intră în protecție.</p>
+                <p>În PS5, secvența completă durează sub 1 secundă: Standby → Main → VRM → APU → Boot.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="teorie">
+        <div class="container">
+            <h2 class="section-title">Teorie Structurată</h2>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>6.1 — Starea Standby</h3>
+                <p><strong>5V standby:</strong> activ mereu. Alimentează controller power, IR receiver, USB charging.</p>
+                <p><strong>Microcontroller:</strong> SoC mic care detectează butonul power sau semnal din controller.</p>
+                <p>Consum tipic: 1-3W.</p>
+            </div>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>6.2 — Semnal Power-On</h3>
+                <p><strong>Power button:</strong> Trimite semnal către PMIC (Power Management IC).</p>
+                <p><strong>PS_ON:</strong> Semnal logic către PSU pentru a activa 12V main.</p>
+                <p>PSU răspunde cu 12V în 50-200 ms. Dacă nu, consola rămâne în standby.</p>
+            </div>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>6.3 — Secvența Rail-urilor</h3>
+                <p><strong>Ordine tipică:</strong> 12V main → 3.3V → 1.8V → 1.05V core → 1.35V GDDR6.</p>
+                <p><strong>Power Good:</strong> Fiecare rail trimite PG când stabil. Dacă lipsesc PG, secvența se oprește.</p>
+                <p><strong>Delay:</strong> 1-10 ms între rail-uri pentru stabilitate.</p>
+            </div>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>6.4 — Init Firmware</h3>
+                <p><strong>Boot ROM:</strong> CPU citește instrucțiuni din flash BIOS. Inițializează RAM, GPU, SSD.</p>
+                <p><strong>Memory training:</strong> GDDR6 calibrat (timing, voltage). Dacă training fail, reboot sau no boot.</p>
+                <p><strong>Device init:</strong> USB, WiFi, audio. Apoi OS boot.</p>
+            </div>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>6.5 — Protecții în Secvență</h3>
+                <p><strong>Watchdog:</strong> Dacă boot nu se finalizează în timp, se face reset.</p>
+                <p><strong>OCP/OVP:</strong> Dacă curentul sau tensiunea depășește limite, VRM oprește rail-ul.</p>
+                <p>Consola poate blink LED sau beep, semn că secvența s-a oprit.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Legătura Fizică – Informatică</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <p><strong>Fizică:</strong> Rail-uri sunt linii electrice cu tensiuni precise.</p>
+                <p><strong>Informatică:</strong> Firmware pornește doar când rail-urile sunt stabile și PG este valid.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Aplicare Directă</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>Exemplu: Secvență PS5</h3>
+                <p>1. 5V standby activ.</p>
+                <p>2. Buton power → PS_ON activ.</p>
+                <p>3. 12V main on. PG_12V OK.</p>
+                <p>4. 3.3V și 1.8V on. PG_3V3, PG_1V8 OK.</p>
+                <p>5. 1.05V core on. PG_CORE OK.</p>
+                <p>6. BIOS init, RAM training, OS boot.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Exemplu Real: Boot Loop</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <p>Consola pornește 1 sec, se oprește. Cauză: PG_CORE lipsește → VRM detectează scurt.</p>
+                <p>Firmware vede rail instabil și face reset. Rezultat: boot loop.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Probleme Frecvente</h2>
+            <div class="card"><h3>⚠️ PS_ON nu pornește PSU</h3><p>Controller power defect sau semnal PS_ON absent. Consola rămâne în standby.</p></div>
+            <div class="card"><h3>⚠️ Memory training fail</h3><p>RAM GDDR6 defectă sau rail 1.35V instabil. Consola se oprește la 1-2 sec.</p></div>
+        </div>
+    </section>
+
+    <section class="section" id="recapitulare">
+        <div class="container">
+            <h2 class="section-title">Recapitulare</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <ul class="specs-list">
+                    <li><strong>Standby:</strong> 5V activ, controler power treaz.</li>
+                    <li><strong>PS_ON:</strong> Activează 12V main.</li>
+                    <li><strong>Rail-uri:</strong> Pornește în ordine cu PG valid.</li>
+                    <li><strong>Boot ROM:</strong> Inițializează RAM și GPU.</li>
+                    <li><strong>Protecții:</strong> OCP/OVP/Watchdog opresc secvența dacă ceva e greșit.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="quiz">
+        <div class="container">
+            <h2 class="section-title">Quiz — 5 Întrebări</h2>
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 1</h3>
+                <p><strong>Care rail este activ mereu?</strong></p>
+                <ul class="specs-list"><li>a) 12V main</li><li>b) 5V standby</li><li>c) 1.05V core</li><li>d) 3.3V main</li></ul>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) 5V standby</strong></p></details>
+            </div>
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 2</h3>
+                <p><strong>PS_ON face:</strong></p>
+                <ul class="specs-list"><li>a) Oprește RAM</li><li>b) Activează 12V main</li><li>c) Oprește GPU</li><li>d) Reset BIOS</li></ul>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Activează 12V main</strong></p></details>
+            </div>
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 3</h3>
+                <p><strong>Power-good semnal indică:</strong></p>
+                <ul class="specs-list"><li>a) Rail stabil</li><li>b) GPU overclock</li><li>c) RAM defect</li><li>d) PSU off</li></ul>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>a) Rail stabil</strong></p></details>
+            </div>
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 4</h3>
+                <p><strong>Memory training se face la:</strong></p>
+                <ul class="specs-list"><li>a) În standby</li><li>b) În boot ROM</li><li>c) După OS</li><li>d) Niciodată</li></ul>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) În boot ROM</strong></p></details>
+            </div>
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 5</h3>
+                <p><strong>Dacă PG_CORE lipsește:</strong></p>
+                <ul class="specs-list"><li>a) Boot continuă</li><li>b) Consola face reset/stop</li><li>c) GPU accelerează</li><li>d) SSD se oprește</li></ul>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Consola se oprește</strong></p></details>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="exercitiu">
+        <div class="container">
+            <h2 class="section-title">Exercițiu Aplicat</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>🧠 Exercițiu: Diagnostic Secvență</h3>
+                <p><strong>Cerință:</strong> Consola pornește 0.5 sec și se oprește. Măsurători: 5V standby OK, 12V OK, 3.3V OK, 1.8V OK, 1.05V = 0V.</p>
+                <ol class="specs-list"><li>Unde e problema?</li><li>Ce suspectezi: VRM, APU scurt, semnal enable?</li><li>Ce următor pas?</li></ol>
+                <details style="margin-top: 1.5rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată rezolvarea</summary><div style="margin-top: 1rem;">
+                    <p><strong>1.</strong> Problema este rail-ul 1.05V core (APU).</p>
+                    <p><strong>2.</strong> Suspect VRM defect sau scurt pe APU rail. Verifică rezistența la masă.</p>
+                    <p><strong>3.</strong> Măsoară MOSFET-uri și bobine VRM, verifică enable signal. Dacă scurt, izolează condensatori sau APU.</p>
+                </div></details>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+            <a href="lectia-5-5.html" class="hero-button" style="font-size: 0.9rem;">← Lecția 5.5 — Rail-uri</a>
+            <a href="lectia-6-2.html" class="hero-button" style="font-size: 0.9rem;">Lecția 6.2 — Standby →</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-inner container">
+            <div class="footer-left"><p class="footer-main">&copy; 2026 Console Notebook</p><p class="footer-sub">Proiect Atestat Informatică</p></div>
+            <div class="footer-right"><a href="mailto:andrei.halcu.07@licmarghilomanbz.ro">andrei.halcu.07@licmarghilomanbz.ro</a><a href="tel:+40758464907">+40 758 464 907</a></div>
+        </div>
+    </footer>
+
+    <script type="module" src="../../../js/main.js"></script>
+    <script src="../../../js/fallback/hamburger.js"></script>
+</body>
+</html>

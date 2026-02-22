@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lecția 1.4 — Puterea Electrică și calculul Wați vs Volt-Amperi">
+    <meta name="theme-color" content="#0B0F1A">
+    <link rel="icon" type="image/x-icon" href="../../../../favicon.ico">
+    <title>Lecția 1.4 — Puterea Electrică — Console Notebook</title>
+    <link rel="stylesheet" href="../../../css/production.css">
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="../index.html" class="logo">Console Notebook</a>
+            <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="../index.html">Acasă</a></li>
+                <li><a href="../invata.html" class="active">Învață</a></li>
+                <li><a href="../evolutie.html">Evoluție</a></li>
+                <li><a href="../comparatie.html">Comparație</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero hero-cinematic">
+        <div class="hero-content">
+            <p style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 3px; color: rgba(237,233,227,0.5); margin-bottom: 0.5rem;">Modul 1 — Electricitate Fundamentală</p>
+            <h1>Lecția 1.4 — Puterea Electrică</h1>
+            <p>Wați, Volt-Amperi și cum mănânci cu consumul de energie al consolei tale.</p>
+            <a href="#introducere" class="hero-button">Începe Lecția</a>
+        </div>
+    </section>
+
+    <!-- INTRODUCERE -->
+    <section class="section" id="introducere">
+        <div class="container">
+            <h2 class="section-title">Introducere</h2>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <p>
+                    Acum că înțelegem Legea lui Ohm (V = I × R), trebuie să înțelegem energia și puterea. 
+                </p>
+                <p>
+                    <strong>Putere</strong> = rata de transfer a energiei. Măsurată în Wați [W].
+                </p>
+                <p>
+                    De ce contează? Fiți că o consolă PS5 consumă ~200W în joc intens. Asta înseamnă 200 jouli de energie pe secundă transformați în calcule, lumină, căldură. O consolă la 10W consumă mai puțin decât un bec LED. Dar dacă sparti 10W la 0.05V (ca linia de core), ești cu curent de 200A — asta e enorm!
+                </p>
+                <p>
+                    Relația între tensiune, curent și putere e fundamentală pentru a înțelege limitări PSU, încălzire, și throttling.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- TEORIE -->
+    <section class="section" id="teorie">
+        <div class="container">
+            <h2 class="section-title">Teorie Structurată</h2>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>2.1 — Definiția Puterii Electrice</h3>
+                <p>
+                    <strong>Putere</strong> = energia transferată pe unitate de timp.
+                </p>
+                <p style="text-align: center; font-size: 1.2rem; font-weight: 600; margin: 1.5rem 0; color: #5ba4e6;">
+                    P = V × I [Wați]
+                </p>
+                <ul class="specs-list">
+                    <li><strong>P</strong> = Putere [W]</li>
+                    <li><strong>V</strong> = Tensiunea [V]</li>
+                    <li><strong>I</strong> = Curentul [A]</li>
+                </ul>
+                <p>
+                    <strong>Exemplu:</strong> 
+                    <ul class="specs-list">
+                        <li>Linia de 12V cu 10A: P = 12V × 10A = 120W</li>
+                        <li>Linia de 1.05V cu 90A: P = 1.05V × 90A = 94.5W</li>
+                        <li>Linia de 5V cu 6A: P = 5V × 6A = 30W</li>
+                    </ul>
+                </p>
+            </div>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>2.2 — Wați vs Volt-Amperi (VA)</h3>
+                <p>
+                    Aici trebuie atenție. Cu curenți continui (DC), puterea activă = V × I [W].
+                    <br><br>
+                    Dar cu curenți alternați (AC), e mai complex. 
+                </p>
+                <ul class="specs-list">
+                    <li><strong>Putere Activă (P):</strong> energia care se transformă într-un lucru util. Măsurată în Wați [W]</li>
+                    <li><strong>Putere Aparentă (S):</strong> V × I total. Măsurată în Volt-Amperi [VA]</li>
+                    <li><strong>Factor de putere (cos φ):</strong> raportul P / S. De 0 la 1. Perfect = 1.0</li>
+                </ul>
+                <p style="text-align: center; font-weight: 600; margin: 1rem 0; color: #5ba4e6;">
+                    P = V × I × cos φ
+                </p>
+                <p>
+                    <strong>Exemplu:</strong> O PSU de 450VA cu factor 0.92 furnizează putere activă = 450 × 0.92 = <strong>414W</strong>.
+                </p>
+            </div>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>2.3 — Puterea Disipată ca Căldură</h3>
+                <p>
+                    Din lecția anterioara, stim că P = I² × R (puterea care se transforma în căldură în rezistență).
+                </p>
+                <p>
+                    În orice circuit, o parte din putere se pierde ca căldură datorita rezistențelor. În console:
+                    <ul class="specs-list">
+                        <li>VRM-urile se încălzesc → nevoie de radiatori</li>
+                        <li>Cablajul se încălzește → cădere de tensiune</li>
+                        <li>Componentele active (CPU, GPU) generează căldură → ventilatori de cooling</li>
+                        <li>Condensatori și bobine se încălzesc → rezonanță oscilații instabile</li>
+                    </ul>
+                </p>
+                <p>
+                    Dacă puterea disipată depășiți capacitatea de cooling, temperatura crește fără limit, și componenta se defectează.
+                </p>
+            </div>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>2.4 — Energitatea Versus Puterea</h3>
+                <p>
+                    Ușor de confundat:
+                    <ul class="specs-list">
+                        <li><strong>Putere:</strong> rata instantanee. Măsurată în Wați [W]. Răspuns la întrebarea "cât de repede?"</li>
+                        <li><strong>Energie:</strong> integral al puterii în timp. Măsurat în Wattori [Wh] sau Jouli [J]. Răspuns la "total cât"?</li>
+                    </ul>
+                </p>
+                <p style="text-align: center; font-weight: 600; margin: 1rem 0; color: #5ba4e6;">
+                    E = P × t [Jouli sau Wattori]
+                </p>
+                <p>
+                    <strong>Exemplu:</strong> O consola la 200W pentru 1 oră = 200Wh energie. Pe o luna (30 zile × 24 ore × 200W) = 144 kWh.
+                </p>
+            </div>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>2.5 — Limitarea PSU și OCP (Over-Current Protection)</h3>
+                <p>
+                    O PSU de 450W nu poate furniza 600W — e fizic imposibil. Are o limitare dură.
+                </p>
+                <p>
+                    Dacă circuitul îi cere mai mult curent decât poate furniza, una din două:
+                    <ul class="specs-list">
+                        <li><strong>OCP (Over-Current Protection):</strong> PSU măsoară curentul, dacă depășiți limita (ex: 15A pe linia de 12V), PSU se oprește în <1 microsecundă</li>
+                        <li><strong>Cădere de tensiune:</strong> dacă PSU încearcă să furnizeze prea mult curent, rezistența internă cauzeaza V să scadă</li>
+                    </ul>
+                </p>
+                <p>
+                    De aceea VRM-urile pe placa PS5 sunt critice — ele "cumpara" puterea în "rate" mici pe mai mult timp, prevenind spike-uri de curent care ar declanșa OCP.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- LEGATURA FIZICA-INFORMATICA -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Legătura Fizică – Informatică</h2>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <p>
+                    <strong>Fizica:</strong> Puterea e rapiditate de transfer energetic. Transformare în căldură (dacă disipată) sau lucru util (dacă procesare).
+                </p>
+                <p>
+                    <strong>Informatica:</strong> CPU-ul consumă putere proporțional cu: clock-ul (f), voltajul (V^2), și activitatea (# de tranzistori comutând). P ≈ C × V² × f. Creștere de clock fără creștere de voltaj = putere crescuta exponențial. De aceea throttling-ul reduce freq în loc de voltaj.
+                </p>
+                <p>
+                    Firmware-ul monitorizează puterea consumata via sensori (INA219) și reduce clock-ul dacă se apropie de limita PSU.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- APLICARE DIRECTA -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Aplicare Directă în Console</h2>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>Exemplu 1: Calcul Consum PS5 vs Xbox Series X</h3>
+                <p>
+                    <strong>PS5 (joc 4K 60FPS):</strong> ~150-200W</p>
+                <p>
+                    <strong>Xbox Series X (joc 4K 60FPS):</strong> ~120-150W</p>
+                <p>
+                    Diferența = eficiență. Xbox are mai bine optimizat (RDNA 2 vs RDNA 1 în PS5). Același calcul, mai puțin consum.
+                </p>
+            </div>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>Exemplu 2: De ce PSU 450W merge cu PS5?</h3>
+                <p>
+                    PS5 max 200W, dar PSU-urile au o marjă de siguranță. O PSU 450W poate furniza putere pic cu:
+                    <ul class="specs-list">
+                        <li>PS5: 200W</li>
+                        <li>Ventilatori: 5W</li>
+                        <li>LED-uri, USB: 10W</li>
+                        <li>Total: 215W</li>
+                    </ul>
+                    Asta e 48% din PSU. Eficient. PSU merge la 50% rata celor mai bune, deci se răcești bine.
+                </p>
+            </div>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>Exemplu 3: Throttling și Puterea Termala (TDP)</h3>
+                <p>
+                    PS5 are TDP (Thermal Design Power) ~250W. Asta-i puterea maxima care poate fi disipata pe radiatori.
+                </p>
+                <p>
+                    În jocuri extrem intensive, PS5 ar putea vrea să consume mai mult. Dar dacă muta la 250W și radiator nu poate evacua, temperatura crește. Firmware vede asta, reduce clock-ul, puterea cade sub 250W, temperatura scade.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXEMPLU REAL -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Exemplu Real: Calcul Consum Anual PS5</h2>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <p><strong>Scenariul:</strong> Utilizez PS5 500 ore pe an (echivalent ~1.4 ore pe zi mediu), 60% în jocuri, 40% în meniu/streaming.</p>
+                
+                <p><strong>Consumuri:</strong></p>
+                <ul class="specs-list">
+                    <li>Joc (150W): 500 × 0.60 = 300 ore</li>
+                    <li>Idle/Meniu (50W): 500 × 0.40 = 200 ore</li>
+                    <li>Standby (0.8W): 8760 - 500 = 8260 ore</li>
+                </ul>
+
+                <p><strong>Energie consumata:</strong></p>
+                <ul class="specs-list">
+                    <li>Joc: 300 ore × 150W = 45 kWh</li>
+                    <li>Idle: 200 ore × 50W = 10 kWh</li>
+                    <li>Standby: 8260 ore × 0.8W = 6.6 kWh</li>
+                    <li><strong>Total anual: ~62 kWh</strong></li>
+                </ul>
+
+                <p><strong>Cost estimat (la 0.5 USD/kWh):</strong> 62 × 0.5 = <strong>$31 anual</strong></p>
+
+                <p>
+                    Pentru comparația, Xbox Series X similar, dar cu ~10% mai puțin. Nintendo Switch la 10W joc, deci ~ 1 kWh pe an.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROBLEME FRECVENTE -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Probleme Frecvente Asociate</h2>
+
+            <div class="card">
+                <h3>⚠️ PSU se oprește random sub load greu</h3>
+                <p>
+                    Cauza: OCP declanșat. Curentul a depășit limita PSU. Verifică cablul (R mare?), componentele (scurtcircuit?), sau PSU e defect.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>⚠️ Consola se throttle-ează la jocuri grele</h3>
+                <p>
+                    Cauza: Temperatura a crescut deasupra limitei. PSU nu poate furniza putere + cât mai mult. Firmware reduce clock-ul pentru a reduce putere și căldură. Soluție: cură ventilatori, pun consolă în aer liber, înlocuiți pasta termică.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>⚠️ Cablu PSU se încălzește anormal</h3>
+                <p>
+                    Cauza: Curent mare × rezistență cablul = putere disipata. P = I²R. Dacă I mare (200W+ consum), cablul ar trebui să fie gros. Verifică dacă contactele sunt bune.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- RECAPITULARE -->
+    <section class="section" id="recapitulare">
+        <div class="container">
+            <h2 class="section-title">Recapitulare</h2>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <ul class="specs-list">
+                    <li><strong>Putere: P = V × I</strong> — energia transferată pe secundă</li>
+                    <li><strong>Putere disipata ca căldură: P = I² × R</strong></li>
+                    <li><strong>Energie: E = P × t</strong> — integral puterii în timp</li>
+                    <li><strong>Wați (W):</strong> puterea activă (DC) sau aparentă (AC)</li>
+                    <li><strong>Volt-Amperi (VA):</strong> puterea aparentă (AC), diferit de W datorita factor cosinus</li>
+                    <li>PSU limiteaza puterea cu OCP și cădere de tensiune</li>
+                    <li>Putere crescuta = căldură crescuta = nevoie de cooling mai bun</li>
+                    <li>Throttling reduce putere prin reducerea clock-ului, nu voltajul</li>
+                    <li>TDP (Thermal Design Power) = limita cât de multă căldură poate radiator evacua</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- QUIZ -->
+    <section class="section" id="quiz">
+        <div class="container">
+            <h2 class="section-title">Quiz — 5 Întrebări</h2>
+
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 1</h3>
+                <p><strong>Cum se calculează puterea electrică cu tensiune și curent?</strong></p>
+                <ul class="specs-list">
+                    <li>a) P = V × I</li>
+                    <li>b) P = V / I</li>
+                    <li>c) P = I² × R</li>
+                    <li>d) P = V²</li>
+                </ul>
+                <details style="margin-top: 1rem;">
+                    <summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary>
+                    <p style="margin-top: 0.5rem;"><strong>a) P = V × I</strong> — putere = tensiune × curent.</p>
+                </details>
+            </div>
+
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 2</h3>
+                <p><strong>Care-i diferența între Wați și Volt-Amperi?</strong></p>
+                <ul class="specs-list">
+                    <li>a) sunt echivalenți</li>
+                    <li>b) Wați = putere activă, VA = putere aparentă (cu AC)</li>
+                    <li>c) Wații sunt mai mici decât VA</li>
+                    <li>d) VA se folosesc doar pe DC</li>
+                </ul>
+                <details style="margin-top: 1rem;">
+                    <summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary>
+                    <p style="margin-top: 0.5rem;"><strong>b) Wați = putere activă, VA = putere aparentă</strong> — DC e doar V×I; AC depinde de factor cosinus.</p>
+                </details>
+            </div>
+
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 3</h3>
+                <p><strong>Cum se numeste protecția care oprește PSU dacă curent depășiți limita?</strong></p>
+                <ul class="specs-list">
+                    <li>a) OVP (Over-Voltage)</li>
+                    <li>b) OCP (Over-Current)</li>
+                    <li>c) OTP (Over-Temperature)</li>
+                    <li>d) SCP (Short-Circuit)</li>
+                </ul>
+                <details style="margin-top: 1rem;">
+                    <summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary>
+                    <p style="margin-top: 0.5rem;"><strong>b) OCP (Over-Current)</strong> — protejeaza circuitele dacă curentul pe o linie depășiți limita.</p>
+                </details>
+            </div>
+
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 4</h3>
+                <p><strong>Dacă o linie PSU furnizează 12V cu 15A, cât e puterea?</strong></p>
+                <ul class="specs-list">
+                    <li>a) 10W</li>
+                    <li>b) 80W</li>
+                    <li>c) 180W</li>
+                    <li>d) 27W</li>
+                </ul>
+                <details style="margin-top: 1rem;">
+                    <summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary>
+                    <p style="margin-top: 0.5rem;"><strong>c) 180W</strong> — P = V × I = 12V × 15A = 180W.</p>
+                </details>
+            </div>
+
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 5</h3>
+                <p><strong>De ce throttling-ul PS5 reduce clock-ul în loc de voltaj?</strong></p>
+                <ul class="specs-list">
+                    <li>a) Voltajul fix, nu se modifică</li>
+                    <li>b) Clock reduce liniar, voltaj reduce exponențial. Putere depinde de V²</li>
+                    <li>c) Voltaj nu poate scade sub 0.5V</li>
+                    <li>d) E convențional, nu-i diferență</li>
+                </ul>
+                <details style="margin-top: 1rem;">
+                    <summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary>
+                    <p style="margin-top: 0.5rem;"><strong>b) Clock reduce liniar, voltaj reduce exponențial</strong> — Putere = C × V² × f. Reducere V e mai eficientă decât f.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXERCITIU -->
+    <section class="section" id="exercitiu">
+        <div class="container">
+            <h2 class="section-title">Exercițiu Aplicat de Gândire</h2>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>🧠 Exercițiu: Proiectare PSU pentru consolă personalizată</h3>
+                <p>
+                    <strong>Scenariu:</strong> Proiectezi o consolă cu 4 linii de alimentare:
+                </p>
+                <ul class="specs-list">
+                    <li>CPU: 1.05V, 90A maxim</li>
+                    <li>GPU: 1.15V, 120A maxim</li>
+                    <li>RAM: 1.35V, 8A maxim</li>
+                    <li>Periferali (USB, disc, ventilator): 12V, 5A maxim</li>
+                </ul>
+                <p><strong>Sarcini:</strong></p>
+                <ul class="specs-list">
+                    <li>1. Calculează puterea pentru fiecare linie (P = V × I)</li>
+                    <li>2. Calculează puterea totală necesară</li>
+                    <li>3. Adaugă 20% marjă de siguranță. Ce PSU ai alege? (250W, 350W, 450W, 550W?)</li>
+                    <li>4. Calculează energia consumata pe an (8 ore joc pe zi, 365 zile)</li>
+                    <li>5. Estimează cost lunar de electricitate (0.5 USD/kWh)</li>
+                </ul>
+                <details style="margin-top: 1.5rem;">
+                    <summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată rezolvarea</summary>
+                    <div style="margin-top: 1rem;">
+                        <p><strong>1. Putere pe linie:</strong></p>
+                        <ul class="specs-list">
+                            <li>CPU: 1.05V × 90A = 94.5W</li>
+                            <li>GPU: 1.15V × 120A = 138W</li>
+                            <li>RAM: 1.35V × 8A = 10.8W</li>
+                            <li>Periferali: 12V × 5A = 60W</li>
+                        </ul>
+                        <p><strong>2. Putere totala:</strong> 94.5 + 138 + 10.8 + 60 = <strong>303.3W</strong></p>
+                        <p><strong>3. Cu 20% marjă:</strong> 303.3 × 1.20 = <strong>364W</strong>. Alegi <strong>450W PSU</strong> pentru siguranță.</p>
+                        <p><strong>4. Energie pe an:</strong> 303.3W × 8 ore/zi × 365 zile = 303.3W × 2920 ore = <strong>886 kWh</strong></p>
+                        <p><strong>5. Cost lunar:</strong> (886 kWh / 12 luni) × 0.5 USD/kWh = ~<strong>37 USD/lună</strong></p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- NAVIGARE -->
+    <section class="section">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+            <a href="lectia-1-3.html" class="hero-button" style="font-size: 0.9rem;">← Lecția 1.3 — Legea lui Ohm</a>
+            <a href="lectia-1-5.html" class="hero-button" style="font-size: 0.9rem;">Lecția 1.5 — AC vs DC →</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-inner container">
+            <div class="footer-left">
+                <p class="footer-main">&copy; 2026 Console Notebook</p>
+                <p class="footer-sub">Proiect Atestat Informatică</p>
+            </div>
+            <div class="footer-right">
+                <a href="mailto:andrei.halcu.07@licmarghilomanbz.ro">andrei.halcu.07@licmarghilomanbz.ro</a>
+                <a href="tel:+40758464907">+40 758 464 907</a>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="../../../js/main.js"></script>
+    <script src="../../../js/fallback/hamburger.js"></script>
+</body>
+</html>

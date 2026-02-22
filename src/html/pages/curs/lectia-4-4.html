@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lecția 4.4 — Bus și Interconectări: Fluxul de Date">
+    <meta name="theme-color" content="#0B0F1A">
+    <link rel="icon" type="image/x-icon" href="../../../../favicon.ico">
+    <title>Lecția 4.4 — Bus și Interconectări — Console Notebook</title>
+    <link rel="stylesheet" href="../../../css/production.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="../index.html" class="logo">Console Notebook</a>
+            <button class="hamburger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+            <ul class="nav-links">
+                <li><a href="../index.html">Acasă</a></li>
+                <li><a href="../invata.html" class="active">Învață</a></li>
+                <li><a href="../evolutie.html">Evoluție</a></li>
+                <li><a href="../comparatie.html">Comparație</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero hero-cinematic">
+        <div class="hero-content">
+            <p style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 3px; color: rgba(237,233,227,0.5); margin-bottom: 0.5rem;">Modul 4 — Arhitectură Hardware</p>
+            <h1>Lecția 4.4 — Bus și Interconectări</h1>
+            <p>Magistralele care mută datele între CPU, GPU, RAM, SSD și I/O. Fără bus, totul e izolat.</p>
+            <a href="#introducere" class="hero-button">Începe Lecția</a>
+        </div>
+    </section>
+
+    <section class="section" id="introducere">
+        <div class="container">
+            <h2 class="section-title">Introducere</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <p><strong>Bus:</strong> Canal de comunicare (linii fizice + protocol). Transfer date și control între componente.</p>
+                <p>PS5 are bus intern între CPU, GPU, RAM (IF bus), plus PCIe 4.0 pentru SSD, USB pentru periferice.</p>
+                <p>Bandwidth bus determină cât de repede pot circula datele. Un CPU rapid fără bus = blocaj.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="teorie">
+        <div class="container">
+            <h2 class="section-title">Teorie Structurată</h2>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>4.1 — Bus Tipuri</h3>
+                <p><strong>Address bus:</strong> Transportă adresă memorie (32-bit, 64-bit).</p>
+                <p><strong>Data bus:</strong> Transportă date (64-bit, 128-bit). Mai lat = mai multe date/ciclu.</p>
+                <p><strong>Control bus:</strong> Semnale control: read/write, clock, interrupt, reset.</p>
+            </div>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>4.2 — Bandwidth și Latență</h3>
+                <p><strong>Bandwidth:</strong> Cantitate de date per sec. = (bus width) × (clock frequency).</p>
+                <p><strong>Exemplu:</strong> 128-bit bus la 1 GHz = 128/8 bytes = 16 bytes/ciclu → 16 GB/s.</p>
+                <p><strong>Latență:</strong> Timp până datele ajung. Un bus poate avea bandwidth mare dar latență mare (ex. PCIe).</p>
+            </div>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>4.3 — Bus în PS5</h3>
+                <p><strong>Memory bus:</strong> CPU/GPU la GDDR6. 256-bit bus @ 14 Gbps → 448 GB/s.</p>
+                <p><strong>PCIe 4.0:</strong> SSD intern. 16 lane × 2 GB/s = 32 GB/s raw. PS5 real = 5.5 GB/s (controller limit).</p>
+                <p><strong>USB 3.1:</strong> 10 Gbps = 1.25 GB/s, pentru externe.</p>
+            </div>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>4.4 — Interconnect Topology</h3>
+                <p><strong>Shared bus:</strong> Toate modulele partajează aceeași magistrală. Pro: simplu. Con: coliziune data. Scalare slabă.</p>
+                <p><strong>Crossbar:</strong> Switch care conectează orice cu orice. Latență mică, scump.</p>
+                <p><strong>Ring:</strong> Pachetele circulă în cerc. Intel ring bus. Latență medie.</p>
+                <p><strong>Mesh:</strong> Grid de interconnect. AMD Infinity Fabric (PS5). Scalare bună.</p>
+            </div>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>4.5 — Bus Contention și QoS</h3>
+                <p><strong>Contenție:</strong> CPU și GPU cer simultan acces la RAM. Se formează coadă. Latență crește.</p>
+                <p><strong>QoS (Quality of Service):</strong> Bus controller prioritizează anumite fluxuri. De exemplu, audio buffer prioritate pentru a evita drop-out.</p>
+                <p><strong>Real World:</strong> Streaming textures + audio + physics = bus overloaded. QoS controlează frame pacing.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Legătura Fizică – Informatică</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <p><strong>Fizică:</strong> Bus = linii de cupru pe PCB. Semnalele sunt impulsuri electrice. Limitate de rezistență, capacitate, inductanță.</p>
+                <p><strong>Informatică:</strong> Protocoale (PCIe, AXI, GDDR). Control starea tranzițiilor și integritatea datelor.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Aplicare Directă</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>Exemplu: GPU vs CPU Contention</h3>
+                <p>GPU cere 300 GB/s bandwidth pentru frame buffer + textures. CPU cere 30 GB/s pentru physics + AI.</p>
+                <p>Memory bus = 448 GB/s max. Dacă ambele cer simultan, total 330 GB/s → OK. Dacă GPU spike 450 GB/s → CPU starve.</p>
+                <p>QoS are rol: menține 30 GB/s pentru CPU pentru a preveni stutter.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Exemplu Real: SSD Streaming PS5</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <p><strong>Scenario:</strong> Game open-world. SSD stream 5.5 GB/s. Bus PCIe 4.0. Data trece prin decompressor hardware.</p>
+                <p><strong>Pipeline:</strong> SSD → PCIe → IO controller → Decompressor → RAM → GPU. Latența end-to-end ~20 ms.</p>
+                <p><strong>Bus bottleneck:</strong> Dacă PCIe saturat de 6 GB/s și alt device cere 1 GB/s, contension reduce streaming speed. Frame stutter.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Probleme Frecvente</h2>
+            <div class="card"><h3>⚠️ De ce bus bandwidth poate limita FPS?</h3><p>GPU output + texture fetch + CPU data = total > bus bandwidth. Pentru fiecare frame, datele nu pot ajunge la timp. FPS scade.</p></div>
+            <div class="card"><h3>⚠️ De ce PCIe nu atinge mereu bandwith?</h3><p>Protocol overhead, handshaking, queue latency. 32 GB/s raw devine 5.5-7 GB/s real (PS5), plus latency penalty.</p></div>
+        </div>
+    </section>
+
+    <section class="section" id="recapitulare">
+        <div class="container">
+            <h2 class="section-title">Recapitulare</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <ul class="specs-list">
+                    <li><strong>Bus:</strong> Address, data, control. Transferă info între module.</li>
+                    <li><strong>Bandwidth:</strong> Bus width × frequency. 256-bit @ 14 Gbps → 448 GB/s (PS5).</li>
+                    <li><strong>Latență:</strong> Timp până data ajunge. Bus poate fi mare dar lent.</li>
+                    <li><strong>Topologie:</strong> Shared, crossbar, ring, mesh. PS5 folosește Infinity Fabric (mesh).</li>
+                    <li><strong>QoS:</strong> Prioritizare pentru a evita dropouts (audio, input).</li>
+                    <li>Bus contension = FPS drops și stutter. Limitare majoră în consola modernă.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="quiz">
+        <div class="container">
+            <h2 class="section-title">Quiz — 5 Întrebări</h2>
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 1</h3>
+                <p><strong>Data bus width de 128-bit la 1 GHz → bandwidth?</strong></p>
+                <ul class="specs-list"><li>a) 1 GB/s</li><li>b) 8 GB/s</li><li>c) 16 GB/s</li><li>d) 128 GB/s</li></ul>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>c) 16 GB/s</strong> — 128/8 = 16 bytes per ciclu.</p></details>
+            </div>
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 2</h3>
+                <p><strong>PS5 memory bus?</strong></p>
+                <ul class="specs-list"><li>a) 128-bit 7 Gbps</li><li>b) 256-bit 14 Gbps</li><li>c) 512-bit 7 Gbps</li><li>d) 128-bit 14 Gbps</li></ul>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) 256-bit 14 Gbps</strong> — 448 GB/s.</p></details>
+            </div>
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 3</h3>
+                <p><strong>PCIe 4.0 raw bandwidth per 16 lane?</strong></p>
+                <ul class="specs-list"><li>a) 2 GB/s</li><li>b) 8 GB/s</li><li>c) 16 GB/s</li><li>d) 32 GB/s</li></ul>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>d) 32 GB/s</strong> — 16 lanes × 2 GB/s.</p></details>
+            </div>
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 4</h3>
+                <p><strong>QoS în bus înseamnă:</strong></p>
+                <ul class="specs-list"><li>a) Overclock bus</li><li>b) Prioritizează fluxuri critice</li><li>c) Reduce width bus</li><li>d) Adaugă mai mult RAM</li></ul>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Prioritizează fluxuri critice</strong></p></details>
+            </div>
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 5</h3>
+                <p><strong>Topologia mesh oferă:</strong></p>
+                <ul class="specs-list"><li>a) Scalare slabă</li><li>b) Scalare bună și redundanță</li><li>c) Latență constantă mereu 1ns</li><li>d) Zero cost</li></ul>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Scalare bună</strong> — Mesh crește puncte, dar costă silicon.</p></details>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="exercitiu">
+        <div class="container">
+            <h2 class="section-title">Exercițiu Aplicat</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>🧠 Exercițiu: Bandwidth Budgeting</h3>
+                <p><strong>Cerință:</strong> GPU cere 320 GB/s, CPU cere 40 GB/s, SSD streaming cere 10 GB/s. Memory bus PS5 448 GB/s.</p>
+                <ol class="specs-list"><li>Calculați total demand</li><li>Este bus saturat?</li><li>Dacă GPU spike la 400 GB/s, ce se întâmplă?</li><li>QoS decide să rezerva 40 GB/s pentru CPU. Ce rămâne pentru GPU și SSD?</li></ol>
+                <details style="margin-top: 1.5rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată rezolvarea</summary><div style="margin-top: 1rem;">
+                    <p><strong>1. Total demand:</strong> 320 + 40 + 10 = 370 GB/s.</p>
+                    <p><strong>2. Bus saturat?</strong> 370 &lt; 448. Nu, există headroom 78 GB/s.</p>
+                    <p><strong>3. GPU spike la 400 GB/s:</strong> Total = 400 + 40 + 10 = 450 GB/s &gt; 448. Bus saturat. Latency crește, stutter.</p>
+                    <p><strong>4. QoS rezervă CPU 40 GB/s:</strong> Rămâne 448-40 = 408 GB/s. GPU + SSD împart 408. Dacă GPU cere 400 și SSD 10, total 410. GPU redus cu 2 GB/s sau SSD throttled.</p>
+                </div></details>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+            <a href="lectia-4-3.html" class="hero-button" style="font-size: 0.9rem;">← Lecția 4.3 — RAM și Cache</a>
+            <a href="index.html" class="hero-button" style="font-size: 0.9rem;">Planul Cursului →</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-inner container">
+            <div class="footer-left"><p class="footer-main">&copy; 2026 Console Notebook</p><p class="footer-sub">Proiect Atestat Informatică</p></div>
+            <div class="footer-right"><a href="mailto:andrei.halcu.07@licmarghilomanbz.ro">andrei.halcu.07@licmarghilomanbz.ro</a><a href="tel:+40758464907">+40 758 464 907</a></div>
+        </div>
+    </footer>
+
+    <script type="module" src="../../../js/main.js"></script>
+    <script src="../../../js/fallback/hamburger.js"></script>
+</body>
+</html>

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lecția 3.1 — Bit și sistem binar: Foundation digitală">
+    <meta name="theme-color" content="#0B0F1A">
+    <link rel="icon" type="image/x-icon" href="../../../../favicon.ico">
+    <title>Lecția 3.1 — Bit și Binar — Console Notebook</title>
+    <link rel="stylesheet" href="../../../css/production.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="../index.html" class="logo">Console Notebook</a>
+            <button class="hamburger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+            <ul class="nav-links">
+                <li><a href="../index.html">Acasă</a></li>
+                <li><a href="../invata.html" class="active">Învață</a></li>
+                <li><a href="../evolutie.html">Evoluție</a></li>
+                <li><a href="../comparatie.html">Comparație</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero hero-cinematic">
+        <div class="hero-content">
+            <p style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 3px; color: rgba(237,233,227,0.5); margin-bottom: 0.5rem;">Modul 3 — Logică Digitală</p>
+            <h1>Lecția 3.1 — Bit și Sistem Binar</h1>
+            <p>De la volt &amp; masă la 0 și 1. Cum computerele gândesc doar cu binare.</p>
+            <a href="#introducere" class="hero-button">Începe Lecția</a>
+        </div>
+    </section>
+
+    <section class="section" id="introducere">
+        <div class="container">
+            <h2 class="section-title">Introducere</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <p><strong>Bit = BInary digiT.</strong> 0 sau 1. Nimic altceva. Microelectronica unui procesor se reduce la: acesta e mai mult decât 0.5V (1) sau mai puțin (0)?</p>
+                <p>System binar: Folosește 2 cifre (0 și 1) versus sistemul zecimal care folosește 10 (0-9).</p>
+                <p><strong>De ce binar?</strong> Pentru că volt și masă sunt stări stabile. Easy to implement, hard to corrupt. Orice PS5 crede în binar.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="teorie">
+        <div class="container">
+            <h2 class="section-title">Teorie Structurată</h2>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>3.1 — Ce e Bit?</h3>
+                <p><strong>Bit fizic:</strong> Un MOSFET cu dren conectat la VCC (3.3V) și sursă la masă (0V).</p>
+                <p>Dacă gate e 0V: MOSFET OFF → dren "pluteşte" la VCC prin pull-up rezistor → ieșire = 1</p>
+                <p>Dacă gate e 3.3V: MOSFET ON → dren = 0V → ieșire = 0</p>
+                <p><strong>Deci: Bit = (V_node > 1.65V) ? 1 : 0.</strong> Orice mai sus de jumătate se crede 1. Mai jos = 0.</p>
+            </div>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>3.2 — Sistem Binar</h3>
+                <p>Zecimal: 467 = 4×10² + 6×10¹ + 7×10⁰ = 400 + 60 + 7.</p>
+                <p>Binar: 01110110 = 0×2⁷ + 1×2⁶ + 1×2⁵ + 1×2⁴ + 0×2³ + 1×2² + 1×2¹ + 0×2⁰ = 64 + 32 + 16 + 4 + 2 = 118 zecimal.</p>
+                <p><strong>Conversii rapide:</strong></p>
+                <ul class="specs-list">
+                    <li>2⁰ = 1, 2¹ = 2, 2² = 4, 2³ = 8, 2⁴ = 16, 2⁵ = 32, 2⁶ = 64, 2⁷ = 128, 2⁸ = 256</li>
+                    <li>255 zecimal = 11111111 binar (8 biți max) = 2⁸ - 1</li>
+                    <li>1024 zecimal = 10000000000 binar (11 biți)</li>
+                </ul>
+            </div>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>3.3 — Byte, Cuvânt, Megabyte</h3>
+                <p><strong>Byte:</strong> 8 biți. Unitate de bază în memoriei și procesare. Interval: 0-255 zecimal (00000000-11111111 binar).</p>
+                <p><strong>Word:</strong> De obicei 32 biți (4 bytes) pe consolele moderne. PS5 CPU = 64-bit (8 bytes). Interval: 0-4,294,967,295 (2³² - 1).</p>
+                <p><strong>Megabyte (MB):</strong> 1,048,576 bytes (2²⁰). PS5 RAM = 16 GB = 16 × 1024 MB = 16,777,216 KB.</p>
+                <p><strong>Memorie adrese:</strong> 16 GB = 2³⁴ bytes. CPU poate adresa din 0 la (2³⁴ - 1).</p>
+            </div>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>3.4 — Operații Binare Clasice</h3>
+                <p><strong>AND:</strong> 1 AND 1 = 1. Altfel 0. Mascare.</p>
+                <p><strong>OR:</strong> 0 OR 0 = 0. Altfel 1. Setare.</p>
+                <p><strong>XOR:</strong> Egal = 0, diferit = 1. Comparare logică.</p>
+                <p><strong>NOT:</strong> 0→1, 1→0. Inversare.</p>
+                <p>Exemplu: 10101010 AND 11110000 = 10100000 (pastrează doar biții unde amândoi sînt 1).</p>
+            </div>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>3.5 — Reprezentare Numere Negative</h3>
+                <p><strong>Unsigned:</strong> Toate biții sunt valori pozitive. 8 biți = 0-255.</p>
+                <p><strong>Signed (Two's Complement):</strong> Bitul MSB (most significant bit) e semn. 8 biți signed = -128 la +127.</p>
+                <p>Exemplu: 01111111 = +127. 10000000 = -128. -1 = 11111111 (binar).</p>
+                <p><strong>Two's Complement formula:</strong> Pentru negare, inversează toți biții și adaugă 1. De ex, 5 (00000101) → inversat (11111010) → plus 1 (11111011) = -5.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Legătura Fizică – Informatică</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <p><strong>Fizică:</strong> Volt &amp; masă sunt stări electrice stabile în silicon.</p>
+                <p><strong>Informatică:</strong> Sunt traduse în 0 și 1, apoi în numere, text, culori, sunet.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Aplicare Directă</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>Exemplu: Stocare Culori in PS5</h3>
+                <p>Pixel roșu: 11111111 (255 roșu) 00000000 (0 verde) 00000000 (0 albastru) = FF0000 hex.</p>
+                <p>3 bytes per pixel (RGB). Ecran 1080p = 1920×1080 pixeli = 2,073,600 pixeli × 3 bytes = 6.2 MB pe frame.</p>
+                <p>La 60 FPS: 6.2 MB × 60 = 372 MB/sec de bandwidth memorie doar pentru imagini. GPU-ul PS5 gestionează asta.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Exemplu Real: Adrese Memorie PS5</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <p>PS5 16 GB RAM. Adresar 64-bit = 2⁶⁴ posibilități potențiale (but only 16 GB mapped).</p>
+                <p>Address 0x0000000000 = primii biți din RAM.</p>
+                <p>Address 0x3FFFFFFFF = ultimii biți (16GB - 1 byte).</p>
+                <p>Variabilă integer la address 0x1000: ocupă bytes 0x1000-0x1003 (4 bytes). Următoarea variabilă la 0x1004.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Probleme Frecvente</h2>
+            <div class="card"><h3>⚠️ De ce nu pot stoca -5 în unsigned byte?</h3><p>Unsigned byte = 0-255. -5 necesită signed byte (-128 la 127). Dacă forțezi, -5 se interpretzează ca 251 în unsigned.</p></div>
+            <div class="card"><h3>⚠️ De ce 1 + 1 = 10 în binar?</h3><p>Pentru că după 1 (1 zecimal) vine 10 (2 zecimal). E baza binar, nu zecimal.</p></div>
+        </div>
+    </section>
+
+    <section class="section" id="recapitulare">
+        <div class="container">
+            <h2 class="section-title">Recapitulare</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <ul class="specs-list">
+                    <li><strong>Bit:</strong> 0 sau 1, stări electrice (masă sau VCC).</li>
+                    <li><strong>Byte:</strong> 8 biți, 0-255 unsigned.</li>
+                    <li><strong>Word:</strong> 32-64 biți, unitate intrare procesor.</li>
+                    <li><strong>Binar:</strong> Putere lui 2 pentru conversii și indexare.</li>
+                    <li><strong>Two's Complement:</strong> Reprezentare numere negative in binar.</li>
+                    <li>Orice se reduce la 0 și 1. Console-ul PS5 are miliarde de biți activați/dezactivați per secundă.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="quiz">
+        <div class="container">
+            <h2 class="section-title">Quiz — 5 Întrebări</h2>
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 1</h3>
+                <p><strong>Ce sistem numeric e folosit de computerele interne?</strong></p>
+                <ul class="specs-list"><li>a) Zecimal</li><li>b) Octal</li><li>c) Binar</li><li>d) Hexazecimal</li></ul>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>c) Binar</strong> — Intern, totul e 0 și 1.</p></details>
+            </div>
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 2</h3>
+                <p><strong>Câți biți în 1 byte?</strong></p>
+                <ul class="specs-list"><li>a) 4</li><li>b) 8</li><li>c) 16</li><li>d) 32</li></ul>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) 8 biți</strong></p></details>
+            </div>
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 3</h3>
+                <p><strong>Convertește 10110010 binar în zecimal.</strong></p>
+                <ul class="specs-list"><li>a) 146</li><li>b) 166</li><li>c) 178</li><li>d) 182</li></ul>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>c) 178</strong> — 128 + 32 + 16 + 2 = 178</p></details>
+            </div>
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 4</h3>
+                <p><strong>Fie x = 5 (00000101). Cât e -x în two's complement?</strong></p>
+                <ul class="specs-list"><li>a) 11111010</li><li>b) 11111011</li><li>c) 10111011</li><li>d) 11101011</li></ul>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) 11111011</strong> — Inversat (11111010) + 1 = 11111011</p></details>
+            </div>
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 5</h3>
+                <p><strong>PS5 RAM = 16 GB. Câți bytes e asta?</strong></p>
+                <ul class="specs-list"><li>a) 16 × 1000 bytes</li><li>b) 16 × 1,000,000 bytes</li><li>c) 16 × 1,048,576 KB (2²⁰ bytes/KB)</li><li>d) 16 × 30 GB</li></ul>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>c) 16 × 1,048,576 = 16,777,216 KB = 17,179,869,184 bytes</strong></p></details>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="exercitiu">
+        <div class="container">
+            <h2 class="section-title">Exercițiu Aplicat</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>🧠 Exercițiu: Reprezentare Buffer Memorie</h3>
+                <p><strong>Cerință:</strong> Scrie în binar și apoi zecimal următoarele:</p>
+                <ol class="specs-list"><li>Culoare roșu pur: 11111111 (255R) 00000000 (0G) 00000000 (0B) — exprimi în bytes distinct</li><li>Memoria unei variabile color (3 bytes) la adresa 0x1000 în PS5</li><li>Alocă 256 biți pentru o structură. Exprimă în bytes și megabytes dacă ai 1000 structuri identice</li></ol>
+                <details style="margin-top: 1.5rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată rezolvarea</summary><div style="margin-top: 1rem;">
+                    <p><strong>1. Culoare roșu:</strong></p>
+                    <ul class="specs-list">
+                        <li>Byte 1 (R): 11111111 = 255 zecimal</li>
+                        <li>Byte 2 (G): 00000000 = 0 zecimal</li>
+                        <li>Byte 3 (B): 00000000 = 0 zecimal</li>
+                        <li>Culoare = FF0000 hexazecimal</li>
+                    </ul>
+                    <p><strong>2. Memorie structură:</strong></p>
+                    <ul class="specs-list">
+                        <li>Adresa 0x1000 = byte 1 (roșu = 255)</li>
+                        <li>Adresa 0x1001 = byte 2 (verde = 0)</li>
+                        <li>Adresa 0x1002 = byte 3 (albastru = 0)</li>
+                    </ul>
+                    <p><strong>3. Alocare 256 biți:</strong></p>
+                    <ul class="specs-list">
+                        <li>256 biți = 32 bytes per structură</li>
+                        <li>1000 structuri × 32 bytes = 32,000 bytes = 31.25 KB ≈ 0.03 MB</li>
+                    </ul>
+                </div></details>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+            <a href="lectia-2-5.html" class="hero-button" style="font-size: 0.9rem;">← Lecția 2.5 — SMPS</a>
+            <a href="lectia-3-2.html" class="hero-button" style="font-size: 0.9rem;">Lecția 3.2 — Porți Logice →</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-inner container">
+            <div class="footer-left"><p class="footer-main">&copy; 2026 Console Notebook</p><p class="footer-sub">Proiect Atestat Informatică</p></div>
+            <div class="footer-right"><a href="mailto:andrei.halcu.07@licmarghilomanbz.ro">andrei.halcu.07@licmarghilomanbz.ro</a><a href="tel:+40758464907">+40 758 464 907</a></div>
+        </div>
+    </footer>
+
+    <script type="module" src="../../../js/main.js"></script>
+    <script src="../../../js/fallback/hamburger.js"></script>
+</body>
+</html>

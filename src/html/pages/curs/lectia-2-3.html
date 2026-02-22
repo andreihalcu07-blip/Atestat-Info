@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lecția 2.3 — Tranzistori: Amplificare și Comutare">
+    <meta name="theme-color" content="#0B0F1A">
+    <link rel="icon" type="image/x-icon" href="../../../../favicon.ico">
+    <title>Lecția 2.3 — Tranzistori — Console Notebook</title>
+    <link rel="stylesheet" href="../../../css/production.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="../index.html" class="logo">Console Notebook</a>
+            <button class="hamburger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+            <ul class="nav-links">
+                <li><a href="../index.html">Acasă</a></li>
+                <li><a href="../invata.html" class="active">Învață</a></li>
+                <li><a href="../evolutie.html">Evoluție</a></li>
+                <li><a href="../comparatie.html">Comparație</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero hero-cinematic">
+        <div class="hero-content">
+            <p style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 3px; color: rgba(237,233,227,0.5); margin-bottom: 0.5rem;">Modul 2 — Electronică de Bază</p>
+            <h1>Lecția 2.3 — Tranzistori</h1>
+            <p>Comutator electronic — de la amplificare la logica digitală.</p>
+            <a href="#introducere" class="hero-button">Începe Lecția</a>
+        </div>
+    </section>
+
+    <section class="section" id="introducere">
+        <div class="container">
+            <h2 class="section-title">Introducere</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <p><strong>Tranzistor:</strong> Component activ cu 3+ terminali care controlează curentul printr-o tensiune de control pe un terminal.</p>
+                <p>Cel mai important component după diodă. Sunt miliarde în CPU/GPU consolei.</p>
+                <p><strong>Două tipuri principale:</strong></p>
+                <ul class="specs-list">
+                    <li><strong>BJT (Bipolar Junction Transistor):</strong> Vechi, simplu, amplificare bună. Rar în console moderne.</li>
+                    <li><strong>FET (Field-Effect Transistor):</strong> Modern, rapid, mic. Domină în console și VLSI.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="teorie">
+        <div class="container">
+            <h2 class="section-title">Teorie Structurată</h2>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>2.1 — BJT: Bipolar Junction Transistor</h3>
+                <p><strong>Trei terminali:</strong> Colector (C), Bază (B), Emitor (E).</p>
+                <ul class="specs-list">
+                    <li><strong>Regiune active:</strong> Curent C ≈ β × curent B. Amplificare.</li>
+                    <li><strong>Regiune saturație:</strong> B prea mic, C oprește. Switch deschis.</li>
+                    <li><strong>Regiune cutoff:</strong> B = 0, C = 0. Switch închis.</li>
+                </ul>
+                <p>V_CE (saturație) ≈ 0.2V. Util pentru amplificare și comutare. Amplificație de curent β ≈ 100-300.</p>
+            </div>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>2.2 — FET: Field-Effect Transistor</h3>
+                <p><strong>Trei terminali:</strong> Gate (G), Drain (D), Source (S).</p>
+                <p>Controlez curentul cu tensiune Gate, nu curent. Curent Gate ≈ 0 (ideal). Trei tipuri:</p>
+                <ul class="specs-list">
+                    <li><strong>JFET:</strong> Vechi, rar acum.</li>
+                    <li><strong>MOSFET (Metal-Oxide-Semiconductor):</strong> Modern, dominator. N-channel și P-channel.</li>
+                    <li><strong>IGBT:</strong> Hibrid BJT+FET, puteri mari. Rar în console.</li>
+                </ul>
+            </div>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>2.3 — MOSFET: Structura și Funcționare</h3>
+                <p><strong>MOSFET:</strong> Două tipuri polarity:</p>
+                <ul class="specs-list">
+                    <li><strong>N-channel MOSFET:</strong> Gate+ → deschis (D→S conduce). Switch.</li>
+                    <li><strong>P-channel MOSFET:</strong> Gate- → deschis (S→D conduce).</li>
+                </ul>
+                <p><strong>Threshold Voltage (V_th):</strong> Tensiunea Gate la care se deschide. N-channel ~0.5-2V, P-channel ~-0.5 la -2V.</p>
+                <p><strong>On-Resistance (R_DS(on)):</strong> Rezistență canalului deschis. Mic = mai bun. Tipic: 1mΩ-10mΩ modern.</p>
+                <p><strong>Gate capacitate:</strong> Trebuie să se încarcă pentru a deschide. Energie și timp necesare.</p>
+            </div>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>2.4 — Tranzistor ca Amplificator și Comutator</h3>
+                <p><strong>Amplificator:</strong> Semnal mic pe Gate → curent mare pe Source-Drain. Amplificare de putere.</p>
+                <p><strong>Comutator:</strong> Gate = 0 sau V_th. Tranzistor = ON/OFF rapid. Frecvență foarte înaltă (MHz+).</p>
+                <p>Putere disipata: P = V_DS × I_D (când open). Dacă R_DS(on) mic și I mare, P = I² × R_DS mic — eficiență bună.</p>
+            </div>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>2.5 — Tranzistori în VRM și Putere</h3>
+                <p>Un VRM modern are 2×N MOSFET-uri (N-channel și P-channel) ca punte H (High-Low). Comută la 130kHz pentru a crea tensiune de ieșire.</p>
+                <p>Curenți mari → putere mare disipata → nevoie de radiatori și PCB cu traces groase.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Legătura Fizică – Informatică</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <p><strong>Fizica:</strong> Tranzistorii controlează curent cu precizie folosind câmp electric (FET) sau curent mic (BJT).</p>
+                <p><strong>Informatica:</strong> CPU-ul cu miliarde de tranzistori care comută. Fiecare tranzistor ca microswitch care decide 0 și 1. Comutare rapidă (nanosecunde) permite frecvență GHz.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Aplicare Directă</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>Exemplu: VRM cu MOSFET-uri</h3>
+                <p>Linia 1.05V a PS5 are ~10 MOSFET-uri în paralel per fază (3-5 faze). Fiecare: R_DS ~ 1.5mΩ.</p>
+                <p>Cu 18A per MOSFET: P = I² × R = 18² × 1.5mΩ = 0.486W per MOSFET × 10 = 4.86W per fază.</p>
+                <p>Termistoarele măsoară temperatura și dacă prea cald, firmware reduce clock-ul pentru a reduce I.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Probleme Frecvente</h2>
+            <div class="card"><h3>⚠️ MOSFET defect (scurtcircuit)</h3><p>Tranzistor se comportă ca rezistență foarte mică (burn).</p></div>
+            <div class="card"><h3>⚠️ Gate oxide defect</h3><p>Gate se comportă ca open circuit. Tranzistor nu se deschide.</p></div>
+        </div>
+    </section>
+
+    <section class="section" id="recapitulare">
+        <div class="container">
+            <h2 class="section-title">Recapitulare</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <ul class="specs-list">
+                    <li><strong>Tranzistor:</strong> Comutator electronic cu 3+ terminali.</li>
+                    <li><strong>BJT:</strong> Amplificare curent (β ≈ 100-300). Vechi.</li>
+                    <li><strong>FET/MOSFET:</strong> Comutare rapida, curent gate ≈ 0. Modern, MHz+ frecvență.</li>
+                    <li><strong>N-channel:</strong> Gate+ pentru deschiders. P-channel: Gate- pentru deschiders.</li>
+                    <li><strong>V_th:</strong> Tensiune prag la care conduce.</li>
+                    <li><strong>R_DS(on):</strong> Rezistență open, mic = eficient.</li>
+                    <li>Putere: P = V × I = I² × R_DS.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="quiz">
+        <div class="container">
+            <h2 class="section-title">Quiz — 5 Întrebări</h2>
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 1</h3>
+                <p><strong>Diferența principală între BJT și FET?</strong></p>
+                <ul class="specs-list"><li>a) Nicio diferență</li><li>b) BJT: amplificare curent; FET: control țensiune. FET mai rapid.</li><li>c) BJT mai bun pentru logică</li><li>d) FET vechi, BJT modern</li></ul>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) BJT: curent; FET: tensiune. FET mai rapid.</strong></p></details>
+            </div>
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 2</h3>
+                <p><strong>Ce-i V_th în MOSFET?</strong></p>
+                <ul class="specs-list"><li>a) Tensiune maxim</li><li>b) Tensiune prag pentru deschiders</li><li>c) Curent invers</li><li>d) Temperatură</li></ul>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Tensiune prag</strong></p></details>
+            </div>
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 3</h3>
+                <p><strong>R_DS(on) mic în MOSFET înseamnă?</strong></p>
+                <ul class="specs-list"><li>a) Curent mare</li><li>b) Putere disipata mare</li><li>c) Eficiență bună (putere mic cu curent mare)</li><li>d) Destabili</li></ul>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>c) Eficiență bună</strong> — P = I² × R_DS; mic R = mic P.</p></details>
+            </div>
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 4</h3>
+                <p><strong>De ce VRM folosește MOSFET-uri în paralel?</strong></p>
+                <ul class="specs-list"><li>a) Să ocupă loc</li><li>b) Să distribuie curent și să reducă R_total</li><li>c) Să crească voltaj</li><li>d) E convențional</li></ul>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Distribuie curent și reduce R_total</strong></p></details>
+            </div>
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 5</h3>
+                <p><strong>Frecvență comutare MOSFET în VRM PS5?</strong></p>
+                <ul class="specs-list"><li>a) 5kHz</li><li>b) 50kHz</li><li>c) 130kHz</li><li>d) 1MHz</li></ul>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>c) 130kHz</strong> — Standard modern SMPS.</p></details>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="exercitiu">
+        <div class="container">
+            <h2 class="section-title">Exercițiu Aplicat</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>🧠 Exercițiu: Calcul Pierderi MOSFET VRM</h3>
+                <p><strong>Scenariu:</strong> VRM cu 10 MOSFET-uri N-channel în paralel, fiecare 1.5mΩ. Fază în 18A.</p>
+                <ol class="specs-list"><li>Calculează R_total (10 în paralel)</li><li>Puterea disipata pe 18A</li><li>Dacă MOSFET-urile incalzesc uniform, câți Wați per MOSFET?</li><li>Dacă temperatură crește, R_DS crește ≈ 0.0045Ω/°C. Dacă crește cu 50°C, cum se schimbă puterea?</li></ol>
+                <details style="margin-top: 1.5rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată rezolvarea</summary><div style="margin-top: 1rem;">
+                    <p><strong>1.</strong> R_total = 1.5mΩ / 10 = 0.15mΩ</p>
+                    <p><strong>2.</strong> P = I² × R = 18² × 0.15mΩ = 324 × 0.15mΩ = 0.0486W = <strong>48.6mW</strong> total</p>
+                    <p><strong>3.</strong> 48.6mW / 10 = <strong>4.86mW per MOSFET</strong></p>
+                    <p><strong>4.</strong> ΔR = 10 × 50°C × 0.0045Ω/°C = 2.25mΩ. R_new = 1.5mΩ + 2.25mΩ = 3.75mΩ total. P_new = 18² × 3.75mΩ = 1.215W — putere crește de 25×!</p>
+                </div></details>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+            <a href="lectia-2-2.html" class="hero-button" style="font-size: 0.9rem;">← Lecția 2.2 — Diode</a>
+            <a href="lectia-2-4.html" class="hero-button" style="font-size: 0.9rem;">Lecția 2.4 — MOSFET și VRM →</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-inner container">
+            <div class="footer-left"><p class="footer-main">&copy; 2026 Console Notebook</p><p class="footer-sub">Proiect Atestat Informatică</p></div>
+            <div class="footer-right"><a href="mailto:andrei.halcu.07@licmarghilomanbz.ro">andrei.halcu.07@licmarghilomanbz.ro</a><a href="tel:+40758464907">+40 758 464 907</a></div>
+        </div>
+    </footer>
+
+    <script type="module" src="../../../js/main.js"></script>
+    <script src="../../../js/fallback/hamburger.js"></script>
+</body>
+</html>

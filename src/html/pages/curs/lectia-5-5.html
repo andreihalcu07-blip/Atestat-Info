@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lecția 5.5 — Surse și rail-uri de alimentare">
+    <meta name="theme-color" content="#0B0F1A">
+    <link rel="icon" type="image/x-icon" href="../../../../favicon.ico">
+    <title>Lecția 5.5 — Rail-uri de alimentare — Console Notebook</title>
+    <link rel="stylesheet" href="../../../css/production.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="../index.html" class="logo">Console Notebook</a>
+            <button class="hamburger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+            <ul class="nav-links">
+                <li><a href="../index.html">Acasă</a></li>
+                <li><a href="../invata.html" class="active">Învață</a></li>
+                <li><a href="../evolutie.html">Evoluție</a></li>
+                <li><a href="../comparatie.html">Comparație</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero hero-cinematic">
+        <div class="hero-content">
+            <p style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 3px; color: rgba(237,233,227,0.5); margin-bottom: 0.5rem;">Modul 5 — Anatomia unei Console</p>
+            <h1>Lecția 5.5 — Surse și rail-uri de alimentare</h1>
+            <p>12V, 5V, 3.3V, 1.8V, 1.05V. Fiecare rail are rolul său.</p>
+            <a href="#introducere" class="hero-button">Începe Lecția</a>
+        </div>
+    </section>
+
+    <section class="section" id="introducere">
+        <div class="container">
+            <h2 class="section-title">Introducere</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <p><strong>Rail:</strong> Linie de tensiune stabilă care alimentează un subsistem.</p>
+                <p>Consola modernă are multiple rail-uri: 12V principal, 5V standby, 3.3V I/O, 1.8V logic, 1.05V core APU.</p>
+                <p>Secvențierea corectă a rail-urilor e vitală. Un rail lipsă = no boot.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="teorie">
+        <div class="container">
+            <h2 class="section-title">Teorie Structurată</h2>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>5.1 — 12V Principal</h3>
+                <p><strong>Rol:</strong> Alimentare de bază din PSU. Alimentează VRM-uri și motoare (ventilator).</p>
+                <p><strong>Curent:</strong> 10-20A în load. 12V × 15A = 180W.</p>
+                <p><strong>Caracteristică:</strong> Fără 12V, nimic nu pornește.</p>
+            </div>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>5.2 — 5V Standby și 5V Main</h3>
+                <p><strong>5V Standby:</strong> Activ chiar când consola e "oprită". Alimentează controlerul de power și USB charging.</p>
+                <p><strong>5V Main:</strong> Pornit după apăsare power. Alimentează USB, HDD, controlere.</p>
+                <p><strong>Tipic:</strong> 1-3A curent, suficient pentru periferice.</p>
+            </div>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>5.3 — 3.3V și 1.8V</h3>
+                <p><strong>3.3V:</strong> I/O logic, flash BIOS, WiFi module.</p>
+                <p><strong>1.8V:</strong> Control logic, PLL, interface memory.</p>
+                <p>Aceste rail-uri sunt create din 5V prin buck converters mici.</p>
+            </div>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>5.4 — 1.05V Core APU</h3>
+                <p><strong>Rail core:</strong> Cel mai critic. APU funcționează între 0.9-1.2V.</p>
+                <p><strong>Curent mare:</strong> 80-120A. VRM dedicat multi-fază.</p>
+                <p><strong>Stabilitate:</strong> Ripple &lt; 20 mV. Orice fluctuație poate crash.</p>
+            </div>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>5.5 — Power Sequencing</h3>
+                <p><strong>Order:</strong> 5V standby → 3.3V → 1.8V → 12V main → 1.05V core.</p>
+                <p><strong>Power good:</strong> Semnal indică rail stabil. CPU pornește doar când toate PG sunt OK.</p>
+                <p><strong>Protecții:</strong> Dacă rail cade, sistem se oprește pentru a preveni damage.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Legătura Fizică – Informatică</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <p><strong>Fizică:</strong> Rail-uri sunt stabilizate de VRM și filtre LC.</p>
+                <p><strong>Informatică:</strong> Boot sequence depinde de rail-uri. Firmware verifică PG înainte de init hardware.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Aplicare Directă</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>Exemplu: Secvență Pornire</h3>
+                <p>1. Consola în standby: 5V standby activ.</p>
+                <p>2. Power button: activează 12V main și 5V main.</p>
+                <p>3. VRM pornește 3.3V, 1.8V. Apoi 1.05V core APU.</p>
+                <p>4. Power-good semnale confirmă. CPU pornește BIOS, GPU init.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Exemplu Real: Diagnostic Rail</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <p>Consola nu pornește. Multimetru arată 5V standby OK, 12V main absent. Problema la PSU sau semnal power-on.</p>
+                <p>Dacă 12V OK, dar 1.05V lipsește → VRM defect sau scurt pe APU rail.</p>
+                <p>Diagnosticul rail-urilor reduce timpul de reparație cu 80%.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Probleme Frecvente</h2>
+            <div class="card"><h3>⚠️ 5V standby lipsă</h3><p>PSU defect sau siguranță arsă. Consola complet moartă, fără LED.</p></div>
+            <div class="card"><h3>⚠️ Rail 1.05V scurt</h3><p>APU sau condensator defect. VRM intră în protecție, consola se oprește instant.</p></div>
+        </div>
+    </section>
+
+    <section class="section" id="recapitulare">
+        <div class="container">
+            <h2 class="section-title">Recapitulare</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <ul class="specs-list">
+                    <li><strong>12V:</strong> Rail principal pentru VRM.</li>
+                    <li><strong>5V standby:</strong> Activ mereu, pornire logică.</li>
+                    <li><strong>3.3V/1.8V:</strong> I/O și logică.</li>
+                    <li><strong>1.05V:</strong> Core APU, curent mare, VRM dedicat.</li>
+                    <li><strong>Sequencing:</strong> Rail-urile trebuie pornite în ordine strictă.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="quiz">
+        <div class="container">
+            <h2 class="section-title">Quiz — 5 Întrebări</h2>
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 1</h3>
+                <p><strong>Rail activ în standby?</strong></p>
+                <ul class="specs-list"><li>a) 12V</li><li>b) 5V standby</li><li>c) 1.05V</li><li>d) 3.3V main</li></ul>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) 5V standby</strong></p></details>
+            </div>
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 2</h3>
+                <p><strong>Rail-ul APU core este:</strong></p>
+                <ul class="specs-list"><li>a) 12V</li><li>b) 5V</li><li>c) 3.3V</li><li>d) 1.05V</li></ul>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>d) 1.05V</strong></p></details>
+            </div>
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 3</h3>
+                <p><strong>Power-good semnal indică:</strong></p>
+                <ul class="specs-list"><li>a) GPU idle</li><li>b) Rail stabil</li><li>c) Temperatură mică</li><li>d) Tensiune 12V doar</li></ul>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Rail stabil</strong></p></details>
+            </div>
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 4</h3>
+                <p><strong>Secvență corectă include:</strong></p>
+                <ul class="specs-list"><li>a) 1.05V înainte de 3.3V</li><li>b) 5V standby înainte de rest</li><li>c) 12V după boot</li><li>d) 1.8V după APU start</li></ul>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) 5V standby înainte de rest</strong></p></details>
+            </div>
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 5</h3>
+                <p><strong>Lipsă 12V main duce la:</strong></p>
+                <ul class="specs-list"><li>a) Boot normal</li><li>b) Doar USB fără APU</li><li>c) No power pentru VRM și APU</li><li>d) FPS scade</li></ul>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>c) No power</strong></p></details>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="exercitiu">
+        <div class="container">
+            <h2 class="section-title">Exercițiu Aplicat</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>🧠 Exercițiu: Buget Putere pe Rail</h3>
+                <p><strong>Cerință:</strong> Rail 12V livrează 15A, rail 5V livrează 2A, rail 3.3V livrează 1A. Calculează puterea totală.</p>
+                <ol class="specs-list"><li>P_12V = 12 × 15</li><li>P_5V = 5 × 2</li><li>P_3.3V = 3.3 × 1</li><li>Total</li></ol>
+                <details style="margin-top: 1.5rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată rezolvarea</summary><div style="margin-top: 1rem;">
+                    <p><strong>1.</strong> P_12V = 180W.</p>
+                    <p><strong>2.</strong> P_5V = 10W.</p>
+                    <p><strong>3.</strong> P_3.3V = 3.3W.</p>
+                    <p><strong>Total:</strong> 193.3W.</p>
+                </div></details>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+            <a href="lectia-5-4.html" class="hero-button" style="font-size: 0.9rem;">← Lecția 5.4 — Răcire</a>
+            <a href="index.html" class="hero-button" style="font-size: 0.9rem;">Planul Cursului →</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-inner container">
+            <div class="footer-left"><p class="footer-main">&copy; 2026 Console Notebook</p><p class="footer-sub">Proiect Atestat Informatică</p></div>
+            <div class="footer-right"><a href="mailto:andrei.halcu.07@licmarghilomanbz.ro">andrei.halcu.07@licmarghilomanbz.ro</a><a href="tel:+40758464907">+40 758 464 907</a></div>
+        </div>
+    </footer>
+
+    <script type="module" src="../../../js/main.js"></script>
+    <script src="../../../js/fallback/hamburger.js"></script>
+</body>
+</html>

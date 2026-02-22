@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lecția 8.3 — Identificare componentă și diagnostică">
+    <meta name="theme-color" content="#0B0F1A">
+    <link rel="icon" type="image/x-icon" href="../../../../favicon.ico">
+    <title>Lecția 8.3 — Identificare componentă — Console Notebook</title>
+    <link rel="stylesheet" href="../../../css/production.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="../index.html" class="logo">Console Notebook</a>
+            <button class="hamburger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+            <ul class="nav-links">
+                <li><a href="../index.html">Acasă</a></li>
+                <li><a href="../invata.html" class="active">Învață</a></li>
+                <li><a href="../evolutie.html">Evoluție</a></li>
+                <li><a href="../comparatie.html">Comparație</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero hero-cinematic">
+        <div class="hero-content">
+            <p style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 3px; color: rgba(237,233,227,0.5); margin-bottom: 0.5rem;">Modul 8 — Diagnostic</p>
+            <h1>Lecția 8.3 — Identificare componentă și diagnostică</h1>
+            <p>Recunoașterea componentelor și înțelegerea rolului lor pe placă.</p>
+            <a href="#introducere" class="hero-button">Începe Lecția</a>
+        </div>
+    </section>
+
+    <section class="section" id="introducere">
+        <div class="container">
+            <h2 class="section-title">Introducere</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <p>Pe placa de bază sunt sute de componente. Identificarea rapidă ajută la diagnostic.</p>
+                <p>Scop: să știi ce este un MOSFET, o bobină, un regulator și unde să măsori.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="teorie">
+        <div class="container">
+            <h2 class="section-title">Teorie Structurată</h2>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>8.1 — Recunoașterea componentelor</h3>
+                <p><strong>Condensatori:</strong> cilindrici sau SMD, marcați cu uF.</p>
+                <p><strong>Bobine:</strong> pătrate/rotunde, marcate cu L sau valori (0R47).</p>
+                <p><strong>MOSFET:</strong> pachet cu 3-8 pini, lângă bobine (VRM).</p>
+                <p><strong>IC Controller:</strong> chip mic cu multe pini, lângă VRM.</p>
+            </div>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>8.2 — Zone ale plăcii</h3>
+                <p><strong>APU:</strong> chip mare central, BGA.</p>
+                <p><strong>VRM:</strong> grup de MOSFET-uri, bobine, condensatori.</p>
+                <p><strong>RAM:</strong> chip-uri GDDR6 lângă APU.</p>
+                <p><strong>IO:</strong> USB, HDMI, LAN pe margini.</p>
+            </div>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>8.3 — Trace și Rail-uri</h3>
+                <p>Bobinele sunt puncte excelente pentru măsurare. Ieșirea bobinei = rail-ul stabil.</p>
+                <p>Condensatorii de decuplare sunt conectați la rail și GND. Măsoară acolo pentru rezistență și tensiune.</p>
+            </div>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>8.4 — Identificare prin marking</h3>
+                <p>MOSFET: cod alfanumeric. Caută datasheet pentru pinout.</p>
+                <p>IC: cod pe top, caută pe internet pentru funcție (PWM, regulator, driver).</p>
+            </div>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>8.5 — Diagnostic de bază</h3>
+                <p>Verifică: alimentări, scurturi, temperaturi anormale.</p>
+                <p>Componentele defecte se încălzesc excesiv sau au rezistență neobișnuită.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Legătura Fizică – Informatică</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <p><strong>Fizică:</strong> Componente reale, măsurabile.</p>
+                <p><strong>Informatică:</strong> Fiecare componentă susține un subsistem logic.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Aplicare Directă</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>Exemplu: Identificare VRM</h3>
+                <p>Găsești bobine mari lângă APU. MOSFET-uri aliniate lângă ele. Asta este VRM core.</p>
+                <p>Măsori tensiunea pe bobină: ar trebui să fie 1.0-1.2V.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Exemplu Real: GDDR6 Rail</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <p>Bobine mici lângă RAM. Rail tipic 1.35V. Dacă lipsește, RAM nu inițializează.</p>
+                <p>Consola pornește, dar nu afișează imagine.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Probleme Frecvente</h2>
+            <div class="card"><h3>⚠️ Confuzie între bobine și condensatori</h3><p>Bobina este inductivă, nu are polaritate. Condensatorii pot fi polarizați.</p></div>
+            <div class="card"><h3>⚠️ Pinout greșit MOSFET</h3><p>Măsurare greșită poate duce la interpretare eronată.</p></div>
+        </div>
+    </section>
+
+    <section class="section" id="recapitulare">
+        <div class="container">
+            <h2 class="section-title">Recapitulare</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <ul class="specs-list">
+                    <li>Identifică componentele după formă și poziție.</li>
+                    <li>Bobinele sunt puncte de măsurare pentru rail-uri.</li>
+                    <li>Marking-urile ajută la găsirea datasheet-ului.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="quiz">
+        <div class="container">
+            <h2 class="section-title">Quiz — 5 Întrebări</h2>
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 1</h3>
+                <p><strong>Bobinele sunt folosite în:</strong></p>
+                <ul class="specs-list"><li>a) VRM</li><li>b) USB</li><li>c) HDMI</li><li>d) LAN</li></ul>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>a) VRM</strong></p></details>
+            </div>
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 2</h3>
+                <p><strong>Rail-ul măsori cel mai ușor pe:</strong></p>
+                <ul class="specs-list"><li>a) Conector HDMI</li><li>b) Bobină</li><li>c) LED</li><li>d) Buton power</li></ul>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Bobină</strong></p></details>
+            </div>
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 3</h3>
+                <p><strong>MOSFET defect poate cauza:</strong></p>
+                <ul class="specs-list"><li>a) FPS mare</li><li>b) Scurt pe rail</li><li>c) 4K output</li><li>d) WiFi faster</li></ul>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Scurt</strong></p></details>
+            </div>
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 4</h3>
+                <p><strong>RAM GDDR6 este:</strong></p>
+                <ul class="specs-list"><li>a) Lângă PSU</li><li>b) Lângă APU</li><li>c) Lângă HDMI</li><li>d) Lângă USB</li></ul>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Lângă APU</strong></p></details>
+            </div>
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 5</h3>
+                <p><strong>Marking pe IC ajută la:</strong></p>
+                <ul class="specs-list"><li>a) Adecvarea culorii</li><li>b) Identificarea datasheet-ului</li><li>c) Temperatură</li><li>d) Overclock</li></ul>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Datasheet</strong></p></details>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="exercitiu">
+        <div class="container">
+            <h2 class="section-title">Exercițiu Aplicat</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>🧠 Exercițiu: Identificare VRM</h3>
+                <p><strong>Cerință:</strong> Descrie cum găsești VRM core pe o placă PS5.</p>
+                <details style="margin-top: 1.5rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată rezolvarea</summary><div style="margin-top: 1rem;">
+                    <p>Găsești APU, apoi bobine mari și MOSFET-uri lângă el. Măsori tensiune pe bobină (~1V). Asta este VRM core.</p>
+                </div></details>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+            <a href="lectia-8-2.html" class="hero-button" style="font-size: 0.9rem;">← Lecția 8.2 — Multimetru</a>
+            <a href="lectia-8-4.html" class="hero-button" style="font-size: 0.9rem;">Lecția 8.4 — Studii de caz →</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-inner container">
+            <div class="footer-left"><p class="footer-main">&copy; 2026 Console Notebook</p><p class="footer-sub">Proiect Atestat Informatică</p></div>
+            <div class="footer-right"><a href="mailto:andrei.halcu.07@licmarghilomanbz.ro">andrei.halcu.07@licmarghilomanbz.ro</a><a href="tel:+40758464907">+40 758 464 907</a></div>
+        </div>
+    </footer>
+
+    <script type="module" src="../../../js/main.js"></script>
+    <script src="../../../js/fallback/hamburger.js"></script>
+</body>
+</html>

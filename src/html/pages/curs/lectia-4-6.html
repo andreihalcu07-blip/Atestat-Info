@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lecția 4.6 — Ierarhia sistemului complet: de la CPU la I/O">
+    <meta name="theme-color" content="#0B0F1A">
+    <link rel="icon" type="image/x-icon" href="../../../../favicon.ico">
+    <title>Lecția 4.6 — Ierarhia Sistemului — Console Notebook</title>
+    <link rel="stylesheet" href="../../../css/production.css">
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="../index.html" class="logo">Console Notebook</a>
+            <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="../index.html">Acasă</a></li>
+                <li><a href="../invata.html" class="active">Învață</a></li>
+                <li><a href="../evolutie.html">Evoluție</a></li>
+                <li><a href="../comparatie.html">Comparație</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero hero-cinematic">
+        <div class="hero-content">
+            <p style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 3px; color: rgba(237,233,227,0.5); margin-bottom: 0.5rem;">Modul 4 — Procesoare și Procesare</p>
+            <h1>Lecția 4.6 — Ierarhia Sistemului Complet</h1>
+            <p>De la procesor la Hard Drive — cum comunică componentele și cum fluxul de date determină performance-ul final.</p>
+            <a href="#introducere" class="hero-button">Începe Lecția</a>
+        </div>
+    </section>
+
+    <!-- ===========================
+         CAPITOLUL 1: INTRODUCERE
+         =========================== -->
+    <section class="section" id="introducere">
+        <div class="container">
+            <h2 class="section-title">Introducere</h2>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <p>
+                    O consolă nu este doar un procesor. Nici măcar nu este doar procesor + GPU. Este o <strong>orchestrație complexă de sisteme</strong> care trebuie să comunice perfect pentru a transforma 1 și 0 în imagini, sunet și senzație de joc real.
+                </p>
+                <p>
+                    În Modulul 4 am studiat procesoare — acum este timp să înțelegem cum se conectează CPU-ul la fiecare alt component din sistem. Vom analiza <strong>ierarhia sistemului</strong>: ordinea prioritizării, vitezele de transfer, bottleneck-urile și optimizările care fac diferența între un joc care ruleaza la 60 FPS cu textură de înaltă rezoluție și unul care lag-uiește la 30 FPS.
+                </p>
+                <p>
+                    Această lecție este piatra de temelie pentru a înțelege de ce generațiile noi de console nu doar au procesoare mai rapide — au și sisteme de memorie, storage și I/O fundamentalmente diferite. PlayStation 5 și Xbox Series X nu ar fi posibile fără o rearchitectură completă a modului în care datele circulă.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===========================
+         CAPITOLUL 2: TEORIE
+         =========================== -->
+    <section class="section" id="teorie">
+        <div class="container">
+            <h2 class="section-title">Teorie Structurată</h2>
+
+            <!-- 2.1 Ierarhia memoriei -->
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>2.1 — Ierarhia Memoriei (Memory Hierarchy)</h3>
+                <p>
+                    Memoria într-un sistem pc de calcul nu este uniformă. Există mai multe tipuri, organizate într-o <strong>piramidă de acces</strong>:
+                </p>
+                <ul class="specs-list">
+                    <li><strong>Registri (CPU Internal)</strong> — de ordinul zecilor de bytes, acces instantaneu (0 cicli)</li>
+                    <li><strong>L1 Cache</strong> — 32-64 KB per nucleu, acces 4 cicli</li>
+                    <li><strong>L2 Cache</strong> — 256 KB – 1MB per nucleu, acces 8-10 cicli</li>
+                    <li><strong>L3 Cache</strong> — 4-16 MB shared, acces 40-75 cicli</li>
+                    <li><strong>RAM (GDDR6X / DDR5)</strong> — gigabytes, acces 200+ cicli</li>
+                    <li><strong>Storage (SSD / HDD)</strong> — terabytes, acces milisecunde</li>
+                </ul>
+                <p>
+                    Regula de aur: fiecare nivel este mai lent, dar mult mai mare. CPU-ul caută datele mai întâi în registri, apoi L1, apoi L2, și așa mai departe. Dacă găsește datele imediat (cache hit), procesul este rapid. Dacă trebuie să meargă până la RAM (cache miss), se pierde timp prețios.
+                </p>
+                <p>
+                    <strong>Aplicație în console:</strong> PS5-ul are 448 GB/s de bandwidth pentru GDDR6 cache-L. Aceasta e incredibil de rapid comparativ cu generațiile anterioare. Developers-ii pot ține în VRAM mai multă dat viteză, reducând necesitatea de acces la SSD-ul mai lent.
+                </p>
+            </div>
+
+            <!-- 2.2 CPU-GPU Interconnect -->
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>2.2 — Conexiunea CPU–GPU (Unified Memory Architecture)</h3>
+                <p>
+                    Istoricul: în consoles mai vechi (PS3, Xbox 360), CPU și GPU aveau memorii separate. CPU avea o mărime de RAM, GPU avea alta. Programatorii trebuiau să copie datele dintr-o parte în alta — pagube de performance masive.
+                </p>
+                <p>
+                    Modern: <strong>Unified Memory Architecture</strong> (UMA) permite atât CPU-ului, cât și GPU-ului să acceseze aceeași memorie fără copiere. PS5 și Xbox Series X ambele folosesc această aproape: 10 GB GDDR6 standard (pentru GPU și processare grafică) + 2 GB DDR4 pentru OS-ul consolei.
+                </p>
+                <p>
+                    Beneficiu: reducție drastică de latență și overhead. Datele unui model 3D pot fi procesate de CPU (physics, AI) și apoi renderizate direct de GPU fără re-upload.
+                </p>
+            </div>
+
+            <!-- 2.3 Busuri de date si bandwidth -->
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>2.3 — Busuri de Date și Bandwidth (PCIe, UMI, Infinity Fabric)</h3>
+                <p>
+                    Componentele din interiorul consolei comunică prin <strong>busuri</strong> — canale dedicate de transmisie a datelor. Fiecare bus are o capacitate (bandwidth) limitată.
+                </p>
+                <ul class="specs-list">
+                    <li><strong>GPU Memory Bus</strong> (256-bit, 448 GB/s) — conectează GPU la memoria GDDR6</li>
+                    <li><strong>UMI (Unified Memory Interconnect)</strong> — conectează CPU la GPU; critică pentru transfer rapid de date</li>
+                    <li><strong>PCIe 4.0</strong> — pentru SSD-uri și periferice externe; 7.5 GB/s unidirectional</li>
+                    <li><strong>Infinity Fabric</strong> (AMD) — magistrala internă care conectează nucleele multi-core</li>
+                </ul>
+                <p>
+                    <strong>Exemplu real PS5:</strong> SSD Kraken PCIe 4.0 poate citi 5.5 GB/s. O textură non-comprimată de 1GB se încarcă în ~180ms. Aceasta permite developer-ilor să încărce niveluri noi aproape instantaneu în joc fără loading screen tradițional.
+                </p>
+            </div>
+
+            <!-- 2.4 Fluxul datelor in joc -->
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>2.4 — Fluxul Datelor Într-un Joc</h3>
+                <p>
+                    Urmărești o scenă într-un joc PS5 modern. Iată ce se întâmplă la nivel hardware în fiecare frame (1/60 secundă):
+                </p>
+                <ol class="specs-list">
+                    <li><strong>Încărcare assets</strong> — SSD → RAM (datele jocului: modele, texturile, sunetele pentru scene viitoare)</li>
+                    <li><strong>Physics Engine</strong> — CPU calculează coliziuni, forțe, mișcări; datele sunt stocate în cache L3 și RAM</li>
+                    <li><strong>AI Logic</strong> — CPU determină comportamentul enemy-ilor pe baza stării jocului</li>
+                    <li><strong>Geometry Setup</strong> — CPU trimite liste de obiecte care trebuie render-ate către GPU (command buffer)</li>
+                    <li><strong>Rendering</strong> — GPU primește lista de obiecte, le transformă în 3D, aplică lighting, texturile, postprocessing</li>
+                    <li><strong>Output Frame</strong> — Framebuffer-ul (memorie GPU) conține imaginea finală; HDMI output-ul o trimite pe ecran</li>
+                </ol>
+                <p>
+                    Viteza completă a ciclului determină frame rate-ul. Dacă CPU e lent la physics, GPU trebuie să aștepte → 30 FPS în loc de 60. Dacă GPU face rendering prea lung, CPU e blocat → din nou 30 FPS. Ambele trebuie să fie echilibrate perfect.
+                </p>
+            </div>
+
+            <!-- 2.5 Storage hierarchy -->
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>2.5 — Ierarhia Storage: SSD + Queue Streaming</h3>
+                <p>
+                    Nu se pot ține toate gigabytes-urile unei lumi game-ului în RAM (14 GB util de GDDR6 la PS5). Datele trebuie încărcate dinamic de pe SSD.
+                </p>
+                <p>
+                    <strong>Tehnica modernă:</strong> Queue Streaming. Pe măsură ce jucătorul mișcă controllerul, CPU-ul <em>prevede</em> ce zone ale hărții vor fi necesare în următoarele secunde și le cere SSD-ului să le citească în avans. Când jucătorul intră în zona, datele sunt deja în RAM, gata pentru rendering.
+                </p>
+                <p>
+                    Exemplu: în Ratchet &amp; Clank: Rift Apart (PS5), portalurile instantanee între lumi sunt posibile doar pentru că SSD-ul este atât de rapid (5.5 GB/s). În generația PS4, tranziția ar fi durat 5-10 secunde; acum mult sub secundă.
+                </p>
+            </div>
+
+            <!-- 2.6 I/O Controller (Input Output) -->
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>2.6 — I/O Controller: Conectarea la Perifericele</h3>
+                <p>
+                    CPU și GPU trebuie să comunice cu lumea exterioară: controllerul wireless, microfon, cameră, internet. Pentru acestea sunt niște controler-e specialized numite <strong>I/O Controller</strong>.
+                </p>
+                <ul class="specs-list">
+                    <li><strong>USB Hub</strong> — conectează controllerele, headset-uri, camere</li>
+                    <li><strong>Wi-Fi 6 (802.11ax)</strong> — conexiune wireless la internet; speedtest spune 150+ Mbps</li>
+                    <li><strong>Ethernet</strong> — conexiune wired; 1 Gigabit = 125 MB/s teoretic</li>
+                    <li><strong>Audio Codec</strong> — procesează sunetul în Dolby Atmos / DTS</li>
+                    <li><strong>Power Delivery</strong> — controlează încărcarea controlerelor și gestionează puterea consolei</li>
+                </ul>
+                <p>
+                    PS5-ul are un controller-ul de I/O dedicat care elimină overhead-ul le CPU. În PS4, o parte din I/O era gestionată de CPU; în PS5, tot e delegat, eliberând putere de calcul pentru joc.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===========================
+         CAPITOLUL 3: LEGATURA FIZICA-INFORMATICA
+         =========================== -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Legătura Fizică – Informatică</h2>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <p>
+                    <strong>Fizica:</strong> Busul PCIe 4.0 este o magistrală electrică. Semnalele se propagă cu viteza luminii prin material; latența e de ordinul nanosecundelor. Fiecare bit este o pulsație de tensiune pe un fir (lane).
+                </p>
+                <p>
+                    <strong>Informatica:</strong> 16 lane-uri PCIe 4.0 = 16 Gbps × 16 = 256 Gbps. După codificare (8b/10b), rezultația reală e 200 Gbps = 25 GB/s. Aceasta este limita fizică a comunicării PS5 SSD cu placa de bază.
+                </p>
+                <p>
+                    Dacă lipsit o lane (defect fizic), nu doar viteza scade — în cel mai rău caz, comunicația se oprește complet. Jocul se încarcă la jumătate din viteză sau crash-ează.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===========================
+         CAPITOLUL 4: APLICARE DIRECTA IN CONSOLE
+         =========================== -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Aplicare Directă în Console</h2>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>Cum Hierarhia Sistemului Afectează Gameplay</h3>
+                <p>
+                    1. <strong>Încărcări rapide vs lente:</strong> Xbox Series S (7 GB/s) are loading mai lent decât PS5 (5.5 GB/s, dar GDDR6 mai rapid). Developers-ii măsoară startup time; dacă e sub 3 secunde, primesc bonus la Metacritic.
+                </p>
+                <p>
+                    2. <strong>Densitatea texturilor și modele:</strong> Cu UMA și SSD rapid, artists-ii pot crea lumi mai dense. Texturile de 4K sunt norma, nu excepție. Memorie slow ar forța texturi de 256×256, art style aproape cartoony.
+                </p>
+                <p>
+                    3. <strong>Physics realism:</strong> CPU cu 8 nuclee (PS5, Xbox) permite physics engine complex. Mii de obiecte interacționând în real-time, fire care se clatină, apă care se agită. Generic PS3 nu putea face asta.
+                </p>
+                <p>
+                    4. <strong>Streaming-ul în multiplayer:</strong> Wi-Fi 6 și ethernet 1Gbit asigură latență sub 50ms. Asta e diferența dintre a simți controlabilitate și a simți lag mort.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===========================
+         CAPITOLUL 5: EXEMPLU REAL DE HARDWARE
+         =========================== -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Exemplu Real: Ierarhia PS5 vs PS4</h2>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <strong>PlayStation 4 (2013):</strong>
+                <ul class="specs-list">
+                    <li>CPU: 8-core Jaguar (1.6 GHz) — acces la GDDR5 doar indirect via L2</li>
+                    <li>GPU: 1152 CUDA cores (AMD custom) — GDDR5 176 GB/s</li>
+                    <li>RAM: 8 GB GDDR5 (5.5GB game + 2.5GB OS)</li>
+                    <li>HDD: 5400 RPM, ~80 MB/s lectura medie</li>
+                    <li>Bottleneck: CPU liniștit la HDD; jocuri aunchin o sesiune din mai puțin de ce pot memora eficient</li>
+                </ul>
+            </div>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <strong>PlayStation 5 (2020):</strong>
+                <ul class="specs-list">
+                    <li>CPU: 8-core Zen 2 (3.5 GHz) — acces direct la GDDR6C (448 GB/s) via UMA</li>
+                    <li>GPU: 2304 RDNA cores (AMD custom) — GDDR6 bandwidth 448 GB/s</li>
+                    <li>RAM: 16 GB GDDR6C (10 GB game + 6 GB audio/I/O + OS)</li>
+                    <li>SSD: NVMe PCIe 4.0, Kraken conroller, ~5.5 GB/s lectura (comprimare hardware H.265 scuta 500 MB/s overhead)</li>
+                    <li>Beneficiu: CPU poate procesa miliarde de calcule; GPU poate randa textură masive; SSD permite încarcări sub 1 secundă</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <p>
+                    <strong>Impactul asupra jocurilor:</strong> Ghost of Tsushima (PS4) = 30 FPS cu draw distance limitat. Rift Apart (PS5) = 60 FPS cu draw distance infinit și tranziții instantanee între lumi. Aceasta nu e doar firmware; este arhitectura hardware direct în action.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===========================
+         CAPITOLUL 6: PROBLEME FRECVENTE
+         =========================== -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Probleme Frecvente Asociate</h2>
+
+            <div class="card">
+                <h3>⚠️ Jocul lag-uiește atunci când sunt mai mulți inimici pe ecran</h3>
+                <p>
+                    Cauză: CPU-ul nu poate calcula physics pentru toți inimicii în timp. Queue-uri de comandă se înclică, GPU așteaptă datele. Developers-ii trebuie să compromise: fewer enemies, simpler AI, sau lower resolution.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>⚠️ Texturile nu se încarcă — apar placeholder gri</h3>
+                <p>
+                    Cauză: SSD declarat defect sau bandwidth consum blocat. Queue streaming nu poate aduce date în timp. Soluție: schimbă SSD-ul (expansion port) sau resetează cache-ul jocului.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>⚠️ Conectivitate slabă în multiplayer</h3>
+                <p>
+                    Cauză: Wi-Fi 6 e blocat (interferență 2.4 GHz) sau ethernet-ul e deconectat. I/O controller-ul nu-și face treaba. Soluție: switch la ethernet, mutare departe de microunde, Wi-Fi 6E router.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>⚠️ Jocul se oprește inespetat în scene complexe</h3>
+                <p>
+                    Cauză: spill la RAM — datele din SSD nu se pot încărca în timp; RAM e plin. Cache L3 e depășit. Procesul de streaming nu poate ține pasul. Rezultat: crash sau freeze. Developers-ii trebuie profiling-uri aggressive.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>⚠️ Controller-ul lag-uiește / se deconectează brusc</h3>
+                <p>
+                    Cauză: I/O controller-ul pierde pachetele USB wireless datorită interferenței. Firmware out-of-date în controller. Soluție: update firmware PS5, mutare router-ului, USB extender pentru receptor.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===========================
+         CAPITOLUL 7: RECAPITULARE
+         =========================== -->
+    <section class="section" id="recapitulare">
+        <div class="container">
+            <h2 class="section-title">Recapitulare</h2>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <ul class="specs-list">
+                    <li><strong>Ierarhia memoriei</strong> = Registri, Cache L1/L2/L3, RAM, Storage — fiecare nivel mai lent dar mai mare</li>
+                    <li><strong>UMA (Unified Memory)</strong> = CPU și GPU împart aceeași memorie fără copiere</li>
+                    <li><strong>Bandwidth</strong> = rata de transfer; limitează viteza cu care datele circulă</li>
+                    <li><strong>Cache hit</strong> = data e într-un cache apropiat; acces rapid. <strong>Cache miss</strong> = data e în RAM/SSD; acces lent</li>
+                    <li><strong>Queue Streaming</strong> = SSD încarcă datele pentru zone viitoare înainte ca jucătorul să ajungă</li>
+                    <li><strong>PCIe 4.0</strong> = magistrala la 25 GB/s pentru SSD și periferice</li>
+                    <li><strong>I/O Controller</strong> = procesor dedicat pentru USB, Wi-Fi, ethernet, audio — elibereaza CPU</li>
+                    <li><strong>Bottleneck</strong> = în orice sistem, componenta cea mai lentă determină viteza generală</li>
+                    <li>PS5 SSD: 5.5 GB/s (Kraken compresie); PS4 HDD: 80 MB/s — <strong>68x mai rapid</strong></li>
+                    <li>Fluxul datelor: SSD → RAM → CPU/GPU cache → regitri → rezultat final pe ecran</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===========================
+         CAPITOLUL 8: QUIZ
+         =========================== -->
+    <section class="section" id="quiz">
+        <div class="container">
+            <h2 class="section-title">Quiz — 5 Întrebări</h2>
+
+            <!-- Quiz Q1 -->
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 1</h3>
+                <p><strong>Ce înseamnă UMA (Unified Memory Architecture)?</strong></p>
+                <ul class="specs-list">
+                    <li>a) CPU și GPU au memorii separate, trebuie copiate datele între ele</li>
+                    <li>b) CPU și GPU împart aceeași memorie și o accesează direct</li>
+                    <li>c) Una memorie doar pentru CPU, alta doar pentru storage</li>
+                    <li>d) Memoria se sincronizează la fiecare ciclu de ceas</li>
+                </ul>
+                <details style="margin-top: 1rem;">
+                    <summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary>
+                    <p style="margin-top: 0.5rem;"><strong>b) CPU și GPU împart aceeași memorie și o accesează direct</strong> — UMA elimină overhead-ul copiere datelor și crește efficiency.</p>
+                </details>
+            </div>
+
+            <!-- Quiz Q2 -->
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 2</h3>
+                <p><strong>Care este diferența dintre L3 cache și RAM în ceea ce privește viteza?</strong></p>
+                <ul class="specs-list">
+                    <li>a) L3 e mai rapid cu ~50x, dar RAM e mult mai mare</li>
+                    <li>b) RAM e mai rapid, dar L3 e mai mic</li>
+                    <li>c) Nu e diferență de viteză, doar de capacitate</li>
+                    <li>d) L3 e doar pentru GPU, RAM pentru CPU</li>
+                </ul>
+                <details style="margin-top: 1rem;">
+                    <summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary>
+                    <p style="margin-top: 0.5rem;"><strong>a) L3 e mai rapid cu ~50x, dar RAM e mult mai mare</strong> — L3 cache acces 40-75 cicli, RAM acces 200+ cicli. Trade-off între viteză și capacitate.</p>
+                </details>
+            </div>
+
+            <!-- Quiz Q3 -->
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 3</h3>
+                <p><strong>Ce este Queue Streaming în context-ul jocurilor moderne?</strong></p>
+                <ul class="specs-list">
+                    <li>a) Streaming a jocului pe Twitch în real-time</li>
+                    <li>b) SSD-ul încarcă datele pentru zone viitoare înainte ca jucătorul să ajungă</li>
+                    <li>c) Trimiterea pachetelor de date printr-un server</li>
+                    <li>d) Sincronizarea timingului audio-video</li>
+                </ul>
+                <details style="margin-top: 1rem;">
+                    <summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary>
+                    <p style="margin-top: 0.5rem;"><strong>b) SSD-ul încarcă datele pentru zone viitoare înainte ca jucătorul să ajungă</strong> — Predictive loading. Permite lumi mai mari și tranziții mai rapide.</p>
+                </details>
+            </div>
+
+            <!-- Quiz Q4 -->
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 4</h3>
+                <p><strong>Care este bandwidth-ul PCIe 4.0 pentru un SSD modern?</strong></p>
+                <ul class="specs-list">
+                    <li>a) 5.5 GB/s</li>
+                    <li>b) 25 GB/s</li>
+                    <li>c) 80 MB/s</li>
+                    <li>d) 448 GB/s</li>
+                </ul>
+                <details style="margin-top: 1rem;">
+                    <summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary>
+                    <p style="margin-top: 0.5rem;"><strong>b) 25 GB/s</strong> — PCIe 4.0 raw = 64 Gbps pe 16 lane-uri; după codificare 8b/10b = 25 GB/s. PS5 SSD e ceva mai lent (5.5 GB/s) datorită algoritmului de compresie Kraken.</p>
+                </details>
+            </div>
+
+            <!-- Quiz Q5 -->
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 5</h3>
+                <p><strong>Ce rol joacă I/O Controller-ul în PS5?</strong></p>
+                <ul class="specs-list">
+                    <li>a) Amplifică semnalul audio</li>
+                    <li>b) Gestionează USB, Wi-Fi, ethernet și alte periferice; elibereaza CPU din aceste lucrări</li>
+                    <li>c) Controlează temperatura procesorului</li>
+                    <li>d) Sincronizează cadre pentru HDMI</li>
+                </ul>
+                <details style="margin-top: 1rem;">
+                    <summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary>
+                    <p style="margin-top: 0.5rem;"><strong>b) Gestionează USB, Wi-Fi, ethernet și alte periferice; elibereaza CPU din aceste lucrări</strong> — În PS4, o parte din I/O era responsabilitate CPU. Dedicare în PS5 = mai multă putere de calcul pentru joc.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===========================
+         CAPITOLUL 9: EXERCITIU
+         =========================== -->
+    <section class="section" id="exercitiu">
+        <div class="container">
+            <h2 class="section-title">Exercițiu Aplicat de Gândire</h2>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>🧠 Exercițiu: Optimizarea cache-ului</h3>
+                <p>
+                    <strong>Scenariu:</strong> Scrii o funcție în C++ care procesează o matrice 3D de 1000×1000×1000 voxeli (puncte în spațiu 3D) pentru raytracing. Fiecare voxel ocupă 4 bytes. Matricea întreagă = ~4 GB. Hardware: PS5 cu L3 cache de 8 MB.
+                </p>
+                <p><strong>Sarcini:</strong></p>
+                <ul class="specs-list">
+                    <li>1. Calculează câți voxeli încap în L3 cache-ul de 8 MB. (8 MB / 4 bytes = ? voxeli)</li>
+                    <li>2. Dacă procesezi voxeli la întâmplare (random), cât de des va apărea cache miss?</li>
+                    <li>3. Propune o strategie de acces (walking pattern) care maximează cache hit-uri. De ce va funcționa mai bine?</li>
+                    <li>4. Calculează time-ul de acces: CPU e la 3.5 GHz (285 ps per ciclu). L3 access e 40 cicli, RAM access e 200 cicli. Cât e diferența de timp pentru 1 milion de acces-uri?</li>
+                    <li>5. Cum ar schimba răspunsul tău dacă ar putea coopia datele mai întâi în VRAM rapid (448 GB/s)?</li>
+                </ul>
+                <details style="margin-top: 1.5rem;">
+                    <summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată rezolvarea</summary>
+                    <div style="margin-top: 1rem;">
+                        <p><strong>1.</strong> 8 MB = 8,000,000 bytes. 8,000,000 / 4 = <strong>2 milioni de voxeli</strong>. Din 1 miliard total, asta e 0.2% — e clar că cache nu încape toți datele.</p>
+                        <p><strong>2.</strong> Random access = aproape constant cache miss-uri pe 99.8% din operații. Performance catastrofal.</p>
+                        <p><strong>3.</strong> Spatial locality: procesează voxeli în ordine lineară (rând cu rând, strat cu strat). Fiecare acces la cache duce și pe vecini în cache (datorită prefetch-ului hardware). Hit rate urca la ~80-90%.</p>
+                        <p><strong>4.</strong> L3 time/acces = 40 × 285 ps = 11.4 ns. RAM time/acces = 200 × 285 ps = 57 ns. Diferență = 45.6 ns per acces. Pentru 1 milion de acces-uri: dacă toți sunt RAM, 57 micro-secunde. Dacă toți sunt L3, 11.4 micro-secunde. Diferență totală = ~45 milli-secunde pentru 1M acces-uri. Pe o scena cu raytracing care face miliarde de acces-uri, ăsta e killer.</p>
+                        <p><strong>5.</strong> Copierea 4 GB în VRAM = 4 GB / 448 GB/s = 9 ms. Ca apoi toți accesul-urile să fie din GDDR6 rapid? Deci total = 9 ms copy + 10-50 ms processing cu VRAM. Mai rapid decât RAM slow? Probabil. Depinde de algoritm; cu raytracing, VRAM e MVP.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- NAVIGARE LECȚII -->
+    <section class="section">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+            <a href="index.html" class="hero-button" style="font-size: 0.9rem;">← Planul Cursului</a>
+            <a href="lectia-6-5.html" class="hero-button" style="font-size: 0.9rem;">Lecția 6.5 — Protecții Electrice →</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-inner container">
+            <div class="footer-left">
+                <p class="footer-main">&copy; 2026 Console Notebook</p>
+                <p class="footer-sub">Proiect Atestat Informatică</p>
+            </div>
+            <div class="footer-right">
+                <a href="mailto:andrei.halcu.07@licmarghilomanbz.ro">andrei.halcu.07@licmarghilomanbz.ro</a>
+                <a href="tel:+40758464907">+40 758 464 907</a>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="../../../js/main.js"></script>
+    <script src="../../../js/fallback/hamburger.js"></script>
+</body>
+</html>

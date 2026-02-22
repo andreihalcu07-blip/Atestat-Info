@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lecția 6.4 — Instabilitate: Restarturi, Freeze, Shutdown aleator">
+    <meta name="theme-color" content="#0B0F1A">
+    <link rel="icon" type="image/x-icon" href="../../../../favicon.ico">
+    <title>Lecția 6.4 — Instabilitate — Console Notebook</title>
+    <link rel="stylesheet" href="../../../css/production.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="../index.html" class="logo">Console Notebook</a>
+            <button class="hamburger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+            <ul class="nav-links">
+                <li><a href="../index.html">Acasă</a></li>
+                <li><a href="../invata.html" class="active">Învață</a></li>
+                <li><a href="../evolutie.html">Evoluție</a></li>
+                <li><a href="../comparatie.html">Comparație</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero hero-cinematic">
+        <div class="hero-content">
+            <p style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 3px; color: rgba(237,233,227,0.5); margin-bottom: 0.5rem;">Modul 6 — Alimentare și Probleme Reale</p>
+            <h1>Lecția 6.4 — Instabilitate</h1>
+            <p>Restarturi, freeze, shutdown aleator. Cum corelezi simptome cu rail-uri și temperaturi.</p>
+            <a href="#introducere" class="hero-button">Începe Lecția</a>
+        </div>
+    </section>
+
+    <section class="section" id="introducere">
+        <div class="container">
+            <h2 class="section-title">Introducere</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <p><strong>Instabilitate:</strong> Consola pornește, dar se resetează, se blochează sau se oprește fără motiv aparent.</p>
+                <p>De obicei cauza este termică, rail instabil sau defecte intermitente (BGA, VRM, RAM).</p>
+                <p>Instabilitatea este cea mai grea de diagnosticat, pentru că apare doar în anumite condiții.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="teorie">
+        <div class="container">
+            <h2 class="section-title">Teorie Structurată</h2>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>6.1 — Thermal Throttling vs Shutdown</h3>
+                <p><strong>Throttling:</strong> Firmware reduce frecvența când temperatura crește. FPS scade, dar consola rămâne on.</p>
+                <p><strong>Shutdown:</strong> Dacă temperatura depășește pragul (90-100°C), sistemul se oprește pentru protecție.</p>
+                <p>Instabilitate termică apare după 5-20 min de joc.</p>
+            </div>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>6.2 — Rail Instabil și Ripple</h3>
+                <p><strong>Ripple mare:</strong> VRM degradează, condensatori uscați.</p>
+                <p><strong>Symptom:</strong> Crash în jocuri heavy, dar meniu OK.</p>
+                <p>Rail core 1.05V trebuie să aibă ripple &lt; 20 mV. Dacă 60 mV, APU devine instabil.</p>
+            </div>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>6.3 — RAM Errors</h3>
+                <p><strong>GDDR6 timing:</strong> Dacă voltaj 1.35V scade sau memory training este marginal, erorile apar la load mare.</p>
+                <p><strong>Symptom:</strong> Artefacte grafice, crash după 1-2 ore.</p>
+                <p><strong>Test:</strong> Memory stress test, observare temperatură RAM.</p>
+            </div>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>6.4 — BGA Microfracturi</h3>
+                <p><strong>BGA balls:</strong> APU și RAM sunt BGA. Dilatare termică repetată poate crea microfracturi.</p>
+                <p><strong>Symptom:</strong> Consola funcționează când e rece, dar crash când se încălzește.</p>
+                <p><strong>Diagnostic:</strong> Presiune ușoară pe APU poate schimba comportamentul (test de flex).</p>
+            </div>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>6.5 — PSU și Power Spikes</h3>
+                <p><strong>PSU slab:</strong> Nu poate livra spike-uri de curent. Rail 12V scade scurt → reset.</p>
+                <p><strong>Symptom:</strong> Reset imediat când începe joc (load mare).</p>
+                <p><strong>Test:</strong> Măsoară 12V cu osciloscop, urmărește droop la load.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Legătura Fizică – Informatică</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <p><strong>Fizică:</strong> Temperatură și alimentare instabilă afectează tranzistorii.</p>
+                <p><strong>Informatică:</strong> Erori de calcul duc la crash, freeze, reset.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Aplicare Directă</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>Exemplu: Restart în joc</h3>
+                <p>Joc heavy → GPU load 95% → curent mare. VRM ripple crește, APU crash, consolă restart.</p>
+                <p>În meniu, load mic, nu apare problemă. Diagnosticul trebuie făcut sub load.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Exemplu Real: PS5 Freeze după 30 min</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <p>Consola funcționează 30 min, apoi freeze. Temperatura APU 92°C.</p>
+                <p>Curățare radiator, schimbare pastă termică. Temperatura scade la 75°C. Freeze dispare.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Probleme Frecvente</h2>
+            <div class="card"><h3>⚠️ Crash aleator după ore</h3><p>RAM marginală sau BGA microfracturi. Diagnostic dificil, necesită test termic.</p></div>
+            <div class="card"><h3>⚠️ Restart imediat sub load</h3><p>PSU slab sau VRM insuficient. Rail 12V droop.</p></div>
+        </div>
+    </section>
+
+    <section class="section" id="recapitulare">
+        <div class="container">
+            <h2 class="section-title">Recapitulare</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <ul class="specs-list">
+                    <li><strong>Thermal:</strong> Throttling sau shutdown la 90-100°C.</li>
+                    <li><strong>Ripple:</strong> VRM instabil = crash sub load.</li>
+                    <li><strong>RAM errors:</strong> Artefacte și freeze.</li>
+                    <li><strong>BGA:</strong> Microfracturi termice dau instabilitate.</li>
+                    <li><strong>PSU:</strong> Power spikes pot cauza reset instant.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="quiz">
+        <div class="container">
+            <h2 class="section-title">Quiz — 5 Întrebări</h2>
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 1</h3>
+                <p><strong>Throttling este:</strong></p>
+                <ul class="specs-list"><li>a) Oprire totală</li><li>b) Reducere frecvență pentru răcire</li><li>c) Creștere tensiune</li><li>d) Reset BIOS</li></ul>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Reducere frecvență</strong></p></details>
+            </div>
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 2</h3>
+                <p><strong>Ripple mare pe 1.05V core produce:</strong></p>
+                <ul class="specs-list"><li>a) FPS mai mare</li><li>b) Crash și instabilitate</li><li>c) Temperatură scăzută</li><li>d) Boot rapid</li></ul>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Crash</strong></p></details>
+            </div>
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 3</h3>
+                <p><strong>Freeze după 30 min indică:</strong></p>
+                <ul class="specs-list"><li>a) Standby error</li><li>b) Problemă termică sau BGA</li><li>c) BIOS corupt</li><li>d) SSD defect imediat</li></ul>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Problemă termică</strong></p></details>
+            </div>
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 4</h3>
+                <p><strong>Restart imediat sub load indică:</strong></p>
+                <ul class="specs-list"><li>a) PSU droop</li><li>b) WiFi error</li><li>c) Update pending</li><li>d) LED defect</li></ul>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>a) PSU droop</strong></p></details>
+            </div>
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 5</h3>
+                <p><strong>BGA microfracturi apar din:</strong></p>
+                <ul class="specs-list"><li>a) Software</li><li>b) Dilatări termice repetate</li><li>c) Overclock GPU</li><li>d) RAM update</li></ul>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Dilatări termice</strong></p></details>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="exercitiu">
+        <div class="container">
+            <h2 class="section-title">Exercițiu Aplicat</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>🧠 Exercițiu: Diagnosticul Instabilității</h3>
+                <p><strong>Cerință:</strong> Consola face freeze după 20 min în joc. Temperatură APU 95°C, rail 1.05V ripple 25 mV.</p>
+                <ol class="specs-list"><li>Care este cauza principală?</li><li>Ce test faci primul?</li><li>Ce soluție aplici?</li></ol>
+                <details style="margin-top: 1.5rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată rezolvarea</summary><div style="margin-top: 1rem;">
+                    <p><strong>1.</strong> Cauza principală: temperatură prea mare (95°C) + ripple ușor ridicat.</p>
+                    <p><strong>2.</strong> Test: curățare radiator și schimbare pastă termică. Monitorizează temp sub load.</p>
+                    <p><strong>3.</strong> Soluție: reducerea temperaturii, verificare ventilator. Dacă persistă, verifică VRM condensatori.</p>
+                </div></details>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+            <a href="lectia-6-3.html" class="hero-button" style="font-size: 0.9rem;">← Lecția 6.3 — No Power</a>
+            <a href="index.html" class="hero-button" style="font-size: 0.9rem;">Planul Cursului →</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-inner container">
+            <div class="footer-left"><p class="footer-main">&copy; 2026 Console Notebook</p><p class="footer-sub">Proiect Atestat Informatică</p></div>
+            <div class="footer-right"><a href="mailto:andrei.halcu.07@licmarghilomanbz.ro">andrei.halcu.07@licmarghilomanbz.ro</a><a href="tel:+40758464907">+40 758 464 907</a></div>
+        </div>
+    </footer>
+
+    <script type="module" src="../../../js/main.js"></script>
+    <script src="../../../js/fallback/hamburger.js"></script>
+</body>
+</html>

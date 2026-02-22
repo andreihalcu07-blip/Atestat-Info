@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lecția 7.2 — FPS și bottleneck: CPU-bound vs GPU-bound">
+    <meta name="theme-color" content="#0B0F1A">
+    <link rel="icon" type="image/x-icon" href="../../../../favicon.ico">
+    <title>Lecția 7.2 — FPS și Bottleneck — Console Notebook</title>
+    <link rel="stylesheet" href="../../../css/production.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="../index.html" class="logo">Console Notebook</a>
+            <button class="hamburger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+            <ul class="nav-links">
+                <li><a href="../index.html">Acasă</a></li>
+                <li><a href="../invata.html" class="active">Învață</a></li>
+                <li><a href="../evolutie.html">Evoluție</a></li>
+                <li><a href="../comparatie.html">Comparație</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero hero-cinematic">
+        <div class="hero-content">
+            <p style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 3px; color: rgba(237,233,227,0.5); margin-bottom: 0.5rem;">Modul 7 — Performanță și Grafică</p>
+            <h1>Lecția 7.2 — FPS și Bottleneck</h1>
+            <p>Când ești CPU-bound și când GPU-bound? Cum identifici gâtul de sticlă.</p>
+            <a href="#introducere" class="hero-button">Începe Lecția</a>
+        </div>
+    </section>
+
+    <section class="section" id="introducere">
+        <div class="container">
+            <h2 class="section-title">Introducere</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <p><strong>FPS:</strong> Cadre pe secundă. Limitat de etapa cea mai lentă din sistem.</p>
+                <p><strong>Bottleneck:</strong> Componenta care limitează performanța (CPU, GPU, RAM, SSD).</p>
+                <p>În console, CPU și GPU sunt echilibrate, dar jocurile pot schimba balanța.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="teorie">
+        <div class="container">
+            <h2 class="section-title">Teorie Structurată</h2>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>7.1 — CPU-bound</h3>
+                <p>CPU nu poate genera suficient de rapid draw calls, physics și AI.</p>
+                <p>Simptome: GPU usage sub 70%, FPS scade când crește numărul de NPC.</p>
+                <p>Rezolvare: reduce logică CPU, optimizează AI, folosește multithreading.</p>
+            </div>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>7.2 — GPU-bound</h3>
+                <p>GPU este saturat de shading și pixel count.</p>
+                <p>Simptome: GPU usage 95-100%, CPU usage scăzut.</p>
+                <p>Rezolvare: scade rezoluția, reduce efecte, optimizează shader-ele.</p>
+            </div>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>7.3 — Frame Time</h3>
+                <p>FPS = 1 / frame time. Pentru 60 FPS, frame time = 16.67 ms.</p>
+                <p>Dacă o etapă durează 20 ms, FPS scade la 50.</p>
+                <p>Profilarea frame time arată exact unde se pierde timp.</p>
+            </div>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>7.4 — Draw Calls și API Overhead</h3>
+                <p>Fiecare draw call are cost CPU. Dacă sunt prea multe, CPU-bound.</p>
+                <p>Modern APIs (Vulkan, DX12) reduc overhead, dar necesită optimizare de engine.</p>
+            </div>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>7.5 — Balanced Pipeline</h3>
+                <p>Ideal: CPU și GPU au frame time similar. Nicio componentă nu stă idle.</p>
+                <p>În practică, se țintește GPU-bound ușor, pentru a folosi GPU la maxim.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Legătura Fizică – Informatică</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <p><strong>Fizică:</strong> CPU și GPU au limite de putere și temperatură.</p>
+                <p><strong>Informatică:</strong> Profiling identifică bottleneck-ul și ghidează optimizările.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Aplicare Directă</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>Exemplu: CPU-bound în jocuri strategice</h3>
+                <p>Joc RTS cu 5,000 unități. CPU calculează AI și pathfinding. GPU stă la 50%.</p>
+                <p>Reducerea AI update rate sau batching logică crește FPS semnificativ.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Exemplu Real: GPU-bound la 4K</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <p>Joc AAA la 4K, ray-tracing activ. GPU 99%, CPU 40%.</p>
+                <p>Reducerea rezoluției la 1440p crește FPS cu 50% fără impact major vizual.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Probleme Frecvente</h2>
+            <div class="card"><h3>⚠️ Interpretare greșită a FPS</h3><p>FPS mic nu înseamnă neapărat GPU slab. Poate fi CPU-bound sau memory bound.</p></div>
+            <div class="card"><h3>⚠️ Frame time spikes</h3><p>Stutter periodic indică asset streaming sau garbage collection, nu neapărat GPU.</p></div>
+        </div>
+    </section>
+
+    <section class="section" id="recapitulare">
+        <div class="container">
+            <h2 class="section-title">Recapitulare</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <ul class="specs-list">
+                    <li>CPU-bound: GPU usage mic, CPU saturat.</li>
+                    <li>GPU-bound: GPU usage mare, CPU relaxat.</li>
+                    <li>Frame time este metricul real pentru FPS.</li>
+                    <li>Profiling = cheia optimizării.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="quiz">
+        <div class="container">
+            <h2 class="section-title">Quiz — 5 Întrebări</h2>
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 1</h3>
+                <p><strong>GPU usage 40% și FPS mic indică:</strong></p>
+                <ul class="specs-list"><li>a) GPU-bound</li><li>b) CPU-bound</li><li>c) SSD-bound</li><li>d) RAM-only</li></ul>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) CPU-bound</strong></p></details>
+            </div>
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 2</h3>
+                <p><strong>Frame time pentru 60 FPS:</strong></p>
+                <ul class="specs-list"><li>a) 8.3 ms</li><li>b) 16.67 ms</li><li>c) 33 ms</li><li>d) 5 ms</li></ul>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) 16.67 ms</strong></p></details>
+            </div>
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 3</h3>
+                <p><strong>Reducerea rezoluției ajută când:</strong></p>
+                <ul class="specs-list"><li>a) CPU-bound</li><li>b) GPU-bound</li><li>c) PSU-bound</li><li>d) Update-bound</li></ul>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) GPU-bound</strong></p></details>
+            </div>
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 4</h3>
+                <p><strong>Draw calls multe afectează:</strong></p>
+                <ul class="specs-list"><li>a) GPU only</li><li>b) CPU overhead</li><li>c) RAM only</li><li>d) SSD</li></ul>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) CPU overhead</strong></p></details>
+            </div>
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 5</h3>
+                <p><strong>Bottleneck =</strong></p>
+                <ul class="specs-list"><li>a) Componenta cea mai rapidă</li><li>b) Componenta cea mai lentă</li><li>c) Orice componentă</li><li>d) RAM only</li></ul>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Componenta cea mai lentă</strong></p></details>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="exercitiu">
+        <div class="container">
+            <h2 class="section-title">Exercițiu Aplicat</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>🧠 Exercițiu: Identificare Bottleneck</h3>
+                <p><strong>Cerință:</strong> GPU 99%, CPU 35%, FPS 30. Ce faci pentru 60 FPS?</p>
+                <details style="margin-top: 1.5rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată rezolvarea</summary><div style="margin-top: 1rem;">
+                    <p>Este GPU-bound. Reduci rezoluția, calitatea shadow/lighting, sau optimizezi shader-ele.</p>
+                </div></details>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+            <a href="lectia-7-1.html" class="hero-button" style="font-size: 0.9rem;">← Lecția 7.1 — Pipeline</a>
+            <a href="lectia-7-3.html" class="hero-button" style="font-size: 0.9rem;">Lecția 7.3 — TDP și Temperatură →</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-inner container">
+            <div class="footer-left"><p class="footer-main">&copy; 2026 Console Notebook</p><p class="footer-sub">Proiect Atestat Informatică</p></div>
+            <div class="footer-right"><a href="mailto:andrei.halcu.07@licmarghilomanbz.ro">andrei.halcu.07@licmarghilomanbz.ro</a><a href="tel:+40758464907">+40 758 464 907</a></div>
+        </div>
+    </footer>
+
+    <script type="module" src="../../../js/main.js"></script>
+    <script src="../../../js/fallback/hamburger.js"></script>
+</body>
+</html>

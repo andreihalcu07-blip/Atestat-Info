@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lecția 1.5 — AC vs DC: Curent Alternativ și Continuu">
+    <meta name="theme-color" content="#0B0F1A">
+    <link rel="icon" type="image/x-icon" href="../../../../favicon.ico">
+    <title>Lecția 1.5 — AC vs DC — Console Notebook</title>
+    <link rel="stylesheet" href="../../../css/production.css">
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="../index.html" class="logo">Console Notebook</a>
+            <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="../index.html">Acasă</a></li>
+                <li><a href="../invata.html" class="active">Învață</a></li>
+                <li><a href="../evolutie.html">Evoluție</a></li>
+                <li><a href="../comparatie.html">Comparație</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero hero-cinematic">
+        <div class="hero-content">
+            <p style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 3px; color: rgba(237,233,227,0.5); margin-bottom: 0.5rem;">Modul 1 — Electricitate Fundamentală</p>
+            <h1>Lecția 1.5 — AC vs DC</h1>
+            <p>De ce priza ta-i AC, dar consola funcționează pe DC? Conversie și diferențe critice.</p>
+            <a href="#introducere" class="hero-button">Începe Lecția</a>
+        </div>
+    </section>
+
+    <!-- INTRODUCERE -->
+    <section class="section" id="introducere">
+        <div class="container">
+            <h2 class="section-title">Introducere</h2>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <p>
+                    Până acum am vorbit despre tensiune și curent ca și cum ar fi constante. Dar în realitate, <em>nu sunt întotdeauna</em>.
+                </p>
+                <p>
+                    <strong>DC (Direct Current) — Curent Continuu:</strong> Tensiune și curent constante în direcție și mărime. Fluxul de electroni merge într-un sens.
+                </p>
+                <p>
+                    <strong>AC (Alternating Current) — Curent Alternativ:</strong> Tensiune și curent se schimbă periodic în direcție. Fluxul de electroni merge înainte-și-înapoi oscilaator.
+                </p>
+                <p>
+                    <strong>De ce contează?</strong>
+                <ul class="specs-list">
+                    <li>Priza ta furnizează AC (230V în Europa)</li>
+                    <li>Consola ta funcționează pe DC (1.05V, 3.3V, 5V, 12V)</li>
+                    <li>PSU-ul convertește AC → DC</li>
+                    <li>Calitatea conversiei afectează stabilitate și eficiență consolei</li>
+                    <li>Ripple (oscilații în DC output) = instabilitate</li>
+                </ul>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- TEORIE -->
+    <section class="section" id="teorie">
+        <div class="container">
+            <h2 class="section-title">Teorie Structurată</h2>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>2.1 — AC: Forma Sinusoidală</h3>
+                <p>
+                    AC oscilează în mod sinusoidal: V(t) = V_peak × sin(2πft)
+                </p>
+                <ul class="specs-list">
+                    <li><strong>V_peak:</strong> amplitudinea maximă (ex: 325V pentru 230V RMS European)</li>
+                    <li><strong>f:</strong> frecvența (50Hz Europa, 60Hz USA)</li>
+                    <li><strong>RMS (Root Mean Square):</strong> valoarea efectivă. 230V RMS ≈ 325V peak</li>
+                </ul>
+                <p>
+                    AC merge înainte-și-înapoi 50 ori pe secundă (50Hz). De fiecare dată schimbă direcție, tensiunea crește, apoit scade.
+                </p>
+                <p>
+                    <strong>Avantajul AC:</strong> Ușor de generat, ușor de transmodan (transformatoare), ușor de transmis pe distanțe mari. De aceea priza e AC.
+                </p>
+            </div>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>2.2 — DC: Tensiune Constantă</h3>
+                <p>
+                    DC = tensiune și curent constante direct. Electronii se mișcă uni-direcțional.
+                </p>
+                <ul class="specs-list">
+                    <li><strong>Baterii:</strong> fizic DC (1.5V, 3.7V per cell)</li>
+                    <li><strong>Electronice digitale:</strong> au nevoie de DC. CPU-ul nu înțelege AC.</li>
+                    <li><strong>Circuite integrate:</strong> necesită tensiune stabilă</li>
+                </ul>
+                <p>
+                    <strong>Diferența cheie:</strong> Cu AC, tensiunea se schimbă de 100 ori pe secundă (50Hz significa 0→max→0→min→0, de două ori pe ciclu). CPU-ul are nevoie de tensiune constantă. Dacă I/O e AC, circuitele digitale nu funcționează.
+                </p>
+            </div>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>2.3 — Rectificare: De la AC la DC</h3>
+                <p>
+                    <strong>Rectificare:</strong> Proces de convertire AC → DC. Foloseștii diode.
+                </p>
+                <ul class="specs-list">
+                    <li><strong>Diodă:</strong> permite curentul to-o direcție doar. Dacă AC vine, dioda "tăie" jumătatea negativă.</li>
+                    <li><strong>Rectifor monoandă (HWR):</strong> folosește o diodă. Output e 0→V→0→V... Pe jumătate din timp e zero.</li>
+                    <li><strong>Rectificator pund (FWR):</strong> folosește 4 diode. Inversează jumătatea negativă, deci output e mai lin.</li>
+                </ul>
+                <p>
+                    După rectificare, ai un semnal "ondulat" care merge de la 0 la V_peak. Nu-i perfect DC.
+                </p>
+            </div>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>2.4 — Filtrare și Ripple</h3>
+                <p>
+                    După rectificare, semnalul e puțin pur. Îl trebuie "netezit" cu condensatori.
+                </p>
+                <p>
+                    <strong>Ripple:</strong> Oscilația în DC output datorita rectificării. Măsurată în milivolți.
+                </p>
+                <ul class="specs-list">
+                    <li><strong>PSU bun (modern):</strong> ripple &lt; 50mV</li>
+                    <li><strong>PSU slab:</strong> ripple &gt; 200mV</li>
+                </ul>
+                <p>
+                    Ripple mare = tensiune instabilă = CPU primește 1.05V, apoi 1.10V, apoi 0.95V — chaos. Firmware face reboot pentru a se proteja.
+                </p>
+                <p>
+                    Condensatorii pe placa (C1, C2, ... mii de mici condensatori) absorbă ripple-ul și furnizează curent smooth la chipuri.
+                </p>
+            </div>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>2.5 — Switch-Mode vs Linear PSU</h3>
+                <p>
+                    Există două tecnologie principale pentru PSU:
+                </p>
+                <ul class="specs-list">
+                    <li><strong>Linear PSU:</strong> transformer → rectificare → filtrare. Simple, dar mare și fierbinte. Eficiență ~60%. Destul de mort acum.</li>
+                    <li><strong>Switch-Mode PSU (SMPS):</strong> transformer → rectificare → DC → oscilator (PWM) → transformer mic → rectificare → filtrare. Mic, eficient, modern. Eficiență ~88-92%. Used în toți console și PSU-urile astazi. </li>
+                </ul>
+                <p>
+                    PS5 și Xbox Series X folosesc SMPS cu putere de comutație de ~130kHz. Asta permite condensatori ieftini, design compact, și pierderi mici.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- LEGATURA FIZICA-INFORMATICA -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Legătura Fizică – Informatică</h2>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <p>
+                    <strong>Fizica:</strong> AC și DC sunt fenomene diferite pe o nivel electromagnetic. AC e mai eficiență pentru transport (transformatoare), DC pentru dispozitive.
+                </p>
+                <p>
+                    <strong>Informatica:</strong> Logica digitală funcționează cu 0 și 1. O "1" = tensiune ≥ 0.7V pe linia de logică (ex: 3.3V). O "0" = tensiune ≤ 0.2V. Dacă ripple cauzeaza 3.3V să oscilleze la 2.8V, circuitul poate să-mi citească greșit.
+                </p>
+                <p>
+                    Firmware-ul nu-și dă seama de ripple-ul mic, dar chipurile digitale sunt sensibile. De aceea filtrare e critică.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- APLICARE DIRECTA -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Aplicare Directă în Console</h2>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>Exemplu 1: De ce PS5 nu merge direct la priză</h3>
+                <p>
+                    Dacă PS5 ar primi 230V AC direct: chips ar primii semnale șuier care se schimbă 100 ori pe secundă. Nu pot funcționa. PSU convertește 230V AC 50Hz → 12V DC cu ripple &lt; 50mV.
+                </p>
+            </div>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>Exemplu 2: Dacă PSU-ul Defect (Ripple Mare)</h3>
+                <p>
+                    Imaginează PSU defect care furnizează 1.05V ± 0.15V (ripple mare). CPU alternează între 0.90V și 1.20V. 0.90V = prea mic, CPU nu funcționează. Firmware vede instabilitate, rezeteaza. Consola nu porneaste.
+                </p>
+            </div>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>Exemplu 3: De ce Xbox Series X are ventilator mai mare</h3>
+                <p>
+                    Xbox SMPS funcționează la ~130kHz. AC nici nu se vede (sunet de 130kHz e în range ultrasonor). Dar cu tot stoom pentru comutare, pricini e fierbinte. Xbox are ventilator mai ghinion. PS5 similar.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXEMPLU REAL -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Exemplu Real: Curba AC și Rectificare</h2>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <p><strong>Scenar:</strong> 230V AC European intră-n PSU.</p>
+
+                <p><strong>Pas 1 — AC Input:</strong></p>
+                <p>V(t) = 325 × sin(2π × 50 × t) [V]</p>
+                <ul class="specs-list">
+                    <li>230V RMS = 325V peak</li>
+                    <li>Oscileaza +325V → 0 → -325V → 0 ... 50 ori pe secundă</li>
+                </ul>
+
+                <p><strong>Pas 2 — Rectificare Pund:</strong></p>
+                <ul class="specs-list">
+                    <li>Diodele permit doar curent pozitiv</li>
+                    <li>Output va +325V → 0 → +325V → 0 ... 100 ori pe secundă (ca pe jumătatea negativă e flipped)</li>
+                </ul>
+
+                <p><strong>Pas 3 — Filtrare cu Condensatoare:</strong></p>
+                <ul class="specs-list">
+                    <li>Condensatorii absorb vârfurile (325V) și reemit curent între vârfuri</li>
+                    <li>Output devine mai lin: 320V → 315V → 320V ... (ripple = 5V)</li>
+                </ul>
+
+                <p><strong>Pas 4 — Transformare (SMPS):</strong></p>
+                <ul class="specs-list">
+                    <li>Oscilator comută pe 130kHz (invertor PWM)</li>
+                    <li>Transformator mic reduce 320V → 12V aprox</li>
+                    <li>Rectificare din nou și filtrare la 12V DC cu ripple &lt; 0.1V</li>
+                </ul>
+
+                <p><strong>Pas 5 — Output Final:</strong></p>
+                <p>12.0V ± 0.05V DC — Asta-i ce vede PS5.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROBLEME FRECVENTE -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Probleme Frecvente Asociate</h2>
+
+            <div class="card">
+                <h3>⚠️ Consola se reboot-ează random, fără pattern</h3>
+                <p>
+                    Cause: Ripple mare din PSU. Tensiunile instabile cauzeaza malfuncții logice. Firmware detecta și reseteaza. Soluție: testare PSU, înlocuire dacă defect.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>⚠️ Se aude șuier de 50Hz din PSU</h3>
+                <p>
+                    Cauza: Transformatorul linear nu-și filtrează AC suficient. PSU-ul mai vechi, mai slab. SMPS modern nu fac asta.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>⚠️ PSU se încălzește prea mult la operație normală</h3>
+                <p>
+                    Cauza: Linear PSU neeficients (dacă se-i), sau SMPS supraincarcata. Soluție: înlocuire PSU, sau consola pus-a în aer liber.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- RECAPITULARE -->
+    <section class="section" id="recapitulare">
+        <div class="container">
+            <h2 class="section-title">Recapitulare</h2>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <ul class="specs-list">
+                    <li><strong>AC (Alternating Current):</strong> tensiune oscilant, merit±ă la +V, -V, sinusoidal</li>
+                    <li><strong>DC (Direct Current):</strong> tensiune constantă, unidirecțional</li>
+                    <li><strong>Priza e AC (230V, 50Hz Europe), console-e DC</strong></li>
+                    <li><strong>Rectificare:</strong> diode convert AC → "pseudo-DC" (pulsant)</li>
+                    <li><strong>Filtrare:</strong> condensatori netezesc pulsul → DC pur</li>
+                    <li><strong>Ripple:</strong> oscilație în DC output. Mare = instabil, mic = stabil</li>
+                    <li><strong>Linear PSU:</strong> vechi, ineficiență, fierbință, ripple mare</li>
+                    <li><strong>SMPS (Switch-Mode):</strong> modern, eficient, compact, ripple mic</li>
+                    <li>PS5 și Xbox folosesc SMPS cu comutare 130kHz</li>
+                    <li>Ripple cauzeaza instabilitate și reboot-uri</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- QUIZ -->
+    <section class="section" id="quiz">
+        <div class="container">
+            <h2 class="section-title">Quiz — 5 Întrebări</h2>
+
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 1</h3>
+                <p><strong>Care-i diferența fundamentală între AC și DC?</strong></p>
+                <ul class="specs-list">
+                    <li>a) AC e mai puternic, DC e mai slab</li>
+                    <li>b) AC oscilant, DC constant directional</li>
+                    <li>c) DC e mai bun decât AC</li>
+                    <li>d) AC și DC sunt identic</li>
+                </ul>
+                <details style="margin-top: 1rem;">
+                    <summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary>
+                    <p style="margin-top: 0.5rem;"><strong>b) AC oscilant, DC constant directional</strong> — AC merge +,-,+,-; DC merge constant +.</p>
+                </details>
+            </div>
+
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebara 2</h3>
+                <p><strong>De ce PSU trebuie să convertească 230V AC la DC?</strong></p>
+                <ul class="specs-list">
+                    <li>a) Pentru a economisi curent</li>
+                    <li>b) CPU-ul nu înțelege AC, are nevoie de DC stabil</li>
+                    <li>c) E mai ușor să transmit AC</li>
+                    <li>d) AC e toxic pentru circuitele digitale</li>
+                </ul>
+                <details style="margin-top: 1rem;">
+                    <summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary>
+                    <p style="margin-top: 0.5rem;"><strong>b) CPU-ul nu înțelege AC, are nevoie de DC stabil</strong> — Logica digitală necesită 0/1 (low/high), nu oscilații.</p>
+                </details>
+            </div>
+
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 3</h3>
+                <p><strong>Ce-i ripple și cum afectează consola?</strong></p>
+                <ul class="specs-list">
+                    <li>a) Ripple = zgomotul PSU-ului</li>
+                    <li>b) Ripple = oscilație în DC output; mare cauzează instabilitate</li>
+                    <li>c) Ripple = temperatura ridicată</li>
+                    <li>d) Ripple e necesar pentru funcționare</li>
+                </ul>
+                <details style="margin-top: 1rem;">
+                    <summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary>
+                    <p style="margin-top: 0.5rem;"><strong>b) Ripple = oscilație în DC output; mare cauzează instabilitate</strong> — Ripple mare = V schimbă, CPU nu-și dă seama, malfuncții.</p>
+                </details>
+            </div>
+
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 4</h3>
+                <p><strong>Care-i deosebire dintre Linear și Switch-Mode PSU?</strong></p>
+                <ul class="specs-list">
+                    <li>a) Linear e mai eficiență</li>
+                    <li>b) SMPS e mic, eficiență, modern; Linear e mare, ineficiență, vechi</li>
+                    <li>c) Sunt identic, doar nume diferite</li>
+                    <li>d) Linear putere mai sus</li>
+                </ul>
+                <details style="margin-top: 1rem;">
+                    <summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary>
+                    <p style="margin-top: 0.5rem;"><strong>b) SMPS e mic, eficiență, modern; Linear e mare, ineficiență, vechi</strong> — SMPS: 88-92%, Linear: 60-70%.</p>
+                </details>
+            </div>
+
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 5</h3>
+                <p><strong>Cum condensatorii ajută la filtrare AC → DC?</strong></p>
+                <ul class="specs-list">
+                    <li>a) Condenseaza AC-ul</li>
+                    <li>b) Absorb vârfuri, reemit curent între ele, netezesc oscilația</li>
+                    <li>c) Transformă AC în DC instantaneu</li>
+                    <li>d) Condenseaza energie pentru mai tard</li>
+                </ul>
+                <details style="margin-top: 1rem;">
+                    <summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary>
+                    <p style="margin-top: 0.5rem;"><strong>b) Absorb vârfuri, reemit curent între ele, netezesc oscilația</strong> — Condenseaza absorb în vârf, eliberează-n vale, rezultat = curbă netedă.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXERCITIU -->
+    <section class="section" id="exercitiu">
+        <div class="container">
+            <h2 class="section-title">Exercițiu Aplicat de Gândire</h2>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>🧠 Exercițiu: Analiza Forme de Undă PSU</h3>
+                <p>
+                    <strong>Scenariu:</strong> Măsuray tensiunea la ieșirea PSU-ului la 4 stadii diferite cu un osciloscop.
+                </p>
+                <p><strong>Date:</strong></p>
+                <ul class="specs-list">
+                    <li>Stadiul 1 (AC intrare): +325V, -325V, frecvență 50Hz</li>
+                    <li>Stadiul 2 (După rectificare): +325V, 0V, 100Hz</li>
+                    <li>Stadiul 3 (După filtrare PSU): 310V ± 10V, ripple 20V peak-to-peak</li>
+                    <li>Stadiul 4 (După SMPS și filtrare finală): 12V ± 0.05V, ripple &lt; 0.1V peak-to-peak</li>
+                </ul>
+                <p><strong>Sarcini:</strong></p>
+                <ul class="specs-list">
+                    <li>1. Descrieți forma de undă la fiecare stadiu (cum arată, frecvență, amplitudine)</li>
+                    <li>2. De ce ripple-ul scade la fiecare stadiu?</li>
+                    <li>3. Dacă stadiul 3 ar fi 320V ± 30V (ripple 60V), ce probleme ar putea apărea?</li>
+                    <li>4. Calculează raportul reducere tension: 325V (stadiul 1) → 12V (stadiul 4). Ce procent e asta?</li>
+                    <li>5. De ce Stadiul 4 e mai mic decât Stadiul 3 (deci mai bun)? Cine face asta?</li>
+                </ul>
+                <details style="margin-top: 1.5rem;">
+                    <summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată rezolvarea</summary>
+                    <div style="margin-top: 1rem;">
+                        <p><strong>1. Forme de undă:</strong></p>
+                        <ul class="specs-list">
+                            <li>Stadiul 1: Sinusoidă ±325V, 50Hz, AC pur</li>
+                            <li>Stadiul 2: Puls 0→325V, 100Hz (jumătate din faza negativă cut-off), rectificat</li>
+                            <li>Stadiul 3: Puls 280V→340V, ondulant, ripple = 20Vpp</li>
+                            <li>Stadiul 4: Linie dreapta 11.95V→12.05V, ripple = 0.1Vpp</li>
+                        </ul>
+                        <p><strong>2. Ripple scade pentru:</strong> Condensatori acumulă energia vârfurilor, reliberează-n vale. La stadiul 4, SMPS comută la 130kHz mare, și filtrare finală e mai agresivă.</p>
+                        <p><strong>3. Cu ripple 60V:</strong> Stadiul 3 e 290V→350V. După SMPS (factor 1/27 aprox), output ar fi 10.7V→12.9V. Ripple ≈ 2.2V pe 12V = 18%! CPU ar fi instabil, reboot-uri.</p>
+                        <p><strong>4. Raport reducere:</strong> 325V → 12V = 12/325 = 0.0369 = <strong>3.69%</strong>. Invertor reduce de ~27 ori.</p>
+                        <p><strong>5. Stadiul 4 e mai bun pentru:</strong> SMPS-ul comută cu rapid (130kHz), permitând condensatori mici cu toleranțe bune. Filtrare finală e optimizată pentru logica digit, nu putere brută. Rezultat = tensiune ultra-stabilă.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- NAVIGARE -->
+    <section class="section">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+            <a href="lectia-1-4.html" class="hero-button" style="font-size: 0.9rem;">← Lecția 1.4 — Puterea Electrică</a>
+            <a href="lectia-1-6.html" class="hero-button" style="font-size: 0.9rem;">Lecția 1.6 — Serie vs Paralel →</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-inner container">
+            <div class="footer-left">
+                <p class="footer-main">&copy; 2026 Console Notebook</p>
+                <p class="footer-sub">Proiect Atestat Informatică</p>
+            </div>
+            <div class="footer-right">
+                <a href="mailto:andrei.halcu.07@licmarghilomanbz.ro">andrei.halcu.07@licmarghilomanbz.ro</a>
+                <a href="tel:+40758464907">+40 758 464 907</a>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="../../../js/main.js"></script>
+    <script src="../../../js/fallback/hamburger.js"></script>
+</body>
+</html>

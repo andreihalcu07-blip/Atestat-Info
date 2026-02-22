@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lecția 7.1 — Pipeline grafic: de la vertex la pixel">
+    <meta name="theme-color" content="#0B0F1A">
+    <link rel="icon" type="image/x-icon" href="../../../../favicon.ico">
+    <title>Lecția 7.1 — Pipeline grafic — Console Notebook</title>
+    <link rel="stylesheet" href="../../../css/production.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="../index.html" class="logo">Console Notebook</a>
+            <button class="hamburger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+            <ul class="nav-links">
+                <li><a href="../index.html">Acasă</a></li>
+                <li><a href="../invata.html" class="active">Învață</a></li>
+                <li><a href="../evolutie.html">Evoluție</a></li>
+                <li><a href="../comparatie.html">Comparație</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero hero-cinematic">
+        <div class="hero-content">
+            <p style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 3px; color: rgba(237,233,227,0.5); margin-bottom: 0.5rem;">Modul 7 — Performanță și Grafică</p>
+            <h1>Lecția 7.1 — Pipeline grafic: de la vertex la pixel</h1>
+            <p>Randare modernă: geometrie, shader-e, rasterizare, post-procesare.</p>
+            <a href="#introducere" class="hero-button">Începe Lecția</a>
+        </div>
+    </section>
+
+    <section class="section" id="introducere">
+        <div class="container">
+            <h2 class="section-title">Introducere</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <p><strong>Pipeline grafic:</strong> Set de etape care transformă scene 3D în pixeli 2D.</p>
+                <p>Fiecare etapă are cost. Un bottleneck la o etapă poate reduce FPS.</p>
+                <p>PS5 GPU execută pipeline-ul pentru fiecare frame, 60 ori pe secundă.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="teorie">
+        <div class="container">
+            <h2 class="section-title">Teorie Structurată</h2>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>7.1 — Input Assembler</h3>
+                <p>GPU primește vertex buffer și index buffer. Definește triunghiuri din vertici.</p>
+                <p>Index buffer reduce redundanța: un vertex poate fi folosit în mai multe triunghiuri.</p>
+            </div>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>7.2 — Vertex Shader</h3>
+                <p>Execută transformări: model → world → view → projection.</p>
+                <p>Calculează poziții și trimite atribute (normale, UV) către rasterizer.</p>
+            </div>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>7.3 — Rasterization</h3>
+                <p>Transformă triunghiuri în pixeli (fragmente). Determină ce pixeli sunt acoperiți.</p>
+                <p>Fiecare fragment primește interpolare de atribute (culoare, UV).</p>
+            </div>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>7.4 — Fragment/Pixel Shader</h3>
+                <p>Calculează culoarea finală. Texturi, lumină, umbre, reflexii.</p>
+                <p>Pixel shader este de obicei cea mai grea etapă (milioane de pixeli).</p>
+            </div>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>7.5 — Post-processing și Output</h3>
+                <p>Etape finale: tone mapping, blur, bloom, anti-aliasing.</p>
+                <p>Rezultatul este scris în framebuffer și afișat pe ecran.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Legătura Fizică – Informatică</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <p><strong>Fizică:</strong> GPU execută mii de shader threads în paralel.</p>
+                <p><strong>Informatică:</strong> Fiecare etapă adaugă latență. Optimizezi cea mai lentă etapă.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Aplicare Directă</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>Exemplu: Frame 4K 60 FPS</h3>
+                <p>4K = 8.3M pixeli. 60 FPS = 498M pixeli/sec. Pixel shader trebuie să fie extrem de eficient.</p>
+                <p>Dacă pixel shader durează 300 instrucțiuni, GPU trebuie să execute ~150 miliarde instrucțiuni/sec.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Exemplu Real: Bottleneck Pixel Shader</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <p>Un joc folosește efecte de iluminare costisitoare. Pixel shader devine bottleneck, FPS scade de la 60 la 35.</p>
+                <p>Optimizare: reduce sampling texturi și folosește bake lighting. FPS revine la 60.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Probleme Frecvente</h2>
+            <div class="card"><h3>⚠️ Overdraw</h3><p>Randarea acelorași pixeli de mai multe ori (transparențe). Crește costul fragment shader.</p></div>
+            <div class="card"><h3>⚠️ Shaders prea complicați</h3><p>Instrucțiuni multe per pixel. GPU saturat, FPS scade.</p></div>
+        </div>
+    </section>
+
+    <section class="section" id="recapitulare">
+        <div class="container">
+            <h2 class="section-title">Recapitulare</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <ul class="specs-list">
+                    <li>Pipeline: input → vertex → raster → pixel → post-process.</li>
+                    <li>Pixel shader este de obicei bottleneck-ul principal.</li>
+                    <li>4K crește de 4× numărul de pixeli față de 1080p.</li>
+                    <li>Optimizările vizează etapa cea mai lentă.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="quiz">
+        <div class="container">
+            <h2 class="section-title">Quiz — 5 Întrebări</h2>
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 1</h3>
+                <p><strong>Etapa care transformă triunghiuri în pixeli:</strong></p>
+                <ul class="specs-list"><li>a) Vertex shader</li><li>b) Rasterization</li><li>c) Post-processing</li><li>d) Input assembler</li></ul>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Rasterization</strong></p></details>
+            </div>
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 2</h3>
+                <p><strong>Pixel shader calculează:</strong></p>
+                <ul class="specs-list"><li>a) Poziția vertexului</li><li>b) Culoarea finală a pixelului</li><li>c) Index buffer</li><li>d) Layout de memorie</li></ul>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Culoarea finală</strong></p></details>
+            </div>
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 3</h3>
+                <p><strong>4K are de câte ori mai mulți pixeli decât 1080p?</strong></p>
+                <ul class="specs-list"><li>a) 2×</li><li>b) 3×</li><li>c) 4×</li><li>d) 8×</li></ul>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>c) 4×</strong></p></details>
+            </div>
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 4</h3>
+                <p><strong>Overdraw înseamnă:</strong></p>
+                <ul class="specs-list"><li>a) Pixeli calculați o singură dată</li><li>b) Pixeli randati de mai multe ori</li><li>c) Texturi mai mici</li><li>d) GPU idle</li></ul>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Randare multiplă</strong></p></details>
+            </div>
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 5</h3>
+                <p><strong>Etapa finală înainte de display:</strong></p>
+                <ul class="specs-list"><li>a) Vertex shader</li><li>b) Input assembler</li><li>c) Post-processing</li><li>d) RAM training</li></ul>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>c) Post-processing</strong></p></details>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="exercitiu">
+        <div class="container">
+            <h2 class="section-title">Exercițiu Aplicat</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>🧠 Exercițiu: Cost Pixel Shader</h3>
+                <p><strong>Cerință:</strong> 1080p 60 FPS = 124M pixeli/sec. Pixel shader 200 instrucțiuni/pixel. Câte instrucțiuni/sec?</p>
+                <details style="margin-top: 1.5rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată rezolvarea</summary><div style="margin-top: 1rem;">
+                    <p>124M × 200 = 24.8 miliarde instrucțiuni/sec.</p>
+                </div></details>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+            <a href="lectia-6-5.html" class="hero-button" style="font-size: 0.9rem;">← Lecția 6.5 — Protecții</a>
+            <a href="lectia-7-2.html" class="hero-button" style="font-size: 0.9rem;">Lecția 7.2 — FPS și Bottleneck →</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-inner container">
+            <div class="footer-left"><p class="footer-main">&copy; 2026 Console Notebook</p><p class="footer-sub">Proiect Atestat Informatică</p></div>
+            <div class="footer-right"><a href="mailto:andrei.halcu.07@licmarghilomanbz.ro">andrei.halcu.07@licmarghilomanbz.ro</a><a href="tel:+40758464907">+40 758 464 907</a></div>
+        </div>
+    </footer>
+
+    <script type="module" src="../../../js/main.js"></script>
+    <script src="../../../js/fallback/hamburger.js"></script>
+</body>
+</html>

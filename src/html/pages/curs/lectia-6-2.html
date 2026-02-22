@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lecția 6.2 — Standby: Ce face consola când doarme">
+    <meta name="theme-color" content="#0B0F1A">
+    <link rel="icon" type="image/x-icon" href="../../../../favicon.ico">
+    <title>Lecția 6.2 — Standby — Console Notebook</title>
+    <link rel="stylesheet" href="../../../css/production.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="../index.html" class="logo">Console Notebook</a>
+            <button class="hamburger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+            <ul class="nav-links">
+                <li><a href="../index.html">Acasă</a></li>
+                <li><a href="../invata.html" class="active">Învață</a></li>
+                <li><a href="../evolutie.html">Evoluție</a></li>
+                <li><a href="../comparatie.html">Comparație</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero hero-cinematic">
+        <div class="hero-content">
+            <p style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 3px; color: rgba(237,233,227,0.5); margin-bottom: 0.5rem;">Modul 6 — Alimentare și Probleme Reale</p>
+            <h1>Lecția 6.2 — Standby: Ce face consola când "doarme"</h1>
+            <p>Consumul mic, update-uri în fundal, încărcare controller. Standby nu înseamnă off.</p>
+            <a href="#introducere" class="hero-button">Începe Lecția</a>
+        </div>
+    </section>
+
+    <section class="section" id="introducere">
+        <div class="container">
+            <h2 class="section-title">Introducere</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <p><strong>Standby:</strong> Consola este oprită logic, dar unele subsisteme rămân alimentate.</p>
+                <p>PS5 consumă 1-3W în standby, dar poate descărca update-uri, încărca controller și asculta semnale de wake.</p>
+                <p>Standby este un compromis între consum și funcționalitate.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="teorie">
+        <div class="container">
+            <h2 class="section-title">Teorie Structurată</h2>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>6.1 — Rail-uri active în standby</h3>
+                <p><strong>5V standby:</strong> principalul rail. Alimentează controlerul de power, IR, USB charging.</p>
+                <p><strong>3.3V standby:</strong> pentru flash și PMIC logic.</p>
+                <p>Rail-urile principale (12V, 1.05V) sunt OFF în standby.</p>
+            </div>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>6.2 — Wake Sources</h3>
+                <p><strong>Buton power:</strong> semnal hardware direct.</p>
+                <p><strong>Controller:</strong> semnal wireless (Bluetooth) detectat de modul standby.</p>
+                <p><strong>LAN:</strong> Wake-on-LAN pentru update-uri remote.</p>
+            </div>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>6.3 — Update-uri și USB charging</h3>
+                <p>Consola poate descărca update-uri în standby. Modulele WiFi rămân active la consum mic.</p>
+                <p>USB port poate furniza 5V pentru încărcare controller (0.5-1A).</p>
+                <p>Firmware controlează aceste funcții pentru a reduce consumul.</p>
+            </div>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>6.4 — Standby vs Off</h3>
+                <p><strong>Off real:</strong> PSU complet oprit. 0W. Nu se pot primi update-uri.</p>
+                <p><strong>Standby:</strong> PSU menține 5V. Păstrează starea de sistem și permite wake rapid.</p>
+                <p>Standby reduce timpul de pornire de la 30 sec la 5 sec.</p>
+            </div>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>6.5 — Riscuri în standby</h3>
+                <p><strong>Surtensiuni:</strong> Dacă PSU primește spike, standby poate fi afectat.</p>
+                <p><strong>Standby drain:</strong> Consumul constant 1-3W = 8-26 kWh/an.</p>
+                <p><strong>Corupere update:</strong> Dacă se întrerupe curentul în update, firmware poate fi corupt.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Legătura Fizică – Informatică</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <p><strong>Fizică:</strong> 5V standby este constant, generat de PSU.</p>
+                <p><strong>Informatică:</strong> OS în standby păstrează context și poate rula servicii background.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Aplicare Directă</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>Exemplu: Descărcare Update</h3>
+                <p>Consola în standby primește update de 5 GB. WiFi modul folosește 1W, SSD activează 2W. Total 3W.</p>
+                <p>Update durează 30 min. Energie consumată: 3W × 0.5h = 1.5 Wh.</p>
+                <p>În termeni anuali, standby continuu = ~13 kWh/an.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Exemplu Real: Wake-on-LAN</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <p>PS5 poate fi trezită de la distanță prin aplicația mobilă.</p>
+                <p>LAN controller rămâne alimentat în standby. Semnalul magic packet declanșează power-on sequence.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Probleme Frecvente</h2>
+            <div class="card"><h3>⚠️ Consola nu intră în standby</h3><p>Firmware detectează update în curs sau error. Rail-urile nu se opresc complet.</p></div>
+            <div class="card"><h3>⚠️ Standby drain mare</h3><p>USB device consumă mult sau modul WiFi rămâne activ. Consumul crește la 5-7W.</p></div>
+        </div>
+    </section>
+
+    <section class="section" id="recapitulare">
+        <div class="container">
+            <h2 class="section-title">Recapitulare</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <ul class="specs-list">
+                    <li><strong>Standby:</strong> 5V active, restul off.</li>
+                    <li><strong>Wake sources:</strong> Buton, controller, LAN.</li>
+                    <li><strong>Funcții:</strong> Update background, USB charging.</li>
+                    <li><strong>Consum:</strong> 1-3W tipic.</li>
+                    <li>Standby reduce timpul de pornire și oferă funcții extra.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="quiz">
+        <div class="container">
+            <h2 class="section-title">Quiz — 5 Întrebări</h2>
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 1</h3>
+                <p><strong>Rail activ în standby?</strong></p>
+                <ul class="specs-list"><li>a) 12V</li><li>b) 5V standby</li><li>c) 1.05V</li><li>d) 3.3V main</li></ul>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) 5V standby</strong></p></details>
+            </div>
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 2</h3>
+                <p><strong>Wake-on-LAN folosește:</strong></p>
+                <ul class="specs-list"><li>a) HDMI</li><li>b) LAN controller alimentat în standby</li><li>c) GPU</li><li>d) SSD</li></ul>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) LAN controller</strong></p></details>
+            </div>
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 3</h3>
+                <p><strong>Consumul tipic în standby:</strong></p>
+                <ul class="specs-list"><li>a) 0W</li><li>b) 1-3W</li><li>c) 20W</li><li>d) 100W</li></ul>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) 1-3W</strong></p></details>
+            </div>
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 4</h3>
+                <p><strong>Standby reduce timpul de pornire pentru că:</strong></p>
+                <ul class="specs-list"><li>a) GPU rămâne on</li><li>b) Unele subsisteme sunt deja active</li><li>c) PSU are mai multă putere</li><li>d) RAM rămâne la 1.2V core</li></ul>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Unele subsisteme active</strong></p></details>
+            </div>
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 5</h3>
+                <p><strong>Riscul major în standby?</strong></p>
+                <ul class="specs-list"><li>a) FPS scade</li><li>b) Update corupt dacă se întrerupe curentul</li><li>c) GPU se degradează</li><li>d) Controller nu funcționează</li></ul>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Update corupt</strong></p></details>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="exercitiu">
+        <div class="container">
+            <h2 class="section-title">Exercițiu Aplicat</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>🧠 Exercițiu: Consum anual în standby</h3>
+                <p><strong>Cerință:</strong> Consola consumă 2W în standby. Este în standby 20 ore/zi. Calculează kWh/an.</p>
+                <ol class="specs-list"><li>Putere × timp zilnic</li><li>kWh/an</li><li>Cost la 0.7 lei/kWh</li></ol>
+                <details style="margin-top: 1.5rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată rezolvarea</summary><div style="margin-top: 1rem;">
+                    <p><strong>1.</strong> 2W × 20h = 40 Wh/zi = 0.04 kWh/zi.</p>
+                    <p><strong>2.</strong> 0.04 × 365 = 14.6 kWh/an.</p>
+                    <p><strong>3.</strong> Cost = 14.6 × 0.7 = 10.22 lei/an.</p>
+                </div></details>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+            <a href="lectia-6-1.html" class="hero-button" style="font-size: 0.9rem;">← Lecția 6.1 — Secvența</a>
+            <a href="lectia-6-3.html" class="hero-button" style="font-size: 0.9rem;">Lecția 6.3 — No Power →</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-inner container">
+            <div class="footer-left"><p class="footer-main">&copy; 2026 Console Notebook</p><p class="footer-sub">Proiect Atestat Informatică</p></div>
+            <div class="footer-right"><a href="mailto:andrei.halcu.07@licmarghilomanbz.ro">andrei.halcu.07@licmarghilomanbz.ro</a><a href="tel:+40758464907">+40 758 464 907</a></div>
+        </div>
+    </footer>
+
+    <script type="module" src="../../../js/main.js"></script>
+    <script src="../../../js/fallback/hamburger.js"></script>
+</body>
+</html>

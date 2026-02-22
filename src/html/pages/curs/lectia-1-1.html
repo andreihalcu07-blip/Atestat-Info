@@ -33,7 +33,7 @@
         <div class="hero-content">
             <p style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 3px; color: rgba(237,233,227,0.5); margin-bottom: 0.5rem;">Modul 1 — Electricitate Fundamentală</p>
             <h1>Lecția 1.1 — Ce este electricitatea și de ce contează într-o consolă</h1>
-            <p>De la electronul care se mișcă prin cupru la procesorul care calculează miliarde de operații pe secundă — totul începe cu electricitatea.</p>
+            <p>Totul pornește de la electroni, bandă de energie și un circuit închis. Fără ele, consola este inertă.</p>
             <a href="#introducere" class="hero-button">Începe Lecția</a>
         </div>
     </section>
@@ -47,13 +47,13 @@
 
             <div class="card" style="margin-bottom: 2rem;">
                 <p>
-                    Apeși un buton. Ecranul se aprinde. Sonorul de boot al PlayStation-ului umple camera. Totul pare instantaneu — magic, aproape. Dar în spatele acelui moment există un lanț de evenimente fizice care începe cu ceva invizibil: <strong>mișcarea electronilor</strong>.
+                    Electricitatea nu este un „efect special”. Este rezultatul unei fizici precise: sarcini electrice puse în mișcare într-un mediu controlat. În momentul în care apeși butonul power, consola intră într-o secvență strictă de conversii energetice și verificări de stabilitate care au loc în milisecunde.
                 </p>
                 <p>
-                    Electricitatea este primul subiect din acest curs din un motiv simplu: <em>fără electricitate, consola este un bloc de plastic și metal</em>. Nu există imagine, sunet, calcul, memorie sau comunicare fără curent electric. Fiecare pixel de pe ecranul unui PlayStation 5, fiecare frame randat de un Xbox Series X, fiecare sunet redat de un Nintendo Switch — toate sunt rezultatul direct al mișcării controlate a electronilor prin circuite.
+                    Dacă un singur element din acest lanț cedează — o tensiune instabilă, un circuit deschis, un scurtcircuit — întregul sistem se oprește. De aceea, înțelegerea structurii atomice, a curentului, a tensiunii și a circuitului este fundația oricărui diagnostic hardware profesionist.
                 </p>
                 <p>
-                    În această lecție vom porni de la zero absolut. Nu presupunem nicio cunoștință anterioară de fizică sau electronică. Vom construi, pas cu pas, o înțelegere clară a ceea ce este electricitatea, de unde vine și cum ajunge să anime o consolă de gaming.
+                    În această lecție condensăm conceptele esențiale din fizica stării solide și le adaptăm la console: de la electronul liber din cupru, până la rail-urile de alimentare ale unui SoC modern.
                 </p>
             </div>
         </div>
@@ -66,101 +66,82 @@
         <div class="container">
             <h2 class="section-title">Teorie Structurată</h2>
 
-            <!-- 2.1 Structura atomului -->
             <div class="card" style="margin-bottom: 2rem;">
-                <h3>2.1 — Structura Atomului</h3>
+                <h3>2.1 — Arhitectura atomului și purtătorii de sarcină</h3>
                 <p>
-                    Toată materia din univers — inclusiv cuprul din firele unei console — este formată din <strong>atomi</strong>. Un atom este alcătuit din trei tipuri de particule subatomice:
+                    Atomul are nucleu (protoni + neutroni) și un nor electronic. Electronii sunt cei care pot deveni purtători de curent, deoarece sunt ușori și pot fi deplasați ușor în materiale conductive.
                 </p>
                 <ul class="specs-list">
-                    <li><strong>Protoni</strong> — particule cu sarcină pozitivă (+), localizate în nucleu</li>
-                    <li><strong>Neutroni</strong> — particule fără sarcină (neutre), tot în nucleu</li>
-                    <li><strong>Electroni</strong> — particule cu sarcină negativă (−), care orbitează nucleul</li>
+                    <li><strong>Proton:</strong> sarcină +1, masă relativă ~1 u</li>
+                    <li><strong>Neutron:</strong> sarcină 0, masă relativă ~1 u</li>
+                    <li><strong>Electron:</strong> sarcină −1, masă relativă ~0.00054 u</li>
                 </ul>
                 <p>
-                    Electronii sunt cei care ne interesează. Ei sunt ușori, rapizi și — cel mai important — <em>pot fi puși în mișcare</em>. Când electronii se mișcă în mod organizat printr-un material, acea mișcare este ceea ce numim <strong>curent electric</strong>.
+                    În metale, electronii de valență sunt slab legați și pot fi delocalizați, formând „marea de electroni” responsabilă de conductivitate.
                 </p>
             </div>
 
-            <!-- 2.2 Conductori și izolatori -->
             <div class="card" style="margin-bottom: 2rem;">
-                <h3>2.2 — Conductori și Izolatori</h3>
+                <h3>2.2 — Sarcina electrică și cuantificarea ei</h3>
                 <p>
-                    Nu toate materialele permit trecerea electronilor cu aceeași ușurință. Materia se împarte în două categorii fundamentale:
-                </p>
-                <ul class="specs-list">
-                    <li><strong>Conductori</strong> — materiale în care electronii se mișcă liber (ex: cupru, aur, argint, aluminiu)</li>
-                    <li><strong>Izolatori</strong> — materiale care blochează mișcarea electronilor (ex: plastic, ceramic, gomă, sticlă)</li>
-                </ul>
-                <p>
-                    Există și o categorie intermediară — <strong>semiconductorii</strong> (siliciu, germaniu) — care pot fi atât conductori, cât și izolatori, în funcție de condiții. Aceștia sunt baza tuturor procesoarelor și chipurilor din console. Vom reveni la ei în Modulul 2.
+                    Sarcina electrică este discretă. Unitatea fundamentală este sarcina electronului: q<sub>e</sub> = 1.6 × 10<sup>-19</sup> C.
                 </p>
                 <p>
-                    <strong>De ce contează?</strong> Pe placa de bază a unui PS5, traseele de cupru conduc semnale electrice între procesor, memorie și porturi. Plasticul din jurul lor izolează aceste semnale unele de altele. Dacă două trasee ar veni în contact — scurtcircuit. Consola se oprește sau se deteriorează.
+                    Orice sarcină macroscopică este un multiplu întreg: Q = n × q<sub>e</sub>. Asta înseamnă că „curentul” este un flux de particule discrete, nu un fluid continuu.
+                </p>
+                <p>
+                    Mobilitatea electronilor explică de ce metalele (ex: cupru) sunt conductoare excelente în traseele PCB și în cabluri.
                 </p>
             </div>
 
-            <!-- 2.3 Curent electric -->
             <div class="card" style="margin-bottom: 2rem;">
-                <h3>2.3 — Ce este curentul electric</h3>
+                <h3>2.3 — Conductori, izolatori și band gap</h3>
                 <p>
-                    <strong>Curentul electric</strong> este mișcarea ordonată a electronilor printr-un conductor, sub influența unei forțe (diferență de potențial).
-                </p>
-                <p>
-                    Imaginează-ți electronii ca și bile pe o pistă. Dacă pista e poziționată orizontal, bilele stau pe loc. Dar dacă înclinăm pista (aplicăm o tensiune), bilele încep să se miște — acesta este curentul.
-                </p>
-                <p>
-                    Curentul se măsoară în <strong>Amperi (A)</strong>. Un Amper înseamnă că aproximativ 6.24 × 10¹⁸ electroni trec printr-un punct al circuitului în fiecare secundă. Este un număr enorm, dar electronii sunt incredibil de mici.
-                </p>
-                <p>
-                    Există două tipuri fundamentale de curent:
+                    În solide, nivelele de energie se organizează în benzi. Diferența dintre banda de valență și banda de conducție se numește <strong>band gap</strong>.
                 </p>
                 <ul class="specs-list">
-                    <li><strong>Curent continuu (DC — Direct Current)</strong> — electronii se mișcă într-o singură direcție. Acesta este tipul de curent folosit de componentele interne ale consolelor.</li>
-                    <li><strong>Curent alternativ (AC — Alternating Current)</strong> — electronii oscilează într-o direcție și alta, de 50 de ori pe secundă (50 Hz, în Europa). Acesta vine din priza de perete.</li>
+                    <li><strong>Conductori:</strong> band gap ≈ 0, electronii circulă liber</li>
+                    <li><strong>Semiconductori:</strong> band gap moderat, controlabil</li>
+                    <li><strong>Izolatori:</strong> band gap mare, electronii nu circulă</li>
                 </ul>
                 <p>
-                    <strong>Observație critică:</strong> Priza oferă curent alternativ (AC), dar toate componentele electronice din interiorul unei console funcționează cu curent continuu (DC). De aceea, fiecare consolă are o <em>sursă de alimentare (PSU)</em> care convertește AC în DC. Vom studia PSU-ul în detaliu în Modulul 7.
+                    Siliciul este semiconductorul cheie din CPU/GPU. Controlul band gap-ului (prin dopaj) permite tranzistarea între stări logice 0 și 1.
                 </p>
             </div>
 
-            <!-- 2.4 Tensiune -->
             <div class="card" style="margin-bottom: 2rem;">
-                <h3>2.4 — Tensiunea: forța care pune electronii în mișcare</h3>
+                <h3>2.4 — Curentul electric și regimurile DC/AC</h3>
                 <p>
-                    Curentul nu apare de la sine. Electronii au nevoie de o <strong>forță</strong> care să-i împingă. Acea forță se numește <strong>tensiune electrică</strong> (sau diferență de potențial) și se măsoară în <strong>Volți (V)</strong>.
+                    Curentul electric este fluxul de sarcină pe unitatea de timp: I = dQ/dt. Unitățile sunt Amperi (A).
                 </p>
                 <p>
-                    Analogie: gândește-te la un tub de apă. Apa (electronii) curge doar dacă există o diferență de presiune între cele două capete. Tensiunea este presiunea electrică.
+                    Convenția spune că sensul curentului este de la plus la minus, dar în metale electronii se deplasează invers (de la minus la plus).
                 </p>
                 <ul class="specs-list">
-                    <li>Priza din perete: 230V AC (Europa) / 120V AC (America de Nord)</li>
-                    <li>PSU-ul consolei convertește în: 12V, 5V, 3.3V, 1.1V DC</li>
-                    <li>Procesorul (CPU) funcționează la ~0.8V – 1.2V DC</li>
+                    <li><strong>DC:</strong> curent unidirecțional, stabil, ideal pentru logică digitală</li>
+                    <li><strong>AC:</strong> curent alternativ, eficient pentru transport la distanță</li>
                 </ul>
                 <p>
-                    Ceea ce înseamnă că sursa de alimentare a unui PlayStation 5 reduce tensiunea de la 230V la mai puțin de 1.2V pentru procesor — o reducere de aproape 200x. Acest proces trebuie făcut cu precizie milimetrică; o variație de 0.1V poate cauza instabilitate sau deteriorare permanentă.
+                    Consolele primesc AC de la priză, dar toate circuitele interne funcționează pe DC. Conversia AC → DC este realizată de PSU.
                 </p>
             </div>
 
-            <!-- 2.5 Circuitul electric -->
             <div class="card" style="margin-bottom: 2rem;">
-                <h3>2.5 — Circuitul electric: o buclă completă</h3>
+                <h3>2.5 — Tensiune, circuit închis și rezistență</h3>
                 <p>
-                    Electricitatea curge doar într-un <strong>circuit închis</strong> — o buclă completă de la sursa de tensiune, prin conductor, prin sarcină (componentă) și înapoi la sursă.
+                    Tensiunea (U) este „forța” care împinge sarcinile. Curentul apare doar într-un circuit închis, cu sursă, conductor, sarcină și masă (GND).
                 </p>
                 <p>
-                    Dacă bucla este întreruptă (un fir tăiat, o componentă arsă, un contact defect), curentul se oprește complet. Aceasta este cauza multor defecte din console: un punct de lipitură crăpat sau un traseu rupt pe PCB poate opri întreaga consolă.
-                </p>
-                <p>
-                    Un circuit simplu are minim 4 elemente:
+                    Într-un circuit real există rezistență. Conform legii lui Ohm: U = I × R. Rezistența transformă o parte din energie în căldură (efect Joule).
                 </p>
                 <ul class="specs-list">
-                    <li><strong>Sursa</strong> — furnizează tensiunea (ex: PSU-ul consolei)</li>
-                    <li><strong>Conductorul</strong> — transportă curentul (ex: traseele de cupru pe PCB)</li>
-                    <li><strong>Sarcina</strong> — consumă energia și face ceva util (ex: procesorul, LED-urile, ventilatorul)</li>
-                    <li><strong>Masa (GND)</strong> — punctul de referință zero, calea de întoarcere a curentului</li>
+                    <li><strong>Circuit deschis:</strong> rezistență infinită, curent 0</li>
+                    <li><strong>Scurtcircuit:</strong> rezistență aproape 0, curent foarte mare</li>
+                    <li><strong>Circuit normal:</strong> rezistență nominală, curent stabil</li>
                 </ul>
+                <p>
+                    În console, un scurt pe rail poate opri PSU-ul instant. Un circuit deschis (traseu rupt) întrerupe complet funcționarea unui modul.
+                </p>
             </div>
         </div>
     </section>
@@ -173,19 +154,11 @@
             <h2 class="section-title">Legătura Fizică — Informatică</h2>
 
             <div class="card" style="margin-bottom: 2rem;">
-                <h3>Cum devine electricitatea „gândire"</h3>
                 <p>
-                    Acesta este punctul în care fizica și informatica se întâlnesc: electricitatea în sine nu calculează nimic. Dar <strong>controlul precis al curentului electric</strong> — pornit sau oprit, prezent sau absent — creează ceea ce informatica numește <strong>biți</strong>.
-                </p>
-                <ul class="specs-list">
-                    <li><strong>Tensiune prezentă (~1V)</strong> = bit <strong>1</strong></li>
-                    <li><strong>Tensiune absentă (~0V)</strong> = bit <strong>0</strong></li>
-                </ul>
-                <p>
-                    Un procesor modern de consolă (ex: AMD Zen 2 în PS5) conține <strong>10.3 miliarde de tranzistori</strong>. Fiecare tranzistor funcționează ca un comutator microscopic care permite sau blochează trecerea curentului. Combinând miliarde de astfel de comutatoare într-o rețea logică, procesorul poate calcula, compara, muta date și, în final, randa o imagine pe ecran.
+                    Într-un SoC modern, un „1” logic este o tensiune prezentă (ex: 1.0V), iar un „0” logic este tensiunea aproape de 0V. Tranzistorii MOSFET controlează această diferență, comutând miliarde de ori pe secundă.
                 </p>
                 <p>
-                    <strong>Rezumat:</strong> Fizica furnizează electronii. Electronica îi controlează. Logica digitală le dă sens. Informatica le transformă în instrucțiuni. Rezultatul: 4K, 60 FPS, HDR, ray tracing — pe un dispozitiv de 400€.
+                    Stabilitatea tensiunilor DC este critică: orice oscilație poate trece pragurile logice și produce erori. De aceea, rail-urile sunt filtrate și reglate fin de VRM-uri.
                 </p>
             </div>
         </div>
@@ -205,8 +178,8 @@
                 </p>
                 <ul class="specs-list">
                     <li><strong>Pas 1:</strong> Cablul de alimentare aduce 230V AC din priză.</li>
-                    <li><strong>Pas 2:</strong> PSU-ul intern (ADP-400DR) convertește 230V AC → 12V DC principal. Puterea maximă: ~350W.</li>
-                    <li><strong>Pas 3:</strong> Regulatoatele de tensiune (VRM-urile) de pe placa de bază convertesc 12V → tensiuni specifice:
+                    <li><strong>Pas 2:</strong> PSU-ul intern convertește 230V AC → 12V DC principal.</li>
+                    <li><strong>Pas 3:</strong> Regulatoarele de tensiune (VRM-urile) convertesc 12V → tensiuni specifice:
                         <ul class="specs-list" style="margin-top: 0.5rem;">
                             <li>~1.05V pentru SoC (CPU + GPU)</li>
                             <li>~1.2V pentru memoria GDDR6</li>
@@ -214,11 +187,11 @@
                             <li>~5V pentru porturile USB</li>
                         </ul>
                     </li>
-                    <li><strong>Pas 4:</strong> SoC-ul (Oberon Plus) primește curent reglat și începe să execute instrucțiuni — miliarde pe secundă.</li>
-                    <li><strong>Pas 5:</strong> Energia consumată se transformă în căldură. Sistemul de răcire (heat pipe + vapor chamber + ventilator centrifugal) evacuează căldura prin grile.</li>
+                    <li><strong>Pas 4:</strong> SoC-ul primește curent reglat și începe execuția instrucțiunilor.</li>
+                    <li><strong>Pas 5:</strong> Energia consumată se transformă în căldură. Sistemul de răcire evacuează căldura.</li>
                 </ul>
                 <p>
-                    Tot acest proces — de la priză la pixel — durează mai puțin de 0.000000001 secunde (1 nanosecundă) pentru un singur calcul. Dar se repetă de miliarde de ori pe secundă.
+                    Tot acest proces — de la priză la pixel — are loc de miliarde de ori pe secundă. Un singur calcul durează doar nanosecunde.
                 </p>
             </div>
         </div>
@@ -235,29 +208,26 @@
                 <h3>Sursa de Alimentare a PlayStation 5 — ADP-400DR</h3>
                 <ul class="specs-list">
                     <li><strong>Producător:</strong> Delta Electronics</li>
-                    <li><strong>Input:</strong> 100–240V AC, 50/60Hz (universal)</li>
+                    <li><strong>Input:</strong> 100–240V AC, 50/60Hz</li>
                     <li><strong>Output principal:</strong> 12V DC</li>
                     <li><strong>Putere maximă:</strong> ~350W (modele launch), ~300W (modele slim)</li>
-                    <li><strong>Eficiență:</strong> &gt;87% (pierderi minime sub formă de căldură)</li>
-                    <li><strong>Protecții integrate:</strong> Overcurrent (OCP), Overvoltage (OVP), Overtemperature (OTP), Short Circuit (SCP)</li>
+                    <li><strong>Eficiență:</strong> &gt;87%</li>
+                    <li><strong>Protecții:</strong> OCP, OVP, OTP, SCP</li>
                 </ul>
                 <p>
-                    <strong>Observație:</strong> PS5 Slim (2023) a redus consumul de la ~218W (medie, în joc) la ~188W prin trecerea la un SoC fabricat în proces de 6nm (față de 7nm). Mai puțini nanometri = tranzistori mai mici = mai puțin curent necesar = mai puțină căldură. Aceasta este legătura directă între fizica electrică și evoluția consolelor.
+                    Conversia AC → DC elimină oscilațiile care ar produce erori logice. În interior, rail-urile de 12V sunt transformate la 1.05V pentru core-ul SoC, unde toleranțele sunt de ordinul milivolților.
                 </p>
             </div>
 
             <div class="card" style="margin-bottom: 2rem;">
-                <h3>Comparație: Consum energetic pe generații</h3>
+                <h3>Materiale și roluri în console</h3>
                 <ul class="specs-list">
-                    <li><strong>NES (1983):</strong> ~10W — microprocesor 8-bit, fără GPU dedicat</li>
-                    <li><strong>PlayStation 1 (1994):</strong> ~10W — procesor MIPS 33MHz</li>
-                    <li><strong>PlayStation 2 (2000):</strong> ~50W — Emotion Engine + GPU dedicat</li>
-                    <li><strong>PlayStation 3 (2006):</strong> ~200W — Cell Broadband Engine, 7 SPE-uri</li>
-                    <li><strong>PlayStation 4 (2013):</strong> ~150W — APU x86 AMD Jaguar</li>
-                    <li><strong>PlayStation 5 (2020):</strong> ~218W — SoC AMD Zen 2 + RDNA 2, 10.3 miliarde tranzistori</li>
+                    <li><strong>Cupru:</strong> trasee PCB cu rezistivitate mică, pierderi reduse</li>
+                    <li><strong>Siliciu:</strong> control al band gap-ului pentru comutare 0/1</li>
+                    <li><strong>Izolatori:</strong> separă traseele, previn scurturi</li>
                 </ul>
                 <p>
-                    Observă un pattern: puterea a crescut dramatic odată cu performanța, dar nu liniar. De la PS3 la PS5, puterea de calcul a crescut de ~20x, dar consumul a crescut doar ~1.1x. Acest lucru se datorează eficienței energetice — procese de fabricație mai fine (7nm vs 90nm), tensiuni mai mici, tranzistori mai eficienți.
+                    Performanța unei console este, în final, o extensie directă a proprietăților materiale la nivel atomic.
                 </p>
             </div>
         </div>
@@ -272,23 +242,23 @@
 
             <div class="cards-grid">
                 <div class="card">
-                    <h3>⚠️ Consola nu pornește</h3>
+                    <h3>⚠️ Circuit deschis</h3>
                     <p>
-                        Cauză frecventă: PSU-ul defect nu livrează tensiunea corectă (12V). Poate fi un condensator umflat din sursa de alimentare sau un MOSFET ars pe placa de bază care nu lasă curentul să ajungă la SoC.
+                        Un traseu rupt sau o lipitură rece oprește complet curentul. Consola nu pornește sau nu inițializează un subsistem.
                     </p>
                 </div>
 
                 <div class="card">
-                    <h3>⚠️ Restarturi aleatorii</h3>
+                    <h3>⚠️ Scurtcircuit pe rail</h3>
                     <p>
-                        Cauză frecventă: tensiunea de pe linia de 1.05V fluctuează dincolo de toleranța admisă. VRM-urile nu reglează stabil → procesorul pierde instrucțiuni → restart de protecție. Deseori legat de supraîncălzire.
+                        Rezistență foarte mică → curent masiv → PSU intră în protecție. Simptom tipic: pornește 1 sec și se oprește.
                     </p>
                 </div>
 
                 <div class="card">
-                    <h3>⚠️ Încălzire excesivă la standby</h3>
+                    <h3>⚠️ Rezistență crescută și căldură</h3>
                     <p>
-                        Cauză frecventă: chiar în modul standby, consola consumă 1–3W pentru menținerea memoriei și a controllerului USB. Dacă un regulat de tensiune funcționează defectuos, poate scurge curent excesiv → căldură anormală.
+                        Trasee subdimensionate sau conexiuni slabe cresc rezistența, produc căldură și pot destabiliza rail-urile sensibile.
                     </p>
                 </div>
             </div>
@@ -304,16 +274,13 @@
 
             <div class="card" style="margin-bottom: 2rem;">
                 <ul class="specs-list">
-                    <li><strong>Electricitatea</strong> = mișcarea ordonată a electronilor prin conductori</li>
-                    <li><strong>Curentul (A)</strong> = cantitatea de electroni care trec printr-un punct pe secundă</li>
-                    <li><strong>Tensiunea (V)</strong> = forța care pune electronii în mișcare</li>
-                    <li><strong>AC</strong> = curent alternativ (priză), <strong>DC</strong> = curent continuu (componentele consolei)</li>
-                    <li><strong>PSU-ul</strong> convertește AC → DC</li>
-                    <li><strong>VRM-urile</strong> reglează tensiunea de la 12V la valorile necesare fiecărei componente</li>
-                    <li><strong>Circuitul</strong> trebuie să fie închis (buclă completă) pentru ca curentul să circule</li>
-                    <li><strong>Tranzistorul</strong> funcționează ca un comutator controlat electric — baza întregii informatici</li>
-                    <li><strong>Bit 1</strong> = tensiune prezentă, <strong>Bit 0</strong> = tensiune absentă</li>
-                    <li>PS5 conține 10.3 miliarde de tranzistori care comută de miliarde de ori pe secundă</li>
+                    <li><strong>Electronii</strong> sunt purtătorii de curent în metale.</li>
+                    <li><strong>Sarcina electrică</strong> este cuantificată: Q = n × q<sub>e</sub>.</li>
+                    <li><strong>Band gap</strong> diferențiază conductori, semiconductori și izolatori.</li>
+                    <li><strong>Curentul</strong> este flux de sarcină: I = dQ/dt.</li>
+                    <li><strong>Tensiunea</strong> pune sarcinile în mișcare; DC este stabil pentru logică.</li>
+                    <li><strong>Circuitul închis</strong> este obligatoriu pentru funcționare.</li>
+                    <li><strong>Rezistența</strong> produce căldură și poate destabiliza rail-urile.</li>
                 </ul>
             </div>
         </div>
@@ -326,10 +293,9 @@
         <div class="container">
             <h2 class="section-title">Quiz — 5 Întrebări</h2>
 
-            <!-- Quiz Q1 -->
             <div class="card" style="margin-bottom: 1.5rem;">
                 <h3>Întrebarea 1</h3>
-                <p><strong>Care particulă subatomică este responsabilă de curentul electric?</strong></p>
+                <p><strong>Care particulă transportă curentul în metale?</strong></p>
                 <ul class="specs-list">
                     <li>a) Protonul</li>
                     <li>b) Neutronul</li>
@@ -338,71 +304,67 @@
                 </ul>
                 <details style="margin-top: 1rem;">
                     <summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary>
-                    <p style="margin-top: 0.5rem;"><strong>c) Electronul</strong> — Electronii sunt particulele cu sarcină negativă care se deplasează prin conductori, creând curent electric.</p>
+                    <p style="margin-top: 0.5rem;"><strong>c) Electronul</strong></p>
                 </details>
             </div>
 
-            <!-- Quiz Q2 -->
             <div class="card" style="margin-bottom: 1.5rem;">
                 <h3>Întrebarea 2</h3>
-                <p><strong>Ce tip de curent vine din priza de perete în Europa?</strong></p>
+                <p><strong>Ce descrie relația I = dQ/dt?</strong></p>
                 <ul class="specs-list">
-                    <li>a) Curent continuu (DC) la 230V</li>
-                    <li>b) Curent alternativ (AC) la 230V, 50Hz</li>
-                    <li>c) Curent alternativ (AC) la 12V, 50Hz</li>
-                    <li>d) Curent continuu (DC) la 12V</li>
+                    <li>a) Tensiunea</li>
+                    <li>b) Curentul electric</li>
+                    <li>c) Rezistența</li>
+                    <li>d) Puterea</li>
                 </ul>
                 <details style="margin-top: 1rem;">
                     <summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary>
-                    <p style="margin-top: 0.5rem;"><strong>b) Curent alternativ (AC) la 230V, 50Hz</strong> — Rețeaua europeană furnizează AC la 230V cu frecvență de 50Hz.</p>
+                    <p style="margin-top: 0.5rem;"><strong>b) Curentul electric</strong></p>
                 </details>
             </div>
 
-            <!-- Quiz Q3 -->
             <div class="card" style="margin-bottom: 1.5rem;">
                 <h3>Întrebarea 3</h3>
-                <p><strong>Care este rolul principal al sursei de alimentare (PSU) într-o consolă?</strong></p>
+                <p><strong>De ce DC este preferat pentru logică digitală?</strong></p>
                 <ul class="specs-list">
-                    <li>a) Amplifică semnalul video pentru HDMI</li>
-                    <li>b) Convertește curentul alternativ (AC) în curent continuu (DC)</li>
-                    <li>c) Răcește procesorul</li>
-                    <li>d) Stochează datele jocurilor</li>
+                    <li>a) Are frecvență mai mare</li>
+                    <li>b) Este stabil, fără oscilații</li>
+                    <li>c) Produce mai multă căldură</li>
+                    <li>d) Este mai ieftin de transportat</li>
                 </ul>
                 <details style="margin-top: 1rem;">
                     <summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary>
-                    <p style="margin-top: 0.5rem;"><strong>b) Convertește curentul alternativ (AC) în curent continuu (DC)</strong> — Componentele electronice funcționează exclusiv pe DC, iar PSU-ul realizează conversia.</p>
+                    <p style="margin-top: 0.5rem;"><strong>b) Este stabil</strong></p>
                 </details>
             </div>
 
-            <!-- Quiz Q4 -->
             <div class="card" style="margin-bottom: 1.5rem;">
                 <h3>Întrebarea 4</h3>
-                <p><strong>La ce tensiune funcționează, aproximativ, procesorul (SoC) din PlayStation 5?</strong></p>
+                <p><strong>Un scurtcircuit înseamnă:</strong></p>
                 <ul class="specs-list">
-                    <li>a) 230V</li>
-                    <li>b) 12V</li>
-                    <li>c) ~1.05V</li>
-                    <li>d) ~5V</li>
+                    <li>a) Rezistență mare</li>
+                    <li>b) Rezistență aproape zero</li>
+                    <li>c) Circuit deschis</li>
+                    <li>d) Tensiune zero în PSU</li>
                 </ul>
                 <details style="margin-top: 1rem;">
                     <summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary>
-                    <p style="margin-top: 0.5rem;"><strong>c) ~1.05V</strong> — Procesoarele moderne funcționează la tensiuni foarte scăzute (sub 1.2V) pentru eficiență energetică și reducerea căldurii.</p>
+                    <p style="margin-top: 0.5rem;"><strong>b) Rezistență aproape zero</strong></p>
                 </details>
             </div>
 
-            <!-- Quiz Q5 -->
             <div class="card" style="margin-bottom: 1.5rem;">
                 <h3>Întrebarea 5</h3>
-                <p><strong>De ce consola nu funcționează dacă un traseu de pe placa de bază este rupt?</strong></p>
+                <p><strong>Band gap mare înseamnă:</strong></p>
                 <ul class="specs-list">
-                    <li>a) Procesorul detectează ruptura și refuză să pornească</li>
-                    <li>b) Circuitul devine deschis — curentul nu mai poate circula în buclă completă</li>
-                    <li>c) Traseul rupt generează prea multă căldură</li>
-                    <li>d) Memoria RAM se dezactivează automat</li>
+                    <li>a) Conductor</li>
+                    <li>b) Semiconductor</li>
+                    <li>c) Izolator</li>
+                    <li>d) Supraconductor</li>
                 </ul>
                 <details style="margin-top: 1rem;">
                     <summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary>
-                    <p style="margin-top: 0.5rem;"><strong>b) Circuitul devine deschis — curentul nu mai poate circula în buclă completă</strong> — Curentul necesită un circuit închis. Orice întrerupere oprește complet fluxul de electroni.</p>
+                    <p style="margin-top: 0.5rem;"><strong>c) Izolator</strong></p>
                 </details>
             </div>
         </div>
@@ -413,29 +375,26 @@
          =========================== -->
     <section class="section" id="exercitiu">
         <div class="container">
-            <h2 class="section-title">Exercițiu Aplicat de Gândire</h2>
+            <h2 class="section-title">Exercițiu Aplicat</h2>
 
             <div class="card" style="margin-bottom: 2rem;">
-                <h3>🧠 Exercițiu: Traseul energiei</h3>
+                <h3>🧠 Exercițiu: Traseul energiei și curenți</h3>
                 <p>
-                    <strong>Scenariu:</strong> Ai un PlayStation 5 conectat la o priză din perete (230V AC). Consola este pornită și rulează un joc care consumă 200W.
+                    <strong>Scenariu:</strong> PS5 consumă 200W din priză (230V AC). SoC consumă 80W la 1.05V.
                 </p>
-                <p><strong>Sarcini:</strong></p>
                 <ul class="specs-list">
-                    <li>1. Desenează (pe hârtie sau mental) traseul complet al electricității, de la priză până la procesor. Identifică fiecare etapă de conversie a tensiunii.</li>
-                    <li>2. Calculează curentul total extras din priză (I = P / V). Câți amperi consumă consola din rețeaua de 230V?</li>
-                    <li>3. Dacă procesorul funcționează la 1.05V și consumă 80W din cei 200W totali, calculează curentul care trece prin SoC (I = P / V).</li>
-                    <li>4. Compară cele două valori de curent. De ce curentul din SoC este mult mai mare decât cel din priză, deși puterea totală e mai mică?</li>
-                    <li>5. Gândește-te: ce s-ar întâmpla dacă tensiunea de alimentare a SoC-ului ar crește brusc de la 1.05V la 2V?</li>
+                    <li>1. Descrie traseul complet al energiei: priză → PSU → VRM → SoC.</li>
+                    <li>2. Calculează curentul din priză (I = P / V).</li>
+                    <li>3. Calculează curentul prin SoC (I = P / V).</li>
+                    <li>4. Explică de ce curentul la 1.05V este atât de mare.</li>
                 </ul>
                 <details style="margin-top: 1.5rem;">
                     <summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată rezolvarea</summary>
                     <div style="margin-top: 1rem;">
-                        <p><strong>1.</strong> Priză (230V AC) → Cablu alimentare → PSU (conversie AC→DC, output 12V DC) → Placa de bază → VRM-uri (conversie 12V → 1.05V) → SoC.</p>
-                        <p><strong>2.</strong> I = P / V = 200W / 230V ≈ <strong>0.87A</strong> din priză.</p>
-                        <p><strong>3.</strong> I = P / V = 80W / 1.05V ≈ <strong>76.2A</strong> prin SoC.</p>
-                        <p><strong>4.</strong> Deși puterea e mai mică (80W vs 200W), tensiunea este mult mai scăzută (1.05V vs 230V). Cum P = V × I, o tensiune mică necesită un curent mare pentru aceeași putere. Aceasta este cauza pentru care VRM-urile de pe placa de bază trebuie să fie robuste — ele gestionează curenți de zeci de amperi.</p>
-                        <p><strong>5.</strong> O creștere bruscă la 2V ar depăși tensiunea maximă suportată de tranzistorii din SoC. Rezultat: deteriorare permanentă prin electromigrare și defectarea circuitelor interne. Procesorul ar fi distrus. De aceea protecțiile OVP (Overvoltage Protection) sunt critice.</p>
+                        <p><strong>1.</strong> Priză 230V AC → PSU (AC→DC 12V) → VRM (12V→1.05V) → SoC.</p>
+                        <p><strong>2.</strong> I = 200 / 230 ≈ <strong>0.87A</strong>.</p>
+                        <p><strong>3.</strong> I = 80 / 1.05 ≈ <strong>76.2A</strong>.</p>
+                        <p><strong>4.</strong> Puterea este aceeași, dar tensiunea e mult mai mică. Pentru aceeași putere, curentul trebuie să crească (P = V × I).</p>
                     </div>
                 </details>
             </div>

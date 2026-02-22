@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lecția 2.4 — MOSFET și VRM: Regulatoarele de Tensiune">
+    <meta name="theme-color" content="#0B0F1A">
+    <link rel="icon" type="image/x-icon" href="../../../../favicon.ico">
+    <title>Lecția 2.4 — MOSFET și VRM — Console Notebook</title>
+    <link rel="stylesheet" href="../../../css/production.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="../index.html" class="logo">Console Notebook</a>
+            <button class="hamburger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+            <ul class="nav-links">
+                <li><a href="../index.html">Acasă</a></li>
+                <li><a href="../invata.html" class="active">Învață</a></li>
+                <li><a href="../evolutie.html">Evoluție</a></li>
+                <li><a href="../comparatie.html">Comparație</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero hero-cinematic">
+        <div class="hero-content">
+            <p style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 3px; color: rgba(237,233,227,0.5); margin-bottom: 0.5rem;">Modul 2 — Electronică de Bază</p>
+            <h1>Lecția 2.4 — MOSFET și VRM</h1>
+            <p>Cum MOSFET-urile construiesc regulatoarele de tensiune care dau viață consolei.</p>
+            <a href="#introducere" class="hero-button">Începe Lecția</a>
+        </div>
+    </section>
+
+    <section class="section" id="introducere">
+        <div class="container">
+            <h2 class="section-title">Introducere</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <p><strong>VRM (Voltage Regulator Module):</strong> Circuit cu MOSFET-uri care convertește tensiune de intrare (12V) în tensiuni de ieșire precise (1.05V, 3.3V, etc.) cu stabilitate extremă.</p>
+                <p>PS5 are ~15-20 module VRM pe placa de bază. Fiecare în-și joacă rolul: CPU core, GPU core, RAM, I/O.</p>
+                <p>VRM-ul e "creierul" care menține tensiuni stabile. Dacă VRM crapă, consola nu pornește.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="teorie">
+        <div class="container">
+            <h2 class="section-title">Teorie Structurată</h2>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>2.1 — Principiu VRM: Buck Converter</h3>
+                <p><strong>Buck Converter:</strong> Schimă rapid între ON și OFF a MOSFET-ului pentru a crea tensiune medie mai mică decât intrare.</p>
+                <p style="text-align: center; font-weight: 600; margin: 1rem 0; color: #5ba4e6;">
+                    V_out = V_in × (Ton / (Ton + Toff))
+                </p>
+                <ul class="specs-list">
+                    <li><strong>Ton:</strong> Timp tranzistor ON</li>
+                    <li><strong>Toff:</strong> Timp tranzistor OFF</li>
+                    <li><strong>Ration:</strong> Raport de comutare (duty cycle)</li>
+                </ul>
+                <p><strong>Exemplu:</strong> 12V input, comutare 50/50 → output 6V medie. 30/70 → output 3.6V.</p>
+            </div>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>2.2 — Componente VRM</h3>
+                <ul class="specs-list">
+                    <li><strong>MOSFET High/Low (H-L):</strong> 2N+1 MOSFET-uri comutând alternativ. N-channel și P-channel în punte.</li>
+                    <li><strong>Inductanță (bobina):</strong> Stochează energie, furnizează curent continuu la ieșire. 1µH-10µH tipic.</li>
+                    <li><strong>Condensator ieșire:</strong> ESR mic pentru a filtra ripple. 100µF+.</li>
+                    <li><strong>Controller IC:</strong> PWM generator care orchestrează comutarea MOSFET-urilor. ex: IR3570, TI TPS54200+.</li>
+                    <li><strong>Feedback & sensori:</strong> Măsoară tensie și curent, ajustează duty cycle pentru a menține V_out stabil.</li>
+                </ul>
+            </div>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>2.3 — Controlul Feedback</h3>
+                <p>VRM măsoară tensiunea de ieșire (1.05V dorită) și o compară cu o referință internă. Dacă V_out < V_ref, crește duty cycle (T_on mai lung). Dacă V_out > V_ref, reduce duty cycle.</p>
+                <p><strong>Feedback divider:</strong> Doi rezistori (R1, R2) împart V_out. R1//R2 contribuie la V_feedback care se compară cu V_ref.</p>
+                <p><strong>Ripple Control:</strong> VRM modern detectează ripple (milivolți de fluctuație rapida) și ajustează comutare pentru a-l reduce.</p>
+            </div>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>2.4 — Performanță VRM: Eficiență și Ripple</h3>
+                <p><strong>Eficiență:</strong> Putere de ieșire / Putere de intrare. Modern VRM: 85-92% (din cauza pierderi MOSFET, inductanță, condensator ESR).</p>
+                <p><strong>Ripple:</strong> Oscilație în tensiune de ieșire. Calitate VRM: ripple < 20mV. Slabă: > 50mV.</p>
+                <p><strong>Respons time:</strong> Cât de repede VRM reacționează la schimbări de curent. Sub-microsecunde pentru VRM modern.</p>
+            </div>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>2.5 — Probleme VRM și Degradare</h3>
+                <p><strong>Condensator electrolitic defect:</strong> Capacitate pică, ESR crește, ripple crește. Instabilitate CPU.</p>
+                <p><strong>MOSFET ars:</strong> On-resistance crește (posibil 10x din cauza deteriorării oxide). Putere disipata nu poate fi evacuată, temperatura crește necontrolat. Avalanșă termică.</p>
+                <p><strong>Bobina cu miez crăpat:</strong> Inductanță cade, ripple crește.</p>
+                <p><strong>Controller IC defect:</strong> PWM nu mai orchestrează; VRM furnizează tensiune aleatorie.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Legătura Fizică – Informatică</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <p><strong>Fizica:</strong> VRM folosește inducție (bobina stochează) și comutare rapidă (MOSFET) pentru a converti și regula tensiuni.</p>
+                <p><strong>Informatica:</strong> CPU necesită 1.05V exact. Firmware ajustează voltaj pentru stabilitate. VRM livrează. Tensiune instabilă → logic se rupe.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Aplicare Directă în Console</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>Exemplu: CPU Rails PS5</h3>
+                <p>2 VRM dedicate pentru CPU core: 1.05V. 5 faze per VRM × 2 = 10 faze total. Fiecare fază cu 10 MOSFET-uri. 100 MOSFET-uri total pe CPU rail!</p>
+                <p>Curent: 90A total. Distribuția: 90A / 10 faze = 9A per fază. Fiecare MOSFET 9A / 10 = 0.9A. Curent mic per MOSFET → pierderi mici, siguranță mare.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Exemplu Real: Design VRM PS5</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <p><strong>Calculare duty cycle:</strong> V_out = 1.05V, V_in = 12V.</p>
+                <p>Duty cycle = V_out / V_in = 1.05 / 12 = 8.75%.</p>
+                <p>Deci MOSFET e ON 8.75% din timp.</p>
+                <p><strong>Calcul Ripple:</strong> Frekvență comutare 130kHz. Inductanță 5µH.</p>
+                <p style="text-align: center; font-weight: 600; margin: 1rem 0; color: #5ba4e6;">Ripple = (V_in × Duty) / (L × f)<br>Ripple = (12V × 0.0875) / (5µH × 130kHz) ≈ 16.15mV</p>
+                <p>Calitate bună.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Probleme Frecvente</h2>
+            <div class="card"><h3>⚠️ Consola nu pornește (No power)</h3><p>Potența: VRM furnizează 0V din cauza MOSFET defect sau controller IC mort.</p></div>
+            <div class="card"><h3>⚠️ Consola reboot-uri aleatorii</h3><p>Cauza: Ripple VRM prea mare din cauza condensator defect. CPU instabil.</p></div>
+            <div class="card"><h3>⚠️ VRM se încălzește anormal</h3><p>Cauza: MOSFET degradat (R_DS crescut), pierderi mari.</p></div>
+        </div>
+    </section>
+
+    <section class="section" id="recapitulare">
+        <div class="container">
+            <h2 class="section-title">Recapitulare</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <ul class="specs-list">
+                    <li><strong>VRM (Voltage Regulator):</strong>Convertor de tensiune cu MOSFET comutând.</li>
+                    <li><strong>Buck converter:</strong> Scade tensiune prin comutare rapidă.</li>
+                    <li><strong>Duty cycle:</strong> Raport ON/OFF care determină V_out.</li>
+                    <li><strong>Componente:</strong> MOSFET, bobina, condensator, controller IC, feedback.</li>
+                    <li><strong>Eficiență:</strong> 85-92% modern.</li>
+                    <li><strong>Ripple:</strong> < 20mV bun, > 50mV slab.</li>
+                    <li>PS5: 15-20 module VRM. CPU: 100+ MOSFET-uri.<br></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="quiz">
+        <div class="container">
+            <h2 class="section-title">Quiz — 5 Întrebări</h2>
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 1</h3>
+                <p><strong>Ce-i VRM și ce face?</strong></p>
+                <ul class="specs-list"><li>a) Încarcă bateria</li><li>b) Dă volum audio</li><li>c) Convertor de tensiune care reglează V_out prin comutare MOSFET</li><li>d) Radiator</li></ul>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>c) Convertor de tensiune cu comutare MOSFET</strong></p></details>
+            </div>
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 2</h3>
+                <p><strong>Principiul Buck Converter?</strong></p>
+                <ul class="specs-list"><li>a) Amplificare curent</li><li>b) Comutare rapidă pentru a scădea tensiune medie</li><li>c) Blocare curent</li><li>d) Transformare AC</li></ul>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Comutare rapidă pentru scădere V medie</strong></p></details>
+            </div>
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 3</h3>
+                <p><strong>Ce determină Duty Cycle-ul VRM?</strong></p>
+                <ul class="specs-list"><li>a) Curent intrare</li><li>b) Raportul V_out / V_in</li><li>c) Generator de frecvență</li><li>d) Bobina</li></ul>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Raportul V_out / V_in</strong> — Duty = V_out / V_in.</p></details>
+            </div>
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 4</h3>
+                <p><strong>De ce PS5 are 2 module VRM pentru CPU în loc de unu?</strong></p>
+                <ul class="specs-list"><li>a) Redundanță și distribuție curent</li><li>b) Zgomot</li><li>c) Cost</li><li>d) E convențional</li></ul>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>a) Redundanță și distribuție curent</strong> — Dacă una defectă, cealaltă continua.</p></details>
+            </div>
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <h3>Întrebarea 5</h3>
+                <p><strong>Ce-i ripple în VRM și ce cauzeaza?</strong></p>
+                <ul class="specs-list"><li>a) Zgomot audio</li><li>b) Oscilație în V_out; condensator defect crește ripple</li><li>c) Curent alternativ</li><li>d) Temperatură</li></ul>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Oscilație în V_out; condensator defect crește ripple</strong></p></details>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="exercitiu">
+        <div class="container">
+            <h2 class="section-title">Exercițiu Aplicat</h2>
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>🧠 Exercițiu: Proiect Simplificat VRM pentru CPU</h3>
+                <p><strong>Date:</strong> V_in = 12V, V_out dorită = 1.05V, I_out = 10A, frecvență = 130kHz, L = 2µH.</p>
+                <ol class="specs-list"><li>Calculează Duty Cycle</li><li>Calculează Ripple de curent (ΔI = V_out / L × Δt)</li><li>Dacă condensator C_out = 1000µF, calculează ripple de tensiune (ΔV = ΔI / C / f)</li><li>E ridicat ripple-ul? (< 20mV = bine)</li><li>Cum ajustezi pentru a reduce ripple? (Sugestii)</li></ol>
+                <details style="margin-top: 1.5rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată rezolvarea</summary><div style="margin-top: 1rem;">
+                    <p><strong>1.</strong> Duty = V_out / V_in = 1.05 / 12 = 8.75%</p>
+                    <p><strong>2.</strong> Δt = Duty / f = 0.0875 / 130kHz ≈ 673ns. ΔI = 1.05V / 2µH × 673ns = 352.6mA.</p>
+                    <p><strong>3.</strong> ΔV = ΔI / (C × f) = 0.3526A / (1000µF × 130kHz) ≈ 2.7mV.</p>
+                    <p><strong>4.</strong> 2.7mV e extrem de bine! < 20mV. Excelență.</p>
+                    <p><strong>5.</strong> Pentru a reduce mai mult: creștere L, creștere C, creștere f, sau feedback control mai agresiv.</p>
+                </div></details>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+            <a href="lectia-2-3.html" class="hero-button" style="font-size: 0.9rem;">← Lecția 2.3 — Tranzistori</a>
+            <a href="lectia-2-5.html" class="hero-button" style="font-size: 0.9rem;">Lecția 2.5 — SMPS →</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-inner container">
+            <div class="footer-left"><p class="footer-main">&copy; 2026 Console Notebook</p><p class="footer-sub">Proiect Atestat Informatică</p></div>
+            <div class="footer-right"><a href="mailto:andrei.halcu.07@licmarghilomanbz.ro">andrei.halcu.07@licmarghilomanbz.ro</a><a href="tel:+40758464907">+40 758 464 907</a></div>
+        </div>
+    </footer>
+
+    <script type="module" src="../../../js/main.js"></script>
+    <script src="../../../js/fallback/hamburger.js"></script>
+</body>
+</html>
