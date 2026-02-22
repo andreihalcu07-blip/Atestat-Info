@@ -1,24 +1,34 @@
 ﻿<!DOCTYPE html>
 <html lang="ro">
 <head>
+    <!-- ===========================
+         LEARNING PAGE (INVATA)
+         Educational content about physics and computer science
+         behind gaming consoles
+         =========================== -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Învață fizica și informatica din spatele consolelor de gaming">
+    <meta name="description" content="Învăță fizica și informatica din spatele consolelor de gaming">
     <meta name="theme-color" content="#0B0F1A">
     
-    <title>Învață — Console Notebook</title>
+    <title>Învăță — Console Notebook</title>
     
-    <!-- Main CSS -->
+    <!-- ===========================
+         STYLESHEETS
+         =========================== -->
+    <!-- Main CSS - imports all modules -->
     <link rel="stylesheet" href="../../css/main.css">
     
-    <!-- KaTeX pentru ecuații matematice -->
+    
+    <!-- KaTeX CDN - for math equation rendering -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
-        onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
 </head>
 <body>
-    <!-- Navigation -->
+    <!-- ===========================
+         NAVIGATION BAR
+         =========================== -->
     <nav class="navbar">
         <div class="container">
             <a href="index.html" class="logo">Console Notebook</a>
@@ -40,7 +50,9 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- ===========================
+         HERO SECTION
+         =========================== -->
     <section class="hero hero-cinematic">
         <div class="hero-content">
             <h1>Învață Cum Funcționează Consolele</h1>
@@ -49,9 +61,11 @@
         </div>
     </section>
 
-    <!-- ========================== -->
-    <!-- SECȚIUNEA 1 – FIZICA       -->
-    <!-- ========================== -->
+    <!-- ===========================
+         PHYSICS SECTION
+         Thermal transfer, cooling, power consumption
+         Educational cards about physics principles
+         =========================== -->
     <section class="section" id="fizica">
         <div class="container">
             <h2 class="section-title">Fizica Consolelor</h2>
@@ -96,9 +110,11 @@
     <!-- Divider -->
     <div class="divider"></div>
 
-    <!-- ========================== -->
-    <!-- SECȚIUNEA 2 – INFORMATICA  -->
-    <!-- ========================== -->
+    <!-- ===========================
+         COMPUTER SCIENCE SECTION
+         CPU architecture, GPU rendering, algorithms
+         Educational cards about CS principles
+         =========================== -->
     <section class="section" id="informatica">
         <div class="container">
             <h2 class="section-title">Informatica Consolelor</h2>
@@ -140,7 +156,9 @@
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- ===========================
+         FOOTER
+         =========================== -->
     <footer class="footer">
         <div class="footer-inner container">
             <div class="footer-left">
@@ -154,10 +172,13 @@
         </div>
     </footer>
 
-    <!-- Main JavaScript (Module-based) -->
+    <!-- ===========================
+         JAVASCRIPT
+         =========================== -->
+    <!-- Main app module -->
     <script type="module" src="../../js/main.js"></script>
     
-    <!-- Hamburger Menu Fallback -->
+    <!-- Fallback scripts for file:// protocol support -->
     <script src="../../js/fallback/hamburger.js"></script>
 </body>
 </html>

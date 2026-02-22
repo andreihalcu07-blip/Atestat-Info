@@ -1,6 +1,9 @@
 ﻿<!DOCTYPE html>
 <html lang="ro">
 <head>
+    <!-- ===========================
+         META INFORMATION
+         =========================== -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Console Notebook - Explorează fizica și informatica din spatele consolelor de gaming">
@@ -8,179 +11,23 @@
     
     <title>Console Notebook — Acasă</title>
     
-    <!-- Main CSS -->
+    <!-- ===========================
+         STYLESHEETS
+         =========================== -->
+    <!-- Main CSS - imports all modules -->
     <link rel="stylesheet" href="../../css/main.css">
     
-    <!-- KaTeX pentru ecuații matematice -->
+    
+    <!-- KaTeX CDN - for math equation rendering -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
-        onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});"></script>
-
-    <!-- Contact Form Animations -->
-    <style>
-        @keyframes fadeInSlideUp {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeOutSlideDown {
-            from {
-                opacity: 1;
-                transform: translateY(0);
-            }
-            to {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-        }
-
-        @keyframes spin {
-            to {
-                transform: rotate(360deg);
-            }
-        }
-
-        @keyframes scaleInGrow {
-            from {
-                opacity: 0;
-                transform: scale(0.95);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-
-        @keyframes floatLabel {
-            from {
-                opacity: 0.7;
-                transform: translateY(0);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(-3px);
-            }
-        }
-
-        .message-visible {
-            animation: fadeInSlideUp 0.3s ease forwards;
-        }
-
-        .message-hidden {
-            animation: fadeOutSlideDown 0.3s ease forwards;
-        }
-
-        /* Contact Form Micro-interactions */
-        .contact-form input[type="text"],
-        .contact-form input[type="email"],
-        .contact-form textarea {
-            transition: all 200ms cubic-bezier(0.23, 1, 0.32, 1);
-            background: rgba(var(--secondary-rgb), 0.04);
-            border: 1.5px solid var(--border-color);
-            will-change: background, border-color, box-shadow, transform;
-            backface-visibility: hidden;
-        }
-
-        .contact-form input:focus,
-        .contact-form textarea:focus {
-            outline: none;
-            background: rgba(var(--secondary-rgb), 0.08);
-            border-color: var(--accent-color);
-            box-shadow: 0 0 0 3px rgba(91, 164, 230, 0.1), 0 4px 12px rgba(91, 164, 230, 0.08);
-            transform: scale(1.008);
-        }
-
-        /* Floating Label Effect - Premium & Non-disruptive */
-        .contact-form .input-group label {
-            transition: all 200ms ease;
-            opacity: 0.75;
-            color: var(--text-gray);
-            font-weight: 500;
-        }
-
-        /* Label highlight on input focus/filled */
-        .contact-form .input-group label.label-active {
-            opacity: 1;
-            color: var(--accent-color);
-            font-weight: 600;
-        }
-
-        /* Input Validation Visual Feedback */
-        .contact-form input.input-valid,
-        .contact-form textarea.input-valid {
-            border-color: var(--success);
-            box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.05);
-        }
-
-        .contact-form input.input-invalid,
-        .contact-form textarea.input-invalid {
-            border-color: #ef4444;
-            box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.05);
-        }
-
-        /* Button Premium Hover + Press */
-        .contact-form .demo-button {
-            transition: all 200ms cubic-bezier(0.23, 1, 0.32, 1);
-            box-shadow: 0 2px 8px rgba(var(--secondary-rgb), 0.15);
-            position: relative;
-            will-change: transform, box-shadow, background;
-            backface-visibility: hidden;
-        }
-
-        .contact-form .demo-button:hover:not(:disabled) {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(var(--secondary-rgb), 0.25);
-            background: var(--accent-color);
-        }
-
-        .contact-form .demo-button:active:not(:disabled) {
-            transform: translateY(0) scale(0.98);
-            box-shadow: 0 2px 8px rgba(var(--secondary-rgb), 0.15);
-        }
-
-        .contact-form .demo-button:disabled {
-            opacity: 0.8;
-            cursor: not-allowed;
-        }
-
-        /* Success/Error Message Animations */
-        .success-message,
-        .error-message {
-            animation: scaleInGrow 0.3s ease forwards;
-            backface-visibility: hidden;
-            will-change: opacity, transform;
-        }
-
-        .button-loading {
-            position: relative;
-            color: transparent;
-        }
-
-        .button-loading::after {
-            content: '';
-            position: absolute;
-            width: 14px;
-            height: 14px;
-            top: 50%;
-            left: 50%;
-            margin-left: -7px;
-            margin-top: -7px;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            border-top-color: white;
-            border-radius: 50%;
-            animation: spin 0.8s linear infinite;
-        }
-    </style>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
 </head>
 <body>
-    <!-- Navigation -->
+    <!-- ===========================
+         NAVIGATION BAR
+         Fixed top navigation with mobile hamburger menu
+         =========================== -->
     <nav class="navbar">
         <div class="container">
             <a href="index.html" class="logo">Console Notebook</a>
@@ -202,7 +49,10 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- ===========================
+         HERO SECTION
+         Full-screen cinematic intro
+         =========================== -->
     <section class="hero hero-cinematic">
         <div class="hero-content">
             <h1>Console Notebook</h1>
@@ -211,7 +61,10 @@
         </div>
     </section>
 
-    <!-- Welcome Section -->
+    <!-- ===========================
+         WELCOME SECTION
+         Main content introduction with feature cards
+         =========================== -->
     <section class="section" id="content">
         <div class="container">
             <h2 class="section-title">Bine ai venit!</h2>
@@ -249,7 +102,10 @@
         </div>
     </section>
 
-    <!-- Features Section -->
+    <!-- ===========================
+         FEATURES SECTION
+         Science behind gaming consoles
+         =========================== -->
     <section class="section bg-alt">
         <div class="container">
             <h2 class="section-title">Știința din Spatele Consolelor</h2>
@@ -270,8 +126,11 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <!-- Contact Section -->
+    <!-- ===========================
+         CONTACT SECTION
+         Contact form with FormSubmit.co integration
+         Success/error messages handled by contact-form.js
+         =========================== -->
     <section id="contact" class="section">
         <div class="container">
             <h2 class="section-title">Contact</h2>
@@ -279,12 +138,12 @@
 
             <div class="contact-card">
                 <!-- Mesaj de succes -->
-                <div id="success-message" class="success-message" style="display: none; margin-bottom: 2rem; padding: 1rem; background: #10b981; color: white; border-radius: 8px; text-align: center; font-weight: 500;">
+                <div id="success-message" class="success-message">
                     ✓ Mesaj trimis cu succes! Voi răspunde în curând.
                 </div>
 
                 <!-- Mesaj de eroare -->
-                <div id="error-message" class="error-message" style="display: none; margin-bottom: 2rem; padding: 1rem; background: #ef4444; color: white; border-radius: 8px; text-align: center; font-weight: 500;">
+                <div id="error-message" class="error-message">
                     ✕ Eroare la trimiterea mesajului. Te rog încearcă din nou.
                 </div>
 
@@ -310,7 +169,7 @@
                     <input type="hidden" name="_template" value="table">
                     
                     <!-- Honeypot anti-spam -->
-                    <input type="text" name="_honey" style="display: none;" tabindex="-1" autocomplete="off">
+                    <input type="text" name="_honey" class="honeypot-input" tabindex="-1" autocomplete="off">
 
                     <div class="input-group">
                         <button type="submit" class="demo-button" id="submit-btn">Trimite mesajul</button>
@@ -320,6 +179,10 @@
         </div>
     </section>
 
+    <!-- ===========================
+         FOOTER
+         Site footer with copyright and contact info
+         =========================== -->
     <footer class="footer">
         <div class="footer-inner container">
             <div class="footer-left">
@@ -333,174 +196,16 @@
         </div>
     </footer>
 
-    <!-- Main JavaScript (Module-based) -->
+    <!-- ===========================
+         JAVASCRIPT
+         =========================== -->
+    
+    <!-- Main App - ES6 modules (requires HTTP server) -->
     <script type="module" src="../../js/main.js"></script>
     
-    <!-- Hamburger Menu Fallback (funcționează fără server) -->
+    <!-- Fallback Scripts - work without server (file:// protocol) -->
     <script src="../../js/fallback/hamburger.js"></script>
-
-    <!-- Contact Form Handler with Enhanced UX -->
-    <script>
-        const contactForm = document.getElementById('contact-form');
-        const submitBtn = document.getElementById('submit-btn');
-        const successMessage = document.getElementById('success-message');
-        const errorMessage = document.getElementById('error-message');
-        const originalBtnText = submitBtn?.textContent || 'Trimite mesajul';
-        let isSubmitting = false;
-
-        // Form field validation helper
-        function validateField(input) {
-            const value = input.value.trim();
-            const isValid = input.type === 'email' ? /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value) && value.length > 0 : value.length > 0;
-            
-            input.classList.remove('input-valid', 'input-invalid');
-            if (value.length > 0) {
-                input.classList.add(isValid ? 'input-valid' : 'input-invalid');
-            }
-            return isValid || value.length === 0; // Allow empty on blur, just show feedback
-        }
-
-        // Add validation listeners to form inputs
-        if (contactForm) {
-            const inputs = contactForm.querySelectorAll('input[type="text"], input[type="email"], textarea');
-            inputs.forEach(input => {
-                // Get associated label
-                const inputGroup = input.closest('.input-group');
-                const label = inputGroup ? inputGroup.querySelector('label') : null;
-
-                // Focus handler - activate label
-                input.addEventListener('focus', () => {
-                    if (label) label.classList.add('label-active');
-                });
-
-                // Blur handler - deactivate label if empty
-                input.addEventListener('blur', () => {
-                    if (!input.value.trim() && label) {
-                        label.classList.remove('label-active');
-                    }
-                    validateField(input);
-                });
-
-                // Input handler - manage floating label and validation
-                input.addEventListener('input', () => {
-                    // Keep label active if input has value
-                    if (input.value.trim() && label) {
-                        label.classList.add('label-active');
-                    } else if (!input.value.trim() && label) {
-                        label.classList.remove('label-active');
-                    }
-
-                    // Update validation feedback
-                    if (input.classList.contains('input-valid') || input.classList.contains('input-invalid')) {
-                        validateField(input);
-                    }
-                });
-            });
-        }
-
-        // Util: Show message with animation
-        function showMessage(messageEl, duration = 5000) {
-            messageEl.style.display = 'block';
-            messageEl.classList.add('message-visible');
-            messageEl.classList.remove('message-hidden');
-
-            setTimeout(() => {
-                messageEl.classList.remove('message-visible');
-                messageEl.classList.add('message-hidden');
-                setTimeout(() => {
-                    messageEl.style.display = 'none';
-                }, 300);
-            }, duration);
-        }
-
-        // Util: Set loading state
-        function setLoading(isLoading) {
-            if (!submitBtn) return;
-            isSubmitting = isLoading;
-            submitBtn.disabled = isLoading;
-            submitBtn.textContent = isLoading ? 'Se trimite…' : originalBtnText;
-            submitBtn.classList.toggle('button-loading', isLoading);
-        }
-
-        // Util: Smooth scroll to message
-        function smoothScrollToMessage(messageEl) {
-            setTimeout(() => {
-                messageEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-            }, 100);
-        }
-
-        if (contactForm && submitBtn) {
-            contactForm.addEventListener('submit', async function(e) {
-                e.preventDefault();
-
-                // Prevent double submit
-                if (isSubmitting) return;
-
-                // Honeypot check - dacă utilizatorul completeaza acest câmp, blocăm
-                const honeypot = contactForm.querySelector('input[name="_honey"]');
-                if (honeypot && honeypot.value.trim() !== '') {
-                    console.warn('Honeypot triggered');
-                    return; // Simulează succes pentru bot, de fapt nu trimite
-                }
-
-                // Validate all required fields
-                const name = document.getElementById('contact-name').value.trim();
-                const email = document.getElementById('contact-email').value.trim();
-                const message = document.getElementById('contact-message').value.trim();
-
-                if (!name || !email || !message) {
-                    showMessage(errorMessage, 5000);
-                    return;
-                }
-
-                // Set loading state
-                setLoading(true);
-
-                try {
-                    // Validate all fields before submit
-                    const nameInput = document.getElementById('contact-name');
-                    const emailInput = document.getElementById('contact-email');
-                    const messageInput = document.getElementById('contact-message');
-
-                    const isNameValid = validateField(nameInput);
-                    const isEmailValid = validateField(emailInput);
-                    const isMessageValid = validateField(messageInput);
-
-                    if (!isNameValid || !isEmailValid || !isMessageValid) {
-                        showMessage(errorMessage, 5000);
-                        return;
-                    }
-
-                    const formData = new FormData(contactForm);
-                    formData.append('_captcha', 'false');
-                    formData.append('_subject', 'Mesaj nou de pe website');
-                    formData.append('_template', 'table');
-
-                    // Send to FormSubmit
-                    const response = await fetch('https://formsubmit.co/andrei.halcu.07@licmarghilomanbz.ro', {
-                        method: 'POST',
-                        body: formData,
-                        timeout: 15000
-                    });
-
-                    if (response.ok) {
-                        // Success
-                        showMessage(successMessage, 5000);
-                        smoothScrollToMessage(successMessage);
-                        contactForm.reset();
-                    } else {
-                        throw new Error('Server responded with error');
-                    }
-                } catch (error) {
-                    console.error('Contact form error:', error);
-                    showMessage(errorMessage, 5000);
-                    smoothScrollToMessage(errorMessage);
-                } finally {
-                    setLoading(false);
-                }
-            });
-        }
-    </script>
+    <script src="../../js/fallback/contact-form.js"></script>
 </body>
 </html>
 

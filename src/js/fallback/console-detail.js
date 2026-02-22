@@ -215,7 +215,7 @@
         if (container) {
             container.innerHTML =
                 '<h2 class="section-title">Eroare</h2>' +
-                '<p style="text-align:center;color:var(--text-gray);">' + msg + '</p>';
+                '<p class="console-loading">' + msg + '</p>';
         }
     }
 

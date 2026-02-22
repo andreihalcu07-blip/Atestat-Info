@@ -88,38 +88,6 @@
         gap: 1.25rem;
     }
 
-    /* === TABLES === */
-    .comparison-table {
-        font-size: 0.85rem;
-        display: block;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-    }
-
-    .comparison-table th,
-    .comparison-table td {
-        padding: 0.65rem 0.5rem;
-        font-size: 0.85rem;
-    }
-
-    /* === FORMS & CALCULATORS === */
-    .calculator-grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-    }
-    
-    .comparison-selector {
-        flex-direction: column;
-        gap: 0.75rem;
-    }
-
-    /* === FORMULAS === */
-    .formula {
-        padding: 0.75rem 1rem;
-        font-size: 0.9rem;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-    }
 }
 
 /* === MOBILE PHONES (max-width: 480px) === */
@@ -166,17 +134,6 @@
 
     .cards-grid {
         gap: 1rem;
-    }
-
-    /* Tables - scroll horizontal */
-    .comparison-table {
-        font-size: 0.8rem;
-    }
-
-    .comparison-table th,
-    .comparison-table td {
-        padding: 0.5rem 0.4rem;
-        white-space: nowrap;
     }
 
     /* Footer compact */

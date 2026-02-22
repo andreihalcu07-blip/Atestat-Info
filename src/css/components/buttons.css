@@ -81,32 +81,6 @@
     box-shadow: 0 2px 8px rgba(var(--secondary-rgb), 0.25);
 }
 
-/* Tab Button - Glass */
-.tab-btn {
-    background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    color: var(--text-gray);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    padding: 0.75rem 1.5rem;
-    border-radius: 12px;
-    cursor: pointer;
-    font-size: var(--font-size-base);
-    font-weight: 500;
-    transition: all 0.3s ease;
-}
-
-.tab-btn:hover {
-    background: rgba(255, 255, 255, 0.06);
-    border-color: rgba(255, 255, 255, 0.1);
-    color: var(--text-light);
-}
-
-.tab-btn.active {
-    background: rgba(255, 255, 255, 0.08);
-    color: var(--text-light);
-    border-color: rgba(255, 255, 255, 0.12);
-}
 /* === MOBILE RESPONSIVE === */
 @media (max-width: 768px) {
     /* Butoane full-width și touch-friendly pe mobile */
@@ -127,12 +101,6 @@
         margin-top: 1rem;
     }
     
-    /* Tab buttons - stack pe mobile */
-    .tab-btn {
-        width: 100%;
-        padding: 0.85rem 1.25rem;
-        font-size: 0.95rem;
-    }
 }
 
 @media (max-width: 480px) {
@@ -142,8 +110,4 @@
         font-size: 0.95rem;
     }
     
-    .tab-btn {
-        padding: 0.8rem 1rem;
-        font-size: 0.9rem;
-    }
 }

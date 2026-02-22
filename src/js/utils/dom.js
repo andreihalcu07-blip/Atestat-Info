@@ -106,17 +106,4 @@ export const DOMUtils = {
         }
     },
 
-    /**
-     * Render KaTeX dacă disponibil
-     */
-    renderMath(container) {
-        if (typeof renderMathInElement !== 'undefined') {
-            renderMathInElement(container, {
-                delimiters: [
-                    { left: '$$', right: '$$', display: true },
-                    { left: '$', right: '$', display: false }
-                ]
-            });
-        }
-    }
 };

@@ -51,7 +51,7 @@
     function startApp(data) {
         consolesData = data;
         if (!consolesData || consolesData.length === 0) {
-            display.innerHTML = '<p style="text-align:center;color:#aaa;">Nu s-au putut incarca datele consolelor. Folositi un server HTTP local.</p>';
+            display.innerHTML = '<p class="comparison-error">Nu s-au putut incarca datele consolelor. Folositi un server HTTP local.</p>';
             return;
         }
         populateSelects();
@@ -192,12 +192,27 @@
 
         display.innerHTML =
             '<div class="comparison-grid">' +
-            '<div class="console-card"><div class="console-card-image"><img src="' + resolveImg(a.imagine) + '" alt="' + a.nume + '" onerror="this.style.display=\'none\'"></div>' +
+            '<div class="console-card" data-console-id="' + a.id + '"><div class="console-card-image"><img src="' + resolveImg(a.imagine) + '" alt="' + a.nume + '"></div>' +
             '<div class="console-card-info"><h3>' + a.nume + '</h3><div class="console-meta-tags"><span class="meta-tag">' + a.producator + '</span><span class="meta-tag">' + a.lansare + '</span><span class="meta-tag">Gen ' + a.generatie + '</span></div></div></div>' +
             '<div class="comparison-vs"><span class="vs-badge">VS</span></div>' +
-            '<div class="console-card"><div class="console-card-image"><img src="' + resolveImg(b.imagine) + '" alt="' + b.nume + '" onerror="this.style.display=\'none\'"></div>' +
+            '<div class="console-card" data-console-id="' + b.id + '"><div class="console-card-image"><img src="' + resolveImg(b.imagine) + '" alt="' + b.nume + '"></div>' +
             '<div class="console-card-info"><h3>' + b.nume + '</h3><div class="console-meta-tags"><span class="meta-tag">' + b.producator + '</span><span class="meta-tag">' + b.lansare + '</span><span class="meta-tag">Gen ' + b.generatie + '</span></div></div></div>' +
             '</div>' + specsSection + verdictSection;
+
+        display.querySelectorAll('img').forEach(function (img) {
+            img.addEventListener('error', function () {
+                img.classList.add('image-hidden');
+            });
+        });
+
+        // Add click handlers to console cards
+        document.querySelectorAll('.console-card[data-console-id]').forEach(function (card) {
+            card.style.cursor = 'pointer';
+            card.addEventListener('click', function () {
+                var consoleId = this.getAttribute('data-console-id');
+                window.location.href = './consoles/' + consoleId + '.html';
+            });
+        });
     }
 
     // Try fetch first, otherwise show error

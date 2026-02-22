@@ -1,4 +1,10 @@
-/* Console Detail Page Styles */
+/* =====================================================
+   CONSOLE DETAIL PAGE STYLES
+   Individual console specification pages
+   ===================================================== */
+
+/* === CONSOLE HERO SECTION ===
+   Split layout with console image and title/metadata */
 .console-hero {
     min-height: 60vh;
     display: flex;
@@ -68,9 +74,19 @@
     z-index: 1;
 }
 
+/* === LOADING STATE ===
+   Placeholder text while specs are fetched from JSON */
+.console-loading {
+    text-align: center;
+    color: var(--text-gray);
+}
+
 .specs-section {
     background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
 }
+
+/* === SPECS SECTION ===
+   Specifications display grouped by category (CPU, GPU, Memory, etc.) */
 
 /* Spec Group - visual separation between card groups */
 .specs-group {
@@ -131,6 +147,8 @@
     font-weight: 500;
 }
 
+/* === HISTORY SECTION ===
+   Console history and background story */
 .history-section {
     line-height: 1.9;
 }

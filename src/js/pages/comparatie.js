@@ -242,7 +242,7 @@ function updateComparison() {
         <div class="comparison-grid">
             <div class="console-card" data-console-id="${a.id}">
                 <div class="console-card-image">
-                    <img src="${resolveImagePath(a.imagine)}" alt="${a.nume}" onerror="this.style.display='none'">
+                    <img src="${resolveImagePath(a.imagine)}" alt="${a.nume}">
                 </div>
                 <div class="console-card-info">
                     <h3>${a.nume}</h3>
@@ -258,7 +258,7 @@ function updateComparison() {
             </div>
             <div class="console-card" data-console-id="${b.id}">
                 <div class="console-card-image">
-                    <img src="${resolveImagePath(b.imagine)}" alt="${b.nume}" onerror="this.style.display='none'">
+                    <img src="${resolveImagePath(b.imagine)}" alt="${b.nume}">
                 </div>
                 <div class="console-card-info">
                     <h3>${b.nume}</h3>
@@ -273,6 +273,12 @@ function updateComparison() {
         ${specsSection}
         ${verdictSection}
     `;
+
+    comparisonContainer.querySelectorAll('img').forEach((img) => {
+        img.addEventListener('error', () => {
+            img.classList.add('image-hidden');
+        });
+    });
 
     // Add click handlers to console cards
     document.querySelectorAll('.console-card[data-console-id]').forEach(card => {

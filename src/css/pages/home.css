@@ -1,0 +1,17 @@
+/**
+ * Home Page Styles
+ * Page-specific spacing for the landing content
+ */
+
+/* === HOME CONTENT === */
+#content .section-title {
+    margin-bottom: var(--spacing-xl);
+}
+
+#content .section-intro {
+    margin: 0 auto var(--spacing-xl);
+}
+
+.section-intro .first-sentence {
+    font-weight: 700;
+}
