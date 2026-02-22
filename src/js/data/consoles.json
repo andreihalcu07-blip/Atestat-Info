@@ -5,7 +5,7 @@
         "producator":  "Magnavox",
         "generatie":  1,
         "lansare":  1972,
-        "imagine":  "assets/images/consoles/magnavox-odyssey.png",
+        "imagine":  "assets/images/consoles/magnavox-odyssey.webp",
         "cpu":  {
                     "arhitectura":  "Diode-transistor logic",
                     "proces_nm":  "N/A",
@@ -61,7 +61,7 @@
         "producator":  "Atari",
         "generatie":  1,
         "lansare":  1975,
-        "imagine":  "assets/images/consoles/atari-home-pong.png",
+        "imagine":  "assets/images/consoles/atari-home-pong.webp",
         "cpu":  {
                     "arhitectura":  "LSI integrated circuits",
                     "proces_nm":  "N/A",
@@ -120,7 +120,7 @@
         "producator":  "Coleco",
         "generatie":  1,
         "lansare":  1976,
-        "imagine":  "assets/images/consoles/coleco-telstar.png",
+        "imagine":  "assets/images/consoles/coleco-telstar.webp",
         "cpu":  {
                     "arhitectura":  "GI AY-3-8500 (Telstar), AY-3-8700 (Combat), MOS Technology MPS-7600 (Arcade)",
                     "proces_nm":  "N/A",
@@ -182,7 +182,7 @@
         "producator":  "Atari",
         "generatie":  2,
         "lansare":  1977,
-        "imagine":  "assets/images/consoles/atari-2600.png",
+        "imagine":  "assets/images/consoles/atari-2600.webp",
         "cpu":  {
                     "arhitectura":  "MOS 6507",
                     "proces_nm":  "N/A",
@@ -245,7 +245,7 @@
         "producator":  "Magnavox",
         "generatie":  2,
         "lansare":  1978,
-        "imagine":  "assets/images/consoles/magnavox-odyssey-2.png",
+        "imagine":  "assets/images/consoles/magnavox-odyssey-2.webp",
         "cpu":  {
                     "arhitectura":  "Intel 8048",
                     "proces_nm":  "N/A",
@@ -307,7 +307,7 @@
         "producator":  "Mattel",
         "generatie":  2,
         "lansare":  1979,
-        "imagine":  "assets/images/consoles/intellivision.png",
+        "imagine":  "assets/images/consoles/intellivision.webp",
         "cpu":  {
                     "arhitectura":  "General Instrument CP1610",
                     "proces_nm":  "N/A",
@@ -369,7 +369,7 @@
         "producator":  "Milton Bradley",
         "generatie":  2,
         "lansare":  1979,
-        "imagine":  "assets/images/consoles/microvision.png",
+        "imagine":  "assets/images/consoles/microvision.webp",
         "cpu":  {
                     "arhitectura":  "Intel 8021",
                     "proces_nm":  "N/A",
@@ -424,7 +424,7 @@
         "producator":  "Atari",
         "generatie":  2,
         "lansare":  1982,
-        "imagine":  "assets/images/consoles/atari-5200.png",
+        "imagine":  "assets/images/consoles/atari-5200.webp",
         "cpu":  {
                     "arhitectura":  "MOS 6502C",
                     "proces_nm":  "N/A",
@@ -480,7 +480,7 @@
         "producator":  "Coleco",
         "generatie":  2,
         "lansare":  1982,
-        "imagine":  "assets/images/consoles/colecovision.png",
+        "imagine":  "assets/images/consoles/colecovision.webp",
         "cpu":  {
                     "arhitectura":  "Zilog Z80",
                     "proces_nm":  "N/A",
@@ -537,7 +537,7 @@
         "producator":  "GCE",
         "generatie":  2,
         "lansare":  1982,
-        "imagine":  "assets/images/consoles/vectrex.png",
+        "imagine":  "assets/images/consoles/vectrex.webp",
         "cpu":  {
                     "arhitectura":  "Motorola 68A09",
                     "proces_nm":  "N/A",
@@ -595,7 +595,7 @@
         "producator":  "Nintendo",
         "generatie":  3,
         "lansare":  1983,
-        "imagine":  "assets/images/consoles/famicom.png",
+        "imagine":  "assets/images/consoles/famicom.webp",
         "cpu":  {
                     "arhitectura":  "Ricoh 2A03",
                     "proces_nm":  "2.0 µm",
@@ -652,7 +652,7 @@
         "producator":  "Sega",
         "generatie":  3,
         "lansare":  1983,
-        "imagine":  "assets/images/consoles/sega-sg-1000.png",
+        "imagine":  "assets/images/consoles/sega-sg-1000.webp",
         "cpu":  {
                     "arhitectura":  "Zilog Z80",
                     "proces_nm":  "N/A",
@@ -707,7 +707,7 @@
         "producator":  "Nintendo",
         "generatie":  3,
         "lansare":  1985,
-        "imagine":  "assets/images/consoles/nes.png",
+        "imagine":  "assets/images/consoles/nes.webp",
         "cpu":  {
                     "arhitectura":  "Ricoh 2A03",
                     "proces_nm":  "2.0 µm",
@@ -765,7 +765,7 @@
         "producator":  "Sega",
         "generatie":  3,
         "lansare":  1985,
-        "imagine":  "assets/images/consoles/sega-master-system.png",
+        "imagine":  "assets/images/consoles/sega-master-system.webp",
         "cpu":  {
                     "arhitectura":  "Zilog Z80",
                     "proces_nm":  "N/A",
@@ -821,7 +821,7 @@
         "producator":  "Atari",
         "generatie":  3,
         "lansare":  1986,
-        "imagine":  "assets/images/consoles/atari-7800.png",
+        "imagine":  "assets/images/consoles/atari-7800.webp",
         "cpu":  {
                     "arhitectura":  "Atari SALLY",
                     "proces_nm":  "N/A",
@@ -877,7 +877,7 @@
         "producator":  "NEC/Hudson",
         "generatie":  4,
         "lansare":  1987,
-        "imagine":  "assets/images/consoles/pc-engine.png",
+        "imagine":  "assets/images/consoles/pc-engine.webp",
         "cpu":  {
                     "arhitectura":  "HuC6280",
                     "proces_nm":  "N/A",
@@ -933,7 +933,7 @@
         "producator":  "Sega",
         "generatie":  4,
         "lansare":  1988,
-        "imagine":  "assets/images/consoles/sega-genesis.png",
+        "imagine":  "assets/images/consoles/sega-genesis.webp",
         "cpu":  {
                     "arhitectura":  "Motorola 68000",
                     "proces_nm":  "N/A",
@@ -990,7 +990,7 @@
         "producator":  "Nintendo",
         "generatie":  4,
         "lansare":  1989,
-        "imagine":  "assets/images/consoles/game-boy.png",
+        "imagine":  "assets/images/consoles/game-boy.webp",
         "cpu":  {
                     "arhitectura":  "Sharp LR35902",
                     "proces_nm":  "N/A",
@@ -1047,7 +1047,7 @@
         "producator":  "Atari",
         "generatie":  4,
         "lansare":  1989,
-        "imagine":  "assets/images/consoles/atari-lynx.png",
+        "imagine":  "assets/images/consoles/atari-lynx.webp",
         "cpu":  {
                     "arhitectura":  "MOS 65C02",
                     "proces_nm":  "N/A",
@@ -1103,7 +1103,7 @@
         "producator":  "Sega",
         "generatie":  4,
         "lansare":  1990,
-        "imagine":  "assets/images/consoles/sega-game-gear.png",
+        "imagine":  "assets/images/consoles/sega-game-gear.webp",
         "cpu":  {
                     "arhitectura":  "Zilog Z80",
                     "proces_nm":  "N/A",
@@ -1159,7 +1159,7 @@
         "producator":  "SNK",
         "generatie":  4,
         "lansare":  1990,
-        "imagine":  "assets/images/consoles/neo-geo-aes.png",
+        "imagine":  "assets/images/consoles/neo-geo-aes.webp",
         "cpu":  {
                     "arhitectura":  "Motorola 68000",
                     "proces_nm":  "N/A",
@@ -1215,7 +1215,7 @@
         "producator":  "Nintendo",
         "generatie":  4,
         "lansare":  1990,
-        "imagine":  "assets/images/consoles/snes.png",
+        "imagine":  "assets/images/consoles/snes.webp",
         "cpu":  {
                     "arhitectura":  "65C816",
                     "proces_nm":  "1.0 µm",
@@ -1272,7 +1272,7 @@
         "producator":  "Philips",
         "generatie":  4,
         "lansare":  1991,
-        "imagine":  "assets/images/consoles/philips-cd-i.png",
+        "imagine":  "assets/images/consoles/philips-cd-i.webp",
         "cpu":  {
                     "arhitectura":  "Motorola 68000",
                     "proces_nm":  "N/A",
@@ -1328,7 +1328,7 @@
         "producator":  "Panasonic",
         "generatie":  5,
         "lansare":  1993,
-        "imagine":  "assets/images/consoles/3do.png",
+        "imagine":  "assets/images/consoles/3do.webp",
         "cpu":  {
                     "arhitectura":  "ARM60",
                     "proces_nm":  "600 nm",
@@ -1384,7 +1384,7 @@
         "producator":  "Atari",
         "generatie":  5,
         "lansare":  1993,
-        "imagine":  "assets/images/consoles/atari-jaguar.png",
+        "imagine":  "assets/images/consoles/atari-jaguar.webp",
         "cpu":  {
                     "arhitectura":  "Motorola 68000",
                     "proces_nm":  "N/A",
@@ -1440,7 +1440,7 @@
         "producator":  "Sony",
         "generatie":  5,
         "lansare":  1994,
-        "imagine":  "assets/images/consoles/ps1.png",
+        "imagine":  "assets/images/consoles/ps1.webp",
         "cpu":  {
                     "arhitectura":  "MIPS R3000A",
                     "proces_nm":  "0.8 µm",
@@ -1497,7 +1497,7 @@
         "producator":  "Sega",
         "generatie":  5,
         "lansare":  1994,
-        "imagine":  "assets/images/consoles/sega-saturn.png",
+        "imagine":  "assets/images/consoles/sega-saturn.webp",
         "cpu":  {
                     "arhitectura":  "Hitachi SH-2 (dual)",
                     "proces_nm":  "350 nm",
@@ -1553,7 +1553,7 @@
         "producator":  "Nintendo",
         "generatie":  5,
         "lansare":  1996,
-        "imagine":  "assets/images/consoles/nintendo-64.png",
+        "imagine":  "assets/images/consoles/nintendo-64.webp",
         "cpu":  {
                     "arhitectura":  "NEC VR4300",
                     "proces_nm":  "350 nm",
@@ -1610,7 +1610,7 @@
         "producator":  "Nintendo",
         "generatie":  5,
         "lansare":  1998,
-        "imagine":  "assets/images/consoles/game-boy-color.png",
+        "imagine":  "assets/images/consoles/game-boy-color.webp",
         "cpu":  {
                     "arhitectura":  "Sharp LR35902",
                     "proces_nm":  "N/A",
@@ -1667,7 +1667,7 @@
         "producator":  "SNK",
         "generatie":  5,
         "lansare":  1998,
-        "imagine":  "assets/images/consoles/neo-geo-pocket.png",
+        "imagine":  "assets/images/consoles/neo-geo-pocket.webp",
         "cpu":  {
                     "arhitectura":  "Toshiba TLCS-900H",
                     "proces_nm":  "N/A",
@@ -1723,7 +1723,7 @@
         "producator":  "Sega",
         "generatie":  6,
         "lansare":  1998,
-        "imagine":  "assets/images/consoles/sega-dreamcast.png",
+        "imagine":  "assets/images/consoles/sega-dreamcast.webp",
         "cpu":  {
                     "arhitectura":  "Hitachi SH-4",
                     "proces_nm":  "180 nm",
@@ -1780,7 +1780,7 @@
         "producator":  "SNK",
         "generatie":  5,
         "lansare":  1999,
-        "imagine":  "assets/images/consoles/neo-geo-pocket-color.png",
+        "imagine":  "assets/images/consoles/neo-geo-pocket-color.webp",
         "cpu":  {
                     "arhitectura":  "Toshiba TLCS-900H",
                     "proces_nm":  "N/A",
@@ -1837,7 +1837,7 @@
         "producator":  "Bandai",
         "generatie":  5,
         "lansare":  1999,
-        "imagine":  "assets/images/consoles/wonderswan.png",
+        "imagine":  "assets/images/consoles/wonderswan.webp",
         "cpu":  {
                     "arhitectura":  "NEC V30MZ",
                     "proces_nm":  "N/A",
@@ -1893,7 +1893,7 @@
         "producator":  "Sony",
         "generatie":  6,
         "lansare":  2000,
-        "imagine":  "assets/images/consoles/ps2.png",
+        "imagine":  "assets/images/consoles/ps2.webp",
         "cpu":  {
                     "arhitectura":  "Emotion Engine",
                     "proces_nm":  "180 nm",
@@ -1950,7 +1950,7 @@
         "producator":  "Nintendo",
         "generatie":  6,
         "lansare":  2001,
-        "imagine":  "assets/images/consoles/game-boy-advance.png",
+        "imagine":  "assets/images/consoles/game-boy-advance.webp",
         "cpu":  {
                     "arhitectura":  "ARM7TDMI",
                     "proces_nm":  "N/A",
@@ -2007,7 +2007,7 @@
         "producator":  "Nintendo",
         "generatie":  6,
         "lansare":  2001,
-        "imagine":  "assets/images/consoles/nintendo-gamecube.png",
+        "imagine":  "assets/images/consoles/nintendo-gamecube.webp",
         "cpu":  {
                     "arhitectura":  "IBM Gekko",
                     "proces_nm":  "180 nm",
@@ -2064,7 +2064,7 @@
         "producator":  "Microsoft",
         "generatie":  6,
         "lansare":  2001,
-        "imagine":  "assets/images/consoles/xbox.png",
+        "imagine":  "assets/images/consoles/xbox.webp",
         "cpu":  {
                     "arhitectura":  "Intel Pentium III",
                     "proces_nm":  "180 nm",
@@ -2121,7 +2121,7 @@
         "producator":  "Nintendo",
         "generatie":  7,
         "lansare":  2004,
-        "imagine":  "assets/images/consoles/nintendo-ds.png",
+        "imagine":  "assets/images/consoles/nintendo-ds.webp",
         "cpu":  {
                     "arhitectura":  "ARM9 + ARM7",
                     "proces_nm":  "130 nm",
@@ -2178,7 +2178,7 @@
         "producator":  "Sony",
         "generatie":  7,
         "lansare":  2004,
-        "imagine":  "assets/images/consoles/psp.png",
+        "imagine":  "assets/images/consoles/psp.webp",
         "cpu":  {
                     "arhitectura":  "MIPS R4000",
                     "proces_nm":  "90 nm",
@@ -2235,7 +2235,7 @@
         "producator":  "Microsoft",
         "generatie":  7,
         "lansare":  2005,
-        "imagine":  "assets/images/consoles/xbox360.png",
+        "imagine":  "assets/images/consoles/xbox360.webp",
         "cpu":  {
                     "arhitectura":  "PowerPC Xenon",
                     "proces_nm":  "90 nm",
@@ -2292,7 +2292,7 @@
         "producator":  "Nintendo",
         "generatie":  7,
         "lansare":  2006,
-        "imagine":  "assets/images/consoles/nintendo-wii.png",
+        "imagine":  "assets/images/consoles/nintendo-wii.webp",
         "cpu":  {
                     "arhitectura":  "IBM Broadway",
                     "proces_nm":  "90 nm",
@@ -2349,7 +2349,7 @@
         "producator":  "Sony",
         "generatie":  7,
         "lansare":  2006,
-        "imagine":  "assets/images/consoles/ps3.png",
+        "imagine":  "assets/images/consoles/ps3.webp",
         "cpu":  {
                     "arhitectura":  "Cell BE",
                     "proces_nm":  "90/65 nm",
@@ -2406,7 +2406,7 @@
         "producator":  "Nintendo",
         "generatie":  8,
         "lansare":  2011,
-        "imagine":  "assets/images/consoles/nintendo-3ds.png",
+        "imagine":  "assets/images/consoles/nintendo-3ds.webp",
         "cpu":  {
                     "arhitectura":  "ARM11 MPCore",
                     "proces_nm":  "40 nm",
@@ -2463,7 +2463,7 @@
         "producator":  "Sony",
         "generatie":  8,
         "lansare":  2011,
-        "imagine":  "assets/images/consoles/ps-vita.png",
+        "imagine":  "assets/images/consoles/ps-vita.webp",
         "cpu":  {
                     "arhitectura":  "ARM Cortex-A9",
                     "proces_nm":  "40 nm",
@@ -2520,7 +2520,7 @@
         "producator":  "Nintendo",
         "generatie":  8,
         "lansare":  2012,
-        "imagine":  "assets/images/consoles/nintendo-wii-u.png",
+        "imagine":  "assets/images/consoles/nintendo-wii-u.webp",
         "cpu":  {
                     "arhitectura":  "IBM Espresso",
                     "proces_nm":  "45 nm",
@@ -2576,7 +2576,7 @@
         "producator":  "Sony",
         "generatie":  8,
         "lansare":  2013,
-        "imagine":  "assets/images/consoles/ps4.png",
+        "imagine":  "assets/images/consoles/ps4.webp",
         "cpu":  {
                     "arhitectura":  "AMD Jaguar",
                     "proces_nm":  "28 nm",
@@ -2633,7 +2633,7 @@
         "producator":  "Microsoft",
         "generatie":  8,
         "lansare":  2013,
-        "imagine":  "assets/images/consoles/xbox-one.png",
+        "imagine":  "assets/images/consoles/xbox-one.webp",
         "cpu":  {
                     "arhitectura":  "AMD Jaguar",
                     "proces_nm":  "28 nm",
@@ -2689,7 +2689,7 @@
         "producator":  "Nintendo",
         "generatie":  8,
         "lansare":  2017,
-        "imagine":  "assets/images/consoles/nintendo-switch.png",
+        "imagine":  "assets/images/consoles/nintendo-switch.webp",
         "cpu":  {
                     "arhitectura":  "ARM Cortex-A57",
                     "proces_nm":  "20 nm",
@@ -2746,7 +2746,7 @@
         "producator":  "Sony",
         "generatie":  9,
         "lansare":  2020,
-        "imagine":  "assets/images/consoles/ps5.png",
+        "imagine":  "assets/images/consoles/ps5.webp",
         "cpu":  {
                     "arhitectura":  "AMD Zen 2",
                     "proces_nm":  "7 nm",
@@ -2803,7 +2803,7 @@
         "producator":  "Microsoft",
         "generatie":  9,
         "lansare":  2020,
-        "imagine":  "assets/images/consoles/xbox-series-x.png",
+        "imagine":  "assets/images/consoles/xbox-series-x.webp",
         "cpu":  {
                     "arhitectura":  "AMD Zen 2",
                     "proces_nm":  "7 nm",
@@ -2860,7 +2860,7 @@
         "producator":  "Microsoft",
         "generatie":  9,
         "lansare":  2020,
-        "imagine":  "assets/images/consoles/xbox-series-s.png",
+        "imagine":  "assets/images/consoles/xbox-series-s.webp",
         "cpu":  {
                     "arhitectura":  "AMD Zen 2",
                     "proces_nm":  "7 nm",

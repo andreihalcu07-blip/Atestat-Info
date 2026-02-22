@@ -209,6 +209,7 @@
         transform: translateX(100%);
         opacity: 0;
         visibility: hidden;
+        pointer-events: none;
         
         /* Smooth animations */
         transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
@@ -225,6 +226,7 @@
         transform: translateX(0);
         opacity: 1;
         visibility: visible;
+        pointer-events: auto;
     }
     
     /* Link-uri mari, touch-friendly */
@@ -257,6 +259,12 @@
         color: rgba(237, 233, 227, 0.85);
         border-radius: 12px;
         transition: all 0.3s ease;
+        pointer-events: none;
+    }
+    
+    /* Enable clicks on links when menu is open */
+    .nav-links.active a {
+        pointer-events: auto;
     }
     
     .nav-links a:hover {

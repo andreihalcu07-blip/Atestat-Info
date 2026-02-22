@@ -63,6 +63,7 @@
 
 /* Link Button */
 .demo-button {
+    display: inline-block;
     background: var(--primary-color);
     color: var(--text-light);
     border: none;
@@ -72,6 +73,8 @@
     font-size: var(--font-size-base);
     margin-top: var(--spacing-sm);
     font-weight: 600;
+    text-decoration: none;
+    text-align: center;
     transition: all var(--transition-fast);
     font-family: inherit;
 }

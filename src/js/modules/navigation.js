@@ -54,6 +54,9 @@ export const NavigationModule = {
         
         if (!hamburger || !navLinks) return;
         
+        // Mark that hamburger menu is initialized (to prevent fallback script from re-initializing)
+        window.__HAMBURGER_INITIALIZED__ = true;
+        
         // Ensure button has explicit type to avoid form submit behavior
         if (hamburger && hamburger.tagName === 'BUTTON' && !hamburger.getAttribute('type')) {
             hamburger.setAttribute('type', 'button');

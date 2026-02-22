@@ -6,6 +6,69 @@
 import { getConsoleById, getConsoleIdFromUrl, resolveImagePath } from '../data/data-loader.js';
 
 /**
+ * Image dimensions mapping - prevents layout shift during load
+ * Format: 'filename.webp': { width: px, height: px }
+ */
+const IMAGE_DIMENSIONS = {
+    '3do.webp': { width: 1200, height: 531 },
+    'atari-2600.webp': { width: 1200, height: 735 },
+    'atari-5200.webp': { width: 1200, height: 596 },
+    'atari-7800.webp': { width: 1200, height: 648 },
+    'atari-home-pong.webp': { width: 1200, height: 865 },
+    'atari-jaguar.webp': { width: 1200, height: 517 },
+    'atari-lynx.webp': { width: 1200, height: 691 },
+    'coleco-telstar.webp': { width: 1200, height: 569 },
+    'colecovision.webp': { width: 1200, height: 527 },
+    'famicom.webp': { width: 1200, height: 1092 },
+    'game-boy.webp': { width: 1200, height: 1455 },
+    'game-boy-advance.webp': { width: 1200, height: 829 },
+    'game-boy-color.webp': { width: 1200, height: 1657 },
+    'intellivision.webp': { width: 1200, height: 637 },
+    'magnavox-odyssey.webp': { width: 1200, height: 582 },
+    'magnavox-odyssey-2.webp': { width: 1200, height: 698 },
+    'microvision.webp': { width: 1200, height: 1723 },
+    'neo-geo-aes.webp': { width: 1200, height: 397 },
+    'neo-geo-pocket.webp': { width: 1200, height: 853 },
+    'neo-geo-pocket-color.webp': { width: 1200, height: 844 },
+    'nes.webp': { width: 1200, height: 652 },
+    'nintendo-3ds.webp': { width: 1200, height: 1085 },
+    'nintendo-64.webp': { width: 1200, height: 646 },
+    'nintendo-ds.webp': { width: 1200, height: 1013 },
+    'nintendo-gamecube.webp': { width: 1200, height: 674 },
+    'nintendo-switch.webp': { width: 1200, height: 644 },
+    'nintendo-wii.webp': { width: 1200, height: 1200 },
+    'nintendo-wii-u.webp': { width: 1200, height: 580 },
+    'pc-engine.webp': { width: 1200, height: 479 },
+    'philips-cd-i.webp': { width: 1200, height: 645 },
+    'playstation-1.webp': { width: 1200, height: 501 },
+    'playstation-2.webp': { width: 1200, height: 1064 },
+    'playstation-3.webp': { width: 1200, height: 1095 },
+    'playstation-4.webp': { width: 1200, height: 962 },
+    'playstation-5.webp': { width: 1200, height: 1600 },
+    'ps1.webp': { width: 1200, height: 501 },
+    'ps2.webp': { width: 1200, height: 1064 },
+    'ps3.webp': { width: 1200, height: 1095 },
+    'ps4.webp': { width: 1200, height: 962 },
+    'ps5.webp': { width: 1200, height: 1600 },
+    'psp.webp': { width: 1200, height: 658 },
+    'ps-vita.webp': { width: 1200, height: 701 },
+    'sega-dreamcast.webp': { width: 1200, height: 582 },
+    'sega-game-gear.webp': { width: 1200, height: 804 },
+    'sega-genesis.webp': { width: 1200, height: 571 },
+    'sega-master-system.webp': { width: 1200, height: 958 },
+    'sega-saturn.webp': { width: 1200, height: 653 },
+    'sega-sg-1000.webp': { width: 1200, height: 708 },
+    'snes.webp': { width: 1200, height: 623 },
+    'vectrex.webp': { width: 1200, height: 1517 },
+    'wonderswan.webp': { width: 1200, height: 825 },
+    'xbox.webp': { width: 1200, height: 498 },
+    'xbox360.webp': { width: 1200, height: 1200 },
+    'xbox-one.webp': { width: 1200, height: 723 },
+    'xbox-series-s.webp': { width: 1200, height: 1709 },
+    'xbox-series-x.webp': { width: 1200, height: 1118 }
+};
+
+/**
  * Spec section definitions - maps JSON keys to display labels
  */
 const SPEC_SECTIONS = [
@@ -208,6 +271,14 @@ function renderHero(consola) {
     if (img) {
         img.src = resolveImagePath(consola.imagine);
         img.alt = consola.nume;
+        
+        // Set width and height to prevent layout shift
+        const imageName = consola.imagine.split('/').pop();
+        const dimensions = IMAGE_DIMENSIONS[imageName];
+        if (dimensions) {
+            img.width = dimensions.width;
+            img.height = dimensions.height;
+        }
     }
 
     // Update page title

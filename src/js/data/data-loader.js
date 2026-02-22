@@ -117,7 +117,7 @@ export function getConsoleIdFromUrl() {
 
 /**
  * Resolve the image path relative to the current page depth
- * @param {string} imagePath - Relative path from project root (e.g., 'assets/images/consoles/ps5.png')
+ * @param {string} imagePath - Relative path from project root (e.g., 'assets/images/consoles/ps5.webp')
  * @returns {string} Corrected relative path
  */
 export function resolveImagePath(imagePath) {
