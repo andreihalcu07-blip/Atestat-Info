@@ -1181,12 +1181,18 @@ mark {
     margin-bottom: var(--spacing-lg);
 }
 
-/* Home page: enforce 2x2 layout on wider screens for the main cards section */
+/* Home page: enforce 2-col layout on wider screens, center incomplete rows */
 @media (min-width: 992px) {
     #content .cards-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: var(--spacing-xl);
         align-items: start;
+        justify-content: center;
+    }
+    #content .cards-grid > :last-child:nth-child(odd) {
+        grid-column: 1 / -1;
+        max-width: calc(50% - var(--spacing-xl) / 2);
+        justify-self: center;
     }
 }
 
