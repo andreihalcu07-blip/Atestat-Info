@@ -656,27 +656,27 @@
         "lansare":  1983,
         "imagine":  "assets/images/consoles/sega-sg-1000.webp",
         "cpu":  {
-                    "arhitectura":  "Zilog Z80",
+                    "arhitectura":  "Zilog Z80A",
                     "proces_nm":  "N/A",
                     "nuclee":  "1C",
                     "frecventa":  "3.58 MHz",
                     "tdp":  "~5W"
                 },
         "gpu":  {
-                    "arhitectura":  "TMS9918A",
+                    "arhitectura":  "Texas Instruments TMS9918A",
                     "unitati":  "Custom",
                     "frecventa":  "10.74 MHz",
                     "tflops":  "N/A",
-                    "capabilitati":  "32 sprites"
+                    "capabilitati":  "256×192, 16 culori, 32 sprite-uri"
                 },
         "memorie":  {
-                        "tip":  "RAM",
-                        "capacitate":  "1 KB",
+                        "tip":  "RAM + VRAM",
+                        "capacitate":  "1 KB RAM + 16 KB VRAM",
                         "magistrala":  "8-bit",
                         "bandwidth":  "N/A"
                     },
         "stocare":  {
-                        "tip":  "Cartridge",
+                        "tip":  "Cartridge + Sega My Card",
                         "interfata":  "ROM",
                         "viteza":  "N/A"
                     },
@@ -690,18 +690,21 @@
                            "ray_tracing":  false,
                            "vrr":  false,
                            "backwards_compatibility":  "N/A",
-                           "altele":  "First Sega console"
+                           "altele":  "RF switch, Sega My Card (cu Card Catcher), SN76489AN"
                        },
         "avantaje":  [
-                         "Prima consolă Sega",
-                         "Hardware decent pentru epocă"
+                         "A depășit estimările de vânzări în primul an",
+                         "A pus baza tehnologică pentru Master System",
+                         "Costuri reduse prin componente standard",
+                         "Disponibilă pe cartușe și Sega My Card"
                      ],
         "dezavantaje":  [
-                            "Eclipsată de Famicom",
-                            "Distribuție limitată",
-                            "Bibliotecă mică"
+                            "Inferioară tehnic față de Famicom la lansare",
+                            "Distribuție oficială limitată în afara Japoniei",
+                            "Joystick-ul inițial avea ergonomie slabă",
+                            "Fără suport hardware pentru scrolling de fundal"
                         ],
-        "istorie":  ""
+        "istorie":  "Origine\nSega SG-1000 a apărut într-un moment în care piața arcade intra într-un declin vizibil, iar compania căuta o direcție nouă pentru segmentul de consum. Sub coordonarea lui Hayao Nakayama, Sega a decis să transfere expertiza hardware din arcade către o consolă de domiciliu. Lansarea din 15 iulie 1983 a marcat primul pas oficial al companiei în acest teritoriu. În aceeași zi, Nintendo lansa Famicom, ceea ce a transformat debutul SG-1000 într-o confruntare directă încă din prima zi.\n\nLansare\nConsola a intrat pe piață la prețul de 15.000 yeni, iar estimările interne erau prudente. În practică, rezultatul inițial a fost peste așteptări: aproximativ 160.000 de unități vândute în primul an, față de prognoza de 50.000. Chiar dacă avantajul tehnic era de partea Nintendo, SG-1000 a demonstrat că Sega poate construi un produs relevant pentru publicul de acasă. Acest rezultat a oferit companiei încrederea necesară pentru a continua investițiile în hardware dedicat consolelor.\n\nArhitectură\nSG-1000 a fost proiectată cu componente standard, o alegere clară pentru controlul costurilor și pentru producție rapidă. Configurația includea un procesor Zilog Z80A la 3,58 MHz, un VDP Texas Instruments TMS9918A, 1 KB RAM de sistem și 16 KB VRAM. Pentru grafică, consola livra rezoluție 256 × 192, 16 culori și până la 32 de sprite-uri, iar sunetul era gestionat de cipul SN76489AN. La nivel de conectivitate video, epoca era reprezentată de ieșirea prin comutator RF.\n\nEcosistem\nPlatforma a folosit două formate de stocare: cartușe ROM și Sega My Card, cel din urmă necesitând accesoriul Card Catcher. Biblioteca includea titluri arcade adaptate și proiecte care au devenit relevante istoric, inclusiv primul joc al lui Yuji Naka. În paralel, Sega a extins ideea hardware prin SC-3000, apoi prin SG-1000 II, iar ulterior prin Mark III. Această progresie a transformat SG-1000 într-un punct de plecare real pentru generațiile Sega care au urmat.\n\nPiață și moștenire\nPrezența oficială a SG-1000 a rămas concentrată în Japonia, cu distribuție limitată în câteva piețe externe și cu apariția unor clone compatibile. Comercial, sistemul nu a reușit să egaleze forța Famicom, iar criticile au vizat în special diferențele de capabilități și biblioteca mai puțin vizibilă. Totuși, impactul strategic este clar: seria SG-1000 a deschis drumul către Master System și a marcat tranziția Sega de la arcade la ecosistemul consolelor de domiciliu. Pentru istoria companiei, SG-1000 rămâne punctul de început care a făcut posibilă etapa de maturitate hardware din anii următori."
     },
     {
         "id":  "nes",
@@ -711,28 +714,28 @@
         "lansare":  1985,
         "imagine":  "assets/images/consoles/nes.webp",
         "cpu":  {
-                    "arhitectura":  "Ricoh 2A03",
+                    "arhitectura":  "Ricoh 2A03 / 2A07 (bazat pe MOS 6502)",
                     "proces_nm":  "2.0 µm",
                     "nuclee":  "1C",
-                    "frecventa":  "1.79 MHz",
+                    "frecventa":  "1.79 / 1.66 MHz",
                     "tdp":  "~5W"
                 },
         "gpu":  {
-                    "arhitectura":  "PPU (2C02)",
+                    "arhitectura":  "Ricoh 2C02",
                     "unitati":  "Custom",
                     "frecventa":  "5.37 MHz",
                     "tflops":  "N/A",
-                    "capabilitati":  "64 sprites"
+                    "capabilitati":  "256×240, 54 culori, max. 25 simultan"
                 },
         "memorie":  {
-                        "tip":  "RAM",
-                        "capacitate":  "2 KB",
+                        "tip":  "RAM + VRAM + sprite RAM",
+                        "capacitate":  "2 KB RAM + 2 KB VRAM + 256 bytes sprite RAM",
                         "magistrala":  "8-bit",
                         "bandwidth":  "N/A"
                     },
         "stocare":  {
-                        "tip":  "Cartridge",
-                        "interfata":  "ROM",
+                        "tip":  "Cartridge + Famicom Disk System",
+                        "interfata":  "ROM + dischetă proprietară 3 inchi",
                         "viteza":  "N/A"
                     },
         "output_video":  {
@@ -745,21 +748,21 @@
                            "ray_tracing":  false,
                            "vrr":  false,
                            "backwards_compatibility":  "N/A",
-                           "altele":  "Zapper, R.O.B."
+                           "altele":  "D-pad, Zapper, R.O.B., 10NES, Sigiliul Oficial de Calitate"
                        },
         "avantaje":  [
-                         "A salvat industria jocurilor",
-                         "Jocuri iconice (Mario, Zelda)",
-                         "Bibliotecă vastă",
-                         "Control calitate strict"
+                         "A relansat piața nord-americană după criza din 1983",
+                         "Bibliotecă extinsă cu francize definitorii",
+                         "Model strict de licențiere third-party",
+                         "Accesorii și D-pad cu impact major"
                      ],
         "dezavantaje":  [
-                            "Blinking cartridge issue",
-                            "Grafică limitată",
-                            "Fără save intern",
-                            "2 KB RAM"
+                            "Conectorul de 72 de pini era predispus la defecte",
+                            "10NES provoca frecvent eroarea cu lumină roșie intermitentă",
+                            "Practicile comerciale au atras investigații antitrust",
+                            "Master System oferea hardware superior"
                         ],
-        "istorie":  ""
+        "istorie":  "Origine\nNintendo Entertainment System a pornit în Japonia, în 1983, sub numele Family Computer, ca un sistem accesibil construit pentru piața de masă. Lansarea a inclus un episod dificil, cu o rechemare timpurie cauzată de un circuit integrat defect, dar platforma și-a revenit rapid. În scurt timp, Famicom a urcat în poziția de lider local și a depășit rivali direcți ai momentului. Din acest punct, Nintendo a tratat extinderea internațională ca pe un proces atent controlat, nu ca pe o expansiune grăbită.\n\nLansare globală\nIntrarea în America de Nord a fost calibrată strategic, printr-un test inițial în New York, urmat de lansarea națională în 1986. Pentru a reduce reticența retailerilor după colapsul pieței din 1983, consola a fost reproiectată vizual și promovată într-o zonă mai apropiată de electronicele de consum. Extinderea către Europa și Australia a urmat în 1987, iar în alte regiuni sistemul a apărut mai târziu, uneori sub branding local licențiat. Această secvențiere pe etape a consolidat treptat încrederea comercială în platformă.\n\nArhitectură și design\nLa nivel tehnic, NES a folosit procesorul Ricoh 2A03/2A07 bazat pe MOS 6502, împreună cu PPU-ul Ricoh 2C02, configurat pentru 256×240 pixeli. Memoria includea 2 KB RAM de lucru, 2 KB RAM video și 256 bytes pentru sprite RAM, iar subsistemul audio oferea cinci canale distincte. Designul american cu încărcare frontală de tip ZIF a fost memorabil, dar a adus și costuri de fiabilitate în timp. Conectorul de 72 de pini și interacțiunea cu cipul 10NES au contribuit la problema bine-cunoscută a luminii roșii intermitente.\n\nEcosistem și piață\nForța reală a platformei a venit din combinația dintre bibliotecă și control editorial strict. Nintendo a impus un cadru de licențiere dur pentru third-party, cu reguli clare de aprobare și limitări de publicare, menite să evite repetarea haosului din anii anteriori. În paralel, accesorii precum D-pad-ul, Zapper și R.O.B. au diferențiat produsul atât la nivel de utilizare, cât și de marketing. Chiar dacă Sega Master System avea argumente hardware solide, NES a dominat prin jocuri și distribuție, obținând cote foarte mari în piețele-cheie.\n\nMoștenire\nCu peste 61 de milioane de unități vândute, NES a devenit fundamentul multor francize care definesc și astăzi industria. Platforma a normalizat ideea de standard de calitate pentru software și a stabilit un model de business care a influențat întreaga generație următoare de console. După oprirea producției, moștenirea a continuat prin emulare oficială, hardware retro modern și o comunitate homebrew activă. Privit retrospectiv, NES nu este doar un succes comercial, ci momentul în care piața consolelor a intrat într-o etapă matură și predictibilă."
     },
     {
         "id":  "sega-master-system",
@@ -769,28 +772,28 @@
         "lansare":  1985,
         "imagine":  "assets/images/consoles/sega-master-system.webp",
         "cpu":  {
-                    "arhitectura":  "Zilog Z80",
+                    "arhitectura":  "Zilog Z80A",
                     "proces_nm":  "N/A",
                     "nuclee":  "1C",
                     "frecventa":  "3.58 MHz",
                     "tdp":  "~5W"
                 },
         "gpu":  {
-                    "arhitectura":  "VDP (TMS9918)",
+                    "arhitectura":  "VDP (bazat pe TMS9918, Modul IV)",
                     "unitati":  "Custom",
                     "frecventa":  "10.74 MHz",
                     "tflops":  "N/A",
-                    "capabilitati":  "64 sprites"
+                    "capabilitati":  "256×192, 32 culori simultan din 64, 64 sprite-uri"
                 },
         "memorie":  {
-                        "tip":  "RAM",
-                        "capacitate":  "8 KB",
+                        "tip":  "RAM + VRAM",
+                        "capacitate":  "8 KB RAM + 16 KB VRAM",
                         "magistrala":  "8-bit",
                         "bandwidth":  "N/A"
                     },
         "stocare":  {
-                        "tip":  "Cartridge/Card",
-                        "interfata":  "ROM",
+                        "tip":  "Cartridge + Sega Card",
+                        "interfata":  "ROM + card",
                         "viteza":  "N/A"
                     },
         "output_video":  {
@@ -803,19 +806,21 @@
                            "ray_tracing":  false,
                            "vrr":  false,
                            "backwards_compatibility":  "SG-1000",
-                           "altele":  "3D glasses"
+                           "altele":  "YM2413 FM (Japonia), SegaScope 3-D Glasses, Light Phaser, BIOS 8 KB, TMR SEGA"
                        },
         "avantaje":  [
-                         "Hardware superior NES",
-                         "Paletă de culori mai mare",
-                         "Succes în Europa/Brazilia"
+                         "Hardware grafic superior NES în era 8-biți",
+                         "Paletă mai bogată: 32 culori simultan din 64",
+                         "Succes comercial solid în Europa",
+                         "Longevitate excepțională pe piața braziliană"
                      ],
         "dezavantaje":  [
-                            "Bibliotecă mai mică",
-                            "Marketing slab în SUA",
-                            "Fără third-party major"
+                            "Vânzări slabe în Japonia și America de Nord",
+                            "Politicile Nintendo au limitat suportul third-party",
+                            "Distribuția Tonka a afectat localizarea jocurilor",
+                            "Butonul Pause pe consolă era incomod"
                         ],
-        "istorie":  ""
+        "istorie":  "Origini\nSega Master System pornește din linia SG-1000, iar punctul de plecare real este Mark III, lansată în Japonia pe 20 octombrie 1985. Sega a tratat această generație ca pe o corecție directă a limitărilor grafice ale modelelor anterioare și a investit într-un cip video proiectat intern. Din perspectivă strategică, consola a reprezentat pasul prin care compania a încercat să transfere experiența din arcade în sufrageria publicului larg.\n\nRepoziționare pentru Vest\nÎn 1986, Sega a reproiectat platforma pentru piața americană și a introdus numele Master System, împreună cu un design vizual orientat spre electronice moderne. Ambalajul cu grilă albă a fost memorabil, dar recepția nu a fost uniformă, iar impactul de marketing a rămas sub așteptări în unele segmente. În 1987, drepturile de distribuție din SUA au fost transferate către Tonka, însă lipsa de experiență în electronice a încetinit localizarea unor titluri importante și a slăbit poziționarea comercială a platformei.\n\nArhitectură\nLa nivel hardware, Master System a fost o platformă robustă pentru epocă: Zilog Z80A la 3,58 MHz, 8 KB RAM de sistem și 16 KB VRAM. VDP-ul, bazat pe designul TMS9918 și extins în Modul IV, oferea rezoluție 256×192 și putea afișa 32 de culori simultan dintr-o paletă de 64. Sistemul gestiona până la 64 de sprite-uri, cu limită de 8 pe linie pentru controlul flicker-ului. Sunetul standard venea din SN76489, iar varianta japoneză putea adăuga YM2413 FM pentru o semnătură audio net superioară.\n\nEcosistem și accesorii\nConsola a susținut atât cartușe, cât și Sega Cards, un format compact și mai accesibil pentru jocuri timpurii. Sega a completat ecosistemul cu periferice neobișnuite pentru acea perioadă, inclusiv Light Phaser și SegaScope 3-D Glasses. În același timp, integrarea unui BIOS de 8 KB și verificarea codului TMR SEGA au oferit un mecanism de control al boot-ului și al licențierii. Unele decizii de design, precum butonul Pause plasat pe consolă, au rămas însă discutabile în utilizarea de zi cu zi.\n\nPiață și moștenire\nDeși NES a câștigat competiția globală la nivel de volum, Master System a construit o identitate puternică în Europa și mai ales în Brazilia. Distribuția regională eficientă, împreună cu adaptările locale, a făcut ca sistemul să rămână relevant mult peste ciclul obișnuit al generației sale. Relația cu Tectoy a transformat consola într-un fenomen de durată, cu producție extinsă pe termen lung. În retrospectivă, Master System rămâne o platformă esențială pentru înțelegerea tranziției Sega către succesul din era Mega Drive."
     },
     {
         "id":  "atari-7800",
@@ -825,10 +830,10 @@
         "lansare":  1986,
         "imagine":  "assets/images/consoles/atari-7800.webp",
         "cpu":  {
-                    "arhitectura":  "Atari SALLY",
+                    "arhitectura":  "Atari SALLY (6502 personalizat)",
                     "proces_nm":  "N/A",
                     "nuclee":  "1C",
-                    "frecventa":  "1.79 MHz",
+                    "frecventa":  "1.79 MHz (1.19 MHz în modul 2600)",
                     "tdp":  "~5W"
                 },
         "gpu":  {
@@ -836,7 +841,7 @@
                     "unitati":  "Custom",
                     "frecventa":  "7.16 MHz",
                     "tflops":  "N/A",
-                    "capabilitati":  "100 sprites"
+                    "capabilitati":  "100 sprite-uri, 256 culori, 25 culori/linie"
                 },
         "memorie":  {
                         "tip":  "RAM",
@@ -846,11 +851,11 @@
                     },
         "stocare":  {
                         "tip":  "Cartridge",
-                        "interfata":  "ROM",
+                        "interfata":  "ROM (cu semnătură digitală Atari pentru modul 7800)",
                         "viteza":  "N/A"
                     },
         "output_video":  {
-                             "rezolutie":  "320×240",
+                             "rezolutie":  "160×240 / 320×240",
                              "refresh":  "60 Hz",
                              "hdr":  "N/A",
                              "upscaling":  "N/A"
@@ -859,19 +864,21 @@
                            "ray_tracing":  false,
                            "vrr":  false,
                            "backwards_compatibility":  "Atari 2600",
-                           "altele":  "Backward compat"
+                           "altele":  "Cip MARIA, semnătură digitală cartușe, POKEY opțional în cartuș"
                        },
         "avantaje":  [
-                         "Backward compat 2600",
-                         "Grafică superioară 2600",
-                         "Arcade ports bune"
+                         "Compatibilitate retroactivă nativă cu aproape toate jocurile 2600",
+                         "Cipul MARIA gestionează multe obiecte cu flicker redus",
+                         "Conversii arcade solide pentru perioada sa",
+                         "A fost profitabilă datorită costurilor reduse"
                      ],
         "dezavantaje":  [
-                            "Lansare întârziată",
-                            "Sunet 2600 de bază",
-                            "Prea târziu pe piață"
+                            "Lansarea a întârziat aproape doi ani",
+                            "Sunetul TIA era deja învechit în 1986",
+                            "Suport third-party limitat de exclusivitățile Nintendo",
+                            "Marketingul redus a limitat vânzările"
                         ],
-        "istorie":  ""
+        "istorie":  "Origine\nAtari 7800 ProSystem s-a născut într-un moment în care compania căuta un răspuns tehnic clar pentru generația nouă de console. Proiectul a fost dezvoltat de General Computer Corporation, sub coordonarea lui Steve Golson, cu obiectivul de a depăși rapid limitele modelelor Atari 2600 și 5200. Direcția de design a fost influențată de experiența GCC în zona arcade, ceea ce a orientat sistemul spre randare eficientă a obiectelor pe ecran. În faza inițială, platforma a fost cunoscută intern ca Atari 3600.\n\nLansare și blocaj corporativ\nDeși consola a fost anunțată în 1984, schimbarea de proprietate dintre Warner și Atari Corporation a blocat lansarea efectivă. Disputele financiare dintre noua conducere și GCC au ținut proiectul pe loc aproape doi ani, iar unități deja produse au rămas în depozit până în 1986. Când sistemul a ajuns pe piață la scară largă, NES și Master System câștigaseră deja poziții solide în retail. Această întârziere a transformat un avantaj tehnic într-un start comercial dificil.\n\nArhitectură\nAtari 7800 folosește procesorul Atari SALLY la 1,79 MHz, cu reducere la 1,19 MHz în modul de compatibilitate 2600. Elementul central este cipul MARIA la 7,16 MHz, capabil să gestioneze până la 100 de sprite-uri și să folosească o paletă de 256 de culori, cu 25 afișabile pe o linie de scanare. Sistemul oferă moduri video 160×240 și 320×240, iar memoria internă rămâne la 4 KB. Pentru a păstra costurile jos și compatibilitatea, secțiunea audio a rămas bazată pe TIA, cu posibilitatea adăugării cipului POKEY direct în anumite cartușe.\n\nFuncții și ecosistem\nUn punct major de diferențiere a fost compatibilitatea retroactivă nativă cu aproape toate cartușele Atari 2600, o premieră importantă pentru industrie. În modul 2600, consola schimbă comportamentul intern: procesorul este încetinit, iar TIA preia controlul graficii și sunetului. Atari a introdus și un mecanism de semnătură digitală pentru cartușe, pentru a limita software-ul neautorizat în modul 7800. Biblioteca oficială a rămas compactă, dar a inclus conversii arcade remarcabile și câteva titluri care au rămas reprezentative pentru platformă.\n\nImpact\nComercial, Atari 7800 nu a reușit să recupereze terenul pierdut în fața competitorilor direcți, chiar dacă a fost un produs profitabil pentru companie. Bugetul de marketing modest și contextul de piață deja stabilizat au limitat extinderea pe termen lung, iar retragerea oficială a venit la începutul lui 1992. Totuși, moștenirea tehnică a consolei rămâne relevantă: a validat ideea de backward compatibility ca argument strategic real. În ecosistemul retro actual, interesul pentru platformă confirmă că designul ei a avut valoare dincolo de performanța comercială inițială."
     },
     {
         "id":  "pc-engine",

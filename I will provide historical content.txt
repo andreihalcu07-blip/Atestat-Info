@@ -1,0 +1,154 @@
+I will provide historical content for a console.
+
+Atari 7800 ProSystem: Evoluție, Tehnologie și Impactul pe Piață
+Rezumat Executiv
+Atari 7800 ProSystem, lansat pe scară largă în mai 1986, reprezintă un punct de cotitură paradoxal în istoria jocurilor video. Deși a fost conceput ca un succesor tehnologic avansat pentru modelele 2600 și 5200, parcursul său a fost marcat de întârzieri corporative masive și de o competiție acerbă din partea Nintendo și Sega. Proiectat de General Computer Corporation (GCC), sistemul a fost prima consolă din istorie care a oferit compatibilitate retroactivă nativă, permițând rularea aproape tuturor cartușelor Atari 2600.
+Elementul central al arhitecturii sale a fost cipul grafic MARIA, capabil să gestioneze un număr impresionant de obiecte pe ecran, însă consola a suferit din cauza unui sistem audio învechit (cipul TIA din 1977). Deși a fost un produs profitabil pentru Atari Corporation datorită costurilor reduse de dezvoltare și marketing, 7800 nu a reușit să recupereze cota de piață pierdută, fiind retras oficial de pe piață la 1 ianuarie 1992.
+1. Istoricul Dezvoltării și Contextul Lansării
+1.1 Geneza și Intervenția GCC
+Spre deosebire de consolele anterioare, Atari 7800 a fost proiectat de o companie externă, General Computer Corporation (GCC), sub conducerea lui Steve Golson. Dezvoltarea a început în 1983 sub numele de cod „Atari 3600”, cu scopul de a concura cu sistemele ColecoVision și Nintendo Famicom.
+• Expertiza GCC: Echipa avea experiență în inginerie inversă și dezvoltare arcade (creatori ai Ms. Pac-Man și Food Fight), ceea ce a influențat arhitectura sistemului, orientată spre performanțe de tip arcade.
+• Lansarea Amânată: Deși anunțată oficial în mai 1984, lansarea a fost oprită brusc în iulie 1984, când Warner Communications a vândut divizia de consum către Jack Tramiel (Atari Corporation).
+1.2 Perioada de Stagnare (1984–1986)
+Sub noua conducere a lui Tramiel, proiectul 7800 a fost suspendat timp de aproape doi ani din cauza disputelor financiare cu GCC privind plățile restante.
+• Unități de Depozit: Sute de mii de console fabricate în 1984 au rămas în depozite până în 1986.
+• Consecințe: În acest interval, Nintendo Entertainment System (NES) și Sega Master System s-au stabilit pe piață, făcând ca tehnologia Atari 7800 să pară deja depășită la momentul lansării sale efective.
+2. Specificații Tehnice și Arhitectura Sistemului
+Atari 7800 utilizează o arhitectură hibridă, combinând componente de ultimă oră pentru acea vreme cu tehnologii moștenite pentru a asigura compatibilitatea.
+Componentă
+Specificație
+Detalii
+CPU
+Atari SALLY (6502 personalizat)
+Rulează la 1.79 MHz (scade la 1.19 MHz în modul 2600).
+Grafică
+MARIA (Cip custom)
+Rulează la 7.16 MHz; poate afișa până la 100 de sprite-uri simultan.
+Rezoluție
+160×240 sau 320×240
+Modul 320 permite detalii superioare față de NES/Sega.
+Paletă Culori
+256 culori
+25 de culori pot fi afișate simultan pe o linie de scanare.
+RAM
+4 KB
+Memorie onboard limitată, suplimentată prin cartușe.
+Audio
+TIA (Television Interface Adaptor)
+Aceleași două canale audio din 1977; limitarea majoră a sistemului.
+2.1 Inovația Grafică (Cipul MARIA)
+Spre deosebire de alte console care foloseau sprite-uri hardware limitate, MARIA trata totul ca pe un sprite descris în liste de afișare (display lists). Această metodă, comună în jocurile arcade, permitea o densitate mare de obiecte fără pâlpâirea (flicker) specifică consolelor rivale.
+2.2 Limitări Audio și Soluții
+Cipul TIA oferea un sunet rudimentar. Pentru a compensa, inginerii au permis includerea unui cip audio suplimentar (POKEY) direct în cartușul jocului. Această soluție a fost utilizată doar în câteva titluri oficiale, precum Ballblazer și Commando. Proiectul unui cip audio avansat, numit MINNIE, a fost anulat de familia Tramiel pentru a reduce costurile.
+3. Caracteristici și Funcționalități Cheie
+• Compatibilitate Retroactivă: A fost prima consolă care a integrat hardware-ul predecesorului său (Atari 2600). În acest mod, procesorul este încetinit, iar cipul TIA preia controlul total asupra graficii și sunetului.
+• Semnătura Digitală: Pentru a evita afluxul de jocuri de slabă calitate (cauza crahului din 1983), cartușele trebuiau semnate digital de Atari. Fără această semnătură, consola refuza să intre în modul 7800 și funcționa doar în modul 2600.
+• Diferențe Regionale: Modelele PAL (Europa) includeau adesea jocul Asteroids încorporat în ROM-ul sistemului și utilizau gamepad-uri în loc de joystick-urile Pro-Line folosite în America de Nord.
+4. Biblioteca de Jocuri și Periferice
+4.1 Jocurile Sistemului
+Biblioteca oficială numără doar 59 de titluri, axându-se pe conversii arcade de înaltă calitate:
+• Titluri de Lansare: Pole Position II (joc inclus în pachet), Ms. Pac-Man, Galaga, Centipede, Dig Dug și Xevious.
+• Loophole-ul de Licențiere: Atari a reușit să publice jocuri precum Mario Bros. și Donkey Kong deoarece deținea licențele pentru versiunile arcade, chiar dacă titlurile erau asociate cu Nintendo.
+• Titluri Exclusive și Super Games: Ninja Golf (combinație bizară de golf și brawler) și Midnight Mutants sunt considerate puncte de referință pentru bibliotecă.
+4.2 Periferice
+• Joystick Pro-Line: Un controler cu două butoane, criticat pentru ergonomia deficitară.
+• Pistolul Optic XG-1: Compatibil cu titluri precum Alien Brigade și Barnyard Blaster.
+• Proiecte Anulate: Atari a renunțat la dezvoltarea unei tastaturi, a unui adaptor pentru jocuri Atari 5200 și a unui cartuș pentru salvarea scorurilor („High Score Cartridge”).
+5. Recepție, Declin și Moștenire
+5.1 Performanța pe Piață
+În 1986, 7800 a vândut aproximativ 100.000 de unități în SUA, comparativ cu 1,1 milioane pentru NES. Până în 1988, vânzările au depășit 1 milion de unități, însă bugetul de marketing redus și lipsa suportului din partea dezvoltatorilor terți (restricționați de clauzele de exclusivitate ale Nintendo) au limitat succesul consolei.
+5.2 Scena Modernă și Modificări Hardware
+În prezent, Atari 7800 este popular în comunitatea de retro-gaming, unde utilizatorii instalează mod-uri pentru a îmbunătăți experiența:
+• Mod-ul Composite/UAV: Permite conectarea la televizoare moderne, eliminând interferențele specifice semnalului RF original.
+• USB-C Power Mod: Înlocuirea conectorului proprietar de alimentare cu unul USB-C pentru o sursă de energie mai curată și fiabilă.
+• Atari 7800+ (2024): O versiune modernă, la scară redusă, care suportă cartușe originale și ieșire HDMI.
+Concluzii
+Atari 7800 ProSystem rămâne o piesă de inginerie remarcabilă care a fost victima unui management corporativ defectuos. Deși capabilă să depășească NES în anumite aspecte grafice, lansarea sa întârziată cu doi ani și arhitectura audio stagnantă au împiedicat-o să redevină liderul pieței de profil. Totuși, pionieratul său în materie de compatibilitate retroactivă a stabilit un standard industrial care este respectat și astăzi.
+
+
+You must update ONLY that console object inside consoles.json.
+
+GENERAL RULES:
+- Keep the language in Romanian, do not translate in English or change the 
+diacritics
+- Do NOT modify other console objects.
+- Do NOT rewrite the entire file.
+- Do NOT change the JSON structure.
+- Preserve formatting and indentation.
+- Validate JSON syntax after editing.
+- Do NOT invent technical data.
+- Do NOT exaggerate.
+
+------------------------------------------------------------
+STEP 1 – Rewrite and structure the "istorie" field
+------------------------------------------------------------
+
+Rewrite the provided text into a clean, premium editorial style suitable for a modern technology blog.
+
+STYLE REQUIREMENTS:
+
+- Tone: calm, confident, professional.
+- Informative but not academic.
+- Narrative but not dramatic.
+- No poetic exaggeration.
+- No robotic phrasing.
+- No encyclopedia style.
+
+STRUCTURE REQUIREMENTS:
+
+- Break content into balanced paragraphs (4–6 lines each).
+- Maintain natural flow between paragraphs.
+- Use subsection headings ONLY when meaningful (e.g., Origine, Lansare, Arhitectură, Impact).
+- Do not overuse headings.
+- Keep readability optimized for a dark-themed website.
+- Avoid overly long sentences.
+- Avoid overly short dramatic fragments.
+
+The result must feel like a curated presentation on a premium tech blog.
+
+Insert the final text into the "istorie" field.
+
+------------------------------------------------------------
+STEP 2 – Extract technical specifications
+------------------------------------------------------------
+
+From the rewritten text, extract ONLY the specifications explicitly mentioned.
+
+Rules:
+- Do NOT fabricate missing values.
+- If a value is not present in the text, leave it unchanged.
+- Keep units consistent (MHz, GB, MB/s, etc.).
+- Keep values concise (no explanations inside fields).
+
+Fill the relevant fields inside:
+cpu
+gpu
+memorie
+stocare
+output_video
+tehnologii
+
+------------------------------------------------------------
+STEP 3 – Extract verdict
+------------------------------------------------------------
+
+Extract advantages and disadvantages clearly supported by the text.
+
+Rules:
+- Each bullet must be a short, clear sentence (max 12 words).
+- No generic statements.
+- No exaggeration.
+- Only include points supported by the text.
+
+Insert into:
+verdict.avantaje
+verdict.dezavantaje
+
+------------------------------------------------------------
+FINAL REQUIREMENTS
+------------------------------------------------------------
+
+- Only update the target console ID.
+- Do not modify unrelated files.
+- Do not regenerate the entire JSON file.
+- Ensure the file remains valid and consistent.
