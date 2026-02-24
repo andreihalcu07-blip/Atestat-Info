@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ro">
 <head>
     <meta charset="UTF-8">
@@ -19,11 +19,11 @@
                 <span></span><span></span><span></span>
             </button>
             <ul class="nav-links">
-                <li><a href="../index.html">Acasă</a></li>
                 <li><a href="../invata.html" class="active">Învață</a></li>
                 <li><a href="../evolutie.html">Evoluție</a></li>
                 <li><a href="../comparatie.html">Comparație</a></li>
                 <li><a href="../index.html#contact">Contact</a></li>
+                <li><a href="../bibliografie.html">Bibliografie</a></li>
             </ul>
         </div>
     </nav>
@@ -530,10 +530,22 @@
     </section>
 
     <!-- NAVIGARE LECȚII -->
-    <section class="section">
+    <section class="section" id="navigare">
         <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
-            <a href="index.html" class="hero-button" style="font-size: 0.9rem;">← Planul Cursului</a>
-            <span style="font-size: 0.9rem; color: rgba(237,233,227,0.7);">Lecția Finală</span>
+            <a href="lectia-8-4.html" class="hero-button" style="font-size: 0.9rem;">&larr; Lec&#x21B;ia 8.4 &mdash; Studii de caz</a>
+            <a href="index.html" class="hero-button" style="font-size: 0.9rem;">Planul Cursului &rarr;</a>
+        </div>
+    </section>
+
+    <!-- VIDEO RECOMANDAT -->
+    <section class="section" id="video">
+        <div class="container">
+            <h2 class="section-title">Video Recomandat</h2>
+            <div class="video-section">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/UEkkA-BaKEY" title="Simptome vs Cauza reală  Diagnoza corectă" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -553,5 +565,6 @@
 
     <script type="module" src="../../../js/main.js"></script>
     <script src="../../../js/fallback/hamburger.js"></script>
+    <script src="../../../js/fallback/quiz.js"></script>
 </body>
 </html>

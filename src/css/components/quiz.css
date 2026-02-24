@@ -1,0 +1,258 @@
+/**
+ * Quiz Component Styles
+ * Interactive quiz system for lesson pages
+ */
+
+/* ── Score Bar ── */
+.quiz-score-bar {
+    background: rgba(91, 164, 230, 0.06);
+    border: 1px solid rgba(91, 164, 230, 0.15);
+    border-radius: var(--radius-lg);
+    padding: 1.2rem 1.5rem;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.quiz-score-bar p {
+    margin: 0;
+    font-size: 1rem;
+    color: var(--text-light);
+}
+
+.quiz-score-bar .quiz-score-count {
+    color: var(--accent-color);
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.quiz-progress-track {
+    flex: 1;
+    min-width: 120px;
+    max-width: 280px;
+    height: 8px;
+    background: rgba(91, 164, 230, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.quiz-progress-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--accent-color), var(--accent-light));
+    border-radius: 4px;
+    transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.quiz-score-bar.quiz-complete {
+    border-color: rgba(74, 222, 128, 0.3);
+    background: rgba(74, 222, 128, 0.06);
+}
+
+.quiz-score-bar.quiz-complete .quiz-score-count {
+    color: #4ADE80;
+}
+
+.quiz-score-bar.quiz-complete .quiz-progress-fill {
+    background: linear-gradient(90deg, #4ADE80, #86EFAC);
+}
+
+/* ── Quiz Card (question container) ── */
+.quiz-question-card {
+    position: relative;
+}
+
+.quiz-question-card.quiz-answered {
+    pointer-events: none;
+}
+
+.quiz-question-card.quiz-answered .quiz-option {
+    pointer-events: none;
+}
+
+/* ── Quiz Options ── */
+.quiz-option {
+    cursor: pointer;
+    padding: 0.85rem 1.1rem !important;
+    margin-bottom: 0.6rem;
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(91, 164, 230, 0.1);
+    background: rgba(91, 164, 230, 0.04);
+    transition: all 0.25s ease;
+    list-style: none !important;
+    position: relative;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.quiz-option::before {
+    display: none !important;
+}
+
+.quiz-option:hover {
+    background: rgba(91, 164, 230, 0.12);
+    border-color: rgba(91, 164, 230, 0.3);
+    transform: translateX(4px);
+    box-shadow: 0 0 12px rgba(91, 164, 230, 0.08);
+}
+
+.quiz-option:active {
+    transform: translateX(4px) scale(0.99);
+}
+
+/* ── Correct Answer ── */
+.quiz-option.quiz-correct {
+    background: rgba(74, 222, 128, 0.12) !important;
+    border-color: rgba(74, 222, 128, 0.45) !important;
+    box-shadow: 0 0 16px rgba(74, 222, 128, 0.1);
+    color: #86EFAC !important;
+    transform: translateX(4px);
+    animation: quizPulseCorrect 0.5s ease;
+}
+
+/* ── Wrong Answer ── */
+.quiz-option.quiz-wrong {
+    background: rgba(248, 113, 113, 0.12) !important;
+    border-color: rgba(248, 113, 113, 0.45) !important;
+    box-shadow: 0 0 16px rgba(248, 113, 113, 0.1);
+    color: #FCA5A5 !important;
+    transform: translateX(4px);
+    animation: quizShakeWrong 0.45s ease;
+}
+
+/* ── Disabled (after answering) ── */
+.quiz-option.quiz-disabled {
+    opacity: 0.45;
+    cursor: default;
+    pointer-events: none;
+}
+
+.quiz-option.quiz-correct.quiz-disabled,
+.quiz-option.quiz-wrong.quiz-disabled {
+    opacity: 1;
+}
+
+/* ── Explanation Box ── */
+.quiz-explanation {
+    margin-top: 1rem;
+    padding: 1rem 1.2rem;
+    border-radius: var(--radius-md);
+    background: rgba(91, 164, 230, 0.06);
+    border-left: 3px solid var(--accent-color);
+    color: var(--text-light);
+    font-size: 0.92rem;
+    line-height: 1.65;
+    animation: quizSlideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.quiz-explanation strong {
+    color: var(--accent-color);
+}
+
+/* ── Retry Button ── */
+.quiz-retry-btn {
+    display: none;
+    margin-top: 1rem;
+    padding: 0.7rem 1.5rem;
+    background: rgba(91, 164, 230, 0.1);
+    border: 1px solid rgba(91, 164, 230, 0.25);
+    border-radius: var(--radius-md);
+    color: var(--accent-color);
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    font-family: inherit;
+}
+
+.quiz-retry-btn:hover {
+    background: rgba(91, 164, 230, 0.18);
+    border-color: rgba(91, 164, 230, 0.4);
+    transform: translateY(-1px);
+}
+
+.quiz-retry-btn.visible {
+    display: inline-block;
+}
+
+/* ── Final Result ── */
+.quiz-final-result {
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+    border-radius: var(--radius-lg);
+    animation: quizSlideIn 0.5s ease;
+}
+
+.quiz-final-result.quiz-result-great {
+    background: rgba(74, 222, 128, 0.08);
+    border: 1px solid rgba(74, 222, 128, 0.25);
+}
+
+.quiz-final-result.quiz-result-good {
+    background: rgba(91, 164, 230, 0.08);
+    border: 1px solid rgba(91, 164, 230, 0.25);
+}
+
+.quiz-final-result.quiz-result-retry {
+    background: rgba(248, 113, 113, 0.06);
+    border: 1px solid rgba(248, 113, 113, 0.2);
+}
+
+.quiz-final-result h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.3rem;
+}
+
+.quiz-final-result p {
+    margin: 0;
+    color: var(--text-gray);
+}
+
+/* ── Animations ── */
+@keyframes quizPulseCorrect {
+    0% { transform: translateX(4px) scale(1); }
+    30% { transform: translateX(4px) scale(1.015); }
+    100% { transform: translateX(4px) scale(1); }
+}
+
+@keyframes quizShakeWrong {
+    0%, 100% { transform: translateX(4px); }
+    15% { transform: translateX(-2px); }
+    30% { transform: translateX(8px); }
+    45% { transform: translateX(0px); }
+    60% { transform: translateX(6px); }
+    75% { transform: translateX(2px); }
+}
+
+@keyframes quizSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+    .quiz-score-bar {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .quiz-progress-track {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .quiz-option {
+        padding: 0.75rem 0.9rem !important;
+        font-size: 0.9rem;
+    }
+}

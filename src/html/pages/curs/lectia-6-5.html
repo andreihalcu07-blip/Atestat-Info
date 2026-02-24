@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ro">
 <head>
     <meta charset="UTF-8">
@@ -19,11 +19,11 @@
                 <span></span><span></span><span></span>
             </button>
             <ul class="nav-links">
-                <li><a href="../index.html">Acasă</a></li>
                 <li><a href="../invata.html" class="active">Învață</a></li>
                 <li><a href="../evolutie.html">Evoluție</a></li>
                 <li><a href="../comparatie.html">Comparație</a></li>
                 <li><a href="../index.html#contact">Contact</a></li>
+                <li><a href="../bibliografie.html">Bibliografie</a></li>
             </ul>
         </div>
     </nav>
@@ -453,10 +453,22 @@
     </section>
 
     <!-- NAVIGARE LECȚII -->
-    <section class="section">
+    <section class="section" id="navigare">
         <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
-            <a href="index.html" class="hero-button" style="font-size: 0.9rem;">← Planul Cursului</a>
-            <a href="lectia-7-5.html" class="hero-button" style="font-size: 0.9rem;">Lecția 7.5 — Memorie și Bandwidth →</a>
+            <a href="lectia-6-4.html" class="hero-button" style="font-size: 0.9rem;">&larr; Lec&#x21B;ia 6.4 &mdash; Instabilitate</a>
+            <a href="lectia-7-1.html" class="hero-button" style="font-size: 0.9rem;">Lec&#x21B;ia 7.1 &mdash; Pipeline Grafic &rarr;</a>
+        </div>
+    </section>
+
+    <!-- VIDEO RECOMANDAT -->
+    <section class="section" id="video">
+        <div class="container">
+            <h2 class="section-title">Video Recomandat</h2>
+            <div class="video-section">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/LEp7BPh1tOc" title="Protecții electrice  OCP, OVP, OTP" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -476,5 +488,6 @@
 
     <script type="module" src="../../../js/main.js"></script>
     <script src="../../../js/fallback/hamburger.js"></script>
+    <script src="../../../js/fallback/quiz.js"></script>
 </body>
 </html>

@@ -37,6 +37,16 @@ export const NavigationModule = {
      */
     setupActiveLinks() {
         const navLinks = document.querySelectorAll('.nav-links a');
+        const logo = document.querySelector('.logo');
+        
+        // Adaugă active pe logo dacă suntem pe pagina de acasă
+        if (window.location.pathname.includes('index.html') || window.location.pathname.endsWith('/pages/') || window.location.pathname.endsWith('/pages')) {
+            if (logo) {
+                logo.classList.add('active');
+            }
+        }
+        
+        // Adaugă active pe linkurile din navbar
         navLinks.forEach(link => {
             if (link.href === window.location.href) {
                 link.classList.add('active');
