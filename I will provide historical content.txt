@@ -1,70 +1,71 @@
 I will provide historical content for a console.
 
-Atari 7800 ProSystem: Evoluție, Tehnologie și Impactul pe Piață
+Nintendo 64 (N64): Analiză Cuprinzătoare a Hardware-ului, Software-ului și Impactului pe Piață
 Rezumat Executiv
-Atari 7800 ProSystem, lansat pe scară largă în mai 1986, reprezintă un punct de cotitură paradoxal în istoria jocurilor video. Deși a fost conceput ca un succesor tehnologic avansat pentru modelele 2600 și 5200, parcursul său a fost marcat de întârzieri corporative masive și de o competiție acerbă din partea Nintendo și Sega. Proiectat de General Computer Corporation (GCC), sistemul a fost prima consolă din istorie care a oferit compatibilitate retroactivă nativă, permițând rularea aproape tuturor cartușelor Atari 2600.
-Elementul central al arhitecturii sale a fost cipul grafic MARIA, capabil să gestioneze un număr impresionant de obiecte pe ecran, însă consola a suferit din cauza unui sistem audio învechit (cipul TIA din 1977). Deși a fost un produs profitabil pentru Atari Corporation datorită costurilor reduse de dezvoltare și marketing, 7800 nu a reușit să recupereze cota de piață pierdută, fiind retras oficial de pe piață la 1 ianuarie 1992.
-1. Istoricul Dezvoltării și Contextul Lansării
-1.1 Geneza și Intervenția GCC
-Spre deosebire de consolele anterioare, Atari 7800 a fost proiectat de o companie externă, General Computer Corporation (GCC), sub conducerea lui Steve Golson. Dezvoltarea a început în 1983 sub numele de cod „Atari 3600”, cu scopul de a concura cu sistemele ColecoVision și Nintendo Famicom.
-• Expertiza GCC: Echipa avea experiență în inginerie inversă și dezvoltare arcade (creatori ai Ms. Pac-Man și Food Fight), ceea ce a influențat arhitectura sistemului, orientată spre performanțe de tip arcade.
-• Lansarea Amânată: Deși anunțată oficial în mai 1984, lansarea a fost oprită brusc în iulie 1984, când Warner Communications a vândut divizia de consum către Jack Tramiel (Atari Corporation).
-1.2 Perioada de Stagnare (1984–1986)
-Sub noua conducere a lui Tramiel, proiectul 7800 a fost suspendat timp de aproape doi ani din cauza disputelor financiare cu GCC privind plățile restante.
-• Unități de Depozit: Sute de mii de console fabricate în 1984 au rămas în depozite până în 1986.
-• Consecințe: În acest interval, Nintendo Entertainment System (NES) și Sega Master System s-au stabilit pe piață, făcând ca tehnologia Atari 7800 să pară deja depășită la momentul lansării sale efective.
-2. Specificații Tehnice și Arhitectura Sistemului
-Atari 7800 utilizează o arhitectură hibridă, combinând componente de ultimă oră pentru acea vreme cu tehnologii moștenite pentru a asigura compatibilitatea.
+Nintendo 64 (N64), lansată inițial în 1996, reprezintă a treia consolă majoră de jocuri de acasă a companiei Nintendo și un punct de cotitură în tranziția industriei de la grafica 2D la cea 3D. Dezvoltată în colaborare cu Silicon Graphics (SGI) sub numele de cod „Project Reality”, consola a fost promovată ca prima mașină de jocuri pe 64 de biți din lume. Deși a fost aclamată pentru inovațiile tehnice — inclusiv introducerea stick-ului analogic ca dotare standard și suportul pentru patru jucători — decizia strategică de a utiliza cartușe ROM în locul discurilor optice a limitat suportul dezvoltatorilor terți și a influențat cota de piață globală. Cu 32,93 milioane de unități vândute, N64 a dominat piața din America de Nord, dar a fost depășită la nivel mondial de Sony PlayStation. Moștenirea sa este definită de titluri revoluționare precum Super Mario 64 și The Legend of Zelda: Ocarina of Time, care au stabilit standardele moderne pentru jocurile de acțiune-aventură în format 3D.
+1. Istoric și Dezvoltare: De la „Project Reality” la Lansare
+Procesul de dezvoltare al consolei a început în 1993, într-o perioadă de declin pentru predecesorul său, Super Nintendo Entertainment System (SNES).
+• Parteneriatul cu Silicon Graphics (SGI): Nintendo a colaborat cu SGI, lider în calculul de înaltă performanță, pentru a adapta tehnologia supercomputerelor într-un produs de consum. SGI a furnizat chipset-ul de bază, cunoscut sub numele de „Reality Immersion Technology”.
+• Evoluția Numelui: Consola a fost inițial numită „Ultra 64” (după ce s-a renunțat la „Ultra Famicom”). Din cauza unor posibile conflicte de marcă și a dorinței pentru un brand global unificat, numele final a devenit „Nintendo 64”.
+• Cronologia Lansării:
+    ◦ Japonia: 23 iunie 1996.
+    ◦ America de Nord: 29 septembrie 1996 (cu o lansare limitată pe 26 septembrie).
+    ◦ Europa și Australia: 1 martie 1997.
+• Strategia de Marketing: Nintendo a utilizat sloganuri precum „Wait for it...” și „Get 'N' or get out” pentru a menține interesul consumatorilor în fața concurenței deja lansate (Sega Saturn și Sony PlayStation).
+2. Arhitectură și Specificații Tehnice
+Nintendo 64 a fost proiectată ca o mașină extrem de puternică pentru epoca sa, capabilă să execute tehnici de randare complexe.
 Componentă
-Specificație
-Detalii
+Detalii Tehnice
 CPU
-Atari SALLY (6502 personalizat)
-Rulează la 1.79 MHz (scade la 1.19 MHz în modul 2600).
-Grafică
-MARIA (Cip custom)
-Rulează la 7.16 MHz; poate afișa până la 100 de sprite-uri simultan.
+NEC VR4300 (bazat pe MIPS R4300i) la 93,75 MHz
+Coprocesor
+Reality Coprocessor (RCP) la 62,5 MHz (procesare grafică și audio)
+Memorie RAM
+4 MB RDRAM (extensibilă la 8 MB via Expansion Pak)
 Rezoluție
-160×240 sau 320×240
-Modul 320 permite detalii superioare față de NES/Sega.
-Paletă Culori
-256 culori
-25 de culori pot fi afișate simultan pe o linie de scanare.
-RAM
-4 KB
-Memorie onboard limitată, suplimentată prin cartușe.
+De la 256×224 la 640×480 pixeli
+Ieșire Video
+Composite, S-Video; suport pentru format 16:9 (anamorfic)
 Audio
-TIA (Television Interface Adaptor)
-Aceleași două canale audio din 1977; limitarea majoră a sistemului.
-2.1 Inovația Grafică (Cipul MARIA)
-Spre deosebire de alte console care foloseau sprite-uri hardware limitate, MARIA trata totul ca pe un sprite descris în liste de afișare (display lists). Această metodă, comună în jocurile arcade, permitea o densitate mare de obiecte fără pâlpâirea (flicker) specifică consolelor rivale.
-2.2 Limitări Audio și Soluții
-Cipul TIA oferea un sunet rudimentar. Pentru a compensa, inginerii au permis includerea unui cip audio suplimentar (POKEY) direct în cartușul jocului. Această soluție a fost utilizată doar în câteva titluri oficiale, precum Ballblazer și Commando. Proiectul unui cip audio avansat, numit MINNIE, a fost anulat de familia Tramiel pentru a reduce costurile.
-3. Caracteristici și Funcționalități Cheie
-• Compatibilitate Retroactivă: A fost prima consolă care a integrat hardware-ul predecesorului său (Atari 2600). În acest mod, procesorul este încetinit, iar cipul TIA preia controlul total asupra graficii și sunetului.
-• Semnătura Digitală: Pentru a evita afluxul de jocuri de slabă calitate (cauza crahului din 1983), cartușele trebuiau semnate digital de Atari. Fără această semnătură, consola refuza să intre în modul 7800 și funcționa doar în modul 2600.
-• Diferențe Regionale: Modelele PAL (Europa) includeau adesea jocul Asteroids încorporat în ROM-ul sistemului și utilizau gamepad-uri în loc de joystick-urile Pro-Line folosite în America de Nord.
-4. Biblioteca de Jocuri și Periferice
-4.1 Jocurile Sistemului
-Biblioteca oficială numără doar 59 de titluri, axându-se pe conversii arcade de înaltă calitate:
-• Titluri de Lansare: Pole Position II (joc inclus în pachet), Ms. Pac-Man, Galaga, Centipede, Dig Dug și Xevious.
-• Loophole-ul de Licențiere: Atari a reușit să publice jocuri precum Mario Bros. și Donkey Kong deoarece deținea licențele pentru versiunile arcade, chiar dacă titlurile erau asociate cu Nintendo.
-• Titluri Exclusive și Super Games: Ninja Golf (combinație bizară de golf și brawler) și Midnight Mutants sunt considerate puncte de referință pentru bibliotecă.
-4.2 Periferice
-• Joystick Pro-Line: Un controler cu două butoane, criticat pentru ergonomia deficitară.
-• Pistolul Optic XG-1: Compatibil cu titluri precum Alien Brigade și Barnyard Blaster.
-• Proiecte Anulate: Atari a renunțat la dezvoltarea unei tastaturi, a unui adaptor pentru jocuri Atari 5200 și a unui cartuș pentru salvarea scorurilor („High Score Cartridge”).
-5. Recepție, Declin și Moștenire
-5.1 Performanța pe Piață
-În 1986, 7800 a vândut aproximativ 100.000 de unități în SUA, comparativ cu 1,1 milioane pentru NES. Până în 1988, vânzările au depășit 1 milion de unități, însă bugetul de marketing redus și lipsa suportului din partea dezvoltatorilor terți (restricționați de clauzele de exclusivitate ale Nintendo) au limitat succesul consolei.
-5.2 Scena Modernă și Modificări Hardware
-În prezent, Atari 7800 este popular în comunitatea de retro-gaming, unde utilizatorii instalează mod-uri pentru a îmbunătăți experiența:
-• Mod-ul Composite/UAV: Permite conectarea la televizoare moderne, eliminând interferențele specifice semnalului RF original.
-• USB-C Power Mod: Înlocuirea conectorului proprietar de alimentare cu unul USB-C pentru o sursă de energie mai curată și fiabilă.
-• Atari 7800+ (2024): O versiune modernă, la scară redusă, care suportă cartușe originale și ieșire HDMI.
-Concluzii
-Atari 7800 ProSystem rămâne o piesă de inginerie remarcabilă care a fost victima unui management corporativ defectuos. Deși capabilă să depășească NES în anumite aspecte grafice, lansarea sa întârziată cu doi ani și arhitectura audio stagnantă au împiedicat-o să redevină liderul pieței de profil. Totuși, pionieratul său în materie de compatibilitate retroactivă a stabilit un standard industrial care este respectat și astăzi.
-
+16-bit, 44,1 kHz stereo; suport Dolby Pro Logic surround
+• Arhitectura Memoriei Unificate: N64 a eliminat băncile separate de RAM pentru CPU, audio și video, utilizând o magistrală de date de mare viteză (Rambus) pentru o eficiență sporită.
+• Capabilități Grafice: A fost prima consolă care a oferit filtrare triliniară pentru netezirea texturilor, evitând aspectul pixelat specific consolelor concurente.
+3. Inovația Controlerului și Accesoriile
+Controlerul N64, cu designul său distinctiv în formă de „M”, a redefinit modul în care jucătorii interacționează cu spațiile 3D.
+• Stick-ul Analogic: Nintendo a fost primul producător care a inclus un stick de control (thumbstick) ca dotare standard, oferind control pe 360 de grade.
+• Configurație Butoane: Include 10 butoane, un D-pad și un „Z-trigger” poziționat pe spate.
+• Porturi pentru Patru Jucători: Consola a fost construită pentru experiențe multiplayer locale, fiind prima capabilă să ruleze ecrane divizate în patru fără încetiniri majore.
+• Extensii:
+    ◦ Rumble Pak: Introdus pentru a oferi feedback prin vibrații.
+    ◦ Expansion Pak: Necesar pentru jocuri precum Donkey Kong 64 și The Legend of Zelda: Majora's Mask, dublând memoria RAM.
+    ◦ Transfer Pak: Permitea schimbul de date între jocurile de N64 și cele de Game Boy Color.
+    ◦ 64DD (Disk Drive): Un periferic lansat doar în Japonia care folosea discuri magnetice și oferea conectivitate la internet; a fost considerat un eșec comercial.
+4. Formatul Cartușelor (Game Paks): Avantaje și Dezavantaje
+Decizia de a rămâne la cartușe ROM în detrimentul CD-ROM-urilor a fost cea mai controversată alegere tehnologică a sistemului.
+Avantaje
+• Timpi de Încărcare Aproape Inexistenți: Cartușele funcționau ca o extensie a memoriei RAM, permițând streaming-ul rapid de date.
+• Durabilitate: Mai rezistente la manipulare fizică decât discurile optice.
+• Protecție Anti-Piraterie: Cartușele erau mult mai greu de copiat ilegal în anii '90 față de CD-uri.
+Dezavantaje
+• Capacitate Limitată: Maximum 64 MB față de cei 650 MB ai unui CD. Acest lucru a dus la compresia texturilor, a sunetului și la eliminarea secvențelor video (FMV).
+• Costuri de Producție Ridicate: Cartușele erau scumpe de fabricat, ceea ce se traducea în prețuri la raft cu aproximativ 10$ mai mari decât jocurile de PlayStation.
+• Alienarea Dezvoltatorilor Terți: Companii precum Square și Enix au migrat către Sony din cauza limitărilor de spațiu, afectând grav diversitatea genurilor (în special RPG-urile) pe N64.
+5. Software și Jocuri Definitorii
+Deși biblioteca de jocuri a fost relativ mică (388 de titluri oficiale), calitatea acestora a fost neobișnuit de ridicată datorită politicii Nintendo de „calitate peste cantitate”.
+• Super Mario 64 (11,62 milioane unități): Cel mai bine vândut joc al generației; a pionierat controlul camerei și mișcarea 3D.
+• The Legend of Zelda: Ocarina of Time: Considerat de critici unul dintre cele mai bune jocuri din istorie, stabilind bazele genului action-adventure modern.
+• GoldenEye 007: Un titlu esențial pentru evoluția shooter-elor în prima persoană (FPS) pe console și pentru multiplayer-ul competitiv.
+• Parteneriatul cu Rare: Dezvoltatorul second-party Rare a furnizat hituri critice precum Banjo-Kazooie, Perfect Dark și Conker's Bad Fur Day.
+6. Performanța pe Piață și Receptarea Critică
+N64 a avut o recepție mixtă în funcție de regiunea geografică, fiind un succes masiv în America, dar subperformând în Japonia și Europa.
+• Vânzări Totale: 32,93 milioane de unități (20,63 milioane în America de Nord, 5,54 milioane în Japonia, 6,75 milioane în restul lumii).
+• Recepția Critică: Revista Time a numit N64 „Mașina Anului 1996”, lăudând realismul experienței 3D. Criticii au apreciat puterea hardware, dar au penalizat fluxul neregulat de lansări de jocuri.
+• Poziționarea pe Piață: Deși a depășit Sega Saturn, N64 a pierdut supremația în fața PlayStation, care a beneficiat de un suport masiv din partea dezvoltatorilor terți și de prețuri mai mici pentru software.
+7. Moștenire și Tehnologie Modernă
+După oprirea producției în 2002/2003, Nintendo 64 a rămas una dintre cele mai recunoscute console din istorie.
+• Servicii de Emulare: Nintendo a relansat multe titluri de N64 prin Virtual Console (Wii, Wii U) și serviciul Nintendo Switch Online + Expansion Pack.
+• Analogue 3D: Un sistem modern de tip „hardware emulation” (FPGA) care permite rularea cartușelor originale la rezoluție 4K, oferind moduri de afișare care simulează ecranele CRT vechi.
+• Impact Tehnologic: N64 a fost ultima consolă majoră de acasă bazată pe cartușe până la apariția Nintendo Switch în 2017. Inovațiile sale în controlul analogic și vibrațiile force-feedback sunt acum standarde universale în industrie.
 
 You must update ONLY that console object inside consoles.json.
 

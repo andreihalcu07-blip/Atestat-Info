@@ -888,32 +888,32 @@
         "lansare":  1987,
         "imagine":  "assets/images/consoles/pc-engine.webp",
         "cpu":  {
-                    "arhitectura":  "HuC6280",
+                    "arhitectura":  "HuC6280 (derivat MOS 6502/WDC 65C02)",
                     "proces_nm":  "N/A",
                     "nuclee":  "1C",
-                    "frecventa":  "7.16 MHz",
+                    "frecventa":  "1.79 MHz / 7.16 MHz",
                     "tdp":  "~5W"
                 },
         "gpu":  {
-                    "arhitectura":  "HuC6270",
-                    "unitati":  "Custom VDC",
+                    "arhitectura":  "HuC6270 (VDC) + HuC6260 (VCE)",
+                    "unitati":  "GPU dual pe 16 biți",
                     "frecventa":  "7.16 MHz",
                     "tflops":  "N/A",
-                    "capabilitati":  "512 sprites"
+                    "capabilitati":  "VRAM 64 KB, 64 sprite-uri (max. 16/linie), 512 culori (482 simultan)"
                 },
         "memorie":  {
-                        "tip":  "RAM",
-                        "capacitate":  "8 KB",
+                        "tip":  "RAM + MMU",
+                        "capacitate":  "8 KB RAM; adresare până la 2 MB",
                         "magistrala":  "8-bit",
                         "bandwidth":  "N/A"
                     },
         "stocare":  {
-                        "tip":  "HuCard",
-                        "interfata":  "Card",
+                        "tip":  "HuCard + CD-ROM² (extensie)",
+                        "interfata":  "HuCard / CD-ROM",
                         "viteza":  "N/A"
                     },
         "output_video":  {
-                             "rezolutie":  "256×239",
+                             "rezolutie":  "256×224 până la 512×240",
                              "refresh":  "60 Hz",
                              "hdr":  "N/A",
                              "upscaling":  "N/A"
@@ -922,19 +922,21 @@
                            "ray_tracing":  false,
                            "vrr":  false,
                            "backwards_compatibility":  "N/A",
-                           "altele":  "CD gaming pioneer"
+                           "altele":  "CD-ROM², Super CD-ROM², Arcade Card, blocare regională HuCard"
                        },
         "avantaje":  [
-                         "Compact și puternic",
-                         "CD-ROM add-on",
-                         "Grafică excelentă pentru epocă"
+                         "Consolă extrem de compactă pentru perioada sa.",
+                         "A introdus CD-ROM-ul pe console prin extensie opțională.",
+                         "Grafică competitivă cu sistemele promovate ca 16-biți.",
+                         "Audio flexibil cu 6 canale și panning stereo."
                      ],
         "dezavantaje":  [
-                            "8-bit CPU",
-                            "Puțină expunere în Occident",
-                            "HuCards proprietare"
+                            "Lansarea întârziată în Occident a redus impactul comercial.",
+                            "Fragmentarea hardware a creat confuzie pentru cumpărători.",
+                            "Marketingul 16-biți a eclipsat arhitectura hibridă reală.",
+                            "Blocarea regională HuCard a limitat accesul la importuri."
                         ],
-        "istorie":  ""
+        "istorie":  "Origine\nPC Engine a apărut în 1987 ca rezultat al colaborării dintre Hudson Soft și NEC, într-un moment în care piața începea tranziția spre generația a patra. Sistemul a fost gândit ca o platformă compactă, dar capabilă tehnic, iar dimensiunile carcasei au rămas un reper în industrie. În Japonia, lansarea a fost puternică, iar consola a reușit pentru o perioadă să depășească ritmul unor competitori consacrați.\n\nLansare internațională\nÎn America de Nord, consola a fost relansată sub numele TurboGrafx-16, cu un design diferit și cu o poziționare orientată spre discursul „16-biți”. Intrarea întârziată pe piață a redus însă avantajul inițial, iar competiția era deja bine instalată. În plus, alegerea pachetului de lansare și mesajele de marketing au slăbit claritatea produsului pentru publicul occidental.\n\nArhitectură\nLa nivel tehnic, PC Engine folosește procesorul HuC6280, derivat din familia 6502/65C02, cu două moduri de frecvență: aproximativ 1.79 MHz și 7.16 MHz. Deși CPU-ul era pe 8 biți, consola compensa prin subsistemul grafic format din HuC6270 (VDC) și HuC6260 (VCE), configurat ca soluție hibridă cu capabilități de nivel 16-biți. Configurația include 64 KB VRAM, rezoluții între 256×224 și 512×240, plus o paletă de 512 culori, dintre care 482 pot fi afișate simultan.\n\nMemorie, audio și medii\nHuC6280 integrează și o MMU care extinde adresarea la 21 biți, permițând acces la până la 2 MB de memorie fizică, în timp ce RAM-ul de bază rămâne 8 KB. Sunetul este asigurat de un PSG cu 6 canale, forme de undă programabile, panning stereo și opțiuni avansate precum zgomot, LFO și redare PCM prin DDA. Platforma a folosit HuCard-uri compacte, dar a devenit pionieră mai ales prin extensia CD-ROM², urmată de Super CD-ROM² și Arcade Card.\n\nEcosistem și moștenire\nPortofoliul hardware a crescut rapid, de la versiunile CoreGrafx până la SuperGrafx, TurboExpress și modelele Duo, ceea ce a oferit flexibilitate, dar a introdus și fragmentare. În Japonia, acest ecosistem a susținut o bibliotecă importantă, în special în zona shooterelor. În Occident, aceeași complexitate a redus adopția, însă valoarea platformei a rămas relevantă pentru colecționari și pentru soluțiile moderne de acces, de la emulare la replicare FPGA și flash cart-uri pe hardware original."
     },
     {
         "id":  "sega-genesis",
@@ -944,28 +946,28 @@
         "lansare":  1988,
         "imagine":  "assets/images/consoles/sega-genesis.webp",
         "cpu":  {
-                    "arhitectura":  "Motorola 68000",
+                    "arhitectura":  "Motorola 68000 (16/32-bit) + Zilog Z80",
                     "proces_nm":  "N/A",
                     "nuclee":  "1C",
-                    "frecventa":  "7.6 MHz",
+                    "frecventa":  "7.6-7.67 MHz (68000); 3.55-3.58 MHz (Z80)",
                     "tdp":  "~10W"
                 },
         "gpu":  {
-                    "arhitectura":  "VDP (Yamaha)",
+                    "arhitectura":  "VDP (Yamaha), derivat din System 16",
                     "unitati":  "Custom",
                     "frecventa":  "7.6 MHz",
                     "tflops":  "N/A",
-                    "capabilitati":  "Blast Processing"
+                    "capabilitati":  "Paletă 512 culori; 61 culori simultan"
                 },
         "memorie":  {
                         "tip":  "RAM",
-                        "capacitate":  "64 KB + 64 KB VRAM",
+                        "capacitate":  "64 KB RAM + 64 KB VRAM + 8 KB RAM audio",
                         "magistrala":  "16-bit",
                         "bandwidth":  "N/A"
                     },
         "stocare":  {
-                        "tip":  "Cartridge",
-                        "interfata":  "ROM",
+                        "tip":  "Cartridge + Sega CD (add-on)",
+                        "interfata":  "ROM / CD-ROM",
                         "viteza":  "N/A"
                     },
         "output_video":  {
@@ -977,21 +979,22 @@
         "tehnologii":  {
                            "ray_tracing":  false,
                            "vrr":  false,
-                           "backwards_compatibility":  "N/A",
-                           "altele":  "Blast Processing"
+                           "backwards_compatibility":  "Master System (Power Base Converter)",
+                           "altele":  "Blast Processing, Sega Channel, VRC (GA/MA-13/MA-17), Sega CD, 32X"
                        },
         "avantaje":  [
-                         "Procesor mai rapid ca SNES",
-                         "Sonic The Hedgehog",
-                         "Marketing agresiv",
-                         "Hardware extensibil"
+                         "A spart dominația Nintendo pe piețele occidentale.",
+                         "Bibliotecă puternică pentru acțiune, sport și arcade.",
+                         "Sonic a devenit motor major de vânzări.",
+                         "Sega Channel a anticipat distribuția digitală modernă."
                      ],
         "dezavantaje":  [
-                            "Sunet inferior SNES",
-                            "Paletă de culori limitată",
-                            "Add-on-uri scumpe"
+                            "Performanțe comerciale slabe pe piața japoneză.",
+                            "Add-on-urile Sega CD și 32X au fragmentat piața.",
+                            "Controversele jocurilor au atras presiune politică.",
+                            "Mesajul tehnic a fost eclipsat de marketing agresiv."
                         ],
-        "istorie":  ""
+        "istorie":  "Origine\nMega Drive a fost proiectată de echipa Sega condusă de Hideki Sato și Masami Ishikawa, ca răspuns direct la dominația Nintendo din anii ’80. Platforma a fost gândită pentru a aduce acasă ritmul jocurilor arcade, folosind o arhitectură inspirată de placa System 16. Sega a urmărit încă de la început un profil mai matur al produsului, inclusiv prin designul industrial influențat de echipamente hi-fi și estetica auto.\n\nLansare și expansiune\nConsola a debutat în Japonia pe 29 octombrie 1988, însă acolo a rămas în urma competitorilor principali. În America de Nord, lansarea din 1989 sub numele Genesis a fost susținută de o strategie comercială mult mai agresivă și de parteneriate cu nume puternice din sport și entertainment. În Europa și Brazilia, distribuția locală a transformat sistemul într-un lider regional, chiar dacă performanța globală a rămas inegală între piețe.\n\nArhitectură și tehnologie\nLa nivel tehnic, Genesis folosește CPU-ul Motorola 68000 la 7.6-7.67 MHz, asistat de un Zilog Z80 la 3.55-3.58 MHz pentru sunet și compatibilitate cu Master System. Configurația de memorie include 64 KB RAM principală, 64 KB VRAM și 8 KB RAM audio, iar partea grafică operează cu o paletă de 512 culori, dintre care 61 simultan pe ecran. Conceptul „Blast Processing” a fost folosit ca mesaj de marketing pentru a evidenția viteza percepută a sistemului în jocurile de acțiune.\n\nEcosistem, add-on-uri și impact\nSega a extins platforma prin Sega CD și 32X, încercând să prelungească ciclul de viață al consolei, dar aceste add-on-uri au fragmentat publicul și oferta software. În paralel, Power Base Converter a oferit compatibilitate cu jocurile de Master System, iar Sega Channel a introdus devreme ideea distribuției digitale prin cablu TV. Identitatea comercială a sistemului a fost consolidată de titluri precum Sonic the Hedgehog, John Madden Football și Mortal Kombat, care au diferențiat clar consola pe piața occidentală.\n\nControverse, rating și moștenire\nGenesis a fost implicată în momente juridice și culturale importante, inclusiv cazul Sega v. Accolade și dezbaterile din SUA despre violența în jocuri, alimentate de titluri precum Mortal Kombat și Night Trap. Ca răspuns, Sega a introdus Videogame Rating Council (GA, MA-13, MA-17), un precursor direct al sistemelor moderne de rating. Deși producția oficială s-a încheiat în 1997, moștenirea consolei rămâne activă prin reeditări hardware, jocuri noi pe cartuș și prezență constantă pe platforme digitale. Figura lui Hideki Sato rămâne centrală în această istorie, inclusiv după dispariția sa recentă la vârsta de 75 de ani."
     },
     {
         "id":  "game-boy",
@@ -1170,10 +1173,10 @@
         "lansare":  1990,
         "imagine":  "assets/images/consoles/neo-geo-aes.webp",
         "cpu":  {
-                    "arhitectura":  "Motorola 68000",
+                    "arhitectura":  "Motorola 68000 (16/32-bit) + Zilog Z80",
                     "proces_nm":  "N/A",
                     "nuclee":  "1C",
-                    "frecventa":  "12 MHz",
+                    "frecventa":  "12 MHz (68000); 4 MHz (Z80)",
                     "tdp":  "~15W"
                 },
         "gpu":  {
@@ -1181,17 +1184,17 @@
                     "unitati":  "N/A",
                     "frecventa":  "12 MHz",
                     "tflops":  "N/A",
-                    "capabilitati":  "380 sprites"
+                    "capabilitati":  "65.536 culori (3.840 simultan), până la 380 sprite-uri, scaling în timp real"
                 },
         "memorie":  {
                         "tip":  "RAM",
                         "capacitate":  "64 KB",
-                        "magistrala":  "16-bit",
+                        "magistrala":  "24-bit (date grafice)",
                         "bandwidth":  "N/A"
                     },
         "stocare":  {
                         "tip":  "Cartridge",
-                        "interfata":  "ROM (up to 330MB)",
+                        "interfata":  "ROM (max 330 Mb, ulterior peste 700 Mb)",
                         "viteza":  "N/A"
                     },
         "output_video":  {
@@ -1204,19 +1207,21 @@
                            "ray_tracing":  false,
                            "vrr":  false,
                            "backwards_compatibility":  "N/A",
-                           "altele":  "Arcade-perfect"
+                           "altele":  "Paritate MVS/AES, card de memorie JEIDA ver. 3, benzi de sprite-uri"
                        },
         "avantaje":  [
-                         "Calitate arcade acasă",
-                         "Sprite-uri imense",
-                         "Bibliotecă fighting games"
+                         "Paritate reală între arcade și experiența de acasă.",
+                         "Performanță 2D superioară rivalilor direcți ai epocii.",
+                         "MVS a oferit suport oficial până în 2004.",
+                         "Serii SNK au definit genul fighting în anii ’90."
                      ],
         "dezavantaje":  [
-                            "Preț prohibitiv",
-                            "Cartridge foarte scumpe",
-                            "Nici o economie de scală"
+                            "Prețul consolei a fost prohibitiv pentru piața de masă.",
+                            "Jocurile costau mult peste media concurenței.",
+                            "Neo Geo CD a suferit din cauza încărcărilor lente.",
+                            "Hyper Neo Geo 64 a fost un eșec comercial rapid."
                         ],
-        "istorie":  ""
+        "istorie":  "Origine\nNeo Geo a fost lansat de SNK în 1990 ca o platformă construită pe ideea de paritate totală între arcade și acasă. Sistemul a fost gândit în două formate complementare: MVS pentru operatorii comerciali și AES pentru utilizatorii casnici. În locul compromisurilor obișnuite ale epocii, SNK a livrat aceeași bază tehnică, ceea ce a făcut din Neo Geo un produs distinct încă de la debut.\n\nPoziționare și model comercial\nAES a fost conceput inițial pentru închiriere, din cauza costurilor ridicate de producție, dar cererea pieței l-a transformat într-o consolă premium. Lansarea din SUA la 649,99 USD, alături de jocuri la 200-300 USD, a definit clar poziționarea de lux a platformei. În paralel, succesul MVS în sălile de jocuri a susținut ecosistemul pe termen lung și a redus presiunea portărilor între medii diferite.\n\nArhitectură\nConfigurația tehnică combină un Motorola 68000 la 12 MHz cu un Zilog Z80 la 4 MHz, folosit în principal pentru sunet. Sistemul operează la 320×224 și utilizează o paletă de 65.536 culori, cu până la 3.840 afișate simultan, plus până la 380 de sprite-uri pe ecran și scaling în timp real. Neo Geo a fost promovat ca „24-bit”, reflectând magistrala de date grafice și orientarea clară către performanță 2D avansată.\n\nEvoluție hardware\nMVS a introdus un avantaj operațional major prin suportul pentru mai multe cartușe într-o singură cabină, cu suport oficial extins până în 2004. AES a păstrat paritatea cu arcadele, dar a folosit un format fizic diferit al cartușelor față de MVS. Ulterior, Neo Geo CD a încercat să reducă costurile software prin CD-ROM, însă unitatea single-speed a adus timpi de încărcare prea mari, iar Hyper Neo Geo 64 nu a reușit tranziția planificată spre 3D.\n\nMoștenire\nBiblioteca Neo Geo a consolidat serii majore precum The King of Fighters, Samurai Shodown și Metal Slug, cu accent pe fighting și acțiune 2D de înaltă calitate. După reorganizarea SNK, brandul a continuat prin produse moderne ca Neo Geo Mini și Arcade Stick Pro, iar piața de colecționari a crescut constant. Astăzi, platforma rămâne relevantă prin reeditări, comunități active și dezvoltări noi pentru hardware-ul original."
     },
     {
         "id":  "snes",
@@ -1226,10 +1231,10 @@
         "lansare":  1990,
         "imagine":  "assets/images/consoles/snes.webp",
         "cpu":  {
-                    "arhitectura":  "65C816",
+                    "arhitectura":  "Ricoh 5A22 (derivat WDC 65C816)",
                     "proces_nm":  "1.0 µm",
                     "nuclee":  "1C",
-                    "frecventa":  "3.58 MHz",
+                    "frecventa":  "1.79-3.58 MHz",
                     "tdp":  "~10W"
                 },
         "gpu":  {
@@ -1237,11 +1242,11 @@
                     "unitati":  "2 PPU chips",
                     "frecventa":  "3.58 MHz",
                     "tflops":  "N/A",
-                    "capabilitati":  "Mode 7"
+                    "capabilitati":  "Mode 7, 32.768 culori (256 simultan), 128 sprite-uri"
                 },
         "memorie":  {
-                        "tip":  "WRAM",
-                        "capacitate":  "128 KB",
+                        "tip":  "WRAM + VRAM + RAM audio",
+                        "capacitate":  "128 KB RAM, 64 KB VRAM, 64 KB RAM audio",
                         "magistrala":  "16-bit",
                         "bandwidth":  "N/A"
                     },
@@ -1260,20 +1265,21 @@
                            "ray_tracing":  false,
                            "vrr":  false,
                            "backwards_compatibility":  "N/A",
-                           "altele":  "DSP audio, Mode 7"
+                           "altele":  "Mode 7, Super FX/Super FX2, DSP, SA-1, subsistem audio Sony"
                        },
         "avantaje":  [
-                         "Audio superior (Sony SPC700)",
-                         "Mode 7 hardware",
-                         "Controller SNES iconic",
-                         "Jocuri legendare"
+                         "Grafică și audio superioare pentru generația sa.",
+                         "Mode 7 a permis efecte pseudo-3D convingătoare.",
+                         "Bibliotecă solidă de platformere, RPG-uri și fighting.",
+                         "Cipurile din cartuș au extins viața platformei."
                      ],
         "dezavantaje":  [
-                            "CPU mai lent decât Genesis",
-                            "Cartridge scumpe",
-                            "Procesare lentă uneori"
+                            "Lansarea a venit după rivalii 16-biți principali.",
+                            "Politicile stricte pentru terți au creat tensiuni.",
+                            "Cenzura inițială a afectat percepția unor jocuri.",
+                            "Cartușele au menținut costuri ridicate la software."
                         ],
-        "istorie":  ""
+        "istorie":  "Origine\nSuper Nintendo, lansat inițial ca Super Famicom în 1990, a fost răspunsul calculat al Nintendo la presiunea noii generații pe 16 biți. Compania venea dintr-o poziție dominantă pe piața nord-americană, dar apariția PC Engine și Mega Drive a schimbat ritmul competiției. Proiectul anunțat de Hiroshi Yamauchi în 1987 a urmărit o direcție clară: un sistem de bază echilibrat, extensibil prin cipuri suplimentare integrate în cartușe.\n\nLansare și poziționare\nDebutul japonez din 21 noiembrie 1990 a avut efect imediat, cu stocul inițial de 300.000 de unități epuizat în câteva ore. În anii următori, SNES a devenit nucleul confruntării comerciale cu Sega, într-un context în care marketingul și percepția publică contau aproape la fel de mult ca specificațiile. Nintendo a mizat pe control strict al calității software și pe titluri first-party puternice, pentru a păstra consistența ecosistemului.\n\nArhitectură\nPlatforma folosește procesorul Ricoh 5A22, derivat din WDC 65C816, cu frecvență variabilă între 1.79 și 3.58 MHz. Subsistemul video, bazat pe PPU, gestionează 32.768 de culori, cu 256 afișabile simultan, și până la 128 de sprite-uri pe ecran. SNES include 128 KB RAM principală, 64 KB VRAM și un subsistem audio proiectat cu implicarea Sony, cu procesor dedicat, DSP și 64 KB RAM pentru sunet.\n\nInovație modulară\nUn element definitoriu a fost abordarea modulară prin cipuri de îmbunătățire în cartușe. Super FX și Super FX2 au făcut posibilă randarea 3D în timp real în titluri precum Star Fox, în timp ce DSP-ul a accelerat calculele pentru rotații și scalări. Cipul SA-1 a extins performanța în jocuri complexe, iar Mode 7 a devenit semnătura vizuală a platformei în jocuri precum F-Zero și Pilotwings.\n\nBibliotecă, controverse și moștenire\nCatalogul SNES a consolidat standarde în platforming, RPG și jocuri de luptă, prin titluri precum Super Mario World, Donkey Kong Country, Final Fantasy și Street Fighter II. În paralel, perioada a inclus controverse comerciale și legislative: politici restrictive pentru terți, sancțiuni FTC privind prețurile și dezbateri politice despre conținut violent. În final, SNES rămâne un reper tehnologic al erei 2D, prin echilibrul dintre hardware-ul de bază, extensiile inteligente și consistența bibliotecii de jocuri."
     },
     {
         "id":  "philips-cd-i",
@@ -1283,7 +1289,7 @@
         "lansare":  1991,
         "imagine":  "assets/images/consoles/philips-cd-i.webp",
         "cpu":  {
-                    "arhitectura":  "Motorola 68000",
+                    "arhitectura":  "Philips SCC68070 (16/32-bit)",
                     "proces_nm":  "N/A",
                     "nuclee":  "1C",
                     "frecventa":  "15.5 MHz",
@@ -1294,21 +1300,21 @@
                     "unitati":  "N/A",
                     "frecventa":  "N/A",
                     "tflops":  "N/A",
-                    "capabilitati":  "FMV"
+                    "capabilitati":  "384×280 până la 768×560, 16,7 milioane culori (32.768 simultan)"
                 },
         "memorie":  {
                         "tip":  "RAM",
-                        "capacitate":  "1 MB",
+                        "capacitate":  "1 MB (extensibil; +1,5 MB cu DVC)",
                         "magistrala":  "16-bit",
                         "bandwidth":  "N/A"
                     },
         "stocare":  {
                         "tip":  "CD-ROM",
-                        "interfata":  "CD",
+                        "interfata":  "CD-ROM Single Speed",
                         "viteza":  "1x"
                     },
         "output_video":  {
-                             "rezolutie":  "384×280",
+                             "rezolutie":  "384×280 până la 768×560",
                              "refresh":  "60 Hz",
                              "hdr":  "N/A",
                              "upscaling":  "N/A"
@@ -1317,19 +1323,21 @@
                            "ray_tracing":  false,
                            "vrr":  false,
                            "backwards_compatibility":  "N/A",
-                           "altele":  "Multimedia"
+                           "altele":  "Green Book, CD-RTOS, Video CD prin DVC (MPEG-1), CD-Online/Web-i, TeleCD-i"
                        },
         "avantaje":  [
-                         "Format CD interactiv",
-                         "Multimedia versatil",
-                         "Filme interactive"
+                         "A pionierat conceptul de centru multimedia pentru acasă.",
+                         "A introdus Video CD prin modulul DVC.",
+                         "A oferit servicii online timpurii pe televizor.",
+                         "A inclus conținut educațional și cultural interactiv."
                      ],
         "dezavantaje":  [
-                            "Nu e o consolă de gaming reală",
-                            "Controller slab",
-                            "Jocuri Zelda/Mario teribile"
+                            "Prețul inițial a limitat puternic adopția.",
+                            "Identitatea de produs a rămas confuză pentru public.",
+                            "Controllerul standard era slab pentru jocuri dinamice.",
+                            "Hardware-ul părea depășit față de noile console și PC-uri."
                         ],
-        "istorie":  ""
+        "istorie":  "Origine\nPhilips CD-i a apărut din ambiția Philips și Sony de a extinde discul compact dincolo de audio, către un format interactiv pentru locuințe. Standardul Green Book, definit în a doua jumătate a anilor ’80, a pus bazele tehnice pentru integrarea conținutului audio, video și aplicații pe același mediu optic. La lansarea din 1991, platforma a fost prezentată ca un centru multimedia complet, nu ca o consolă clasică de jocuri.\n\nArhitectură\nSistemul folosește procesorul Philips SCC68070 la 15,5 MHz, 1 MB RAM și o unitate CD-ROM single-speed, într-o configurație apropiată de un echipament hi-fi. Partea video acoperă rezoluții între 384×280 și 768×560, cu suport pentru 16,7 milioane de culori și 32.768 simultan. Pentru redare MPEG-1 și Video CD, CD-i avea nevoie de Digital Video Cartridge, care adăuga procesare pe 32 de biți și 1,5 MB memorie suplimentară.\n\nConținut și servicii\nÎn prima etapă, Philips a mizat pe enciclopedii interactive, tururi culturale și produse edutainment, încercând să poziționeze platforma ca instrument de informare și auto-învățare. Ulterior, direcția s-a mutat spre jocuri, inclusiv proiecte rezultate din acordul cu Nintendo, care au rămas controversate. CD-i a experimentat devreme și zona online prin CD-Online/Web-i, cu navigare web, e-mail și Usenet, plus inițiative comerciale precum TeleCD-i.\n\nDeclin și moștenire\nÎn practică, prețul foarte ridicat, mesajul de marketing neclar și controlerul slab pentru jocuri au redus rapid atractivitatea produsului. În același timp, evoluția consolelor dedicate și scăderea prețurilor PC-urilor multimedia au erodat principalul argument al sistemului. CD-i a fost retras în 1998, după pierderi majore pentru Philips. Chiar și așa, platforma rămâne relevantă istoric prin rolul de precursor pentru consumul video digital pe disc optic și pentru ideea de hub multimedia de sufragerie."
     },
     {
         "id":  "3do",
@@ -1339,29 +1347,29 @@
         "lansare":  1993,
         "imagine":  "assets/images/consoles/3do.webp",
         "cpu":  {
-                    "arhitectura":  "ARM60",
+                    "arhitectura":  "ARM60 (32-bit RISC)",
                     "proces_nm":  "600 nm",
                     "nuclee":  "1C",
                     "frecventa":  "12.5 MHz",
                     "tdp":  "~20W"
                 },
         "gpu":  {
-                    "arhitectura":  "Custom CEL",
-                    "unitati":  "N/A",
+                    "arhitectura":  "Două co-procesoare video",
+                    "unitati":  "9-16 milioane pixeli/sec",
                     "frecventa":  "N/A",
                     "tflops":  "N/A",
-                    "capabilitati":  "CEL animation"
+                    "capabilitati":  "640×480 interpolat, 320×240 nativ, grafică 3D texturată"
                 },
         "memorie":  {
-                        "tip":  "DRAM",
-                        "capacitate":  "2 MB",
+                        "tip":  "DRAM + VRAM + SRAM",
+                        "capacitate":  "2 MB DRAM, 1 MB VRAM, 32 KB SRAM",
                         "magistrala":  "32-bit",
                         "bandwidth":  "N/A"
                     },
         "stocare":  {
                         "tip":  "CD-ROM",
-                        "interfata":  "CD",
-                        "viteza":  "2x"
+                        "interfata":  "CD-ROM double-speed",
+                        "viteza":  "2x (300 KB/s)"
                     },
         "output_video":  {
                              "rezolutie":  "640×480",
@@ -1373,19 +1381,21 @@
                            "ray_tracing":  false,
                            "vrr":  false,
                            "backwards_compatibility":  "N/A",
-                           "altele":  "FMV games"
+                           "altele":  "Dolby Surround, Photo CD, Video CD (MPEG), daisy-chaining, fără blocare regională"
                        },
         "avantaje":  [
-                         "Hardware avansat la lansare",
-                         "CD-ROM",
-                         "Design modular"
+                         "Prima consolă pe 32 de biți lansată pe piață.",
+                         "Grafică 3D texturată nativă fără cipuri suplimentare.",
+                         "Redevențe mici pentru dezvoltatori au atras many third-party.",
+                         "Multimedia avansat: CD audio, Photo CD, Video CD."
                      ],
         "dezavantaje":  [
-                            "Preț foarte ridicat ($699)",
-                            "Puține jocuri de calitate",
-                            "Depășit rapid"
+                            "Prețul de 699 USD a limitat adopția la nișă.",
+                            "Model de licențiere a împiedicat scăderea rapidă a prețurilor.",
+                            "Biblioteca dominată de FMV de calitate slabă.",
+                            "PlayStation și Saturn au neutralizat avantajul inițial rapid."
                         ],
-        "istorie":  ""
+        "istorie":  "Origine\n3DO Interactive Multiplayer a apărut din viziunea lui Trip Hawkins, fondatorul Electronic Arts, care a părăsit compania în 1991 pentru a înființa The 3DO Company. Scopul principal era crearea unui standard universal pentru divertismentul digital, pe principiul VHS: o specificație hardware licențiată către mai mulți producători, în loc de o platformă controlată central. Dave Needle și RJ Mical, creatorii Atari Lynx, au proiectat arhitectura tehnică, vizând capacități grafice 3D native și multimedia avansate.\n\nModel de afaceri și lansare\n3DO nu a produs propriul hardware, ci a licențiat specificațiile către parteneri precum Panasonic, GoldStar, Sanyo și alții. Acest model a creat o problemă mayoră: producătorii trebuiau să obțină profit direct din hardware, spre deosebire de Sony sau Sega care compensau prin vânzări software. Rezultatul a fost prețul de lansare de 699 USD în octombrie 1993, nivel care a limitat rapid piața doar la early adopters. În paralel, redevențele mici pentru editoare (3 USD/joc) au atras mulți dezvoltatori.\n\nArhitectură\nPlatforma folosește un procesor ARM60 RISC pe 32 de biți la 12,5 MHz, combinat cu două co-procesoare video capabile să proceseze 9-16 milioane pixeli/secundă. Configurația include 2 MB DRAM, 1 MB VRAM și 32 KB SRAM pentru salvări. Unitatea CD-ROM double-speed oferă 300 KB/s, iar sunetul DSP pe 16 biți suportă Dolby Surround și stereo 44,1 kHz. 3DO a fost promovat drept Multiplayer Interactiv, cu suport pentru Photo CD, Video CD (prin adaptor MPEG) și daisy-chaining până la 8 controllere.\n\nBibliotecă și declin\nLansarea a avut un singur joc (Crash 'N Burn), iar biblioteca s-a extins ulterior cu titluri precum Gex, Samurai Shodown, Super Street Fighter II Turbo, Need for Speed și Myst. Din păcate, dominația jocurilor bazate pe FMV de calitate slabă a afectat percepția platformei. În 1994-1995, apariția PlayStation și Saturn, cu hardware superior și prețuri mai mici, a neutralizat rapid avantajul 3DO. Modelul de licențiere, fără control centralizat, a împiedicat coordonarea și reducerea rapidă a costurilor.\n\nMoștenire\nProducția s-a încheiat în 1996, iar The 3DO Company a abandonat hardware-ul pentru a deveni dezvoltator software, intrând în faliment în 2003. Deși a vândut între 1,38 și 2 milioane de unități, 3DO rămâne o lecție despre ambiția tehnologică care nu a putut fi susținută economic. Cu toate acestea, principiile sale — standardizare, multimedia și grafică 3D nativă — au influențat generațiile ulterioare de console."
     },
     {
         "id":  "atari-jaguar",
@@ -1395,18 +1405,18 @@
         "lansare":  1993,
         "imagine":  "assets/images/consoles/atari-jaguar.webp",
         "cpu":  {
-                    "arhitectura":  "Motorola 68000",
+                    "arhitectura":  "Motorola 68000 (16-bit) + Tom (32-bit GPU) + Jerry (32-bit DSP)",
                     "proces_nm":  "N/A",
                     "nuclee":  "1C + 2 RISC",
-                    "frecventa":  "13.3 MHz",
+                    "frecventa":  "13.295 MHz (68000); 26.591 MHz (Tom/Jerry)",
                     "tdp":  "~15W"
                 },
         "gpu":  {
-                    "arhitectura":  "Tom + Jerry",
-                    "unitati":  "Custom RISC",
-                    "frecventa":  "26.6 MHz",
+                    "arhitectura":  "Tom (GPU + Object Processor + Blitter)",
+                    "unitati":  "32-bit RISC GPU, 64-bit Object Processor, 64-bit Blitter",
+                    "frecventa":  "26.591 MHz",
                     "tflops":  "N/A",
-                    "capabilitati":  "64-bit bus"
+                    "capabilitati":  "Magistrală date 64-bit către memorie externă"
                 },
         "memorie":  {
                         "tip":  "DRAM",
@@ -1415,8 +1425,8 @@
                         "bandwidth":  "N/A"
                     },
         "stocare":  {
-                        "tip":  "Cartridge",
-                        "interfata":  "ROM",
+                        "tip":  "Cartridge + Jaguar CD (add-on)",
+                        "interfata":  "ROM / CD-ROM",
                         "viteza":  "N/A"
                     },
         "output_video":  {
@@ -1429,19 +1439,21 @@
                            "ray_tracing":  false,
                            "vrr":  false,
                            "backwards_compatibility":  "N/A",
-                           "altele":  "64-bit marketing"
+                           "altele":  "Jaglink (LAN), sunet CD 16-bit stereo, platformă deschisă din 1999"
                        },
         "avantaje":  [
-                         "Arhitectură 64-bit",
-                         "Potential tehnic mare",
-                         "Tempest 2000"
+                         "Promovată ca prima consolă de 64 de biți.",
+                         "Tempest 2000 este considerat aproape universal cel mai bun joc.",
+                         "Eliberată ca platformă deschisă în 1999 pentru homebrew.",
+                         "Prețul de lansare competitiv: 249,95 USD."
                      ],
         "dezavantaje":  [
-                            "Programare dificilă",
-                            "Controller complex",
-                            "Puține jocuri"
+                            "Arhitectură multi-cip extrem de complexă pentru programare.",
+                            "Bug-uri hardware și instrumente de dezvoltare neterminate.",
+                            "Bibliotecă de doar 63 titluri licențiate, multe slabe calitativ.",
+                            "Sub 150.000 unități vândute, eșec comercial total."
                         ],
-        "istorie":  ""
+        "istorie":  "Origine\nAtari Jaguar a fost dezvoltată de Flare Technology (Martin Brennan și John Mathieson) la începutul anilor '90, ca parte a efortului Atari de a reveni în competiție după declinul din generația anterioară. Proiectul a progresat atât de rapid încât Atari a anulat consola Panther pentru a se concentra exclusiv pe tehnologia mai avansată a Jaguar. Decizia a implicat și oprirea suportului pentru linia de calculatoare Atari ST și pentru sistemele pe 8 biți.\n\nLansare și poziționare\nConsola a debutat pe 23 noiembrie 1993 la 249,95 USD, prin piețe-test în New York și San Francisco, urmată de lansarea națională în 1994. IBM a primit un contract de 500 de milioane de dolari pentru fabricație. Atari a promovat intensiv mesajul \"Do the Math!\", prezentând Jaguar drept prima consolă de 64 de biți, în contrast cu rivalii de 16 biți. Controversa tehnică privind această afirmație a apărut imediat, deoarece doar magistrala de date și procesorul de obiecte erau pe 64 de biți, în timp ce procesoarele principale executau seturi de instrucțiuni pe 32 sau 16 biți.\n\nArhitectură\nSistemul folosește cinci procesoare distribuite în trei cipuri: Tom la 26,591 MHz conține un GPU RISC pe 32 de biți, un procesor de obiecte pe 64 de biți și un Blitter pe 64 de biți, în timp ce Jerry la aceeași frecvență include un DSP pe 32 de biți pentru sunet stereo pe 16 biți. Motorola 68000 la 13,295 MHz acționează ca manager de sistem. Configurația include 2 MB DRAM și o magistrală de date pe 64 de biți către memoria externă, însă sincronizarea manuală a cipurilor Tom și Jerry și bug-urile hardware au transformat programarea într-o provocare majoră.\n\nBibliotecă și recepție\nLibraria s-a limitat la 63 de titluri licențiate (50 pe cartuș, 13 pe CD). Tempest 2000 a fost considerat aproape universal cel mai bun joc, iar Alien vs Predator a fost cel mai bine vândut cu 52.223 unități. Multe titluri arătau ca jocuri de 16 biți, eșuând să demonstreze puterea hardware-ului. Absența dezvoltatorilor majori precum Capcom sau Konami a slăbit și mai mult oferta.\n\nDeclin și moștenire\nÎn 1995, Jaguar deținea 0% cotă de piață în segmentul 32/64 de biți, depășită chiar și de 3DO. Lansarea PlayStation și Saturn a marginalizat complet sistemul. Producția a încetat în noiembrie 1995, iar în aprilie 1996 Atari Corporation a fuzionat cu JTS. În 1999, Hasbro a eliberat patentele Jaguar în domeniul public, transformând-o într-o platformă deschisă pentru homebrew. Astăzi, comunitatea activă și emularea modernă (BigPEmu) mențin platforma relevantă pentru colecționari și pasionați."
     },
     {
         "id":  "playstation-1",
@@ -1451,28 +1463,28 @@
         "lansare":  1994,
         "imagine":  "assets/images/consoles/ps1.webp",
         "cpu":  {
-                    "arhitectura":  "MIPS R3000A",
+                    "arhitectura":  "R3000A 32-bit RISC",
                     "proces_nm":  "0.8 µm",
                     "nuclee":  "1C",
-                    "frecventa":  "33.8 MHz",
+                    "frecventa":  "33.86 MHz",
                     "tdp":  "~10W"
                 },
         "gpu":  {
                     "arhitectura":  "GPU custom",
-                    "unitati":  "360K poly/s",
+                    "unitati":  "360.000 poligoane/sec",
                     "frecventa":  "33.8 MHz",
                     "tflops":  "N/A",
-                    "capabilitati":  "Texture mapping"
+                    "capabilitati":  "16,7 milioane culori (True Color), texture mapping"
                 },
         "memorie":  {
-                        "tip":  "EDO DRAM",
-                        "capacitate":  "2 MB",
+                        "tip":  "RAM + VRAM",
+                        "capacitate":  "2 MB RAM, 1 MB VRAM",
                         "magistrala":  "32-bit",
                         "bandwidth":  "132 MB/s"
                     },
         "stocare":  {
                         "tip":  "CD-ROM",
-                        "interfata":  "CD",
+                        "interfata":  "CD-ROM (650 MB)",
                         "viteza":  "2x"
                     },
         "output_video":  {
@@ -1485,20 +1497,21 @@
                            "ray_tracing":  false,
                            "vrr":  false,
                            "backwards_compatibility":  "N/A",
-                           "altele":  "CD Audio"
+                           "altele":  "Audio 16-bit 24 canale, DualShock (1997), simboluri geometrice pe butoane"
                        },
         "avantaje":  [
-                         "Trecere la CD (cost redus)",
-                         "GPU 3D timpuriu",
-                         "Bibliotecă definitorie",
-                         "Jocuri legendare"
+                         "Prima platformă care a depășit 100 milioane unități vândute.",
+                         "CD-ROM mai ieftin și cu capacitate de 650 MB.",
+                         "Catalog de peste 3.000 jocuri, aproape 1 miliard vândute.",
+                         "DualShock a devenit standard industrial pentru controllere."
                      ],
         "dezavantaje":  [
-                            "Încărcare lentă de pe CD",
-                            "Texturi instabile (wobble)",
-                            "Fără RAM pentru textură"
+                            "Încărcări mai lente de pe CD comparativ cu cartușe.",
+                            "Texturi instabile (wobble) din lipsa RAM dedicată texturi.",
+                            "Concentrarea pe 3D a lăsat 2D în plan secundar.",
+                            "Jocuri pe discuri multiple (până la 5) pentru titluri complexe."
                         ],
-        "istorie":  ""
+        "istorie":  "Origine\nPlayStation a apărut din cenușa unui parteneriat eșuat între Sony și Nintendo. În anii '90, Sony, sub conducerea lui Ken Kutaragi, lucra la o unitate CD-ROM pentru Super Famicom. În 1991, la CES, Sony a anunțat proiectul \"Play Station\", dar Nintendo a rupt public acordul a doua zi, alegând să colaboreze cu Philips. Președintele Sony, Norio Ohga, infuriat de umilință, l-a însărcinat pe Kutaragi să dezvolte un sistem propriu pentru a rivaliza cu Nintendo. Sony Computer Entertainment Inc. a fost înființată în noiembrie 1993 ca entitate separată.\n\nLansare și poziționare\nConsola a debutat în Japonia pe 3 decembrie 1994, marcând intrarea Sony pe piața jocurilor video. Strategia s-a bazat pe trecerea la CD-ROM, oferind capacitate de 650 MB față de 12 MB pe cartușe, costuri reduse de producție și posibilitatea de a include secvențe video și muzică de calitate CD. La E3 1995, Steve Race a urcat pe scenă și a rostit doar \"299\", prețul în dolari, cu 100 USD mai ieftin decât Sega Saturn, declanșând un avantaj competitiv instantaneu.\n\nArhitectură\nPlatforma folosește un procesor R3000A RISC pe 32 de biți la 33,86 MHz, combinat cu 2 MB RAM și 1 MB VRAM. Partea grafică procesează 360.000 poligoane pe secundă și suportă 16,7 milioane de culori (True Color). Audio-ul oferă 16-bit sound pe 24 canale. Designul controllerului a trecut prin peste 200 de prototipuri, iar mânerele au fost inspirate de manșa avioanelor. Simbolurile geometrice (triunghi, pătrat, cerc, X) au înlocuit butoanele literale, fiecare cu semnificații specifice: triunghiul pentru perspectivă, pătratul pentru meniuri, cercul pentru confirmare în Japonia, X pentru anulare.\n\nBibliotecă și impact\nCu aproape 1 miliard de discuri vândute și peste 3.000 de jocuri, biblioteca PS1 a fost extrem de diversă. Gran Turismo a devenit cel mai vândut joc cu 10,85 milioane unități, iar Final Fantasy VII a mutat seria de la Nintendo la Sony datorită capacității CD-ului. Jocuri precum Crash Bandicoot au devenit mascote neoficiale, deși Ken Kutaragi dorea ca PlayStation să fie percepută ca o consolă matură. Controllerul DualShock, lansat în 1997 cu două stick-uri analogice și motoare de vibrație, a devenit standardul industrial.\n\nMoștenire\nProducția a continuat 12 ani (1994-2006), iar în 2000 a fost lansată versiunea redesenată PSone, mult mai mică și compatibilă cu ecran LCD de 5 inci pentru portabilitate. PlayStation a depășit pragul de 100 milioane de unități, redefinind divertismentul digital și stabilind standarde pentru branding, controllere și distribuție. În 2006, NASA a ales procesorul PS1 pentru sonda New Horizons datorită fiabilității sale, iar modelele timpurii sunt considerate de audiofili printre cele mai bune CD-playere create vreodată."
     },
     {
         "id":  "sega-saturn",
@@ -1508,28 +1521,28 @@
         "lansare":  1994,
         "imagine":  "assets/images/consoles/sega-saturn.webp",
         "cpu":  {
-                    "arhitectura":  "Hitachi SH-2 (dual)",
+                    "arhitectura":  "2 × Hitachi SH-2 RISC (32-bit)",
                     "proces_nm":  "350 nm",
                     "nuclee":  "2C",
                     "frecventa":  "28.6 MHz × 2",
                     "tdp":  "~25W"
                 },
         "gpu":  {
-                    "arhitectura":  "VDP1 + VDP2",
-                    "unitati":  "Dual video",
+                    "arhitectura":  "VDP1 (sprite-uri/poligoane) + VDP2 (fundaluri)",
+                    "unitati":  "Dual video processors",
                     "frecventa":  "28.6 MHz",
                     "tflops":  "N/A",
-                    "capabilitati":  "Sprites, 3D"
+                    "capabilitati":  "Patrulatere ca primitive de bază, VSD software"
                 },
         "memorie":  {
-                        "tip":  "SDRAM",
-                        "capacitate":  "2 MB + 1.5 MB VRAM",
+                        "tip":  "Work RAM + VRAM + Sound RAM",
+                        "capacitate":  "2 MB WRAM, 1.5 MB VRAM, 512 KB Sound RAM",
                         "magistrala":  "32-bit",
                         "bandwidth":  "N/A"
                     },
         "stocare":  {
                         "tip":  "CD-ROM",
-                        "interfata":  "CD",
+                        "interfata":  "CD-ROM (cu procesor Hitachi SH-1)",
                         "viteza":  "2x"
                     },
         "output_video":  {
@@ -1542,19 +1555,21 @@
                            "ray_tracing":  false,
                            "vrr":  false,
                            "backwards_compatibility":  "N/A",
-                           "altele":  "CD Audio"
+                           "altele":  "Motorola 68EC000 audio @ 11.3 MHz, Yamaha YMF292 SCSP (32 canale), cartuș 4MB RAM"
                        },
         "avantaje":  [
-                         "2D sprites excelente",
-                         "Jocuri arcade perfecte",
-                         "Bibliotecă JP bogată"
+                         "Excelență în jocuri 2D și portări arcade.",
+                         "Controllerul Model 2 cu cel mai bun D-pad.",
+                         "A depășit Nintendo 64 pe piața japoneză.",
+                         "Hardware dedicat audio de înaltă calitate (32 canale)."
                      ],
         "dezavantaje":  [
-                            "Arhitectură complexă",
-                            "3D inferior PS1",
-                            "Lansare grăbită"
+                            "Arhitectură cu 8 procesoare extrem de complexă.",
+                            "Lansarea surpriză la E3 1995 a alienat retailerii.",
+                            "Absența unui joc Sonic 3D a fost critică.",
+                            "Patrulatere în loc de triunghiuri au descurajat third-party."
                         ],
-        "istorie":  ""
+        "istorie":  "Origine\nSega Saturn a început dezvoltarea în 1992 sub coordonarea lui Hideki Sato, ca răspuns direct la succesul hardware-ului arcade 3D de la Sega și la amenințarea emergentă a consolei Sony PlayStation. Proiectul s-a concentrat inițial pe un procesor Hitachi SH-1, dar arhitectura a fost extinsă în 1994 prin adăugarea unui al doilea VDP pentru performanță 2D îmbunătățită și mapare texturilor 3D mai bună. Decizia de a folosi două procesoare Hitachi SH-2 a fost luată pentru eficiență și cost, deși aceasta a adăugat complexitate semnificativă.\n\nLansare și poziționare\nConfruntată cu presiunea PlayStation, Sega of America a organizat o lansare surpriză la E3 1995, anunțând disponibilitatea imediată la 399 USD, cu patru luni înainte de calendarul planificat. Decizia a avut efecte negative majore: retailerii neincluși în lansarea limitată au reacționat dur, iar dezvoltatorii third-party nu erau pregătiți. Sony a replicat imediat cu un preț de 299 USD pentru PlayStation, stabilind un avantaj crucial. Această tactică a afectat relațiile comerciale și a limitat biblioteca de jocuri la lansare la doar șase titluri Sega.\n\nArhitectură\nSaturn folosește o configurație complexă cu opt procesoare, distribuită în patru subsisteme: CPU, Video, Audio și CD-ROM. Partea centrală include două procesoare Hitachi SH-2 RISC pe 32 de biți la 28,6 MHz, care partajează același bus, generând congestii. Subsistemul video combină VDP1 pentru sprite-uri și poligoane cu VDP2 pentru fundaluri, în timp ce audio-ul este gestionat de un Motorola 68EC000 la 11,3 MHz și un Yamaha YMF292 cu 32 canale. Unitatea CD-ROM 2x este controlată de un procesor dedicat Hitachi SH-1. Sistemul folosește 2 MB Work RAM, 1,5 MB VRAM și 512 KB Sound RAM.\n\nLibrarie și recepție\nBiblioteca Saturn este polarizată între succesul din Japonia și dificultățile din Occident. Consola a devenit regele jocurilor 2D, cu portări arcade aproape perfecte de la Capcom și SNK, susținute de cartușul de expansiune de 4MB RAM. Titluri precum Nights into Dreams, Panzer Dragoon și Virtua Fighter 2 au demonstrat capabilitățile unice ale sistemului. În Japonia, unde cultura arcade era mai puternică, Saturn a depășit Nintendo 64. Totuși, absența unui joc Sonic 3D (Sonic X-treme a fost anulat în 1997) și dificultățile de programare cu patrulatere în loc de triunghiuri au descurajat dezvoltatorii occidentali.\n\nDeclin și moștenire\nÎn 1997, Saturn deținea doar 12% din piața SUA, pierzând clar în fața Sony și Nintendo. Sega a retras consola de pe piața americană în 1998 pentru a se concentra pe Dreamcast, lăsând fanii fără titluri noi timp de un an. În ciuda vânzărilor de doar 9,26 milioane de unități la nivel mondial, Saturn păstrează un statut de cult datorită bibliotecii remarcabile de jocuri 2D și experimentale, precum și pentru Controllerul Model 2 și introducerea stick-ului analogic prin 3D Pad. Comunitatea dedicată de fani continuă să celebreze platforma pentru originalitatea și inovația sa."
     },
     {
         "id":  "nintendo-64",
@@ -1564,32 +1579,32 @@
         "lansare":  1996,
         "imagine":  "assets/images/consoles/nintendo-64.webp",
         "cpu":  {
-                    "arhitectura":  "NEC VR4300",
+                    "arhitectura":  "NEC VR4300 (bazat pe MIPS R4300i)",
                     "proces_nm":  "350 nm",
                     "nuclee":  "1C",
                     "frecventa":  "93.75 MHz",
                     "tdp":  "~15W"
                 },
         "gpu":  {
-                    "arhitectura":  "SGI RCP",
-                    "unitati":  "Reality Co-Processor",
+                    "arhitectura":  "Reality Coprocessor (RCP)",
+                    "unitati":  "Reality Immersion Technology",
                     "frecventa":  "62.5 MHz",
                     "tflops":  "N/A",
-                    "capabilitati":  "Z-buffer, AA"
+                    "capabilitati":  "Z-buffer, AA, filtrare triliniară, memorie unificată"
                 },
         "memorie":  {
-                        "tip":  "RDRAM",
-                        "capacitate":  "4 MB (8 w/ Exp)",
+                        "tip":  "RDRAM (Rambus)",
+                        "capacitate":  "4 MB (extensibil la 8 MB via Expansion Pak)",
                         "magistrala":  "9-bit",
                         "bandwidth":  "562 MB/s"
                     },
         "stocare":  {
-                        "tip":  "Cartridge",
-                        "interfata":  "ROM",
+                        "tip":  "Cartridge (Game Paks)",
+                        "interfata":  "ROM (până la 64 MB)",
                         "viteza":  "~5 MB/s"
                     },
         "output_video":  {
-                             "rezolutie":  "640×480",
+                             "rezolutie":  "256×224 până la 640×480",
                              "refresh":  "60 Hz",
                              "hdr":  "N/A",
                              "upscaling":  "N/A"
@@ -1598,20 +1613,23 @@
                            "ray_tracing":  false,
                            "vrr":  false,
                            "backwards_compatibility":  "N/A",
-                           "altele":  "Analog stick"
+                           "altele":  "Stick analogic standard, 4 porturi jucători, audio 16-bit 44.1 kHz, Dolby Pro Logic, format 16:9"
                        },
         "avantaje":  [
-                         "Grafică 3D excelentă",
-                         "Controller cu analog stick",
-                         "Multiplayer local 4 jucători",
-                         "Fără timpi de încărcare"
+                         "Primul cu stick analogic ca dotare standard.",
+                         "Patru porturi pentru jucători integrate nativ.",
+                         "Timpi de încărcare aproape inexistenți datorită cartușelor.",
+                         "Filtrare triliniară pentru texturi netede și anti-aliasing.",
+                         "Bibliotecă cu jocuri de înaltă calitate și inovații majore."
                      ],
         "dezavantaje":  [
-                            "Cartridge scumpe",
-                            "Memorie limitată",
-                            "Sunet comprimat"
+                            "Capacitate limitată: 64 MB cartuș vs 650 MB CD.",
+                            "Costuri de producție ridicate au crescut prețurile la jocuri.",
+                            "Alienarea dezvoltatorilor terți (Square, Enix migrează la Sony).",
+                            "Bibliotecă mică: doar 388 titluri oficiale.",
+                            "Compresie agresivă pentru texturi și sunet, fără FMV."
                         ],
-        "istorie":  ""
+        "istorie":  "Origine\nNintendo 64 a început dezvoltarea în 1993 sub numele de cod \"Project Reality\", printr-un parteneriat strategic cu Silicon Graphics (SGI), lider în calculul de înaltă performanță. Scopul era adaptarea tehnologiei supercomputerelor într-un produs de consum accesibil. SGI a furnizat chipset-ul de bază, cunoscut ca \"Reality Immersion Technology\", iar arhitectura finală a fost concepută pentru a domina grafica 3D. Inițial denumită \"Ultra 64\", consola a fost redenumită \"Nintendo 64\" pentru a evita conflictele de marcă și a unifica branding-ul global.\n\nLansare și poziționare\nConsola a debutat în Japonia pe 23 iunie 1996, urmată de America de Nord pe 29 septembrie 1996 și Europa pe 1 martie 1997. Nintendo a utilizat campanii de marketing precum \"Wait for it...\" și \"Get 'N' or get out\" pentru a menține interesul consumatorilor în fața concurenței deja lansate (Sega Saturn și Sony PlayStation). Promovată ca prima consolă pe 64 de biți, N64 a beneficiat de aclamarea revistei Time, care a numit-o \"Mașina Anului 1996\" pentru realismul experienței 3D.\n\nArhitectură și inovație\nPlatforma folosește un procesor NEC VR4300 bazat pe MIPS R4300i la 93,75 MHz, combinat cu Reality Coprocessor la 62,5 MHz pentru procesare grafică și audio. Sistemul include 4 MB RDRAM extensibil la 8 MB prin Expansion Pak, iar arhitectura memoriei unificate elimină băncile separate pentru CPU, audio și video. N64 a fost prima consolă care a oferit filtrare triliniară pentru netezirea texturilor și suport nativ pentru rezoluții între 256×224 și 640×480, inclusiv format 16:9. Audio-ul oferă 16-bit stereo la 44,1 kHz cu suport Dolby Pro Logic surround.\n\nController și format\nControlerul N64, cu designul distinctiv în formă de \"M\", a introdus stick-ul analogic ca dotare standard, oferind control pe 360 de grade și redefinind interacțiunea cu spațiile 3D. Include 10 butoane, un D-pad și un Z-trigger pe spate. Consola a fost construită pentru multiplayer local, fiind prima capabilă să ruleze patru ecrane divizate fără încetiniri majore. Decizia de a rămâne la cartușe ROM (până la 64 MB) în loc de CD-ROM (650 MB) a fost controversată: cartușele ofereau timpi de încărcare aproape inexistenți și protecție anti-piraterie, dar costuri ridicate și spațiu limitat au alienat dezvoltatori terți importanți precum Square și Enix.\n\nBibliotecă și moștenire\nCu 388 de titluri oficiale, biblioteca N64 a fost relativ mică, dar excepțional de calitativă. Super Mario 64 a vândut 11,62 milioane unități și a pionierat controlul camerei și mișcarea 3D, în timp ce The Legend of Zelda: Ocarina of Time a stabilit standardele moderne pentru action-adventure. GoldenEye 007 a revoluționat shooter-ele pe console, iar parteneriatul cu Rare a adus hituri critice precum Banjo-Kazooie și Perfect Dark. Cu 32,93 milioane de unități vândute (20,63 în America de Nord), N64 a dominat piața nord-americană, dar a fost depășită global de PlayStation. Producția s-a încheiat în 2002-2003, iar moștenirea sa continuă prin emulare modernă și hardware FPGA precum Analogue 3D."
     },
     {
         "id":  "game-boy-color",
