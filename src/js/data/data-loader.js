@@ -7,6 +7,36 @@ let _cache = null;
 let _loading = null;
 
 /**
+ * Load JSON via XHR (works on file:// with status 0).
+ * @param {string} path
+ * @returns {Promise<Array|null>}
+ */
+function loadJsonWithXhr(path) {
+    return new Promise((resolve, reject) => {
+        try {
+            const xhr = new XMLHttpRequest();
+            xhr.open('GET', path, true);
+            xhr.overrideMimeType('application/json');
+            xhr.onload = () => {
+                if (xhr.status === 200 || xhr.status === 0) {
+                    try {
+                        resolve(JSON.parse(xhr.responseText));
+                    } catch (e) {
+                        reject(e);
+                    }
+                } else {
+                    reject(new Error(`HTTP ${xhr.status}`));
+                }
+            };
+            xhr.onerror = () => reject(new Error('XHR error'));
+            xhr.send();
+        } catch (err) {
+            reject(err);
+        }
+    });
+}
+
+/**
  * Resolve the base path to the data directory depending on the current page depth.
  * Works for both /src/html/pages/*.html and /src/html/pages/consoles/*.html
  */
@@ -36,6 +66,10 @@ export async function loadConsoles() {
     _loading = (async () => {
         try {
             const jsonPath = resolveJsonPath();
+            if (window.location.protocol === 'file:') {
+                _cache = await loadJsonWithXhr(jsonPath);
+                return _cache;
+            }
             const response = await fetch(jsonPath);
             if (!response.ok) throw new Error(`HTTP ${response.status}`);
             _cache = await response.json();

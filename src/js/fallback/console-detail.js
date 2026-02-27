@@ -28,6 +28,31 @@
             });
     }
 
+    function loadJsonWithXhr(path) {
+        return new Promise(function (resolve, reject) {
+            try {
+                var xhr = new XMLHttpRequest();
+                xhr.open('GET', path, true);
+                xhr.overrideMimeType('application/json');
+                xhr.onload = function () {
+                    if (xhr.status === 200 || xhr.status === 0) {
+                        try {
+                            resolve(JSON.parse(xhr.responseText));
+                        } catch (e) {
+                            reject(e);
+                        }
+                    } else {
+                        reject(new Error('HTTP ' + xhr.status));
+                    }
+                };
+                xhr.onerror = function () { reject(new Error('XHR error')); };
+                xhr.send();
+            } catch (err) {
+                reject(err);
+            }
+        });
+    }
+
 
     // Hamburger menu
     var hamburger = document.querySelector('.hamburger');
@@ -261,10 +286,16 @@
         // Load image dimensions and console data
         Promise.all([
             loadImageDimensions(),
-            fetch('../../../js/data/consoles.json').then(function (res) {
-                if (!res.ok) throw new Error('HTTP ' + res.status);
-                return res.json();
-            })
+            (function () {
+                var path = '../../../js/data/consoles.json';
+                if (window.location.protocol === 'file:') {
+                    return loadJsonWithXhr(path);
+                }
+                return fetch(path).then(function (res) {
+                    if (!res.ok) throw new Error('HTTP ' + res.status);
+                    return res.json();
+                });
+            })()
         ])
             .then(function (results) {
                 var data = results[1];

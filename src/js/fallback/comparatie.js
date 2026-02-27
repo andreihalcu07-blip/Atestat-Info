@@ -42,8 +42,37 @@
     // Try fetching JSON first, fallback to inline
     let consolesData = null;
 
+    function loadJsonWithXhr(path) {
+        return new Promise((resolve, reject) => {
+            try {
+                const xhr = new XMLHttpRequest();
+                xhr.open('GET', path, true);
+                xhr.overrideMimeType('application/json');
+                xhr.onload = () => {
+                    if (xhr.status === 200 || xhr.status === 0) {
+                        try {
+                            resolve(JSON.parse(xhr.responseText));
+                        } catch (e) {
+                            reject(e);
+                        }
+                    } else {
+                        reject(new Error('HTTP ' + xhr.status));
+                    }
+                };
+                xhr.onerror = () => reject(new Error('XHR error'));
+                xhr.send();
+            } catch (err) {
+                reject(err);
+            }
+        });
+    }
+
     function tryFetchJson() {
-        return fetch('../../js/data/consoles.json')
+        const path = '../../js/data/consoles.json';
+        if (window.location.protocol === 'file:') {
+            return loadJsonWithXhr(path).catch(() => null);
+        }
+        return fetch(path)
             .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
             .catch(() => null);
     }

@@ -1759,25 +1759,25 @@
                     "tdp":  "~30W"
                 },
         "gpu":  {
-                    "arhitectura":  "PowerVR2",
-                    "unitati":  "100M poly/s",
+                    "arhitectura":  "NEC PowerVR2 CLX2",
+                    "unitati":  "3-7M poly/s",
                     "frecventa":  "100 MHz",
                     "tflops":  "N/A",
-                    "capabilitati":  "T\u0026L"
+                    "capabilitati":  "T&L, deferred rendering"
                 },
         "memorie":  {
                         "tip":  "SDRAM",
-                        "capacitate":  "16 MB",
+                        "capacitate":  "16 MB + 8 MB video + 2 MB audio",
                         "magistrala":  "64-bit",
-                        "bandwidth":  "800 MB/s"
+                        "bandwidth":  "N/A"
                     },
         "stocare":  {
                         "tip":  "GD-ROM",
-                        "interfata":  "Proprietary",
+                        "interfata":  "Yamaha GD-ROM (1.0-1.2 GB)",
                         "viteza":  "12x"
                     },
         "output_video":  {
-                             "rezolutie":  "480p",
+                             "rezolutie":  "640×480",
                              "refresh":  "60 Hz",
                              "hdr":  "N/A",
                              "upscaling":  "N/A"
@@ -1786,20 +1786,23 @@
                            "ray_tracing":  false,
                            "vrr":  false,
                            "backwards_compatibility":  "N/A",
-                           "altele":  "Modem integrat"
+                           "altele":  "Modem integrat (33.6k/56k), VMU, Windows CE, NAOMI arcade hardware"
                        },
         "avantaje":  [
-                         "Prima consolă cu modem integrat",
-                         "Jocuri inovatoare",
-                         "VMU cu ecran",
-                         "Grafică impresionantă"
+                         "Prima consolă cu modem și jocuri online integrate",
+                         "VMU revoluționar: ecran, jocuri portabile, salvări",
+                         "Arhitectură standard facilitând port-uri arcade perfecte",
+                         "Biblioteca creativă și experimentală (600+ jocuri)",
+                         "Jocuri iconice: Sonic Adventure, Shenmue, PSO, Soulcalibur"
                      ],
         "dezavantaje":  [
-                            "Viață comercială scurtă",
-                            "Fără DVD",
-                            "Piraterie ușoară"
+                            "Anunțul PS2 cu DVD integrat a distrus perspectivele",
+                            "Lipsa suportului Electronic Arts și jocuri sportive",
+                            "Formatul GD-ROM vs capacitate DVD limitată",
+                            "Fără protecție DRM: piraterie ușoară și MIL-CD exploit",
+                            "Pierderile financiare au forțat retragerea in 15 luni"
                         ],
-        "istorie":  ""
+        "istorie":  "Sega Dreamcast reprezintă o poveste paradoxală în istoria jocurilor video: o platformă inovatoare, mult înaintea timpului său, practic distrusă de forțe externe pe care nici măcar puterea creativității sale nu a putut să le contracareze. Lansată în 1998 în Japonia și septembrie 1999 la nivel mondial, Dreamcast a fost prima consolă din a șasea generație, devansând PlayStation 2 în lansare cu peste un an. Cu 9,13 milioane de unități vândute și o bibliotecă de peste 600 titluri, consola rămâne o piesă de cult și punct de referință pentru inovație pură.\n\nProiectul a fost născut din necesitate. După succesul masiv al Genesis (30,75 milioane unități), Saturn-ul (1994) s-a dovedit o greșeală arhitecturală. Doi procesoare, programare complexă, pierdere de teren în fața PlayStation. Până în 1997, Sega avea doar 12% din piața consolidelor, forțând conducerea să pregătească un succesor radical diferit. Dezvoltarea a implicat două echipe rivale: echipa din SUA propunea Hitachi SH-4 cu 3dfx Voodoo 2, iar echipa japoneză susținea aceeași CPU cu NEC PowerVR2. Sega a ales designul japonez, decizie ce a generat o dispută cu 3dfx, soluționată ulterior.\n\nHardware-ul Dreamcast a reprezentat o schimbare fundamentală de filosofie. În loc de componente cu scop special, Sega a ales piese standard, apropiate de arhitectura unui PC. Procesorul Hitachi SH-4 rulând la 200 MHz (360 MIPS), cuplat cu NEC PowerVR2 la 100 MHz capabil de 3-7 milioane poligoane pe secundă, oferea performanță solida pentru 1999. Memoria era arhitecturată strategic: 16 MB RAM principal, 8 MB video, 2 MB audio. Unitatea Yamaha GD-ROM oferea 1.0-1.2 GB, mai mult decât Saturn dar mai puțin decât viitoarele DVD-uri.\n\nCeea ce a făcut Dreamcast cu adevărat revoluționar au fost inovațiile periferice și conectivitate. Visual Memory Unit (VMU) era, în esență, o cartă de memorie cu ecran LCD, difuzor și butoane. Putea afișa statutul jocului în timp real (vață în Resident Evil 2, muniție în alte jocuri) și funcționa ca dispozitiv portabil independent—jucători puteau crește creaturile Chao din Sonic Adventure pe VMU în timp ce se gândeau la altceva. Conexiunea prin modem integrat (33.6k sau 56k modular) a deschis primul capitol serios al jocului online pe consolă prin servicii precum SegaNet și Dreamarena. Compatibilitatea Windows CE și DirectX API-urile au ușurat munca developers de pe PC care doreau să facă jocuri de consolă.\n\nLansarea din Japonia (noiembrie 1998) a fost marcată de probleme de fabricație ale chipset-urilor PowerVR, rate mari de defecte și stocuri limitate. Doar Virtua Fighter 3tb a reușit să genereze buzz. Urmase o lansare legendară în America de Nord pe 9 septembrie 1999 la $199—o dată devenită iconica „9/9/99”. În primele 24 de ore, Sega a vândut 225.000 de unități și a generat 98,4 milioane de dolari. Peter Moore descria acest eveniment drept „cele mai mari 24 de ore din istoria retail-ului de divertisment”. Europa a primit consola pe 14 octombrie 1999, atingând 1 milion de unități vândute până octombrie 2000.\n\nBiblioteca de jocuri a Dreamcast s-a dovedit remarcabil de creativă. Sonic Adventure devenea cel mai vândut titlu (2,5 milioane copii). Soulcalibur era considerat pur și simplu unul dintre cele mai bune jocuri de lupte ale tuturor timpurilor. Shenmue, o epopee cu buget record de 50-70 milioane de dolari, introducea concept modern al Quick Time Events (QTE) și stabilea standardul pentru narrativa cinematică pe consolă. Phantasy Star Online a fost primul RPG online pe consolă. Jet Set Radio a popularizat grafică cel-shaded inovatoare. Sega Sports (NFL 2K, NBA 2K) depășea adesea ofertele EA, create ca răspuns la boicotul Electronic Arts din cauza neînțelegerilor privind licențierea exclusivă.\n\nDeclinul a venit rapid și nemilos. Sony a anunțat PlayStation 2cu mult înainte de lansare, promițând putere grafică superioară și, crucial, player DVD integrat—mai ieftin decât un player DVD dedicat la acea vreme. Sega a ales sa evite costurile licenței DVD, rămânând la GD-ROM, decizie care a limitat capacitatea și funcționalitatea multimedia. Strategiile aggressive de reducere de preț ($149, apoi $99) combinată cu campanii de marketing masive au generat pierderi nete de sute de milioane de dolari. Reputația Sega era sfărâmată din eșecurile Sega CD, 32X și Saturn. Retailerii și consumatorii rămâneau prudenți.\n\nPe 31 ianuarie 2001, Sega a anunțat oficial oprirea producției de hardware Dreamcast, efectivă 31 martie. Compania s-ar restructura ca developer terț. Isao Okawa, president Sega, într-un gest de sacrificiu rar, a iertat datoriile companiei către lui personal și a returnat acțiunile sale în valoare de 695 milioane de dolari în chiar înainte de decesul în 2001, ajutând compania să supraviețuiască tranziției.\n\nMoștenirea Dreamcast depășește cu mult cifrele comerciale. Consola a stabilit fundația pentru serviciile moderne de jocuri online, concepte care ar deveni Xbox Live și PlayStation Network. Exploit-ul MIL-CD a permis rularea de software de pe CD-uri obișnuite fără modchips, facilitând atât pirateria cât și dezvoltarea homebrew masivă. Chiar și în 2026, entuziaști mențin servere private pentru jocuri precum Phantasy Star Online. Jocurile sale rămân experimentale și creative—Seaman (pește AI care vorbește), Rez (sincronizare audio-vizuală), Space Channel 5—reflectând o eră de aur a creativității Sega."
     },
     {
         "id":  "neo-geo-pocket-color",
@@ -1924,8 +1927,8 @@
         "cpu":  {
                     "arhitectura":  "Emotion Engine",
                     "proces_nm":  "180 nm",
-                    "nuclee":  "MIPS + VU",
-                    "frecventa":  "300 MHz",
+                    "nuclee":  "8 unități",
+                    "frecventa":  "294 MHz",
                     "tdp":  "~50W"
                 },
         "gpu":  {
@@ -1956,20 +1959,21 @@
                            "ray_tracing":  false,
                            "vrr":  false,
                            "backwards_compatibility":  "PS1",
-                           "altele":  "DVD playback"
+                           "altele":  "DVD playback, Network Adaptor, EyeToy"
                        },
         "avantaje":  [
-                         "Cea mai vândută consolă vreodată",
-                         "Bibliotecă masivă",
-                         "DVD player integrat",
-                         "Backward compat PS1"
+                         "Cea mai vândută consolă, peste 160 milioane unități",
+                         "DVD player integrat a accelerat adoptarea formatului",
+                         "Compatibilitate PS1 cu peste 1.100 jocuri",
+                         "Bibliotecă uriașă, peste 3.800 titluri",
+                         "Durată de viață excepțională, 13 ani"
                      ],
         "dezavantaje":  [
-                            "Hardware depășit rapid",
-                            "Memory cards mici",
-                            "Grafică inferioară Xbox"
+                            "Arhitectura Emotion Engine a fost dificilă pentru echipe mici",
+                            "Online-ul a venit mai târziu decât rivalii",
+                            "Modelele originale necesitau Network Adaptor pentru Ethernet"
                         ],
-        "istorie":  ""
+        "istorie":  "Origine și lansare\n\nPlayStation 2 a debutat în 2000 și a devenit cea mai bine vândută consolă din istorie, cu aproximativ 160 de milioane de unități distribuite pe durata unui ciclu de viață excepțional de 13 ani (2000–2013). Lansările globale au urmat un calendar precis: Japonia pe 4 martie 2000, America de Nord pe 26 octombrie 2000, Europa pe 24 noiembrie 2000 și România pe 15 martie 2001. Succesul a fost alimentat de convergența mediilor: PS2 nu era doar o consolă, ci și un player DVD competitiv, la 299 USD, accelerând adoptarea DVD-ului la scară globală.\n\nArhitectură și convergență\n\nLa baza consolei stătea „Emotion Engine”, un CPU cu opt unități, 294 MHz și o putere declarată de 6,2 gigaflopi, suficient de avansat pentru a fi clasificat temporar drept supercomputer de guvernul SUA. Sony a integrat cipul grafic al PlayStation ca procesor de intrare/ieșire, decizie care a asigurat compatibilitate perfectă cu peste 1.100 de jocuri PS1. La nivel de identitate, secvența de boot cu „turnuri” de cuburi reflecta numărul de jocuri și timpul petrecut de utilizator pe sistem.\n\nEcosistem software și accesorii\n\nBiblioteca PS2 a depășit 3.800 de titluri și a definit o eră de maturizare a jocurilor. Grand Theft Auto: San Andreas a devenit cel mai vândut titlu al platformei (17,33 milioane copii), în timp ce God of War, Shadow of the Colossus, Ico, Metal Gear Solid 2 & 3 și Persona 3 & 4 au demonstrat potențialul narativ și artistic al consolei. Accesoriile au extins utilizarea: EyeToy a introdus interacțiunea prin mișcare, SingStar și microfoanele au transformat PS2 într-un sistem de karaoke, iar Buzz! și Guitar Hero au popularizat periferiile dedicate.\n\nOnline și moștenire\n\nDeși a intrat mai târziu în online, PS2 a pus baze solide prin Network Adaptor (2001) și titluri pionier precum Tony Hawk’s Pro Skater 3, SOCOM cu chat vocal, Final Fantasy XI și Star Wars: Battlefront. Producția s-a încheiat oficial pe 4 ianuarie 2013, iar ultimul joc a fost Pro Evolution Soccer 2014. Modelul de convergență al PS2 a prefigurat dispozitivele moderne, însă arhitectura complexă a făcut dezvoltarea dificilă pentru echipele mici, o provocare amplificată ulterior de PlayStation 3. Impactul cultural rămâne vizibil prin comunități care traduc și conservă titluri precum Boku no Natsuyasumi 2."
     },
     {
         "id":  "game-boy-advance",
@@ -2044,24 +2048,24 @@
                 },
         "gpu":  {
                     "arhitectura":  "ATI Flipper",
-                    "unitati":  "4 pipelines",
+                    "unitati":  "6-12M poly/s",
                     "frecventa":  "162 MHz",
                     "tflops":  "N/A",
                     "capabilitati":  "T\u0026L"
                 },
         "memorie":  {
                         "tip":  "MoSys 1T-SRAM",
-                        "capacitate":  "43 MB total",
+                        "capacitate":  "24 MB (Main) + 3 MB (Video) + 16 MB (A/D Buffer)",
                         "magistrala":  "64-bit",
                         "bandwidth":  "2.6 GB/s"
                     },
         "stocare":  {
-                        "tip":  "Mini-DVD",
+                        "tip":  "GameCube Game Disc (8 cm, 1.5 GB)",
                         "interfata":  "Proprietary",
                         "viteza":  "N/A"
                     },
         "output_video":  {
-                             "rezolutie":  "480p",
+                             "rezolutie":  "480i/480p (NTSC), 576i (PAL)",
                              "refresh":  "60 Hz",
                              "hdr":  "N/A",
                              "upscaling":  "N/A"
@@ -2070,20 +2074,23 @@
                            "ray_tracing":  false,
                            "vrr":  false,
                            "backwards_compatibility":  "N/A",
-                           "altele":  "GBA Player"
+                           "altele":  "WaveBird (RF), GBA link, Game Boy Player"
                        },
         "avantaje":  [
-                         "Jocuri Nintendo excelente",
-                         "Design compact",
-                         "Controller ergonomic",
-                         "Fiabilitate ridicată"
+                         "Preț de lansare competitiv (199 USD)",
+                         "Hardware puternic, cu CPU 485 MHz și GPU 162 MHz",
+                         "Controler ergonomic cu triggere analogice și C-Stick",
+                         "Bibliotecă first-party solidă: Melee, Mario Kart, Wind Waker",
+                         "Conectivitate GBA și Game Boy Player pentru biblioteca portabilă"
                      ],
         "dezavantaje":  [
-                            "Mini-DVD proprietar",
-                            "Fără DVD playback",
-                            "Online inexistent"
+                            "Fără DVD playback, într-o piață dominată de DVD",
+                            "Discurile de 1,5 GB au forțat jocuri pe două discuri",
+                            "Percepția de jucărie a limitat atractivitatea pentru adulți",
+                            "Avantajul PS2 la lansare și compatibilitatea PS1",
+                            "Focus divizat între GameCube și Game Boy Advance"
                         ],
-        "istorie":  ""
+        "istorie":  "Origine și lansare\n\nGameCube a fost proiectul „Dolphin”, născut din parteneriatul Nintendo–ArtX–IBM, anunțat oficial în mai 1999 și redenumit public la SpaceWorld pe 24 august 2000. Lansarea globală a început în Japonia pe 14 septembrie 2001, a continuat în America de Nord pe 18 noiembrie 2001, apoi în Europa pe 3 mai 2002, iar în România consola a fost distribuită oficial din 2002 de Skin Media. Cu un preț de 199 USD și hardware superior PS2, GameCube a intrat pe piață ca răspuns direct la dominația Sony și la intrarea Microsoft. În ciuda unui start competitiv, a încheiat generația pe locul al treilea, cu aproximativ 22 milioane unități vândute.\n\nArhitectură și design\n\nA fost prima consolă Nintendo care a abandonat cartușele, adoptând GameCube Game Disc (8 cm, 1,5 GB), un format proprietar care a limitat capacitatea față de DVD. Platforma combina CPU-ul IBM Gekko la 485 MHz cu GPU-ul ATI Flipper la 162 MHz, susținută de 24 MB RAM principal, 3 MB video și 16 MB A/D Buffer, pentru performanțe reale de 6–12 milioane poligoane pe secundă. Ieșirea video oferea 480i/480p pe NTSC și 576i pe PAL. Designul cuboid (11,4 x 15 x 16 cm) includea mâner pentru portabilitate, patru porturi de controler și două sloturi de carduri, fără stocare internă. O raritate notabilă a fost Panasonic Q, un hibrid GameCube cu player DVD standard, disponibil doar în Japonia.\n\nControler și periferice\n\nControlerul a renunțat la forma cu trei brațe a N64 și a devenit un reper de ergonomie. Butonul A, supradimensionat, era în centrul schemei, asistat de X, Y și B pentru acces rapid, iar triggerele analogice L/R ofereau control gradual. C-Stick-ul a înlocuit grupul de butoane „C” cu un al doilea stick analogic. În 2002, WaveBird a introdus conectivitate wireless prin RF, fără linie de vizibilitate. Conectivitatea cu Game Boy Advance a permis utilizarea GBA ca ecran secundar, iar Game Boy Player a adus întreaga bibliotecă portabilă pe televizor.\n\nEcosistem și impact\n\nGameCube a găzduit peste 600 de titluri, cu first-party-uri puternice precum Super Smash Bros. Melee, Mario Kart: Double Dash!!, The Wind Waker și Luigi’s Mansion, plus inițiative precum Capcom 5 și exclusivități temporare de tip Resident Evil 4. Totuși, formatul de 1,5 GB a forțat unele jocuri pe două discuri, iar absența DVD-ului video a slăbit poziționarea multimedia. Percepția de „jucărie” și avantajul temporal al PS2, care acumulase deja 10 milioane de unități, au erodat atractivitatea pentru publicul larg. În 2001, Nintendo a împărțit resursele între GameCube și Game Boy Advance, ceea ce a diluat focusul de piață.\n\nMoștenire\n\nGameCube a fost ultima consolă Nintendo care a concurat direct pe specificații brute, iar lecțiile sale au dus la strategia „Blue Ocean” și la tranziția către Wii. Pentru mulți jucători, rămâne „ultima consolă pură”, o epocă pre-digitală în care experiența pornea imediat ce discul era introdus."
     },
     {
         "id":  "xbox",
@@ -2115,7 +2122,7 @@
         "stocare":  {
                         "tip":  "HDD",
                         "interfata":  "ATA",
-                        "viteza":  "8-10 GB"
+                        "viteza":  "8 GB"
                     },
         "output_video":  {
                              "rezolutie":  "480p/720p/1080i",
@@ -2130,17 +2137,20 @@
                            "altele":  "Xbox Live pioneer"
                        },
         "avantaje":  [
-                         "Hardware puternic pentru epocă",
-                         "Xbox Live pioneer",
-                         "HDD integrat",
-                         "Controller S îmbunătățit"
+                         "Cea mai puternică consolă la lansare",
+                         "Xbox Live - serviciu online revoluționar",
+                         "Hard disk integrat de 8 GB",
+                         "Arhitectură PC ușoară pentru dezvoltatori",
+                         "Halo: Combat Evolved - killer app definitoriu"
                      ],
         "dezavantaje":  [
-                            "Controller original imens",
-                            "Dimensiuni mari",
-                            "Puține jocuri japoneze"
+                            "Controller Duke - dimensiuni masive",
+                            "Dimensiuni generoase ale consolei",
+                            "Pierderi financiare de 125$/unitate",
+                            "Eșec comercial în Japonia",
+                            "Condensator ceas defect în unitățile timpurii"
                         ],
-        "istorie":  ""
+        "istorie":  "<strong>Origine și Geneza Proiectului</strong><br><br>Xbox a luat naștere în 1998, când patru ingineri din echipa DirectX a Microsoft – Kevin Bachus, Seamus Blackley, Ted Hase și Otto Berkes – au propus un concept radical: o consolă bazată pe arhitectura PC care să rivalizeze cu dominația japoneză pe piața hardware-ului de gaming. Proiectul, denumit intern „Midway" în referință la bătălia istorică, a fost motivat de temerile lui Bill Gates că PlayStation 2 ar putea transforma consola într-un înlocuitor pentru PC-ul din sufragerie, amenințând astfel ecosistemul Windows.<br><br>Microsoft a ales conceptul DirectX în detrimentul alternativei WebTV (Windows CE) deoarece permitea utilizarea componentelor standard de PC și oferea o cale de tranziție simplă pentru dezvoltatori. Pentru a asigura succesul platformei, compania a achiziționat Bungie în iunie 2000, transformând Halo: Combat Evolved dintr-un titlu PC într-o exclusivitate care va deveni killer app-ul consolei. Lansarea oficială a avut loc la CES 2001, unde Bill Gates și luptătorul profesionist Dwayne „The Rock" Johnson au prezentat consola unui public sceptic.<br><br><strong>Arhitectură și Inovații Hardware</strong><br><br>Xbox a devenit prima consolă mainstream care incorpora un hard disk intern de 8 GB, permițând salvarea jocurilor fără carduri de memorie și oferind funcții avansate precum coloane sonore personalizate prin extragerea muzicii de pe CD-uri audio. Arhitectura se baza pe un procesor Intel Pentium III la 733 MHz și un GPU Nvidia NV2A la 233 MHz (derivat din GeForce 3), făcând-o cea mai puternică consolă de pe piață la data lansării. Această putere venea însă la pachet cu dimensiuni generoase și un cost de producție problematic.<br><br>Consola includea 64 MB de DDR SDRAM unificată și suporta rezoluții progresive până la 720p și 1080i, depășind standardul 480i al competitorilor. Portul Ethernet 100 Mbit/s integrat anticipa viitorul conectivității online, în timp ce unitatea DVD-ROM și interfața Dashboard bazată pe Windows 2000 completau pachetul tehnologic. Controllerul original, porecit „The Duke", a fost criticat pentru dimensiunile sale masive, primind ironic premiul „Eroarea Anului" în 2001, ceea ce a forțat Microsoft să lanseze varianta compactă „Controller S" ca standard global.<br><br><strong>Ecosistem de Software și Xbox Live</strong><br><br>Biblioteca de jocuri a exploatat hardware-ul superior prin titluri definitorii precum Halo: Combat Evolved, care a vândut peste 1 milion de unități până în aprilie 2002 și a redefinit shooter-ele pe console. Halo 2 a devenit cel mai bine vândut joc al platformei cu 8,46 milioane de unități, generând 125 de milioane de dolari în prima zi. Alte exclusivități cheie – Dead or Alive 3, Project Gotham Racing, Star Wars: Knights of the Old Republic, Fable și Forza Motorsport – au consolidat identitatea platformei.<br><br>Lansarea Xbox Live pe 15 noiembrie 2002 a revoluționat gaming-ul pe consolă prin introducerea unui serviciu online unificat cu liste de prieteni globale, matchmaking centralizat și conceptul de conținut descărcabil (DLC). Serviciul a atins 1 milion de abonați în iulie 2004 și 20 de milioane până în mai 2009. Un moment simbolic a fost grupul „Noble 14", jucători care au refuzat să se deconecteze de la Halo 2 timp de aproape o lună după închiderea oficială a serviciului pentru consola originală în aprilie 2010.<br><br><strong>Performanță Comercială și Provocări</strong><br><br>Xbox a vândut 24 de milioane de unități la nivel global, cu 16 milioane în America de Nord (piața sa principală), 6 milioane în Europa și doar 2 milioane în regiunea Asia-Pacific. Japonia a reprezentat un eșec notabil, cu sub 500.000 de unități vândute din cauza dimensiunilor mari și lipsei de titluri adaptate gusturilor locale. Din perspectivă financiară, proiectul a acumulat pierderi de aproximativ 4 miliarde de dolari, Microsoft pierzând circa 125 de dolari pentru fiecare consolă vândută la prețul de 299 de dolari (costul de fabricație era de 425 de dolari).<br><br>Strategia companiei a fost deliberată: sacrificarea profitului pe hardware pentru a câștiga cotă de piață și a genera venituri din vânzările de software și servicii. Această abordare, deși costisitoare pe termen scurt, a permis Microsoft să își stabilească prezența în industrie și să creeze fundația pentru succesul viitor al platformei Xbox.<br><br><strong>Probleme Tehnice și Moștenire</strong><br><br>Unitățile fabricate înainte de versiunea 1.6 au prezentat o problemă critică legată de condensatorul de ceas, care avea tendința de a se scurge și de a coroda placa de bază, distrugând traseele electrice. Unitățile optice Thomson au fost, de asemenea, predispuse la erori de citire. În ciuda acestor defecte, arhitectura similară cu PC-ul a făcut Xbox o țintă populară pentru modding, comunitatea dezvoltând soluții precum XBMC (Xbox Media Center), care transforma consola modată într-un centru multimedia complet.<br><br>Producția a încetat între 2005 și 2007 pentru a face loc succesorului Xbox 360, dar moștenirea consolei originale continuă prin programele de compatibilitate retroactivă oferite de Microsoft pe platformele actuale. Xbox a dovedit că un nou venit poate perturba o industrie consolidată prin inovație tehnologică și servicii online robuste, stabilind standardele care definesc gaming-ul modern: conectivitate broadband, stocare internă și ecosisteme digitale integrate."
     },
     {
         "id":  "nintendo-ds",
@@ -2272,10 +2282,10 @@
                 },
         "gpu":  {
                     "arhitectura":  "ATI Xenos",
-                    "unitati":  "48 ALU",
+                    "unitati":  "240 shaders",
                     "frecventa":  "500 MHz",
                     "tflops":  "0.24 TFLOPS",
-                    "capabilitati":  "Unified shaders"
+                    "capabilitati":  "Unified shaders, 10 MB eDRAM"
                 },
         "memorie":  {
                         "tip":  "GDDR3",
@@ -2301,17 +2311,20 @@
                            "altele":  "Kinect"
                        },
         "avantaje":  [
-                         "Xbox Live excelent",
-                         "Controller iconic",
-                         "GPU unified shaders",
-                         "Kinect inovator"
+                         "Xbox Live revoluționar - 30M+ abonați până în 2011",
+                         "Achievement system - standard industrie nou",
+                         "Kinect - cel mai rapid vândut dispozitiv electronic",
+                         "Xbox Live Arcade - platformă indie pioneră",
+                         "84 milioane unități vândute global"
                      ],
         "dezavantaje":  [
-                            "Red Ring of Death",
-                            "Ventilator zgomotos",
-                            "DVD în loc de Blu-ray"
+                            "Red Ring of Death - rată ridicată eșec hardware",
+                            "Cost remediere RROD: 1.15 miliarde dolari",
+                            "Probleme stress termic GPU și lipituri",
+                            "DVD în loc de Blu-ray față de PS3",
+                            "Model original zgomotos și supraîncălzit"
                         ],
-        "istorie":  ""
+        "istorie":  "<strong>Arhitectură și Salt Tehnologic</strong><br><br>Lansat pe 22 noiembrie 2005, Xbox 360 a marcat a doua incursiune a Microsoft pe piața consolelor, abandonând arhitectura tip PC a originalului în favoarea unei soluții personalizate bazate pe PowerPC. Consola integra un procesor IBM „Xenon" triple-core tactat la 3,2 GHz, capabil să ruleze șase fire de execuție simultan, împreună cu un GPU ATI „Xenos" la 500 MHz echipat cu 10 MB de eDRAM cache și 240 de unități shader. Decizia de a include 512 MB de memorie unificată GDDR3 a fost crucială: inițial planificată cu doar 256 MB, dublarea cantității la cererea dezvoltatorilor Epic Games a costat aproximativ un miliard de dolari, dar a asigurat viabilitatea pe termen lung.<br><br>Sistemul suporta rezoluții HD native (720p și 1080i, ulterior 1080p prin HDMI sau VGA) și audio surround Dolby Digital 5.1, fiind printre primele console mainstream orientate către home theater. Unitățile de stocare detașabile variabile (20, 60, 120, 250, 320 sau 500 GB) permiteau flexibilitate în gestionarea bibliotecii digitale, iar introducerea capacității de a instala jocuri pe HDD prin actualizarea New Xbox Experience din 2008 a redus timpii de încărcare și zgomotul mecanic.<br><br><strong>Evoluția Hardware și Modelele</strong><br><br>Microsoft a lansat multiple revizii pentru a corecta deficiențele și pentru a atrage diverse segmente de consumatori. Modelul original a fost urmat de Xbox 360 Elite (2007) în culoare neagră cu HDD de 120 GB și port HDMI standard, apoi de varianta Arcade (2007) orientată către jucători casual cu memorie internă de 256 MB. Redesign-ul major a venit în 2010 cu Xbox 360 S (Slim), care aducea un chassis angular mai compact, funcionare mai silențioasă, Wi-Fi integrat și port dedicat Kinect. Versiunea finală, Xbox 360 E (2013), a adoptat estetica Xbox One și a simplificat conectivitatea prin eliminarea unui port USB.<br><br><strong>Ecosistemul Xbox Live și Transformarea Digitală</strong><br><br>Xbox Live a reprezentat diferențiatorul fundamental față de competiție, transformând gaming-ul într-o experiență socială și digitală. Serviciul era structurat în două niveluri: Silver gratuit pentru profil și acces la Marketplace, și Gold prin abonament pentru multiplayer online și beneficii exclusive. Până în 2011, serviciul depășise 30 de milioane de abonați, demonstrând viabilitatea modelului de servicii recurente în gaming. Interfața vizuală a evoluat de la sistemul „Blades" original la New Xbox Experience (NXE) din 2008, care introducea avatare digitale și instalare pe HDD, culminând cu stilul Metro inspirat din Windows 8, optimizat pentru control vocal Kinect.<br><br>Consola s-a transformat treptat dintr-o mașină de gaming pură într-un hub multimedia pentru sufragerie, oferind aplicații de streaming (Netflix, YouTube), închiriere de filme prin Xbox Video și integrare cu Windows Media Center pentru streaming de pe PC. Xbox Live Arcade (XBLA) a revoluționat distribuția digitală prin oferirea unei platforme viabile pentru jocuri indie și retro precum Geometry Wars, Braid și Castle Crashers, prefigurând modelul de distribuție digitală care domină astăzi industria.<br><br><strong>Biblioteca de Jocuri și Inovații Periferice</strong><br><br>Succesul platformei s-a construit pe un portofoliu robust de titluri exclusive și cross-platform. Halo 3 a devenit un fenomen cultural, seria Gears of War a definit genul cover-shooter, iar titluri precum BioShock, Mass Effect și Call of Duty 2 au exploatat puterea hardware pentru experiențe cinematice. Sistemul de „Achievements" cu punctajul Gamerscore a creat un nou tip de engagement, fiind rapid adoptat de întreaga industrie ca standard pentru măsurarea progresului și crearea comunității.<br><br>Kinect, lansat în 2010 sub numele de cod „Project Natal", a devenit cel mai rapid vândut dispozitiv electronic de consum din istorie la acea vreme. Senzorul de mișcare permitea control gestual și vocal, extinzând durata de viață a consolei și atrăgând un demografic casual. Deși impactul său pe gaming hardcore a fost limitat, tehnologia a demonstrat potențialul interacțiunii naturale și a influențat dezvoltarea ulterioară a interfețelor intuitive.<br><br><strong>Criza Red Ring of Death</strong><br><br>Cea mai semnificativă provocare tehnică a fost rata alarmant de ridicată a defecțiunilor hardware în modelele timpurii, manifestată prin trei cadrane roșii luminoase în jurul butonului de pornire – celebrul „Red Ring of Death" (RROD). Cauza primară a fost fracturarea îmbinărilor de lipit ale GPU-ului din cauza stresului termic repetat și a utilizării aliajelor fără plumb impuse de reglementările RoHS. Fostul șef Xbox, Peter Moore, a confirmat că remedierea acestei crize a costat Microsoft 1,15 miliarde de dolari, sumă alocată pentru extinderea garanției la trei ani specifică pentru RROD și logistica reparațiilor globale.<br><br>Deși controversa a afectat temporar imaginea brandului, răspunsul rapid și transparent al Microsoft a permis platformei să își mențină impulsul comercial. Reviziile hardware ulterioare (în special modelul Slim din 2010) au rezolvat problemele de termodinamic prin redesign complet al sistemului de răcire și a layoutului intern.<br><br><strong>Moștenire și Impact Industrial</strong><br><br>Xbox 360 a vândut peste 84 de milioane de unități la nivel mondial, consolidând Microsoft ca jucător major alături de Sony și Nintendo în cea de-a șaptea generație. Platforma a transformat brandul Xbox dintr-un experiment riscant într-o forță dominantă, stabilind standardele moderne pentru servicii online, distribuție digitală și engagement al comunității prin sisteme de realizări. Producția hardware s-a încheiat oficial pe 20 aprilie 2016, iar magazinul digital (Marketplace) a fost programat pentru închidere pe 29 iulie 2024, deși jocurile achiziționate anterior rămân descărcabile.<br><br>Programul de retrocompatibilitate implementat pe Xbox One și Xbox Series X/S a păstrat relevanța bibliotecii, permițând jucătorilor să își transfere salvările în cloud și să acceseze titluri clasice cu îmbunătățiri de performanță pe hardware modern. Xbox 360 rămâne una dintre cele mai influente console din istorie, definind paradigma serviciilor online și a ecosistemelor digitale care domină industria contemporană."
     },
     {
         "id":  "nintendo-wii",
@@ -2385,11 +2398,11 @@
                     "tdp":  "~200W"
                 },
         "gpu":  {
-                    "arhitectura":  "RSX",
+                    "arhitectura":  "RSX Reality Synthesizer",
                     "unitati":  "24 ROPs",
-                    "frecventa":  "550 MHz",
+                    "frecventa":  "500 MHz",
                     "tflops":  "0.23 TFLOPS",
-                    "capabilitati":  "N/A"
+                    "capabilitati":  "256 MB GDDR3 VRAM"
                 },
         "memorie":  {
                         "tip":  "XDR + GDDR3",
@@ -2415,17 +2428,20 @@
                            "altele":  "Blu-ray"
                        },
         "avantaje":  [
-                         "Blu-ray player integrat",
-                         "Jocuri exclusive legendare",
-                         "PSN gratuit",
-                         "Cell puternic"
+                         "Blu-ray player integrat - catalizator format HD",
+                         "Cell BE: 204.8 GFLOPS performanță teoretică",
+                         "PlayStation Network gratuită pentru multiplayer",
+                         "Exclusive legendare: Uncharted, The Last of Us",
+                         "87 milioane unități vândute"
                      ],
         "dezavantaje":  [
-                            "Arhitectură greu de programat",
-                            "Preț mare la lansare",
-                            "Consum ridicat"
+                            "Arhitectură Cell extrem de dificilă pentru dezvoltatori",
+                            "Preț lansare: $499-$599 considerat excesiv",
+                            "Breșă securitate PSN 2011: 77M conturi compromise",
+                            "Investiție dezvoltare Cell: 400 milioane dolari",
+                            "Vândut inițial în pierdere financiară"
                         ],
-        "istorie":  ""
+        "istorie":  "<strong>Arhitectura Cell și Ambiția Tehnologică</strong><br><br>Dezvoltarea PlayStation 3 a început în 2001 printr-un parteneriat strategic între Sony, IBM și Toshiba, materializat în procesorul Cell Broadband Engine – o investiție de aproximativ 400 de milioane de dolari care urmărea să redefinească puterea de calcul în gaming. Arhitectura includea un nucleu Power Processing Element (PPE) la 3,2 GHz și șapte Synergistic Processing Elements (SPEs) funcționale din opt produse, o tactică pentru a crește randamentul fabricației. Cell putea atinge un maxim teoretic de 204,8 GFLOPS în precizie simplă, cifre impresionante pentru epoca sa.<br><br>Consola integra un GPU RSX „Reality Synthesizer" dezvoltat de NVIDIA, bazat pe 256 MB de GDDR3 VRAM, împreună cu 256 MB de Rambus XDR DRAM pentru procesor. Această arhitectură unică, deși puternică, s-a dovedit extrem de dificil de programat. Gabe Newell de la Valve a descris-o faimos ca fiind o „pierdere de timp", iar această complexitate a dus la versiuni inițiale ale jocurilor third-party adesea inferioare celor de pe platformele concurente, afectând percepția consolei în primii ani.<br><br><strong>Lansarea și Provocările Inițiale</strong><br><br>PlayStation 3 a fost lansat în noiembrie 2006 în Japonia și America de Nord, urmând în martie 2007 în Europa. Strategia de pricing a fost agresivă: modelul cu 20 GB la 499 dolari și cel cu 60 GB la 599 dolari, prețuri considerate ridicate față de generațiile anterioare și față de competitorul Xbox 360. În ciuda acestor prețuri, Sony vindea consola în pierdere din cauza costurilor enorme ale procesorului Cell și ale unității Blu-ray integrate, pariul companiei pentru victoria în războiul formatelor HD.<br><br>Modelul original „Fat" prezenta un finisaj „piano black", până la patru porturi USB (în versiunile inițiale), suport pentru SACD și cititor de carduri pe anumite configurații. Primele versiuni includeau hardware de emulare PS2 pentru retrocompatibilitate completă, o caracteristică eliminată ulterior din considerente de cost. Procesorul era fabricat pe nod de 90 nm, contribuind la un consum ridicat de energie și generare de căldură semnificativă.<br><br><strong>Evoluția Hardware și Optimizări</strong><br><br>Sony a lansat trei iterații principale pentru a reduce costurile, consumul și dimensiunile. Modelul Slim din 2009 era cu 33% mai mic și 36% mai ușor, utilizând procese de fabricație de 45 nm pentru Cell și 40 nm pentru RSX, reducând consumul cu până la 45%. Designul a eliminat butonul fizic de oprire și a simplificat estetica. Versiunea Super Slim din 2012 a introdus un design ultra-compact cu capac glisant pentru discuri (top-loading), ajungând la o greutate de aproximativ 2,1 kg, iar ultimele variante (CECH-43xx) integrau un procesor RSX fabricat pe 28 nm.<br><br>Hard disk-urile SATA de 2,5 inci erau upgradabile, Sony oferind variante de la 20 GB până la 500 GB de-a lungul ciclului de viață. Suportul HDMI permitea ieșiri video de până la 1080p, claritate superioară care s-a sincronizat perfect cu adoptarea televizoarelor HD în perioada 2007-2010, transformând PS3 dintr-o consolă de gaming în centrul de divertisment al sufrageriei.<br><br><strong>Ecosistemul Digital și PlayStation Network</strong><br><br>PlayStation Network (PSN), lansat în 2006, a reprezentat tranziția Sony către o platformă digitală permanent conectată, oferind joc online gratuit (spre deosebire de Xbox Live Gold), descărcări digitale și servicii de streaming. PlayStation Store (2008) a unificat interfața pentru achiziționarea de conținut digital pe PS3 și dispozitivele portabile PSP. PlayStation Plus, introdus în 2010, a pionerit modelul de abonament cu jocuri lunare gratuite și stocare în cloud, un blueprint adoptat ulterior de întreaga industrie.<br><br>PlayStation Home (2008) a fost un experiment ambițios – un spațiu social virtual 3D care a atras 41 de milioane de utilizatori înainte de închiderea din 2015. Deși controversat în execuție, a demonstrat viziunea Sony pentru comunități digitale integrate. Incidentul de securitate din 17-19 aprilie 2011 a umbrit această viziune: o breșă masivă a compromis aproximativ 77 de milioane de conturi, oprindu-se serviciul timp de săptămâni și generând pierderi de 171 de milioane de dolari, precum și investigații oficiale privind protecția datelor.<br><br><strong>Inovații Multimedia și Control</strong><br><br>Integrarea unui player Blu-ray a fost decisivă în victoria formatului împotriva HD DVD, oferind capacitate de stocare de până la 50 GB (de 5 ori mai mult decât DVD-ul) și redare de filme HD la un preț mai accesibil decât playerele dedicate. Interfața XMB (XrossMediaBar) organiza conținutul pe axe orizontale și verticale, un sistem de navigare premiat pentru intuitivitate și eleganță vizuală, adoptat și de alte produse Sony din epoca respectivă.<br><br>Controllerul Sixaxis a fost primul fără fir cu senzori de mișcare integrati, dar lipsa vibrațiilor a fost criticată. DualShock 3 (2008) a reintrodus funcția de vibrație, devenind standardul consolei. PlayStation Move (2010) a reprezentat intrarea Sony în controlul prin mișcare, folosind camera PlayStation Eye pentru urmărire precisă în spațiu, competind direct cu Nintendo Wii și Microsoft Kinect.<br><br><strong>Biblioteca de Jocuri și Moștenirea Culturală</strong><br><br>Biblioteca PS3 a definit numeroase francize iconice care au împins limitele cinematografice ale jocurilor. Uncharted: Drake's Fortune a introdus personajul Nathan Drake și a stabilit standardul pentru aventurile cinetice, culminând cu The Last of Us (2013) – un titlu care a împins hardware-ul la limită și a demonstrat maturitatea narativă a mediului. God of War III, Infamous, LittleBigPlanet (pionier în conținut creat de utilizatori) și seria Gran Turismo au consolidat identitatea platformei.<br><br>Succese third-party precum Grand Theft Auto V (fenomen global lansat în 2013) și seria Assassin's Creed au beneficiat de puterea Cell odată ce dezvoltatorii au învățat să exploateze arhitectura unică. MotorStorm a definit cursele off-road la începutul generației, demonstrând capabilitățile grafice ale consolei. PlayStation 3 a vândut peste 87 de milioane de unități la nivel mondial, consolidându-și poziția alături de Xbox 360 în cea de-a șaptea generație.<br><br><strong>Starea Actuală și Relevanța Retrospectivă</strong><br><br>Deși producția hardware s-a încheiat, PS3 rămâne relevantă pentru colecționari și fanii gaming-ului retro. Magazinul digital prezintă limitări semnificative: utilizatorii trebuie să adauge fonduri în portofel prin alte dispozitive (PS4, PS5 sau web), performanța este scăzută cu erori de afișare și categorii repetitive, iar multe titluri vechi păstrează prețuri ridicate (jocuri Call of Duty la 50-80 dolari) comparativ cu variantele fizice. Primele modele cu hardware PS2 rămân singura metodă oficială de a rula discuri PlayStation 2 pe hardware Sony modern.<br><br>PlayStation 3 a demonstrat dorința Sony de a inova radical, acceptând riscuri financiare și tehnice majore. Procesorul Cell, deși problematic inițial, a permis experiențe grafice și fizice remarcabile odată perfecționată dezvoltarea. Integrarea Blu-ray, serviciile digitale PSN și PlayStation Plus, precum și biblioteca de exclusive legendare au definit standardele de divertisment digital care guvernează industria contemporană. PS3 rămâne un monument al ambiției tehnologice și al transformării consolelor de gaming în huburi multimedia complete."
     },
     {
         "id":  "nintendo-3ds",
