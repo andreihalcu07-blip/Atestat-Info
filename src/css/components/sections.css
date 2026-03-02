@@ -62,39 +62,407 @@
 }
 
 
-/* ── Video Section ── */
+/* ══════════════════════════════════════════════════
+   Custom Video Player — iPhone-inspired minimal UI
+   ══════════════════════════════════════════════════ */
+
+/* ── Outer wrapper (player + description) ── */
 .video-section {
     max-width: 800px;
     margin: 0 auto;
-    background: var(--card-bg);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-lg);
+    border-radius: 20px;
     overflow: hidden;
-    box-shadow: var(--shadow-md);
-    transition: box-shadow var(--transition-base);
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.5),
+        0 0 0 1px rgba(255, 255, 255, 0.04);
+    transition: box-shadow 0.3s ease;
 }
 
 .video-section:hover {
-    box-shadow: var(--shadow-lg), var(--glow-accent);
+    box-shadow:
+        0 14px 48px rgba(0, 0, 0, 0.6),
+        0 0 28px rgba(var(--accent-rgb), 0.08),
+        0 0 0 1px rgba(255, 255, 255, 0.06);
 }
 
-.video-container {
+/* ── Player container ── */
+.custom-player {
     position: relative;
-    width: 100%;
-    padding-bottom: 56.25%; /* 16:9 aspect ratio */
-    height: 0;
+    aspect-ratio: 16 / 9;
+    background: #000 center / cover no-repeat;
     overflow: hidden;
+    cursor: pointer;
+    -webkit-user-select: none;
+    user-select: none;
+    outline: none;
 }
 
-.video-container iframe {
+.custom-player iframe {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    border: none !important;
+    pointer-events: none;
+}
+
+/* ─────────────────────────────────
+   Overlay (big centered play btn)
+   ───────────────────────────────── */
+.player-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 4;
+    cursor: pointer;
+    transition: opacity 0.4s ease;
+}
+
+.player-overlay.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.overlay-play-btn {
+    width: 76px;
+    height: 76px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1.5px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+    outline: none;
+}
+
+.overlay-play-btn:hover {
+    background: rgba(var(--accent-rgb), 0.22);
+    border-color: rgba(var(--accent-rgb), 0.45);
+    transform: scale(1.08);
+}
+
+.overlay-play-btn:active {
+    transform: scale(0.94);
+}
+
+.overlay-play-btn svg {
+    width: 30px;
+    height: 30px;
+    fill: #fff;
+    margin-left: 3px;
+    filter: drop-shadow(0 1px 3px rgba(0,0,0,0.4));
+}
+
+/* ─────────────────────────────────
+   Controls bar (bottom gradient)
+   ───────────────────────────────── */
+.player-controls {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 5;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    background: linear-gradient(0deg, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.18) 70%, transparent 100%);
+    padding: 28px 16px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.player-controls.visible,
+.custom-player.paused .player-controls {
+    opacity: 1;
+}
+
+/* Progress row (full width) */
+.ctrl-progress-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+/* ── Progress bar ── */
+.ctrl-progress {
+    flex: 1;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 2px;
+    cursor: pointer;
+    position: relative;
+    overflow: visible;
+    transition: height 0.2s ease;
+}
+
+.ctrl-progress:hover {
+    height: 6px;
+}
+
+.ctrl-progress-buffer {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
     height: 100%;
-    border: none;
+    width: 0%;
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 2px;
+    pointer-events: none;
 }
 
+.ctrl-progress-fill {
+    height: 100%;
+    width: 0%;
+    background: var(--accent-color);
+    border-radius: 2px;
+    position: relative;
+    pointer-events: none;
+}
+
+/* Thumb dot */
+.ctrl-progress-fill::after {
+    content: '';
+    position: absolute;
+    right: -5px;
+    top: 50%;
+    transform: translateY(-50%) scale(0);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--accent-color);
+    box-shadow: 0 0 8px rgba(var(--accent-rgb), 0.5);
+    transition: transform 0.2s ease;
+}
+
+.ctrl-progress:hover .ctrl-progress-fill::after {
+    transform: translateY(-50%) scale(1);
+}
+
+/* Time */
+.ctrl-time {
+    font-family: var(--font-sans);
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.6);
+    white-space: nowrap;
+    min-width: 70px;
+    text-align: right;
+    flex-shrink: 0;
+    letter-spacing: 0.03em;
+}
+
+/* ── Buttons row ── */
+.ctrl-buttons-row {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    width: 100%;
+}
+
+/* Generic control button */
+.ctrl-btn {
+    width: 34px;
+    height: 34px;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    outline: none;
+    border-radius: 50%;
+    transition: background 0.2s ease;
+    position: relative;
+}
+
+.ctrl-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.ctrl-btn:active {
+    background: rgba(255, 255, 255, 0.18);
+}
+
+.ctrl-btn svg {
+    width: 18px;
+    height: 18px;
+    fill: #fff;
+}
+
+/* Skip buttons have label */
+.ctrl-skip-back,
+.ctrl-skip-fwd {
+    width: 36px;
+    height: 36px;
+}
+
+.ctrl-skip-back svg,
+.ctrl-skip-fwd svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* Play/Pause icon toggle */
+.custom-player .icon-pause         { display: none; }
+.custom-player.playing .icon-play  { display: none; }
+.custom-player.playing .icon-pause { display: block; }
+
+/* ── Volume group ── */
+.ctrl-vol-group {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-left: auto;
+}
+
+.ctrl-vol-btn {
+    width: 30px;
+    height: 30px;
+}
+
+.ctrl-vol-btn svg {
+    width: 16px;
+    height: 16px;
+}
+
+/* Muted state icon swap */
+.ctrl-vol-btn .icon-vol-on  { display: block; }
+.ctrl-vol-btn .icon-vol-off { display: none; }
+.ctrl-vol-btn.muted .icon-vol-on  { display: none; }
+.ctrl-vol-btn.muted .icon-vol-off { display: block; }
+
+/* Volume slider */
+.ctrl-vol-slider {
+    width: 70px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 2px;
+    cursor: pointer;
+    position: relative;
+    overflow: visible;
+    transition: height 0.2s ease;
+}
+
+.ctrl-vol-slider:hover {
+    height: 6px;
+}
+
+.ctrl-fullscreen {
+    margin-left: 6px;
+}
+
+.ctrl-fullscreen svg {
+    width: 16px;
+    height: 16px;
+}
+
+.ctrl-fullscreen .icon-fs-exit {
+    display: none;
+}
+
+.custom-player.is-fullscreen .ctrl-fullscreen .icon-fs-enter {
+    display: none;
+}
+
+.custom-player.is-fullscreen .ctrl-fullscreen .icon-fs-exit {
+    display: block;
+}
+
+.custom-player:fullscreen,
+.custom-player:-webkit-full-screen {
+    width: 100vw;
+    height: 100vh;
+    aspect-ratio: auto;
+    border-radius: 0;
+    background-color: #000;
+}
+
+.custom-player:fullscreen .player-controls,
+.custom-player:-webkit-full-screen .player-controls {
+    padding: 30px 24px 18px;
+}
+
+.fs-orientation-hint {
+    position: absolute;
+    top: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border-radius: 999px;
+    background: rgba(0, 0, 0, 0.58);
+    border: 1px solid rgba(var(--accent-rgb), 0.35);
+    color: rgba(255, 255, 255, 0.92);
+    font-family: var(--font-sans);
+    font-size: 0.7rem;
+    letter-spacing: 0.01em;
+    z-index: 7;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.fs-orientation-icon {
+    color: var(--accent-color);
+    font-size: 0.95rem;
+    line-height: 1;
+}
+
+.custom-player.show-orientation-hint .fs-orientation-hint {
+    opacity: 1;
+}
+
+.ctrl-vol-fill {
+    height: 100%;
+    width: 80%;
+    background: #fff;
+    border-radius: 2px;
+    pointer-events: none;
+    position: relative;
+}
+
+/* Volume thumb dot */
+.ctrl-vol-fill::after {
+    content: '';
+    position: absolute;
+    right: -4px;
+    top: 50%;
+    transform: translateY(-50%) scale(0);
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 0 4px rgba(255, 255, 255, 0.4);
+    transition: transform 0.2s ease;
+}
+
+.ctrl-vol-slider:hover .ctrl-vol-fill::after {
+    transform: translateY(-50%) scale(1);
+}
+
+/* ── Buffering pulse ── */
+.custom-player.buffering .ctrl-progress-fill {
+    animation: cpBufPulse 1s ease-in-out infinite;
+}
+
+@keyframes cpBufPulse {
+    0%, 100% { opacity: 1; }
+    50%      { opacity: 0.35; }
+}
+
+/* ── Video description ── */
 .video-description {
     padding: 1.2rem 1.5rem;
     font-family: var(--font-serif);
@@ -102,7 +470,7 @@
     color: var(--text-gray);
     line-height: 1.7;
     border-top: 1px solid var(--border-color);
-    background: rgba(var(--secondary-rgb), 0.5);
+    background: var(--card-bg);
 }
 
 .video-description strong {
@@ -110,7 +478,7 @@
     font-weight: 600;
 }
 
-/* Video section title accent */
+/* Title accent */
 #video .section-title::after {
     content: '';
     display: block;
@@ -120,14 +488,54 @@
     margin: 0.6rem auto 0;
 }
 
+/* ── Responsive ── */
 @media (max-width: 768px) {
     .video-section {
-        border-radius: var(--radius-md);
+        border-radius: 14px;
+    }
+
+    .overlay-play-btn {
+        width: 62px;
+        height: 62px;
+    }
+
+    .overlay-play-btn svg {
+        width: 24px;
+        height: 24px;
+    }
+
+    .player-controls {
+        padding: 22px 10px 8px;
+        gap: 6px;
+    }
+
+    .ctrl-btn { width: 30px; height: 30px; }
+    .ctrl-btn svg { width: 15px; height: 15px; }
+    .ctrl-skip-back svg,
+    .ctrl-skip-fwd svg { width: 17px; height: 17px; }
+
+    .ctrl-time {
+        font-size: 0.62rem;
+        min-width: 56px;
+    }
+
+    .ctrl-vol-slider {
+        width: 50px;
+    }
+
+    .ctrl-fullscreen {
+        margin-left: 2px;
     }
 
     .video-description {
         padding: 1rem;
         font-size: 0.85rem;
+    }
+
+    .fs-orientation-hint {
+        top: 10px;
+        padding: 6px 10px;
+        font-size: 0.62rem;
     }
 }
 
