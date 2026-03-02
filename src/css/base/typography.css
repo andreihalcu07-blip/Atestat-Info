@@ -1,5 +1,5 @@
 /**
- * Typography Styles
+ * Typography Styles  
  * Headings, body text, links, code formatting
  */
 
@@ -90,7 +90,7 @@ pre {
 /* Strong & Emphasis */
 strong, b {
     font-weight: 600;
-    color: var(--secondary-color);
+    color: var(--text-light);
 }
 
 em, i {

@@ -1,10 +1,10 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ro">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Lecția 3.3 — Flip-flop și Registre: Memorie Digitală">
-    <meta name="theme-color" content="#0B0F1A">
+    <meta name="theme-color" content="#1B1714">
     <link rel="icon" type="image/x-icon" href="../../../../favicon.ico">
     <title>Lecția 3.3 — Flip-flop — Console Notebook</title>
     <link rel="stylesheet" href="../../../css/production.css">
@@ -149,31 +149,31 @@
                 <h3>Întrebarea 1</h3>
                 <p><strong>Flip-flop cu feedback ține información datorită:</strong></p>
                 <ul class="specs-list"><li>a) Condensatorilor mari</li><li>b) Circuitului cu feedback în stare stabila</li><li>c) Tensiunii VCC constant</li><li>d) Clock-ului regulat</li></ul>
-                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Circuitul cu feedback în stare stabila</strong></p></details>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Circuitul cu feedback în stare stabila</strong></p></details>
             </div>
             <div class="card" style="margin-bottom: 1.5rem;">
                 <h3>Întrebarea 2</h3>
                 <p><strong>Ce face D flip-flop?</strong></p>
                 <ul class="specs-list"><li>a) Memorează valoarea D la flanc clock</li><li>b) Comută alternativ 0-1</li><li>c) Set/Reset după logică</li><li>d) Stochează cu intârziere aleatoare</li></ul>
-                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>a) Memorează valoarea D la flanc clock</strong></p></details>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>a) Memorează valoarea D la flanc clock</strong></p></details>
             </div>
             <div class="card" style="margin-bottom: 1.5rem;">
                 <h3>Întrebarea 3</h3>
                 <p><strong>32 flip-flop-uri în paralel se numesc:</strong></p>
                 <ul class="specs-list"><li>a) Cache line</li><li>b) Registru 32-bit</li><li>c) Memorie RAM</li><li>d) Buffer serial</li></ul>
-                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Registru 32-bit</strong></p></details>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Registru 32-bit</strong></p></details>
             </div>
             <div class="card" style="margin-bottom: 1.5rem;">
                 <h3>Întrebarea 4</h3>
                 <p><strong>JK flip-flop cu J=1 K=1 face:</strong></p>
                 <ul class="specs-list"><li>a) Set Q=1</li><li>b) Reset Q=0</li><li>c) Toggle (schimbă starea)</li><li>d) Nimic (hold)</li></ul>
-                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>c) Toggle (comută starea)</strong></p></details>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>c) Toggle (comută starea)</strong></p></details>
             </div>
             <div class="card" style="margin-bottom: 1.5rem;">
                 <h3>Întrebarea 5</h3>
                 <p><strong>Timing violation = metastabilitate. Ce se întâmplă?</strong></p>
                 <ul class="specs-list"><li>a) Cicle pierdute</li><li>b) Flip-flop ia stare nedefinita, output oscilează, calcule eronate</li><li>c) Clock se opreste</li><li>d) Nevoie de reboot</li></ul>
-                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Flip-flop în stare nedefinita, oscilație, erori</strong> — Very serious!</p></details>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Flip-flop în stare nedefinita, oscilație, erori</strong> — Very serious!</p></details>
             </div>
         </div>
     </section>
@@ -185,7 +185,7 @@
                 <h3>🧠 Exercițiu: Registru 4-bit SRAM</h3>
                 <p><strong>Cerință:</strong> Simulează 4 D flip-flop-uri. Input = 1010 binar, Clock = 1. Memoreaza.</p>
                 <ol class="specs-list"><li>Înainte: Q3 Q2 Q1 Q0 = 0000 (neinițializat)</li><li>Setup: D3 D2 D1 D0 = 1010</li><li>Clock tick: Flip-flop-uri captează → Q3 Q2 Q1 Q0 = 1010 memorat</li><li>Clock inactiv: Data la D se schimbă. Q rămâne 1010.</li><li>Ciclu următor: Input = 0101. Clock tick: Q = 0101 (nou memorat)</li></ol>
-                <details style="margin-top: 1.5rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată rezolvarea</summary><div style="margin-top: 1rem;">
+                <details style="margin-top: 1.5rem;"><summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată rezolvarea</summary><div style="margin-top: 1rem;">
                     <p><strong>Simulare 4-bit D Flip-flop Registry:</strong></p>
                     <ul class="specs-list">
                         <li>Initial: Q = 0000 (unknown/reset)</li>

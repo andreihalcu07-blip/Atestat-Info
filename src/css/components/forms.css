@@ -22,7 +22,7 @@ textarea,
 select {
     width: 100%;
     padding: 0.7rem;
-    background: rgba(var(--secondary-rgb), 0.08);
+    background: var(--card-bg);
     border: 1px solid var(--border-color);
     border-radius: var(--radius-sm);
     color: var(--text-light);
@@ -35,9 +35,9 @@ input:focus,
 textarea:focus,
 select:focus {
     outline: none;
-    border-color: var(--primary-color);
-    background: rgba(var(--secondary-rgb), 0.12);
-    box-shadow: 0 0 0 3px rgba(var(--secondary-rgb), 0.18);
+    border-color: var(--accent-color);
+    background: var(--secondary-color);
+    box-shadow: 0 0 0 3px rgba(212, 175, 122, 0.1);
 }
 
 textarea {

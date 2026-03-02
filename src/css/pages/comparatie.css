@@ -60,7 +60,7 @@
 }
 
 .selector-box:hover {
-    border-color: rgba(91, 164, 230, 0.3);
+    border-color: rgba(212, 175, 122, 0.3);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
 }
 
@@ -80,7 +80,7 @@
     justify-content: center;
     width: 28px;
     height: 28px;
-    background: linear-gradient(135deg, var(--accent-color), #3d8fd1);
+    background: linear-gradient(135deg, var(--accent-color), var(--accent-light));
     border-radius: 8px;
     font-size: 0.9rem;
     font-weight: 700;
@@ -99,24 +99,24 @@
     cursor: pointer;
     transition: all 0.2s ease;
     appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%235BA4E6' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23D4AF7A' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: right 1rem center;
     padding-right: 2.5rem;
 }
 
 .console-select:hover {
-    border-color: rgba(91, 164, 230, 0.4);
+    border-color: rgba(212, 175, 122, 0.4);
 }
 
 .console-select:focus {
     outline: none;
     border-color: var(--accent-color);
-    box-shadow: 0 0 0 3px rgba(91, 164, 230, 0.15);
+    box-shadow: 0 0 0 3px rgba(212, 175, 122, 0.15);
 }
 
 .console-select option {
-    background: #1a2233;
+    background: #2A2320;
     color: var(--text-light);
     padding: 0.5rem;
 }
@@ -124,7 +124,7 @@
 .console-select optgroup {
     font-weight: 600;
     color: var(--accent-color);
-    background: #0f1729;
+    background: #1B1714;
 }
 
 .selector-vs {
@@ -139,8 +139,8 @@
     justify-content: center;
     width: 36px;
     height: 36px;
-    background: linear-gradient(135deg, rgba(91, 164, 230, 0.2), rgba(91, 164, 230, 0.05));
-    border: 2px solid rgba(91, 164, 230, 0.3);
+    background: linear-gradient(135deg, rgba(212, 175, 122, 0.2), rgba(212, 175, 122, 0.05));
+    border: 2px solid rgba(212, 175, 122, 0.3);
     border-radius: 50%;
     font-size: 0.85rem;
     font-weight: 700;
@@ -214,7 +214,7 @@
 .console-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
-    border-color: rgba(91, 164, 230, 0.3);
+    border-color: rgba(212, 175, 122, 0.3);
 }
 
 .console-card-image {
@@ -267,8 +267,8 @@
 
 .meta-tag {
     padding: 0.35rem 0.75rem;
-    background: rgba(91, 164, 230, 0.1);
-    border: 1px solid rgba(91, 164, 230, 0.2);
+    background: rgba(212, 175, 122, 0.1);
+    border: 1px solid rgba(212, 175, 122, 0.2);
     border-radius: 8px;
     font-size: 0.85rem;
     color: var(--accent-color);
@@ -287,12 +287,12 @@
     justify-content: center;
     width: 60px;
     height: 60px;
-    background: linear-gradient(135deg, var(--accent-color), #3d8fd1);
+    background: linear-gradient(135deg, var(--accent-color), var(--accent-light));
     border-radius: 50%;
     font-size: 1.25rem;
     font-weight: 800;
     color: white;
-    box-shadow: 0 4px 20px rgba(91, 164, 230, 0.4);
+    box-shadow: 0 4px 20px rgba(212, 175, 122, 0.4);
 }
 
 /* === SPECS COMPARISON === */

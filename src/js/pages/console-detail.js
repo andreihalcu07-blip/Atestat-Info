@@ -171,6 +171,7 @@ function renderSpecs(consola) {
 /**
  * Render the Istorie section dynamically from JSON
  * Inserted between hero and specs sections
+ * Normalizes both Pattern A (\n\n) and Pattern B (<br><br>) formats
  */
 function renderHistory(consola) {
     // Ensure we have a reference point: place before .specs-section
@@ -189,23 +190,44 @@ function renderHistory(consola) {
     }
 
     const container = historySection.querySelector('.container');
-    // Section title
     const titleHtml = '<h2 class="section-title">Istorie</h2>';
 
-    // History content (do not add example text if empty)
     let historyHtml = '';
     if (consola.istorie && String(consola.istorie).trim()) {
-        // Split by double newlines for paragraphs, then replace single newlines with <br>
-        const paragraphs = String(consola.istorie).split('\n\n').map(p => {
-            return '<p>' + p.replace(/\n/g, '<br>') + '</p>';
+        let text = String(consola.istorie);
+
+        // Normalize: convert <br><br> to \n\n so both patterns split the same way
+        text = text.replace(/<br\s*\/?>\s*<br\s*\/?>/gi, '\n\n');
+        // Convert remaining <br> to \n
+        text = text.replace(/<br\s*\/?>/gi, '\n');
+
+        // Split into paragraphs by double newline
+        const blocks = text.split('\n\n').filter(b => b.trim());
+
+        const rendered = blocks.map(block => {
+            // Check if block is a <strong> heading (Pattern B)
+            const strongMatch = block.trim().match(/^<strong>(.*?)<\/strong>$/i);
+            if (strongMatch) {
+                return `<h3 class="history-heading">${strongMatch[1]}</h3>`;
+            }
+
+            // Check if block is a short heading line (Pattern A): 
+            // short text (< 80 chars), no period, looks like a title
+            const trimmed = block.trim();
+            if (trimmed.length < 80 && !trimmed.includes('.') && !trimmed.includes('<') && /^[A-ZĂÂÎȘȚ]/.test(trimmed)) {
+                return `<h3 class="history-heading">${trimmed}</h3>`;
+            }
+
+            // Regular paragraph - replace single \n with <br>
+            return '<p>' + trimmed.replace(/\n/g, '<br>') + '</p>';
         }).join('');
-        historyHtml = `<div class="history-content">${paragraphs}</div>`;
+
+        historyHtml = `<div class="history-content">${rendered}</div>`;
     } else {
         historyHtml = '<div class="history-content"></div>';
     }
-    const content = historyHtml;
 
-    container.innerHTML = titleHtml + content;
+    container.innerHTML = titleHtml + historyHtml;
 }
 
 /**

@@ -1,36 +1,35 @@
 /**
- * Card Component - Glassmorphism Style
+ * Card Component - Refined Documentary Style
  */
 
 .card {
-    /* Glass effect */
-    background: rgba(255, 255, 255, 0.03);
-    -webkit-backdrop-filter: blur(12px);
-    backdrop-filter: blur(12px);
+    /* Warm background */
+    background: var(--card-bg);
     
     /* Subtle border */
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    border: 1px solid var(--border-color);
     border-radius: 20px;
     
-    /* Spacing */
-    padding: 2rem;
+    /* Generous spacing */
+    padding: 2.5rem;
     
-    /* Soft shadow */
+    /* Documentary shadow */
     box-shadow: 
-        0 4px 24px rgba(0, 0, 0, 0.12),
-        inset 0 1px 0 rgba(255, 255, 255, 0.04);
+        0 4px 24px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.02);
     
     transition: all 0.3s ease;
     position: relative;
 }
 
 .card:hover {
-    background: rgba(255, 255, 255, 0.05);
-    border-color: rgba(255, 255, 255, 0.1);
+    background: var(--card-bg);
+    border-color: rgba(212, 175, 122, 0.2);
     transform: translateY(-6px);
     box-shadow: 
-        0 20px 60px rgba(0, 0, 0, 0.28),
-        inset 0 1px 0 rgba(255, 255, 255, 0.06);
+        0 20px 60px rgba(0, 0, 0, 0.5),
+        0 0 30px rgba(212, 175, 122, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.03);
 }
 
 .card h3 {
@@ -61,28 +60,40 @@
     padding: var(--spacing-xs) 0;
     color: var(--text-gray);
     line-height: 1.6;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    border-bottom: 1px solid var(--border-color);
 }
 
 .card ul li:last-child {
     border-bottom: none;
 }
 
-/* Card Variants - Colored accent */
+/* Card links - visible gold accent */
+.card a:not(.demo-button):not(.btn):not(.hero-button):not(.quiz-retry-btn) {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+.card a:not(.demo-button):not(.btn):not(.hero-button):not(.quiz-retry-btn):hover {
+    color: var(--accent-light);
+    opacity: 1;
+}
+
+/* Card Variants - Gold accent */
 .card.physics-card {
-    border-left: 3px solid rgba(91, 164, 230, 0.5);
+    border-left: 3px solid rgba(212, 175, 122, 0.5);
 }
 
 .card.physics-card:hover {
-    border-left-color: rgba(91, 164, 230, 0.8);
+    border-left-color: var(--accent-color);
 }
 
 .card.cs-card {
-    border-left: 3px solid rgba(126, 188, 240, 0.5);
+    border-left: 3px solid rgba(212, 175, 122, 0.5);
 }
 
 .card.cs-card:hover {
-    border-left-color: rgba(126, 188, 240, 0.8);
+    border-left-color: rgba(212, 175, 122, 0.8);
 }
 
 /* Card Grid */

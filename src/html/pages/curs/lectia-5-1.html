@@ -1,10 +1,10 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ro">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Lecția 5.1 — Placa de bază (PCB): Anatomia fizică">
-    <meta name="theme-color" content="#0B0F1A">
+    <meta name="theme-color" content="#1B1714">
     <link rel="icon" type="image/x-icon" href="../../../../favicon.ico">
     <title>Lecția 5.1 — Placa de bază — Console Notebook</title>
     <link rel="stylesheet" href="../../../css/production.css">
@@ -149,31 +149,31 @@
                 <h3>Întrebarea 1</h3>
                 <p><strong>De ce PCB are planuri GND?</strong></p>
                 <ul class="specs-list"><li>a) Să mărească rezistența</li><li>b) Să ofere referință și return path pentru semnale</li><li>c) Să reducă numărul de straturi</li><li>d) Să crească EMI</li></ul>
-                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Referință și return path</strong></p></details>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Referință și return path</strong></p></details>
             </div>
             <div class="card" style="margin-bottom: 1.5rem;">
                 <h3>Întrebarea 2</h3>
                 <p><strong>PCIe/HDMI necesită:</strong></p>
                 <ul class="specs-list"><li>a) Trasee groase fără control</li><li>b) Impedanță controlată și lungimi potrivite</li><li>c) Doar GND plane</li><li>d) O singură via</li></ul>
-                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Impedanță controlată</strong></p></details>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Impedanță controlată</strong></p></details>
             </div>
             <div class="card" style="margin-bottom: 1.5rem;">
                 <h3>Întrebarea 3</h3>
                 <p><strong>Via fracture produce:</strong></p>
                 <ul class="specs-list"><li>a) Pornire mai rapidă</li><li>b) Intermitențe și no power</li><li>c) FPS mai mare</li><li>d) Consum redus</li></ul>
-                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Intermitențe</strong></p></details>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Intermitențe</strong></p></details>
             </div>
             <div class="card" style="margin-bottom: 1.5rem;">
                 <h3>Întrebarea 4</h3>
                 <p><strong>Ce este back-drilling?</strong></p>
                 <ul class="specs-list"><li>a) Gaură pentru șurub</li><li>b) Eliminarea stubs din vias</li><li>c) Curățare solder mask</li><li>d) Tăiere PCB</li></ul>
-                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Eliminarea stubs</strong></p></details>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Eliminarea stubs</strong></p></details>
             </div>
             <div class="card" style="margin-bottom: 1.5rem;">
                 <h3>Întrebarea 5</h3>
                 <p><strong>Material PCB tipic?</strong></p>
                 <ul class="specs-list"><li>a) Aluminiu</li><li>b) FR-4</li><li>c) Cupru pur</li><li>d) Plastic ABS</li></ul>
-                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) FR-4</strong></p></details>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) FR-4</strong></p></details>
             </div>
         </div>
     </section>
@@ -185,7 +185,7 @@
                 <h3>🧠 Exercițiu: Matching HDMI Traces</h3>
                 <p><strong>Cerință:</strong> Ai două trasee HDMI diferențiale. Lungime A = 25 mm, lungime B = 27 mm. Viteza semnalului ~15 cm/ns. Care e skew?</p>
                 <ol class="specs-list"><li>Diferența de lungime (mm)</li><li>Diferența de timp (ns)</li><li>Este acceptabil pentru 4K 120Hz?</li></ol>
-                <details style="margin-top: 1.5rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată rezolvarea</summary><div style="margin-top: 1rem;">
+                <details style="margin-top: 1.5rem;"><summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată rezolvarea</summary><div style="margin-top: 1rem;">
                     <p><strong>1.</strong> Diferență = 2 mm.</p>
                     <p><strong>2.</strong> Viteza = 150 mm/ns. Timp = 2 / 150 = 0.0133 ns = 13.3 ps.</p>
                     <p><strong>3.</strong> HDMI 2.1 toleranță tipic &lt; 20 ps. 13.3 ps = acceptabil, dar aproape de limită.</p>

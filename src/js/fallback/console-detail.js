@@ -183,9 +183,51 @@
         }
     ];
 
+    function renderHistory(consola) {
+        var specsSection = document.querySelector('.specs-section');
+        if (!specsSection) return;
+
+        var historySection = document.querySelector('.history-section');
+        if (!historySection) {
+            historySection = document.createElement('section');
+            historySection.className = 'section history-section';
+            var inner = document.createElement('div');
+            inner.className = 'container';
+            historySection.appendChild(inner);
+            specsSection.parentNode.insertBefore(historySection, specsSection);
+        }
+
+        var container = historySection.querySelector('.container');
+        var titleHtml = '<h2 class="section-title">Istorie</h2>';
+        var historyHtml = '';
+
+        if (consola.istorie && String(consola.istorie).trim()) {
+            var text = String(consola.istorie);
+            text = text.replace(/<br\s*\/?>\s*<br\s*\/?>/gi, '\n\n');
+            text = text.replace(/<br\s*\/?>/gi, '\n');
+
+            var blocks = text.split('\n\n').filter(function(b) { return b.trim(); });
+            var rendered = blocks.map(function(block) {
+                var trimmed = block.trim();
+                var strongMatch = trimmed.match(/^<strong>(.*?)<\/strong>$/i);
+                if (strongMatch) {
+                    return '<h3 class="history-heading">' + strongMatch[1] + '</h3>';
+                }
+                if (trimmed.length < 80 && trimmed.indexOf('.') === -1 && trimmed.indexOf('<') === -1 && /^[A-Z\u0102\u00C2\u00CE\u0218\u021A]/.test(trimmed)) {
+                    return '<h3 class="history-heading">' + trimmed + '</h3>';
+                }
+                return '<p>' + trimmed.replace(/\n/g, '<br>') + '</p>';
+            }).join('');
+
+            historyHtml = '<div class="history-content">' + rendered + '</div>';
+        } else {
+            historyHtml = '<div class="history-content"></div>';
+        }
+
+        container.innerHTML = titleHtml + historyHtml;
+    }
+
     function renderHero(consola) {
-        var h1 = document.querySelector('.console-hero-text h1');
-        if (h1) h1.textContent = consola.nume;
 
         var meta = document.querySelector('.console-hero-text .console-meta');
         if (meta) {
@@ -311,6 +353,7 @@
                     return;
                 }
                 renderHero(consola);
+                renderHistory(consola);
                 renderSpecs(consola);
             })
             .catch(function (err) {

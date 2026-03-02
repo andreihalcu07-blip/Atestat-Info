@@ -1,10 +1,10 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ro">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Lecția 7.5 — Memorie și bandwidth ca limitare de performanță">
-    <meta name="theme-color" content="#0B0F1A">
+    <meta name="theme-color" content="#1B1714">
     <link rel="icon" type="image/x-icon" href="../../../../favicon.ico">
     <title>Lecția 7.5 — Memorie și Bandwidth — Console Notebook</title>
     <link rel="stylesheet" href="../../../css/production.css">
@@ -352,7 +352,7 @@
                     <li>d) Capacitatea totală de memorie în GB</li>
                 </ul>
                 <details style="margin-top: 1rem;">
-                    <summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary>
+                    <summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary>
                     <p style="margin-top: 0.5rem;"><strong>b) Rata de transfer de date, măsurată în GB/s</strong> — Bandwidth = cât de mult (GB) pe secundă.</p>
                 </details>
             </div>
@@ -368,7 +368,7 @@
                     <li>d) Deoarece latența scade dramatic</li>
                 </ul>
                 <details style="margin-top: 1rem;">
-                    <summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary>
+                    <summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary>
                     <p style="margin-top: 0.5rem;"><strong>b) Deoarece CPU și-a folosit puterea maximă până ce memoria nu mai țineți pasul</strong> — E o semn că software-ul e bine optimizat; CPU-ul nu stă idle.</p>
                 </details>
             </div>
@@ -384,7 +384,7 @@
                     <li>d) 560 GB/s</li>
                 </ul>
                 <details style="margin-top: 1rem;">
-                    <summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary>
+                    <summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary>
                     <p style="margin-top: 0.5rem;"><strong>c) 448 GB/s</strong> — PS5 folosește GDDR6C (versiune extinsă); cel mai ridicat bandwidth pentru memorie de consum gaming.</p>
                 </details>
             </div>
@@ -400,7 +400,7 @@
                     <li>d) Spatial e permanent; Temporal e temporar</li>
                 </ul>
                 <details style="margin-top: 1rem;">
-                    <summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary>
+                    <summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary>
                     <p style="margin-top: 0.5rem;"><strong>b) Spatial = date consecutive; Temporal = data refolosită în scurt timp</strong> — Ambele țelevize ajută hardware prefetch și cache efficiency.</p>
                 </details>
             </div>
@@ -416,7 +416,7 @@
                     <li>d) 448 GB/s (maxim)</li>
                 </ul>
                 <details style="margin-top: 1rem;">
-                    <summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary>
+                    <summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary>
                     <p style="margin-top: 0.5rem;"><strong>b) 150-200 GB/s</strong> — Framebuffer + texturile + geometrie + post-processing. PS5 cu 448 GB/s poate confortabil gestiona chiar și ray-tracing partial.</p>
                 </details>
             </div>
@@ -444,7 +444,7 @@
                     <li>5. Ce e compression ratio-ul. Cum poate compresiunea texture-urilor reduce necesarul de bandwidth?</li>
                 </ul>
                 <details style="margin-top: 1.5rem;">
-                    <summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată rezolvarea</summary>
+                    <summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată rezolvarea</summary>
                     <div style="margin-top: 1rem;">
                         <p><strong>1.</strong> 4000×4000 × 12 bytes × 60 fps = 11.52 GB/s. Asta e ~2.6% din capacitate PS5 de 448 GB/s. E multă ram disponibil!</p>
                         <p><strong>2.</strong> Latență 100 ns per acces. Pentru 4000×4000×3 = 48 milioni accuse. Dacă fiecare e serial, 48M × 100ns = 4.8 secunde. Dar în realitate, am multi-threadsit, so latency hiding cu pipelining. Dar e o ilustrare.</p>

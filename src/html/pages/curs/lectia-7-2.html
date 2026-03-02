@@ -1,10 +1,10 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ro">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Lecția 7.2 — FPS și bottleneck: CPU-bound vs GPU-bound">
-    <meta name="theme-color" content="#0B0F1A">
+    <meta name="theme-color" content="#1B1714">
     <link rel="icon" type="image/x-icon" href="../../../../favicon.ico">
     <title>Lecția 7.2 — FPS și Bottleneck — Console Notebook</title>
     <link rel="stylesheet" href="../../../css/production.css">
@@ -143,31 +143,31 @@
                 <h3>Întrebarea 1</h3>
                 <p><strong>GPU usage 40% și FPS mic indică:</strong></p>
                 <ul class="specs-list"><li>a) GPU-bound</li><li>b) CPU-bound</li><li>c) SSD-bound</li><li>d) RAM-only</li></ul>
-                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) CPU-bound</strong></p></details>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) CPU-bound</strong></p></details>
             </div>
             <div class="card" style="margin-bottom: 1.5rem;">
                 <h3>Întrebarea 2</h3>
                 <p><strong>Frame time pentru 60 FPS:</strong></p>
                 <ul class="specs-list"><li>a) 8.3 ms</li><li>b) 16.67 ms</li><li>c) 33 ms</li><li>d) 5 ms</li></ul>
-                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) 16.67 ms</strong></p></details>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) 16.67 ms</strong></p></details>
             </div>
             <div class="card" style="margin-bottom: 1.5rem;">
                 <h3>Întrebarea 3</h3>
                 <p><strong>Reducerea rezoluției ajută când:</strong></p>
                 <ul class="specs-list"><li>a) CPU-bound</li><li>b) GPU-bound</li><li>c) PSU-bound</li><li>d) Update-bound</li></ul>
-                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) GPU-bound</strong></p></details>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) GPU-bound</strong></p></details>
             </div>
             <div class="card" style="margin-bottom: 1.5rem;">
                 <h3>Întrebarea 4</h3>
                 <p><strong>Draw calls multe afectează:</strong></p>
                 <ul class="specs-list"><li>a) GPU only</li><li>b) CPU overhead</li><li>c) RAM only</li><li>d) SSD</li></ul>
-                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) CPU overhead</strong></p></details>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) CPU overhead</strong></p></details>
             </div>
             <div class="card" style="margin-bottom: 1.5rem;">
                 <h3>Întrebarea 5</h3>
                 <p><strong>Bottleneck =</strong></p>
                 <ul class="specs-list"><li>a) Componenta cea mai rapidă</li><li>b) Componenta cea mai lentă</li><li>c) Orice componentă</li><li>d) RAM only</li></ul>
-                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Componenta cea mai lentă</strong></p></details>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Componenta cea mai lentă</strong></p></details>
             </div>
         </div>
     </section>
@@ -178,7 +178,7 @@
             <div class="card" style="margin-bottom: 2rem;">
                 <h3>🧠 Exercițiu: Identificare Bottleneck</h3>
                 <p><strong>Cerință:</strong> GPU 99%, CPU 35%, FPS 30. Ce faci pentru 60 FPS?</p>
-                <details style="margin-top: 1.5rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată rezolvarea</summary><div style="margin-top: 1rem;">
+                <details style="margin-top: 1.5rem;"><summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată rezolvarea</summary><div style="margin-top: 1rem;">
                     <p>Este GPU-bound. Reduci rezoluția, calitatea shadow/lighting, sau optimizezi shader-ele.</p>
                 </div></details>
             </div>

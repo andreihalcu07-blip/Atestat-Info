@@ -1,10 +1,10 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ro">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Lecția 2.1 — Rezistențe și Condensatori: Componentele Fundamentale">
-    <meta name="theme-color" content="#0B0F1A">
+    <meta name="theme-color" content="#1B1714">
     <link rel="icon" type="image/x-icon" href="../../../../favicon.ico">
     <title>Lecția 2.1 — Rezistențe și Condensatori — Console Notebook</title>
     <link rel="stylesheet" href="../../../css/production.css">
@@ -89,7 +89,7 @@
                 <p>
                     <strong>Condensator:</strong> Depoziteaza energie în câmp electric între două plăci conductoare.
                 </p>
-                <p style="text-align: center; font-weight: 600; margin: 1rem 0; color: #5ba4e6;">
+                <p style="text-align: center; font-weight: 600; margin: 1rem 0; color: var(--accent-color);">
                     Q = C × V
                 </p>
                 <ul class="specs-list">
@@ -142,7 +142,7 @@
                 <p>
                     Odată cu frecvența, impedanța condensatorului scade. Formula:
                 </p>
-                <p style="text-align: center; font-weight: 600; margin: 1rem 0; color: #5ba4e6;">
+                <p style="text-align: center; font-weight: 600; margin: 1rem 0; color: var(--accent-color);">
                     X_C = 1 / (2 × π × f × C)
                 </p>
                 <ul class="specs-list">
@@ -310,7 +310,7 @@
                     <li>d) Ambii permit doar DC</li>
                 </ul>
                 <details style="margin-top: 1rem;">
-                    <summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary>
+                    <summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary>
                     <p style="margin-top: 0.5rem;"><strong>b) Rezistor disipă căldură, condensator stochează energie</strong> — Rezistor = disipare, condensator = stocare.</p>
                 </details>
             </div>
@@ -325,7 +325,7 @@
                     <li>d) Blochează ambele</li>
                 </ul>
                 <details style="margin-top: 1rem;">
-                    <summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary>
+                    <summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary>
                     <p style="margin-top: 0.5rem;"><strong>b) Permite AC, blochează DC</strong> — AC curge prin după ce se încarcă; DC se oprește.</p>
                 </details>
             </div>
@@ -340,7 +340,7 @@
                     <li>d) ESR = voltaj maxim</li>
                 </ul>
                 <details style="margin-top: 1rem;">
-                    <summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary>
+                    <summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary>
                     <p style="margin-top: 0.5rem;"><strong>b) ESR = rezistență seriei în condensator, mic = mai bun</strong> — ESR mare = cădere de tensiune pe condensator, pierdere filtrare.</p>
                 </details>
             </div>
@@ -355,7 +355,7 @@
                     <li>d) Nu e important în console</li>
                 </ul>
                 <details style="margin-top: 1rem;">
-                    <summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary>
+                    <summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary>
                     <p style="margin-top: 0.5rem;"><strong>b) Decocuplare = furnizează curent rapid, condensatori absorb și emit</strong> — "Tank effect" = mii de condensatori stochează și livrează instant.</p>
                 </details>
             </div>
@@ -370,7 +370,7 @@
                     <li>d) Depinde de voltaj</li>
                 </ul>
                 <details style="margin-top: 1rem;">
-                    <summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary>
+                    <summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary>
                     <p style="margin-top: 0.5rem;"><strong>c) Scade cu frecvența</strong> — X_C = 1/(2πfC); mai mare f = mai mic X_C. La înaltă frecvență, condensator e practic scurtcircuit.</p>
                 </details>
             </div>
@@ -402,7 +402,7 @@
                     <li>5. Dacă un condensator din cei 100 de 10µF defectos, are capacitate 0, cum se schimbă ESR total?</li>
                 </ul>
                 <details style="margin-top: 1.5rem;">
-                    <summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată rezolvarea</summary>
+                    <summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată rezolvarea</summary>
                     <div style="margin-top: 1rem;">
                         <p><strong>1. ESR paralel:</strong> 1/ESR_total = 1/2mΩ × N, deci ESR_total = 2mΩ / N. Pentru ESR_total = 0.5mΩ: N = 2mΩ / 0.5mΩ = <strong>4 condensatori minimum</strong> (cu 100 = 0.02mΩ, excellent).</p>
                         <p><strong>2. Cădere tensiune:</strong> ΔQ = 90A × 1µs = 90µC. ΔV = ΔQ/C = 90µC / 1000µF = 0.09V = <strong>90mV</strong>. Prea mult! (Limita 50mV)</p>

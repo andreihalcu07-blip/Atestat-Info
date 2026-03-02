@@ -1,10 +1,10 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ro">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Lecția 4.2 — GPU: Geometrie, Shadere și Pixeli">
-    <meta name="theme-color" content="#0B0F1A">
+    <meta name="theme-color" content="#1B1714">
     <link rel="icon" type="image/x-icon" href="../../../../favicon.ico">
     <title>Lecția 4.2 — GPU — Console Notebook</title>
     <link rel="stylesheet" href="../../../css/production.css">
@@ -152,31 +152,31 @@
                 <h3>Întrebarea 1</h3>
                 <p><strong>GPU vs CPU: GPU especializa în:</strong></p>
                 <ul class="specs-list"><li>a) Instrucțiuni singulare rapid</li><li>b) Paralelismul masiv de mii calcule</li><li>c) Integer arithmetic</li><li>d) Subroutine calls</li></ul>
-                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Paralelismul masiv</strong></p></details>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Paralelismul masiv</strong></p></details>
             </div>
             <div class="card" style="margin-bottom: 1.5rem;">
                 <h3>Întrebarea 2</h3>
                 <p><strong>Vertex shader lanseaza 1 shader per:</strong></p>
                 <ul class="specs-list"><li>a) Pixel</li><li>b) Vertex</li><li>c) Triangle</li><li>d) Frame</li></ul>
-                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Vertex</strong></p></details>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Vertex</strong></p></details>
             </div>
             <div class="card" style="margin-bottom: 1.5rem;">
                 <h3>Întrebarea 3</h3>
                 <p><strong>Wavy (warp) = thread-uri. PS5 per CU?</strong></p>
                 <ul class="specs-list"><li>a) 32</li><li>b) 64</li><li>c) 256</li><li>d) 2304</li></ul>
-                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) 64</strong> — Per wave. 36 CU × 64 = 2304 total.</p></details>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) 64</strong> — Per wave. 36 CU × 64 = 2304 total.</p></details>
             </div>
             <div class="card" style="margin-bottom: 1.5rem;">
                 <h3>Întrebarea 4</h3>
                 <p><strong>PS5 GPU TFLOPS?</strong></p>
                 <ul class="specs-list"><li>a) 4.2</li><li>b) 8.5</li><li>c) 10.28</li><li>d) 15</li></ul>
-                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>c) 10.28 TFLOPS</strong></p></details>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>c) 10.28 TFLOPS</strong></p></details>
             </div>
             <div class="card" style="margin-bottom: 1.5rem;">
                 <h3>Întrebarea 5</h3>
                 <p><strong>4K (3840×2160) vs 1080p (1920×1080) pixeli ratio?</strong></p>
                 <ul class="specs-list"><li>a) 2×</li><li>b) 3×</li><li>c) 4×</li><li>d) 9×</li></ul>
-                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>c) 4× (3840/1920 × 2160/1080 = 2×2 = 4×)</strong></p></details>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>c) 4× (3840/1920 × 2160/1080 = 2×2 = 4×)</strong></p></details>
             </div>
         </div>
     </section>
@@ -188,7 +188,7 @@
                 <h3>🧠 Exercițiu: Shader Throughput Analiza</h3>
                 <p><strong>Cerință:</strong> Fragment shader: 300 instrucțiuni (float, ALU, texture lookups). Fiecare lookup latență 4 ciclu. Clock 1 GHz (GPU = slower ALU, latenci masqué).</p>
                 <ol class="specs-list"><li>Instrucțiuni critical path (latență dominator)?</li><li>Waveleți necesare pentru hide latență texture (4 ciclu)?</li><li>Throughput pixel/sec dacă 64 waveleți per CU, 36 CU?</li></ol>
-                <details style="margin-top: 1.5rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată rezolvarea</summary><div style="margin-top: 1rem;">
+                <details style="margin-top: 1.5rem;"><summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată rezolvarea</summary><div style="margin-top: 1rem;">
                     <p><strong>1. Critical path:</strong> Texture lookup = 4 ciclu dominator. ALU e mai rapid (1-2 ciclu). Optimal: launch next wavelet cand current waitem.</p>
                     <p><strong>2. Waveleți hide latență:</strong> 4 ciclu latență / (1 ciclu per ALU) = need 4 waveleți în flight (simplice). Real cu dependencies: 8-16 waveleți.</p>
                     <p><strong>3. Throughput:</strong> 64 waveleți per CU × 36 CU = 2304 thread-uri simultane. Daca fiecare shader = 10 ciclu latență (texture 4 + ALU 6), throughput = 2304 × 100 MHz = 230 mpixel/sec.</p>

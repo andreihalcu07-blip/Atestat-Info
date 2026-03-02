@@ -1,10 +1,10 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ro">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Lecția 3.5 — Construcția Logică a unui Procesor: ALU și Control">
-    <meta name="theme-color" content="#0B0F1A">
+    <meta name="theme-color" content="#1B1714">
     <link rel="icon" type="image/x-icon" href="../../../../favicon.ico">
     <title>Lecția 3.5 — Construcția CPU — Console Notebook</title>
     <link rel="stylesheet" href="../../../css/production.css">
@@ -158,31 +158,31 @@
                 <h3>Întrebarea 1</h3>
                 <p><strong>ALU primește operanzi din:</strong></p>
                 <ul class="specs-list"><li>a) Direct din memorie RAM</li><li>b) Register file (SRAM)</li><li>c) Cache L3</li><li>d) Constantă în instrucție</li></ul>
-                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Register file</strong> — Citire latență 1 ciclu vs RAM 100+ cicli. ALU trebuie rapid.</p></details>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Register file</strong> — Citire latență 1 ciclu vs RAM 100+ cicli. ALU trebuie rapid.</p></details>
             </div>
             <div class="card" style="margin-bottom: 1.5rem;">
                 <h3>Întrebarea 2</h3>
                 <p><strong>Instrucție decoder decodează OpCode în:</strong></p>
                 <ul class="specs-list"><li>a) Binary valoare 0/1</li><li>b) Control semnale (ALU opcode, registru selectori, memory R/W)</li><li>c) CPU frecvență</li><li>d) Temperatura target</li></ul>
-                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Control semnale</strong> — OpCode → microcode</p></details>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Control semnale</strong> — OpCode → microcode</p></details>
             </div>
             <div class="card" style="margin-bottom: 1.5rem;">
                 <h3>Întrebarea 3</h3>
                 <p><strong>Pipeline latență pentru MOV: Fetch, Decode, Execute, Memory, Writeback = ? cicli?</strong></p>
                 <ul class="specs-list"><li>a) 1</li><li>b) 3</li><li>c) 5</li><li>d) 10</li></ul>
-                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>c) 5 cicli</strong> — Pe ciclu per stage</p></details>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>c) 5 cicli</strong> — Pe ciclu per stage</p></details>
             </div>
             <div class="card" style="margin-bottom: 1.5rem;">
                 <h3>Întrebarea 4</h3>
                 <p><strong>Pipeline dă throughput 1 instrucție/ciclu dacă:</strong></p>
                 <ul class="specs-list"><li>a) Fără data hazard, branches, cache misses</li><li>b) ALU e super rapid</li><li>c) Register file are 128 biți</li><li>d) Clock &gt; 5 GHz</li></ul>
-                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>a) Fără hazard-uri sau cache misses</strong> — Ideally perfect, impossible real.</p></details>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>a) Fără hazard-uri sau cache misses</strong> — Ideally perfect, impossible real.</p></details>
             </div>
             <div class="card" style="margin-bottom: 1.5rem;">
                 <h3>Întrebarea 5</h3>
                 <p><strong>Branch misprediction penalty:</strong></p>
                 <ul class="specs-list"><li>a) 1 ciclu</li><li>b) 3 ciclu</li><li>c) 10-15 ciclu (pipeline flush)</li><li>d) Program crash</li></ul>
-                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>c) 10-15 ciclu</strong> — Pipeline flush când predict greș</p></details>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>c) 10-15 ciclu</strong> — Pipeline flush când predict greș</p></details>
             </div>
         </div>
     </section>
@@ -194,7 +194,7 @@
                 <h3>🧠 Exercițiu: Performance Calculation cu Pipeline</h3>
                 <p><strong>Cerință:</strong> PS5 3.5 GHz. 4 instrucțiuni pipeline stages. 1% cache miss rate (latență 200 ciclu) și 5% branch misprediction rate (latență 10 ciclu).</p>
                 <ol class="specs-list"><li>Calculează ciclu mediu per instrucție (CPI) fără hazard-uri</li><li>Calculează impact cache misses pe CPI</li><li>Calculează impact branch mispredictions pe CPI</li><li>Total CPI cu hazard-uri</li><li>IPC (instrucțiuni per ciclu) și throughput instrucțional</li></ol>
-                <details style="margin-top: 1.5rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată rezolvarea</summary><div style="margin-top: 1rem;">
+                <details style="margin-top: 1.5rem;"><summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată rezolvarea</summary><div style="margin-top: 1rem;">
                     <p><strong>1. Base CPI (fără hazarduri):</strong> 1 ciclu per instrucție (pipeline perfect).</p>
                     <p><strong>2. Cache miss impact:</strong> 1% instruc miss → 0.01 × (200 ciclu penalty per miss) = 2 ciclu penalty mediu.</p>
                     <p><strong>3. Branch misprediction impact:</strong> 5% misprediction rate × 10 ciclu penalty = 0.5 ciclu penalty mediu.</p>

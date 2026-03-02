@@ -1,10 +1,10 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ro">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Lecția 6.4 — Instabilitate: Restarturi, Freeze, Shutdown aleator">
-    <meta name="theme-color" content="#0B0F1A">
+    <meta name="theme-color" content="#1B1714">
     <link rel="icon" type="image/x-icon" href="../../../../favicon.ico">
     <title>Lecția 6.4 — Instabilitate — Console Notebook</title>
     <link rel="stylesheet" href="../../../css/production.css">
@@ -146,31 +146,31 @@
                 <h3>Întrebarea 1</h3>
                 <p><strong>Throttling este:</strong></p>
                 <ul class="specs-list"><li>a) Oprire totală</li><li>b) Reducere frecvență pentru răcire</li><li>c) Creștere tensiune</li><li>d) Reset BIOS</li></ul>
-                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Reducere frecvență</strong></p></details>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Reducere frecvență</strong></p></details>
             </div>
             <div class="card" style="margin-bottom: 1.5rem;">
                 <h3>Întrebarea 2</h3>
                 <p><strong>Ripple mare pe 1.05V core produce:</strong></p>
                 <ul class="specs-list"><li>a) FPS mai mare</li><li>b) Crash și instabilitate</li><li>c) Temperatură scăzută</li><li>d) Boot rapid</li></ul>
-                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Crash</strong></p></details>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Crash</strong></p></details>
             </div>
             <div class="card" style="margin-bottom: 1.5rem;">
                 <h3>Întrebarea 3</h3>
                 <p><strong>Freeze după 30 min indică:</strong></p>
                 <ul class="specs-list"><li>a) Standby error</li><li>b) Problemă termică sau BGA</li><li>c) BIOS corupt</li><li>d) SSD defect imediat</li></ul>
-                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Problemă termică</strong></p></details>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Problemă termică</strong></p></details>
             </div>
             <div class="card" style="margin-bottom: 1.5rem;">
                 <h3>Întrebarea 4</h3>
                 <p><strong>Restart imediat sub load indică:</strong></p>
                 <ul class="specs-list"><li>a) PSU droop</li><li>b) WiFi error</li><li>c) Update pending</li><li>d) LED defect</li></ul>
-                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>a) PSU droop</strong></p></details>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>a) PSU droop</strong></p></details>
             </div>
             <div class="card" style="margin-bottom: 1.5rem;">
                 <h3>Întrebarea 5</h3>
                 <p><strong>BGA microfracturi apar din:</strong></p>
                 <ul class="specs-list"><li>a) Software</li><li>b) Dilatări termice repetate</li><li>c) Overclock GPU</li><li>d) RAM update</li></ul>
-                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Dilatări termice</strong></p></details>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Dilatări termice</strong></p></details>
             </div>
         </div>
     </section>
@@ -182,7 +182,7 @@
                 <h3>🧠 Exercițiu: Diagnosticul Instabilității</h3>
                 <p><strong>Cerință:</strong> Consola face freeze după 20 min în joc. Temperatură APU 95°C, rail 1.05V ripple 25 mV.</p>
                 <ol class="specs-list"><li>Care este cauza principală?</li><li>Ce test faci primul?</li><li>Ce soluție aplici?</li></ol>
-                <details style="margin-top: 1.5rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată rezolvarea</summary><div style="margin-top: 1rem;">
+                <details style="margin-top: 1.5rem;"><summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată rezolvarea</summary><div style="margin-top: 1rem;">
                     <p><strong>1.</strong> Cauza principală: temperatură prea mare (95°C) + ripple ușor ridicat.</p>
                     <p><strong>2.</strong> Test: curățare radiator și schimbare pastă termică. Monitorizează temp sub load.</p>
                     <p><strong>3.</strong> Soluție: reducerea temperaturii, verificare ventilator. Dacă persistă, verifică VRM condensatori.</p>

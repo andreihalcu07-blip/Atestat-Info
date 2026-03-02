@@ -4,28 +4,28 @@
  */
 
 :root {
-    /* Color Palette - Clean Blue Theme */
-    --primary-color: #0A1F44;
-    --secondary-color: #1E3A6D;
-    --accent-color: #5BA4E6;
-    --accent-light: #7EBCF0;
-    --dark-bg: #0B0F1A;
-    --dark-bg-2: #0A1F44;
-    --card-bg: #0B0F1A;
-    --text-light: #EDE9E3;
-    --text-gray: rgba(237, 233, 227, 0.7);
+    /* Color Palette - Warm Cinematic Documentary */
+    --primary-color: #1B1714;
+    --secondary-color: #2A2320;
+    --accent-color: #D4AF7A;
+    --accent-light: #E6C48A;
+    --dark-bg: #1B1714;
+    --dark-bg-2: #151210;
+    --card-bg: #2A2320;
+    --text-light: #F5F0E8;
+    --text-gray: #A89F94;
     --success: #4ADE80;
-    --warning: #5BA4E6;
-    --border-color: rgba(91, 164, 230, 0.12);
-    --grid-line: rgba(91, 164, 230, 0.05);
+    --warning: #D4AF7A;
+    --border-color: rgba(255, 255, 255, 0.05);
+    --grid-line: rgba(255, 255, 255, 0.03);
 
     /* RGB Helpers */
-    --primary-rgb: 10, 31, 68;
-    --secondary-rgb: 30, 58, 109;
-    --accent-rgb: 91, 164, 230;
-    --dark-rgb: 11, 15, 26;
-    --gray-rgb: 42, 47, 58;
-    --cream-rgb: 237, 233, 227;
+    --primary-rgb: 27, 23, 20;
+    --secondary-rgb: 42, 35, 32;
+    --accent-rgb: 212, 175, 122;
+    --dark-rgb: 21, 18, 16;
+    --gray-rgb: 168, 159, 148;
+    --cream-rgb: 245, 240, 232;
 
     /* Spacing */
     --spacing-xs: 0.5rem;
@@ -51,11 +51,11 @@
     --radius-lg: 12px;
     --radius-xl: 14px;
 
-    /* Shadows - Subtle */
-    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.15);
-    --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.2);
-    --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.25);
-    --glow-accent: 0 0 20px rgba(91, 164, 230, 0.15);
+    /* Shadows - Documentary Style */
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.5);
+    --glow-accent: 0 0 20px rgba(212, 175, 122, 0.15);
 
     /* Transitions */
     --transition-fast: 0.2s ease;

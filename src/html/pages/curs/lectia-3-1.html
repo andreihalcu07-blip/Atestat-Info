@@ -1,10 +1,10 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ro">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Lecția 3.1 — Bit și sistem binar: Foundation digitală">
-    <meta name="theme-color" content="#0B0F1A">
+    <meta name="theme-color" content="#1B1714">
     <link rel="icon" type="image/x-icon" href="../../../../favicon.ico">
     <title>Lecția 3.1 — Bit și Binar — Console Notebook</title>
     <link rel="stylesheet" href="../../../css/production.css">
@@ -160,31 +160,31 @@
                 <h3>Întrebarea 1</h3>
                 <p><strong>Ce sistem numeric e folosit de computerele interne?</strong></p>
                 <ul class="specs-list"><li>a) Zecimal</li><li>b) Octal</li><li>c) Binar</li><li>d) Hexazecimal</li></ul>
-                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>c) Binar</strong> — Intern, totul e 0 și 1.</p></details>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>c) Binar</strong> — Intern, totul e 0 și 1.</p></details>
             </div>
             <div class="card" style="margin-bottom: 1.5rem;">
                 <h3>Întrebarea 2</h3>
                 <p><strong>Câți biți în 1 byte?</strong></p>
                 <ul class="specs-list"><li>a) 4</li><li>b) 8</li><li>c) 16</li><li>d) 32</li></ul>
-                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) 8 biți</strong></p></details>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) 8 biți</strong></p></details>
             </div>
             <div class="card" style="margin-bottom: 1.5rem;">
                 <h3>Întrebarea 3</h3>
                 <p><strong>Convertește 10110010 binar în zecimal.</strong></p>
                 <ul class="specs-list"><li>a) 146</li><li>b) 166</li><li>c) 178</li><li>d) 182</li></ul>
-                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>c) 178</strong> — 128 + 32 + 16 + 2 = 178</p></details>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>c) 178</strong> — 128 + 32 + 16 + 2 = 178</p></details>
             </div>
             <div class="card" style="margin-bottom: 1.5rem;">
                 <h3>Întrebarea 4</h3>
                 <p><strong>Fie x = 5 (00000101). Cât e -x în two's complement?</strong></p>
                 <ul class="specs-list"><li>a) 11111010</li><li>b) 11111011</li><li>c) 10111011</li><li>d) 11101011</li></ul>
-                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) 11111011</strong> — Inversat (11111010) + 1 = 11111011</p></details>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) 11111011</strong> — Inversat (11111010) + 1 = 11111011</p></details>
             </div>
             <div class="card" style="margin-bottom: 1.5rem;">
                 <h3>Întrebarea 5</h3>
                 <p><strong>PS5 RAM = 16 GB. Câți bytes e asta?</strong></p>
                 <ul class="specs-list"><li>a) 16 × 1000 bytes</li><li>b) 16 × 1,000,000 bytes</li><li>c) 16 × 1,048,576 KB (2²⁰ bytes/KB)</li><li>d) 16 × 30 GB</li></ul>
-                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>c) 16 × 1,048,576 = 16,777,216 KB = 17,179,869,184 bytes</strong></p></details>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>c) 16 × 1,048,576 = 16,777,216 KB = 17,179,869,184 bytes</strong></p></details>
             </div>
         </div>
     </section>
@@ -196,7 +196,7 @@
                 <h3>🧠 Exercițiu: Reprezentare Buffer Memorie</h3>
                 <p><strong>Cerință:</strong> Scrie în binar și apoi zecimal următoarele:</p>
                 <ol class="specs-list"><li>Culoare roșu pur: 11111111 (255R) 00000000 (0G) 00000000 (0B) — exprimi în bytes distinct</li><li>Memoria unei variabile color (3 bytes) la adresa 0x1000 în PS5</li><li>Alocă 256 biți pentru o structură. Exprimă în bytes și megabytes dacă ai 1000 structuri identice</li></ol>
-                <details style="margin-top: 1.5rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată rezolvarea</summary><div style="margin-top: 1rem;">
+                <details style="margin-top: 1.5rem;"><summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată rezolvarea</summary><div style="margin-top: 1rem;">
                     <p><strong>1. Culoare roșu:</strong></p>
                     <ul class="specs-list">
                         <li>Byte 1 (R): 11111111 = 255 zecimal</li>

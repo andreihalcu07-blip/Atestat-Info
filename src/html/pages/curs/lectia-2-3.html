@@ -1,10 +1,10 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ro">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Lecția 2.3 — Tranzistori: Amplificare și Comutare">
-    <meta name="theme-color" content="#0B0F1A">
+    <meta name="theme-color" content="#1B1714">
     <link rel="icon" type="image/x-icon" href="../../../../favicon.ico">
     <title>Lecția 2.3 — Tranzistori — Console Notebook</title>
     <link rel="stylesheet" href="../../../css/production.css">
@@ -155,31 +155,31 @@
                 <h3>Întrebarea 1</h3>
                 <p><strong>Diferența principală între BJT și FET?</strong></p>
                 <ul class="specs-list"><li>a) Nicio diferență</li><li>b) BJT: amplificare curent; FET: control țensiune. FET mai rapid.</li><li>c) BJT mai bun pentru logică</li><li>d) FET vechi, BJT modern</li></ul>
-                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) BJT: curent; FET: tensiune. FET mai rapid.</strong></p></details>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) BJT: curent; FET: tensiune. FET mai rapid.</strong></p></details>
             </div>
             <div class="card" style="margin-bottom: 1.5rem;">
                 <h3>Întrebarea 2</h3>
                 <p><strong>Ce-i V_th în MOSFET?</strong></p>
                 <ul class="specs-list"><li>a) Tensiune maxim</li><li>b) Tensiune prag pentru deschiders</li><li>c) Curent invers</li><li>d) Temperatură</li></ul>
-                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Tensiune prag</strong></p></details>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Tensiune prag</strong></p></details>
             </div>
             <div class="card" style="margin-bottom: 1.5rem;">
                 <h3>Întrebarea 3</h3>
                 <p><strong>R_DS(on) mic în MOSFET înseamnă?</strong></p>
                 <ul class="specs-list"><li>a) Curent mare</li><li>b) Putere disipata mare</li><li>c) Eficiență bună (putere mic cu curent mare)</li><li>d) Destabili</li></ul>
-                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>c) Eficiență bună</strong> — P = I² × R_DS; mic R = mic P.</p></details>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>c) Eficiență bună</strong> — P = I² × R_DS; mic R = mic P.</p></details>
             </div>
             <div class="card" style="margin-bottom: 1.5rem;">
                 <h3>Întrebarea 4</h3>
                 <p><strong>De ce VRM folosește MOSFET-uri în paralel?</strong></p>
                 <ul class="specs-list"><li>a) Să ocupă loc</li><li>b) Să distribuie curent și să reducă R_total</li><li>c) Să crească voltaj</li><li>d) E convențional</li></ul>
-                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Distribuie curent și reduce R_total</strong></p></details>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Distribuie curent și reduce R_total</strong></p></details>
             </div>
             <div class="card" style="margin-bottom: 1.5rem;">
                 <h3>Întrebarea 5</h3>
                 <p><strong>Frecvență comutare MOSFET în VRM PS5?</strong></p>
                 <ul class="specs-list"><li>a) 5kHz</li><li>b) 50kHz</li><li>c) 130kHz</li><li>d) 1MHz</li></ul>
-                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>c) 130kHz</strong> — Standard modern SMPS.</p></details>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>c) 130kHz</strong> — Standard modern SMPS.</p></details>
             </div>
         </div>
     </section>
@@ -191,7 +191,7 @@
                 <h3>🧠 Exercițiu: Calcul Pierderi MOSFET VRM</h3>
                 <p><strong>Scenariu:</strong> VRM cu 10 MOSFET-uri N-channel în paralel, fiecare 1.5mΩ. Fază în 18A.</p>
                 <ol class="specs-list"><li>Calculează R_total (10 în paralel)</li><li>Puterea disipata pe 18A</li><li>Dacă MOSFET-urile incalzesc uniform, câți Wați per MOSFET?</li><li>Dacă temperatură crește, R_DS crește ≈ 0.0045Ω/°C. Dacă crește cu 50°C, cum se schimbă puterea?</li></ol>
-                <details style="margin-top: 1.5rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată rezolvarea</summary><div style="margin-top: 1rem;">
+                <details style="margin-top: 1.5rem;"><summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată rezolvarea</summary><div style="margin-top: 1rem;">
                     <p><strong>1.</strong> R_total = 1.5mΩ / 10 = 0.15mΩ</p>
                     <p><strong>2.</strong> P = I² × R = 18² × 0.15mΩ = 324 × 0.15mΩ = 0.0486W = <strong>48.6mW</strong> total</p>
                     <p><strong>3.</strong> 48.6mW / 10 = <strong>4.86mW per MOSFET</strong></p>

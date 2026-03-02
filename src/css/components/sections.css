@@ -18,16 +18,14 @@
     margin: 0 auto var(--spacing-lg);
     line-height: 1.7;
     
-    /* Glass effect */
-    background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    /* Elegant card effect */
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
     border-radius: 16px;
     padding: 1.5rem 2rem;
     
-    /* Inner glow */
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    /* Subtle shadow */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 
@@ -35,7 +33,7 @@
 .divider {
     width: 60px;
     height: 2px;
-    background: linear-gradient(90deg, transparent, rgba(91, 164, 230, 0.4), transparent);
+    background: linear-gradient(90deg, transparent, var(--accent-color), transparent);
     margin: var(--spacing-lg) auto;
 }
 
@@ -48,14 +46,14 @@
     border-radius: var(--radius-lg);
     margin-top: var(--spacing-md);
     object-fit: cover;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease;
-    border: 1px solid rgba(91, 164, 230, 0.08);
+    border: 1px solid var(--border-color);
 }
 
 .image:hover {
     transform: scale(1.02);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
 }
 
 .card .image {

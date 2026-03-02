@@ -1,10 +1,10 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ro">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Lecția 3.2 — Porți Logice: AND, OR, XOR, NOT">
-    <meta name="theme-color" content="#0B0F1A">
+    <meta name="theme-color" content="#1B1714">
     <link rel="icon" type="image/x-icon" href="../../../../favicon.ico">
     <title>Lecția 3.2 — Porți Logice — Console Notebook</title>
     <link rel="stylesheet" href="../../../css/production.css">
@@ -152,31 +152,31 @@
                 <h3>Întrebarea 1</h3>
                 <p><strong>A=1, B=0. Care e A AND B?</strong></p>
                 <ul class="specs-list"><li>a) 0</li><li>b) 1</li><li>c) Undefined</li><li>d) 2</li></ul>
-                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>a) 0</strong> — Trebuie ambii 1 pentru AND=1.</p></details>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>a) 0</strong> — Trebuie ambii 1 pentru AND=1.</p></details>
             </div>
             <div class="card" style="margin-bottom: 1.5rem;">
                 <h3>Întrebarea 2</h3>
                 <p><strong>A=1, B=0. Care e A OR B?</strong></p>
                 <ul class="specs-list"><li>a) 0</li><li>b) 1</li><li>c) 2</li><li>d) Undefined</li></ul>
-                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) 1</strong> — Dacă măcar unu e 1, OR=1.</p></details>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) 1</strong> — Dacă măcar unu e 1, OR=1.</p></details>
             </div>
             <div class="card" style="margin-bottom: 1.5rem;">
                 <h3>Întrebarea 3</h3>
                 <p><strong>A=1, B=1. Care e A XOR B?</strong></p>
                 <ul class="specs-list"><li>a) 0</li><li>b) 1</li><li>c) 2</li><li>d) 3</li></ul>
-                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>a) 0</strong> — Sunt egali, deci XOR=0.</p></details>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>a) 0</strong> — Sunt egali, deci XOR=0.</p></details>
             </div>
             <div class="card" style="margin-bottom: 1.5rem;">
                 <h3>Întrebarea 4</h3>
                 <p><strong>Calculează: (10101010 AND 11110000) = ?</strong></p>
                 <ul class="specs-list"><li>a) 10101010</li><li>b) 11110000</li><li>c) 10100000</li><li>d) 01010101</li></ul>
-                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>c) 10100000</strong> — Logic AND bit-by-bit.</p></details>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>c) 10100000</strong> — Logic AND bit-by-bit.</p></details>
             </div>
             <div class="card" style="margin-bottom: 1.5rem;">
                 <h3>Întrebarea 5</h3>
                 <p><strong>De ce NAND/NOR sunt "universal"?</strong></p>
                 <ul class="specs-list"><li>a) Sunt mai rapide</li><li>b) Orice porată logică se exprimă cu NAND/NOR lanțate</li><li>c) Consum mai puțin curent</li><li>d) Suportă 3 intrări</li></ul>
-                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Orice se exprimă cu NAND/NOR</strong> — Proprietate fundamentală de completitudine.</p></details>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Orice se exprimă cu NAND/NOR</strong> — Proprietate fundamentală de completitudine.</p></details>
             </div>
         </div>
     </section>
@@ -188,7 +188,7 @@
                 <h3>🧠 Exercițiu: Implementare Comparator</h3>
                 <p><strong>Cerință:</strong> Doriți circuit care semnalizează dacă V_out = 1.0V (binar: 01010101) sau V_targ = 1.2V (binar: 01111111).</p>
                 <ol class="specs-list"><li>Compară bit-by-bit folosind XOR (dacă egali → 0, diferiți → 1)</li><li>Dacă orice bit e diferit, output = "Diferit".</li><li>Implementarea: OR de toate XOR-urile.</li></ol>
-                <details style="margin-top: 1.5rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată rezolvarea</summary><div style="margin-top: 1rem;">
+                <details style="margin-top: 1.5rem;"><summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată rezolvarea</summary><div style="margin-top: 1rem;">
                     <p><strong>V_out = 01010101, V_targ = 01111111</strong></p>
                     <ul class="specs-list">
                         <li>Bit 7: 0 XOR 0 = 0</li>

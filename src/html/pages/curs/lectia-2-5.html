@@ -1,10 +1,10 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ro">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Lecția 2.5 — Surse în Comutație (SMPS): Alimentare Modernă">
-    <meta name="theme-color" content="#0B0F1A">
+    <meta name="theme-color" content="#1B1714">
     <link rel="icon" type="image/x-icon" href="../../../../favicon.ico">
     <title>Lecția 2.5 — SMPS — Console Notebook</title>
     <link rel="stylesheet" href="../../../css/production.css">
@@ -172,31 +172,31 @@
                 <h3>Întrebarea 1</h3>
                 <p><strong>Avantaj principal SMPS vs Linear PSU?</strong></p>
                 <ul class="specs-list"><li>a) SMPS mai ieftin</li><li>b) SMPS mic, eficiență 88-92% vs linear mare, 60-70%</li><li>c) Linear mai bun pentru audio</li><li>d) Nicio diferență</li></ul>
-                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) SMPS mic și eficiență mare</strong></p></details>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) SMPS mic și eficiență mare</strong></p></details>
             </div>
             <div class="card" style="margin-bottom: 1.5rem;">
                 <h3>Întrebarea 2</h3>
                 <p><strong>Frecvență comutare SMPS vs Linear?</strong></p>
                 <ul class="specs-list"><li>a) SMPS 50Hz, Linear 100kHz</li><li>b) SMPS 100kHz+, Linear 50Hz</li><li>c) Identic</li><li>d) SMPS 1MHz</li></ul>
-                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) SMPS 100kHz+, Linear 50Hz</strong></p></details>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) SMPS 100kHz+, Linear 50Hz</strong></p></details>
             </div>
             <div class="card" style="margin-bottom: 1.5rem;">
                 <h3>Întrebarea 3</h3>
                 <p><strong>Care-i rolul optocoupler-ului în SMPS?</strong></p>
                 <ul class="specs-list"><li>a) Fermoar comutare</li><li>b) Transmite feedback izolat între primar și secundar</li><li>c) Filtrare zgomot</li><li>d) Protecție supratensiune</li></ul>
-                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Transmite feedback izolat</strong></p></details>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Transmite feedback izolat</strong></p></details>
             </div>
             <div class="card" style="margin-bottom: 1.5rem;">
                 <h3>Întrebarea 4</h3>
                 <p><strong>Ce-i Soft-Start în SMPS?</strong></p>
                 <ul class="specs-list"><li>a) Pornire buton</li><li>b) PWM crește încet la pornire pentru a evita șoc curent</li><li>c) Rezistență serie</li><li>d) Comutare lentă normal</li></ul>
-                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) PWM crește încet pentru protecție</strong></p></details>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) PWM crește încet pentru protecție</strong></p></details>
             </div>
             <div class="card" style="margin-bottom: 1.5rem;">
                 <h3>Întrebara 5</h3>
                 <p><strong>Eficiență PS5 SMPS și pierderi la 450W nominal?</strong></p>
                 <ul class="specs-list"><li>a) Eficiență 60%, pierderi 180W</li><li>b) Eficiență 88-92%, pierderi 36-54W</li><li>c) Eficiență 99%, pierderi 5W</li><li>d) Eficiență 75%, pierderi 111W</li></ul>
-                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Eficiență 88-92%, pierderi 36-54W</strong> — Modern SMPS.</p></details>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Eficiență 88-92%, pierderi 36-54W</strong> — Modern SMPS.</p></details>
             </div>
         </div>
     </section>
@@ -208,7 +208,7 @@
                 <h3>🧠 Exercițiu: Design Comparativ PSU</h3>
                 <p><strong>Cerință:</strong> Proiectează o sursă de 450W pentru PS5 în două versiuni: Linear și SMPS.</p>
                 <ol class="specs-list"><li>Linear: Estimează dimensiuni transformator (frecvență 50Hz) și racire</li><li>Linear: Calculează pierderi și eficiență (estimare 65%)</li><li>SMPS: Estimează transformator (130kHz)</li><li>SMPS: Calculează pierderi si eficiență (estimare 90%)</li><li>Comparație: Volum, greutate, cost, consum anual vs timp PSU linear</li></ol>
-                <details style="margin-top: 1.5rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată rezolvarea</summary><div style="margin-top: 1rem;">
+                <details style="margin-top: 1.5rem;"><summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată rezolvarea</summary><div style="margin-top: 1rem;">
                     <p><strong>1. Linear:</strong> Transformator 50Hz → volum mare (de 5-10 ori mai mare). Răcire activ (ventilator masiv).</p>
                     <p><strong>2. Linear:</strong> Pierderi = 450W × (1-0.65) = 157.5W. Fierbinte! Necesită radiator imens.</p>
                     <p><strong>3. SMPS:</strong> Transformator 130kHz → volum mic (1/5 din linear). Răcire pasiv (radiator oțel).</p>

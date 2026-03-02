@@ -1,10 +1,10 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ro">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Lecția 8.5 — Interpretarea simptomelor vs cauza reală în diagnostic hardware">
-    <meta name="theme-color" content="#0B0F1A">
+    <meta name="theme-color" content="#1B1714">
     <link rel="icon" type="image/x-icon" href="../../../../favicon.ico">
     <title>Lecția 8.5 — Diagnostic Hardware — Console Notebook</title>
     <link rel="stylesheet" href="../../../css/production.css">
@@ -142,7 +142,7 @@
                     <p style="text-align: center; margin: 0.5rem 0;">↓</p>
                     <p style="text-align: center; font-weight: 500;">LED-ul aprinde? /  LED-ul nu aprinde?</p>
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem;">
-                        <div style="border: 1px solid #5ba4e6; padding: 1rem; border-radius: 4px;">
+                        <div style="border: 1px solid var(--accent-color); padding: 1rem; border-radius: 4px;">
                             <p style="font-weight: 600; margin: 0 0 0.5rem 0;">LED NU aprinde</p>
                             <ul style="margin: 0; padding-left: 1rem; font-size: 0.9rem;">
                                 <li>Testează PSU → defect → înlocuiți</li>
@@ -151,7 +151,7 @@
                                 <li>Testează buton → defect → înlocuiți</li>
                             </ul>
                         </div>
-                        <div style="border: 1px solid #5ba4e6; padding: 1rem; border-radius: 4px;">
+                        <div style="border: 1px solid var(--accent-color); padding: 1rem; border-radius: 4px;">
                             <p style="font-weight: 600; margin: 0 0 0.5rem 0;">LED aprinde (roșu/ verde/albastru)</p>
                             <ul style="margin: 0; padding-left: 1rem; font-size: 0.9rem;">
                                 <li>Roșu intermitent → OCP/OVP → placa defectă</li>
@@ -418,7 +418,7 @@
                     <li>d) Simptom = ce spune consola; Cauza = ce zice manualul</li>
                 </ul>
                 <details style="margin-top: 1rem;">
-                    <summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary>
+                    <summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary>
                     <p style="margin-top: 0.5rem;"><strong>b) Simptom = ce se observă; Cauza = de ce se întâmplă</strong> — Exemplu: Simptom "LED roșu". Cauza poate fi OCP, OVP, PSU defectă etc.</p>
                 </details>
             </div>
@@ -434,7 +434,7 @@
                     <li>d) Înlocuiți PSU, apoi RAM, apoi SSD până merge</li>
                 </ul>
                 <details style="margin-top: 1rem;">
-                    <summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary>
+                    <summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary>
                     <p style="margin-top: 0.5rem;"><strong>b) Observație → ipoteză → testare sistematică → care</strong> — E metoda științifică: observ; formulez teorii; testez; deduc cauza.</p>
                 </details>
             </div>
@@ -450,7 +450,7 @@
                     <li>d) Înregistrare a tuturor defectelor care au apărut vreodată</li>
                 </ul>
                 <details style="margin-top: 1rem;">
-                    <summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary>
+                    <summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary>
                     <p style="margin-top: 0.5rem;"><strong>b) Metodă sistematică cu întrebări binare care restrâng cauze posibile</strong> — De exemplu: "LED aprinde?" Da/Nu. Fiecare răspuns elimina jumătate din posibilități.</p>
                 </details>
             </div>
@@ -466,7 +466,7 @@
                     <li>d) Toate cele de mai sus</li>
                 </ul>
                 <details style="margin-top: 1rem;">
-                    <summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary>
+                    <summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary>
                     <p style="margin-top: 0.5rem;"><strong>d) Toate cele de mai sus</strong> — Toate sunt capcane reale care pot duce la diagnostic greșit dacă nu ești conștient.</p>
                 </details>
             </div>
@@ -482,7 +482,7 @@
                     <li>d) Exterior, Interior, Component</li>
                 </ul>
                 <details style="margin-top: 1rem;">
-                    <summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary>
+                    <summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary>
                     <p style="margin-top: 0.5rem;"><strong>b) Non-destructiv, Micro-destructiv, Major destructiv</strong> — Faza 1 nu desfaci nimic; Faza 2 desfaci piese minore; Faza 3 este reparație profesională pe placa de bază.</p>
                 </details>
             </div>
@@ -516,7 +516,7 @@
                     <li>5. Dacă testele din faza 1 nu clarificau, ce dezasamblări din faza 2 ar folosi?</li>
                 </ul>
                 <details style="margin-top: 1.5rem;">
-                    <summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată rezolvarea</summary>
+                    <summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată rezolvarea</summary>
                     <div style="margin-top: 1rem;">
                         <p><strong>1.</strong> LED albastru curând = boot așteaptă ceva (normal, se așteaptă HDMI); ventilator zumzai = CPU/GPU pornit; ecran negru = HDMI nu transmit semnal; controller răspund wireless = antenă/I/O OK, dar procesare tastatură blocat.</p>
                         <p><strong>2. Ipoteze:</strong> A) HDMI chip defect (în I/O Controller). B) Graphics memory corupt (nu e semnal HDMI), C) SSD nu se încarcă corect, CPU blocat acolo (niciun proces disponibil); D) Firmware incomplet sau corupt; E) Integrare software → versiunea OS e incompata cu hardware-ul.</p>

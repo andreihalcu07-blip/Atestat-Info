@@ -1,10 +1,10 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ro">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Lecția 2.4 — MOSFET și VRM: Regulatoarele de Tensiune">
-    <meta name="theme-color" content="#0B0F1A">
+    <meta name="theme-color" content="#1B1714">
     <link rel="icon" type="image/x-icon" href="../../../../favicon.ico">
     <title>Lecția 2.4 — MOSFET și VRM — Console Notebook</title>
     <link rel="stylesheet" href="../../../css/production.css">
@@ -51,7 +51,7 @@
             <div class="card" style="margin-bottom: 2rem;">
                 <h3>2.1 — Principiu VRM: Buck Converter</h3>
                 <p><strong>Buck Converter:</strong> Schimă rapid între ON și OFF a MOSFET-ului pentru a crea tensiune medie mai mică decât intrare.</p>
-                <p style="text-align: center; font-weight: 600; margin: 1rem 0; color: #5ba4e6;">
+                <p style="text-align: center; font-weight: 600; margin: 1rem 0; color: var(--accent-color);">
                     V_out = V_in × (Ton / (Ton + Toff))
                 </p>
                 <ul class="specs-list">
@@ -126,7 +126,7 @@
                 <p>Duty cycle = V_out / V_in = 1.05 / 12 = 8.75%.</p>
                 <p>Deci MOSFET e ON 8.75% din timp.</p>
                 <p><strong>Calcul Ripple:</strong> Frekvență comutare 130kHz. Inductanță 5µH.</p>
-                <p style="text-align: center; font-weight: 600; margin: 1rem 0; color: #5ba4e6;">Ripple = (V_in × Duty) / (L × f)<br>Ripple = (12V × 0.0875) / (5µH × 130kHz) ≈ 16.15mV</p>
+                <p style="text-align: center; font-weight: 600; margin: 1rem 0; color: var(--accent-color);">Ripple = (V_in × Duty) / (L × f)<br>Ripple = (12V × 0.0875) / (5µH × 130kHz) ≈ 16.15mV</p>
                 <p>Calitate bună.</p>
             </div>
         </div>
@@ -165,31 +165,31 @@
                 <h3>Întrebarea 1</h3>
                 <p><strong>Ce-i VRM și ce face?</strong></p>
                 <ul class="specs-list"><li>a) Încarcă bateria</li><li>b) Dă volum audio</li><li>c) Convertor de tensiune care reglează V_out prin comutare MOSFET</li><li>d) Radiator</li></ul>
-                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>c) Convertor de tensiune cu comutare MOSFET</strong></p></details>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>c) Convertor de tensiune cu comutare MOSFET</strong></p></details>
             </div>
             <div class="card" style="margin-bottom: 1.5rem;">
                 <h3>Întrebarea 2</h3>
                 <p><strong>Principiul Buck Converter?</strong></p>
                 <ul class="specs-list"><li>a) Amplificare curent</li><li>b) Comutare rapidă pentru a scădea tensiune medie</li><li>c) Blocare curent</li><li>d) Transformare AC</li></ul>
-                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Comutare rapidă pentru scădere V medie</strong></p></details>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Comutare rapidă pentru scădere V medie</strong></p></details>
             </div>
             <div class="card" style="margin-bottom: 1.5rem;">
                 <h3>Întrebarea 3</h3>
                 <p><strong>Ce determină Duty Cycle-ul VRM?</strong></p>
                 <ul class="specs-list"><li>a) Curent intrare</li><li>b) Raportul V_out / V_in</li><li>c) Generator de frecvență</li><li>d) Bobina</li></ul>
-                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Raportul V_out / V_in</strong> — Duty = V_out / V_in.</p></details>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Raportul V_out / V_in</strong> — Duty = V_out / V_in.</p></details>
             </div>
             <div class="card" style="margin-bottom: 1.5rem;">
                 <h3>Întrebarea 4</h3>
                 <p><strong>De ce PS5 are 2 module VRM pentru CPU în loc de unu?</strong></p>
                 <ul class="specs-list"><li>a) Redundanță și distribuție curent</li><li>b) Zgomot</li><li>c) Cost</li><li>d) E convențional</li></ul>
-                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>a) Redundanță și distribuție curent</strong> — Dacă una defectă, cealaltă continua.</p></details>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>a) Redundanță și distribuție curent</strong> — Dacă una defectă, cealaltă continua.</p></details>
             </div>
             <div class="card" style="margin-bottom: 1.5rem;">
                 <h3>Întrebarea 5</h3>
                 <p><strong>Ce-i ripple în VRM și ce cauzeaza?</strong></p>
                 <ul class="specs-list"><li>a) Zgomot audio</li><li>b) Oscilație în V_out; condensator defect crește ripple</li><li>c) Curent alternativ</li><li>d) Temperatură</li></ul>
-                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Oscilație în V_out; condensator defect crește ripple</strong></p></details>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Oscilație în V_out; condensator defect crește ripple</strong></p></details>
             </div>
         </div>
     </section>
@@ -201,7 +201,7 @@
                 <h3>🧠 Exercițiu: Proiect Simplificat VRM pentru CPU</h3>
                 <p><strong>Date:</strong> V_in = 12V, V_out dorită = 1.05V, I_out = 10A, frecvență = 130kHz, L = 2µH.</p>
                 <ol class="specs-list"><li>Calculează Duty Cycle</li><li>Calculează Ripple de curent (ΔI = V_out / L × Δt)</li><li>Dacă condensator C_out = 1000µF, calculează ripple de tensiune (ΔV = ΔI / C / f)</li><li>E ridicat ripple-ul? (< 20mV = bine)</li><li>Cum ajustezi pentru a reduce ripple? (Sugestii)</li></ol>
-                <details style="margin-top: 1.5rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată rezolvarea</summary><div style="margin-top: 1rem;">
+                <details style="margin-top: 1.5rem;"><summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată rezolvarea</summary><div style="margin-top: 1rem;">
                     <p><strong>1.</strong> Duty = V_out / V_in = 1.05 / 12 = 8.75%</p>
                     <p><strong>2.</strong> Δt = Duty / f = 0.0875 / 130kHz ≈ 673ns. ΔI = 1.05V / 2µH × 673ns = 352.6mA.</p>
                     <p><strong>3.</strong> ΔV = ΔI / (C × f) = 0.3526A / (1000µF × 130kHz) ≈ 2.7mV.</p>

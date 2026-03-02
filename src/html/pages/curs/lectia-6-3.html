@@ -1,10 +1,10 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ro">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Lecția 6.3 — No Power: De ce nu pornește consola">
-    <meta name="theme-color" content="#0B0F1A">
+    <meta name="theme-color" content="#1B1714">
     <link rel="icon" type="image/x-icon" href="../../../../favicon.ico">
     <title>Lecția 6.3 — No Power — Console Notebook</title>
     <link rel="stylesheet" href="../../../css/production.css">
@@ -147,31 +147,31 @@
                 <h3>Întrebarea 1</h3>
                 <p><strong>Primul rail de verificat la no power?</strong></p>
                 <ul class="specs-list"><li>a) 1.05V</li><li>b) 12V</li><li>c) 5V standby</li><li>d) 3.3V</li></ul>
-                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>c) 5V standby</strong></p></details>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>c) 5V standby</strong></p></details>
             </div>
             <div class="card" style="margin-bottom: 1.5rem;">
                 <h3>Întrebarea 2</h3>
                 <p><strong>PS_ON semnal:</strong></p>
                 <ul class="specs-list"><li>a) Oprește GPU</li><li>b) Pornește 12V main</li><li>c) Activează RAM</li><li>d) Resetează BIOS</li></ul>
-                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Pornește 12V</strong></p></details>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Pornește 12V</strong></p></details>
             </div>
             <div class="card" style="margin-bottom: 1.5rem;">
                 <h3>Întrebarea 3</h3>
                 <p><strong>Scurt pe 12V indică:</strong></p>
                 <ul class="specs-list"><li>a) Rezistență mare</li><li>b) Rezistență foarte mică</li><li>c) Rezistență infinită</li><li>d) 5V standby OK</li></ul>
-                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Rezistență foarte mică</strong></p></details>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Rezistență foarte mică</strong></p></details>
             </div>
             <div class="card" style="margin-bottom: 1.5rem;">
                 <h3>Întrebarea 4</h3>
                 <p><strong>Dacă 5V standby există dar LED off:</strong></p>
                 <ul class="specs-list"><li>a) PSU defect</li><li>b) Controller standby defect</li><li>c) GPU defect</li><li>d) RAM defect</li></ul>
-                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Controller standby defect</strong></p></details>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Controller standby defect</strong></p></details>
             </div>
             <div class="card" style="margin-bottom: 1.5rem;">
                 <h3>Întrebarea 5</h3>
                 <p><strong>Metodă pentru a găsi componenta în scurt?</strong></p>
                 <ul class="specs-list"><li>a) Reset OS</li><li>b) Injectare curent + termocameră</li><li>c) Update firmware</li><li>d) Schimbare HDD</li></ul>
-                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Injectare curent + termocameră</strong></p></details>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Injectare curent + termocameră</strong></p></details>
             </div>
         </div>
     </section>
@@ -183,7 +183,7 @@
                 <h3>🧠 Exercițiu: Diagnosticul No Power</h3>
                 <p><strong>Cerință:</strong> Măsurători: 5V standby OK, PS_ON schimbă, 12V nu apare. Ce concluzie?</p>
                 <ol class="specs-list"><li>Problema în PSU sau scurt pe 12V</li><li>Măsoară rezistența 12V către GND</li><li>Dacă rezistența mică → scurt</li><li>Dacă rezistența normală → PSU defect</li></ol>
-                <details style="margin-top: 1.5rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată rezolvarea</summary><div style="margin-top: 1rem;">
+                <details style="margin-top: 1.5rem;"><summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată rezolvarea</summary><div style="margin-top: 1rem;">
                     <p><strong>Concluzie:</strong> PS_ON funcționează, deci placa trimite semnal. 12V absent = PSU defect sau scurt.</p>
                     <p>Măsoară rezistența. Dacă &lt; 1 ohm, scurt pe 12V. Dacă &gt; 10 ohmi, PSU defect.</p>
                 </div></details>

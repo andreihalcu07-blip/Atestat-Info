@@ -1,10 +1,10 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ro">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Lecția 7.1 — Pipeline grafic: de la vertex la pixel">
-    <meta name="theme-color" content="#0B0F1A">
+    <meta name="theme-color" content="#1B1714">
     <link rel="icon" type="image/x-icon" href="../../../../favicon.ico">
     <title>Lecția 7.1 — Pipeline grafic — Console Notebook</title>
     <link rel="stylesheet" href="../../../css/production.css">
@@ -140,31 +140,31 @@
                 <h3>Întrebarea 1</h3>
                 <p><strong>Etapa care transformă triunghiuri în pixeli:</strong></p>
                 <ul class="specs-list"><li>a) Vertex shader</li><li>b) Rasterization</li><li>c) Post-processing</li><li>d) Input assembler</li></ul>
-                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Rasterization</strong></p></details>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Rasterization</strong></p></details>
             </div>
             <div class="card" style="margin-bottom: 1.5rem;">
                 <h3>Întrebarea 2</h3>
                 <p><strong>Pixel shader calculează:</strong></p>
                 <ul class="specs-list"><li>a) Poziția vertexului</li><li>b) Culoarea finală a pixelului</li><li>c) Index buffer</li><li>d) Layout de memorie</li></ul>
-                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Culoarea finală</strong></p></details>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Culoarea finală</strong></p></details>
             </div>
             <div class="card" style="margin-bottom: 1.5rem;">
                 <h3>Întrebarea 3</h3>
                 <p><strong>4K are de câte ori mai mulți pixeli decât 1080p?</strong></p>
                 <ul class="specs-list"><li>a) 2×</li><li>b) 3×</li><li>c) 4×</li><li>d) 8×</li></ul>
-                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>c) 4×</strong></p></details>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>c) 4×</strong></p></details>
             </div>
             <div class="card" style="margin-bottom: 1.5rem;">
                 <h3>Întrebarea 4</h3>
                 <p><strong>Overdraw înseamnă:</strong></p>
                 <ul class="specs-list"><li>a) Pixeli calculați o singură dată</li><li>b) Pixeli randati de mai multe ori</li><li>c) Texturi mai mici</li><li>d) GPU idle</li></ul>
-                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Randare multiplă</strong></p></details>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Randare multiplă</strong></p></details>
             </div>
             <div class="card" style="margin-bottom: 1.5rem;">
                 <h3>Întrebarea 5</h3>
                 <p><strong>Etapa finală înainte de display:</strong></p>
                 <ul class="specs-list"><li>a) Vertex shader</li><li>b) Input assembler</li><li>c) Post-processing</li><li>d) RAM training</li></ul>
-                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>c) Post-processing</strong></p></details>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>c) Post-processing</strong></p></details>
             </div>
         </div>
     </section>
@@ -175,7 +175,7 @@
             <div class="card" style="margin-bottom: 2rem;">
                 <h3>🧠 Exercițiu: Cost Pixel Shader</h3>
                 <p><strong>Cerință:</strong> 1080p 60 FPS = 124M pixeli/sec. Pixel shader 200 instrucțiuni/pixel. Câte instrucțiuni/sec?</p>
-                <details style="margin-top: 1.5rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată rezolvarea</summary><div style="margin-top: 1rem;">
+                <details style="margin-top: 1.5rem;"><summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată rezolvarea</summary><div style="margin-top: 1rem;">
                     <p>124M × 200 = 24.8 miliarde instrucțiuni/sec.</p>
                 </div></details>
             </div>

@@ -1,10 +1,10 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ro">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Lecția 1.1 — De la atom la electron liber: fizica stării solide care face o consolă posibilă">
-    <meta name="theme-color" content="#0B0F1A">
+    <meta name="theme-color" content="#1B1714">
     <link rel="icon" type="image/x-icon" href="../../../../favicon.ico">
     <title>Lecția 1.1 — Electricitate Fundamentală — Console Notebook</title>
     <link rel="stylesheet" href="../../../css/production.css">
@@ -94,13 +94,13 @@
                 <p>
                     Sarcina electrică nu este un flux continuu — este o mărime <strong>cuantificată</strong>. Unitatea indivizibilă de sarcină este sarcina electronului:
                 </p>
-                <p style="text-align: center; font-size: 1.2rem; font-weight: 600; color: #5ba4e6; margin: 1rem 0;">
+                <p style="text-align: center; font-size: 1.2rem; font-weight: 600; color: var(--accent-color); margin: 1rem 0;">
                     q<sub>e</sub> = 1.6 × 10⁻¹⁹ C
                 </p>
                 <p>
                     Sarcina electrică Q a oricărui sistem macroscopic este întotdeauna un multiplu întreg al sarcinii elementare:
                 </p>
-                <p style="text-align: center; font-size: 1.2rem; font-weight: 600; color: #5ba4e6; margin: 1rem 0;">
+                <p style="text-align: center; font-size: 1.2rem; font-weight: 600; color: var(--accent-color); margin: 1rem 0;">
                     Q = n × q<sub>e</sub> , n ∈ ℤ
                 </p>
                 <p>
@@ -170,7 +170,7 @@
                 <p>
                     <strong>Curentul electric</strong> este deplasarea ordonată (dirijată) a purtătorilor de sarcină printr-un mediu conductor. Nu este un proces spontan — este rezultatul acțiunii unui câmp electric creat de o diferență de potențial. Formal, intensitatea curentului este:
                 </p>
-                <p style="text-align: center; font-size: 1.4rem; font-weight: 700; color: #5ba4e6; margin: 1.5rem 0;">
+                <p style="text-align: center; font-size: 1.4rem; font-weight: 700; color: var(--accent-color); margin: 1.5rem 0;">
                     I = dQ / dt
                 </p>
                 <p>
@@ -179,7 +179,7 @@
                 <p>
                     <strong>Densitatea de curent (J⃗):</strong> Pentru proiectarea traseelor PCB, nu este suficient să știm curentul total — trebuie să cunoaștem distribuția locală a sarcinilor în secțiunea conductorului. Densitatea de curent asociază fiecărui punct din conductor fluxul local de sarcină, măsurată în A/m². Intensitatea totală este fluxul vectorului J⃗ prin suprafața secțiunii:
                 </p>
-                <p style="text-align: center; font-size: 1.2rem; font-weight: 600; color: #5ba4e6; margin: 1rem 0;">
+                <p style="text-align: center; font-size: 1.2rem; font-weight: 600; color: var(--accent-color); margin: 1rem 0;">
                     I = ∫ J⃗ · dA⃗
                 </p>
                 <p>
@@ -215,7 +215,7 @@
                 <p>
                     <strong>Tensiunea electrică</strong> (diferența de potențial) este mărimea scalară care cuantifică lucrul mecanic efectuat pentru a deplasa o unitate de sarcină între două puncte. Este „presiunea" care pune electronii în mișcare.
                 </p>
-                <p style="text-align: center; font-size: 1.4rem; font-weight: 700; color: #5ba4e6; margin: 1.5rem 0;">
+                <p style="text-align: center; font-size: 1.4rem; font-weight: 700; color: var(--accent-color); margin: 1.5rem 0;">
                     U = L / Q
                 </p>
                 <p>
@@ -224,7 +224,7 @@
                 <p>
                     <strong>Bilanțul tensiunilor:</strong> Într-un circuit complet, sursa trebuie să învingă atât rezistența circuitului exterior, cât și pe cea interioară proprie:
                 </p>
-                <p style="text-align: center; font-size: 1.2rem; font-weight: 600; color: #5ba4e6; margin: 1rem 0;">
+                <p style="text-align: center; font-size: 1.2rem; font-weight: 600; color: var(--accent-color); margin: 1rem 0;">
                     E = U<sub>b</sub> + u
                 </p>
                 <p>
@@ -247,7 +247,7 @@
                 <p>
                     Relația fundamentală, stabilită de Georg Simon Ohm în 1826:
                 </p>
-                <p style="text-align: center; font-size: 1.4rem; font-weight: 700; color: #5ba4e6; margin: 1.5rem 0;">
+                <p style="text-align: center; font-size: 1.4rem; font-weight: 700; color: var(--accent-color); margin: 1.5rem 0;">
                     R = U / I
                 </p>
                 <p>
@@ -259,7 +259,7 @@
                 <p>
                     <strong>Legea rezistenței (geometrică):</strong>
                 </p>
-                <p style="text-align: center; font-size: 1.2rem; font-weight: 600; color: #5ba4e6; margin: 1rem 0;">
+                <p style="text-align: center; font-size: 1.2rem; font-weight: 600; color: var(--accent-color); margin: 1rem 0;">
                     R = ρ × l / S
                 </p>
                 <p>
@@ -531,7 +531,7 @@
                     <li>d) Este imun la variațiile de temperatură</li>
                 </ul>
                 <details style="margin-top: 1rem;">
-                    <summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary>
+                    <summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary>
                     <p style="margin-top: 0.5rem;"><strong>b)</strong> — Cuprul (Z=29) are un electron de valență slab legat, care se delocalizează ușor, generând „marea de electroni". Rezultat: ρ = 1.68 × 10⁻⁸ Ω·m, al doilea cel mai bun conductor după argint, la un cost industrial accesibil.</p>
                 </details>
             </div>
@@ -547,7 +547,7 @@
                     <li>d) Band gap-ul siliciului se extinde și blochează curentul</li>
                 </ul>
                 <details style="margin-top: 1rem;">
-                    <summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary>
+                    <summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary>
                     <p style="margin-top: 0.5rem;"><strong>b)</strong> — Conform legii lui Ohm, R → 0 implică I → ∞. Legea lui Joule (Q = I² × R × t) generează temperaturi distructive. PSU-ul activează protecția SCP (Short Circuit Protection) și se oprește în microsecunde.</p>
                 </details>
             </div>
@@ -563,7 +563,7 @@
                     <li>d) AC nu poate fi transmis prin cupru</li>
                 </ul>
                 <details style="margin-top: 1rem;">
-                    <summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary>
+                    <summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary>
                     <p style="margin-top: 0.5rem;"><strong>c)</strong> — Stările logice 0 și 1 sunt definite de praguri de tensiune precise. Oscilația reziduală (ripple) din AC ar putea face o tensiune să treacă accidental un prag, generând erori de calcul sau crash.</p>
                 </details>
             </div>
@@ -579,7 +579,7 @@
                     <li>d) Rezistivitatea este independentă de temperatură</li>
                 </ul>
                 <details style="margin-top: 1rem;">
-                    <summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary>
+                    <summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary>
                     <p style="margin-top: 0.5rem;"><strong>b)</strong> — Band gap-ul moderat al siliciului permite controlul conductivității prin dopaj și potențiale de grilă. Aceasta este proprietatea care face posibil tranzistorul MOSFET — baza oricărui procesor.</p>
                 </details>
             </div>
@@ -595,7 +595,7 @@
                     <li>d) Reduce conductivitatea termică a PCB-ului</li>
                 </ul>
                 <details style="margin-top: 1rem;">
-                    <summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary>
+                    <summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary>
                     <p style="margin-top: 0.5rem;"><strong>c)</strong> — Cuprul crește cu ~4% rezistență la fiecare 10°C. Un traseu subdimensionat se încălzește, rezistența crește, generează și mai multă căldură (P = I²R) — cerc vicios care poate compromite fizic placa.</p>
                 </details>
             </div>
@@ -622,7 +622,7 @@
                     <li>5. PS5 consumă 200W total din priză (230V AC). SoC-ul consumă 80W la 1.05V. Calculează curentul din priză și curentul prin SoC. Explică diferența.</li>
                 </ul>
                 <details style="margin-top: 1.5rem;">
-                    <summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată rezolvarea</summary>
+                    <summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată rezolvarea</summary>
                     <div style="margin-top: 1rem;">
                         <p><strong>1.</strong> Circuit închis: rezistență nominală, curent normal → funcționare OK. Circuit deschis: R = ∞, I = 0 → nicio funcționare. Scurtcircuit: R ≈ 0, I → masiv → protecție PSU se activează.</p>
                         <p><strong>2.</strong> Scurtcircuit. Consola se aprinde (PSU furnizează tensiune), dar curentul excesiv (I = V/R, cu R ≈ 0) declanșează protecția SCP în fracțiuni de secundă → oprire bruscă. Dacă ar fi circuit deschis, consola nu ar reacționa deloc.</p>

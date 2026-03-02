@@ -1,10 +1,10 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ro">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Lecția 2.2 — Diode: Rectificare și Protecție">
-    <meta name="theme-color" content="#0B0F1A">
+    <meta name="theme-color" content="#1B1714">
     <link rel="icon" type="image/x-icon" href="../../../../favicon.ico">
     <title>Lecția 2.2 — Diode — Console Notebook</title>
     <link rel="stylesheet" href="../../../css/production.css">
@@ -58,7 +58,7 @@
                     <li><strong>Forward Bias:</strong> Anod+ lanț Catod-. Electroni curge. Diodă <strong>conduce</strong>. V_drop ≈ 0.7V pentru Si, 0.3V pentru Schottky.</li>
                     <li><strong>Reverse Bias:</strong> Anod- și Catod+. Electroni refuză să curge. Diodă <strong>blochează</strong>. Curent scurt ≈ 0 (în realitate nanoamperi).</li>
                 </ul>
-                <p style="text-align: center; font-weight: 600; margin: 1rem 0; color: #5ba4e6;">
+                <p style="text-align: center; font-weight: 600; margin: 1rem 0; color: var(--accent-color);">
                     I = I_s × (e^(V/nV_t) - 1)
                 </p>
                 <p>Shockley diode equation — exponențial în forward, logaritmic în reverse.</p>
@@ -82,7 +82,7 @@
                     <li><strong>Rectificator simplu (HWR):</strong> 1 diodă. Permite doar semi-unda pozitivă. Output: 0 → V_peak → 0. Ineficiență (jumătate din timp e zero).</li>
                     <li><strong>Rectificator punte (FWR):</strong> 4 diode în configurație punte. Inversează semi-unda negativă. Output: |V| continuu (0 → V_peak → 0 → V_peak) — dobândă două ori pe ciclu.</li>
                 </ul>
-                <p style="text-align: center; font-weight: 600; margin: 1rem 0; color: #5ba4e6;">
+                <p style="text-align: center; font-weight: 600; margin: 1rem 0; color: var(--accent-color);">
                     V_avg (HWR) = V_peak / π ≈ 0.32 × V_peak<br>
                     V_avg (FWR) = 2 × V_peak / π ≈ 0.64 × V_peak
                 </p>
@@ -192,31 +192,31 @@
                 <h3>Întrebarea 1</h3>
                 <p><strong>Ce permite dioda și ce blochează?</strong></p>
                 <ul class="specs-list"><li>a) AC, blochează DC</li><li>b) DC, blochează AC</li><li>c) Curent în o direcție, blochează în cealaltă</li><li>d) Totul</li></ul>
-                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>c) Curent în o direcție, blochează în cealaltă</strong> — Dioda permite forward, blochează reverse.</p></details>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>c) Curent în o direcție, blochează în cealaltă</strong> — Dioda permite forward, blochează reverse.</p></details>
             </div>
             <div class="card" style="margin-bottom: 1.5rem;">
                 <h3>Întrebarea 2</h3>
                 <p><strong>Care-i aplicația principală a diodei în PSU?</strong></p>
                 <ul class="specs-list"><li>a) Stabilizare curent</li><li>b) Rectificare AC → DC</li><li>c) Amplificare</li><li>d) Compresie semnal</li></ul>
-                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Rectificare AC → DC</strong></p></details>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Rectificare AC → DC</strong></p></details>
             </div>
             <div class="card" style="margin-bottom: 1.5rem;">
                 <h3>Întrebarea 3</h3>
                 <p><strong>Ce-i cădere de tensiune V_drop în diodă forward?</strong></p>
                 <ul class="specs-list"><li>a) 0V</li><li>b) 0.7V (Si) sau 0.3V (Schottky)</li><li>c) 5V</li><li>d) Variabil, depinde de curent total</li></ul>
-                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) 0.7V (Si) sau 0.3V (Schottky)</strong></p></details>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) 0.7V (Si) sau 0.3V (Schottky)</strong></p></details>
             </div>
             <div class="card" style="margin-bottom: 1.5rem;">
                 <h3>Întrebarea 4</h3>
                 <p><strong>De ce PSU folosește diode Schottky și nu Silicon normale?</strong></p>
                 <ul class="specs-list"><li>a) Sun mai ieftine</li><li>b) Schottky mai bune la frecvență înaltă cu recovery super-rapid</li><li>c) Silicon mai bune</li><li>d) Nu-i diferență</li></ul>
-                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Schottky mai bune la frecvență înaltă cu recovery rapid</strong></p></details>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Schottky mai bune la frecvență înaltă cu recovery rapid</strong></p></details>
             </div>
             <div class="card" style="margin-bottom: 1.5rem;">
                 <h3>Întrebarea 5</h3>
                 <p><strong>Cum se numește diodă care fixează tensiune la o valoare specifică?</strong></p>
                 <ul class="specs-list"><li>a) Schottky</li><li>b) Zener</li><li>c) TVS</li><li>d) LED</li></ul>
-                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Zener</strong> — Zener fixează tensiune reverse la o valoare specifică.</p></details>
+                <details style="margin-top: 1rem;"><summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary><p style="margin-top: 0.5rem;"><strong>b) Zener</strong> — Zener fixează tensiune reverse la o valoare specifică.</p></details>
             </div>
         </div>
     </section>
@@ -234,7 +234,7 @@
                     <li>Dacă PSU are și alte pierderi (bobine 10W, condensatori 5W), cât e total efficiency?</li>
                     <li>Ce se întâmplă dacă diode ar fi Silicon (0.7V drop) în loc de Schottky?</li>
                 </ol>
-                <details style="margin-top: 1.5rem;"><summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată rezolvarea</summary><div style="margin-top: 1rem;">
+                <details style="margin-top: 1.5rem;"><summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată rezolvarea</summary><div style="margin-top: 1rem;">
                     <p><strong>1. Pierderi diode:</strong> V_drop_total = 2 × 0.35V = 0.70V (2 diode în serie). P = V × I = 0.70V × 20A = 14W.</p>
                     <p><strong>2. Procent:</strong> 14W / 450W = 3.1% pierdut în diode.</p>
                     <p><strong>3. Total pierderi:</strong> 14W (diode) + 10W (bobine) + 5W (cond) = 29W. Eficiență = (450-29)/450 = 93.6%.</p>

@@ -1,10 +1,10 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ro">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Lecția 6.5 — Protecții electrice și circuite de siguranță">
-    <meta name="theme-color" content="#0B0F1A">
+    <meta name="theme-color" content="#1B1714">
     <link rel="icon" type="image/x-icon" href="../../../../favicon.ico">
     <title>Lecția 6.5 — Protecții Electrice — Console Notebook</title>
     <link rel="stylesheet" href="../../../css/production.css">
@@ -347,7 +347,7 @@
                     <li>d) SCP monitorizează temperatura, OCP monitorizează curent</li>
                 </ul>
                 <details style="margin-top: 1rem;">
-                    <summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary>
+                    <summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary>
                     <p style="margin-top: 0.5rem;"><strong>a) OCP detectează curent ridicat pe o linie normală; SCP detectează scurtcircuit direkt</strong> — Complementar: OCP e detecție curent, SCP e prevenție scurtcircuit fizic.</p>
                 </details>
             </div>
@@ -363,7 +363,7 @@
                     <li>d) PSU se oprește pentru a economisi energie</li>
                 </ul>
                 <details style="margin-top: 1rem;">
-                    <summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary>
+                    <summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary>
                     <p style="margin-top: 0.5rem;"><strong>b) Voltage Ramp incepe, tensiunile de core cresc lent de la 0V la 1.05V</strong> — PG semnal declanșează secvența de boot controlată cu Voltage Ramp lent pentru a proteja tranzistorii.</p>
                 </details>
             </div>
@@ -379,7 +379,7 @@
                     <li>d) 120°C</li>
                 </ul>
                 <details style="margin-top: 1rem;">
-                    <summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary>
+                    <summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary>
                     <p style="margin-top: 0.5rem;"><strong>b) 90°C</strong> — 80°C = avertisment, 90°C = throttling (60 FPS → 30 FPS), 105°C = shutdown.</p>
                 </details>
             </div>
@@ -395,7 +395,7 @@
                     <li>d) Protecție împotriva update-urilor software neautorizate</li>
                 </ul>
                 <details style="margin-top: 1rem;">
-                    <summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary>
+                    <summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary>
                     <p style="margin-top: 0.5rem;"><strong>b) Hardware timer care resetează CPU dacă firmware-ul se blochează; 500 ms la PS5</strong> — Watchdog previne blocări permanente ale sistemului.</p>
                 </details>
             </div>
@@ -411,7 +411,7 @@
                     <li>d) Temperatura ambiantă ar crește brusc</li>
                 </ul>
                 <details style="margin-top: 1rem;">
-                    <summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary>
+                    <summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary>
                     <p style="margin-top: 0.5rem;"><strong>a) Tranzistorii nu pot suporta voltaje ridicate; electromigrare și distrugere rapidă a circuitelor</strong> — OVP este specificat tocmai pentru prevenția acestui scenariu catastrofal.</p>
                 </details>
             </div>
@@ -439,7 +439,7 @@
                     <li>5. Propune o strategie de reparare. Care componente ar trebui să sarcini mai întâi?</li>
                 </ul>
                 <details style="margin-top: 1.5rem;">
-                    <summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată rezolvarea</summary>
+                    <summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată rezolvarea</summary>
                     <div style="margin-top: 1rem;">
                         <p><strong>1.</strong> Priză 350V AC → Cablu → PSU input → transformator de putere cu izolare. Componente interne e gestionat la 12V DC max. Componente mai mici (VRM, SoC) au 1V–3.3V. Spike nu ar trebui să ajungă direct; PSU-ul are capacitoare și regulatoare.</p>
                         <p><strong>2.</strong> PSU input rectifier și filtru ar trebui să absoarbă spike. Dacă spike ajunge la rând 12V, VRM-ul ar trebui OVP. Daca 12V e instabil (11.5-12.5V), Power Good logic detectează instabilitate și refuză să releaseze RST#.</p>

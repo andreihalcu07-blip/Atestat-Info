@@ -1,10 +1,10 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ro">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Lecția 4.6 — Ierarhia sistemului complet: de la CPU la I/O">
-    <meta name="theme-color" content="#0B0F1A">
+    <meta name="theme-color" content="#1B1714">
     <link rel="icon" type="image/x-icon" href="../../../../favicon.ico">
     <title>Lecția 4.6 — Ierarhia Sistemului — Console Notebook</title>
     <link rel="stylesheet" href="../../../css/production.css">
@@ -341,7 +341,7 @@
                     <li>d) Memoria se sincronizează la fiecare ciclu de ceas</li>
                 </ul>
                 <details style="margin-top: 1rem;">
-                    <summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary>
+                    <summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary>
                     <p style="margin-top: 0.5rem;"><strong>b) CPU și GPU împart aceeași memorie și o accesează direct</strong> — UMA elimină overhead-ul copiere datelor și crește efficiency.</p>
                 </details>
             </div>
@@ -357,7 +357,7 @@
                     <li>d) L3 e doar pentru GPU, RAM pentru CPU</li>
                 </ul>
                 <details style="margin-top: 1rem;">
-                    <summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary>
+                    <summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary>
                     <p style="margin-top: 0.5rem;"><strong>a) L3 e mai rapid cu ~50x, dar RAM e mult mai mare</strong> — L3 cache acces 40-75 cicli, RAM acces 200+ cicli. Trade-off între viteză și capacitate.</p>
                 </details>
             </div>
@@ -373,7 +373,7 @@
                     <li>d) Sincronizarea timingului audio-video</li>
                 </ul>
                 <details style="margin-top: 1rem;">
-                    <summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary>
+                    <summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary>
                     <p style="margin-top: 0.5rem;"><strong>b) SSD-ul încarcă datele pentru zone viitoare înainte ca jucătorul să ajungă</strong> — Predictive loading. Permite lumi mai mari și tranziții mai rapide.</p>
                 </details>
             </div>
@@ -389,7 +389,7 @@
                     <li>d) 448 GB/s</li>
                 </ul>
                 <details style="margin-top: 1rem;">
-                    <summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary>
+                    <summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary>
                     <p style="margin-top: 0.5rem;"><strong>b) 25 GB/s</strong> — PCIe 4.0 raw = 64 Gbps pe 16 lane-uri; după codificare 8b/10b = 25 GB/s. PS5 SSD e ceva mai lent (5.5 GB/s) datorită algoritmului de compresie Kraken.</p>
                 </details>
             </div>
@@ -405,7 +405,7 @@
                     <li>d) Sincronizează cadre pentru HDMI</li>
                 </ul>
                 <details style="margin-top: 1rem;">
-                    <summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată răspunsul</summary>
+                    <summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată răspunsul</summary>
                     <p style="margin-top: 0.5rem;"><strong>b) Gestionează USB, Wi-Fi, ethernet și alte periferice; elibereaza CPU din aceste lucrări</strong> — În PS4, o parte din I/O era responsabilitate CPU. Dedicare în PS5 = mai multă putere de calcul pentru joc.</p>
                 </details>
             </div>
@@ -433,7 +433,7 @@
                     <li>5. Cum ar schimba răspunsul tău dacă ar putea coopia datele mai întâi în VRAM rapid (448 GB/s)?</li>
                 </ul>
                 <details style="margin-top: 1.5rem;">
-                    <summary style="cursor: pointer; color: #5ba4e6; font-weight: 600;">Arată rezolvarea</summary>
+                    <summary style="cursor: pointer; color: var(--accent-color); font-weight: 600;">Arată rezolvarea</summary>
                     <div style="margin-top: 1rem;">
                         <p><strong>1.</strong> 8 MB = 8,000,000 bytes. 8,000,000 / 4 = <strong>2 milioni de voxeli</strong>. Din 1 miliard total, asta e 0.2% — e clar că cache nu încape toți datele.</p>
                         <p><strong>2.</strong> Random access = aproape constant cache miss-uri pe 99.8% din operații. Performance catastrofal.</p>
