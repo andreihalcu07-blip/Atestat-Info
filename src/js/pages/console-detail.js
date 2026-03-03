@@ -5,6 +5,14 @@
 
 import { getConsoleById, getConsoleIdFromUrl, resolveImagePath } from '../data/data-loader.js';
 
+function cleanupConsolePageChrome() {
+    const homeLinkItem = document.querySelector('.nav-links a[href="../index.html"]')?.closest('li');
+    if (homeLinkItem) homeLinkItem.remove();
+
+    const githubLink = document.querySelector('.footer-right a[href*="github.com"]');
+    if (githubLink) githubLink.remove();
+}
+
 /**
  * Image dimensions mapping - prevents layout shift during load
  * Loaded from image-dimensions.json
@@ -201,25 +209,71 @@ function renderHistory(consola) {
         // Convert remaining <br> to \n
         text = text.replace(/<br\s*\/?>/gi, '\n');
 
-        // Split into paragraphs by double newline
-        const blocks = text.split('\n\n').filter(b => b.trim());
+        // Split into semantic blocks by double newline
+        const blocks = text.split('\n\n').map(b => b.trim()).filter(Boolean);
+        const sections = [];
+        let currentSection = null;
 
-        const rendered = blocks.map(block => {
-            // Check if block is a <strong> heading (Pattern B)
-            const strongMatch = block.trim().match(/^<strong>(.*?)<\/strong>$/i);
-            if (strongMatch) {
-                return `<h3 class="history-heading">${strongMatch[1]}</h3>`;
+        const pushCurrent = () => {
+            if (!currentSection) return;
+            if (currentSection.heading || currentSection.paragraphs.length) {
+                sections.push(currentSection);
             }
+            currentSection = null;
+        };
 
-            // Check if block is a short heading line (Pattern A): 
-            // short text (< 80 chars), no period, looks like a title
+        blocks.forEach(block => {
+            const lines = block.split('\n').map(line => line.trim()).filter(Boolean);
             const trimmed = block.trim();
-            if (trimmed.length < 80 && !trimmed.includes('.') && !trimmed.includes('<') && /^[A-ZĂÂÎȘȚ]/.test(trimmed)) {
-                return `<h3 class="history-heading">${trimmed}</h3>`;
+
+            if (lines.length > 1) {
+                const firstLine = lines[0];
+                const firstLineStrong = firstLine.match(/^<strong>(.*?)<\/strong>$/i);
+                const isHeadingLine = firstLineStrong || (firstLine.length < 80 && !firstLine.includes('.') && !firstLine.includes('<') && /^[A-ZĂÂÎȘȚ]/.test(firstLine));
+
+                if (isHeadingLine) {
+                    pushCurrent();
+                    const heading = (firstLineStrong ? firstLineStrong[1] : firstLine).trim();
+                    const content = lines.slice(1).join('\n').trim();
+                    currentSection = { heading, paragraphs: [] };
+                    if (content) currentSection.paragraphs.push(content);
+                    return;
+                }
             }
 
-            // Regular paragraph - replace single \n with <br>
-            return '<p>' + trimmed.replace(/\n/g, '<br>') + '</p>';
+            const strongMatch = trimmed.match(/^<strong>(.*?)<\/strong>$/i);
+            if (strongMatch) {
+                pushCurrent();
+                currentSection = { heading: strongMatch[1].trim(), paragraphs: [] };
+                return;
+            }
+
+            if (trimmed.length < 80 && !trimmed.includes('.') && !trimmed.includes('<') && /^[A-ZĂÂÎȘȚ]/.test(trimmed)) {
+                pushCurrent();
+                currentSection = { heading: trimmed, paragraphs: [] };
+                return;
+            }
+
+            if (!currentSection) {
+                currentSection = { heading: '', paragraphs: [] };
+            }
+            currentSection.paragraphs.push(trimmed);
+        });
+
+        pushCurrent();
+
+        const autoTitles = ['Context', 'Detalii', 'Evoluție', 'Impact', 'Moștenire'];
+        let autoIndex = 0;
+
+        const rendered = sections.map(section => {
+            let heading = section.heading;
+            if (!heading) {
+                heading = autoTitles[Math.min(autoIndex, autoTitles.length - 1)];
+                autoIndex += 1;
+            }
+
+            const paragraphs = section.paragraphs.map(paragraph => `<p>${paragraph.replace(/\n/g, '<br>')}</p>`).join('');
+            return `<h3 class="history-heading">${heading}</h3>${paragraphs}`;
         }).join('');
 
         historyHtml = `<div class="history-content">${rendered}</div>`;
@@ -271,6 +325,8 @@ function renderHero(consola) {
  * Initialize the console detail page
  */
 async function init() {
+    cleanupConsolePageChrome();
+
     await loadImageDimensions();
     
     const consoleId = getConsoleIdFromUrl();

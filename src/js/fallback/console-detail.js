@@ -6,6 +6,18 @@
 (function () {
     'use strict';
 
+    function cleanupConsolePageChrome() {
+        var homeLink = document.querySelector('.nav-links a[href="../index.html"]');
+        if (homeLink && homeLink.parentElement) {
+            homeLink.parentElement.remove();
+        }
+
+        var githubLink = document.querySelector('.footer-right a[href*="github.com"]');
+        if (githubLink && githubLink.parentElement) {
+            githubLink.parentElement.removeChild(githubLink);
+        }
+    }
+
     // Image dimensions mapping - prevents layout shift during load
     var IMAGE_DIMENSIONS = {};
 
@@ -206,17 +218,73 @@
             text = text.replace(/<br\s*\/?>\s*<br\s*\/?>/gi, '\n\n');
             text = text.replace(/<br\s*\/?>/gi, '\n');
 
-            var blocks = text.split('\n\n').filter(function(b) { return b.trim(); });
-            var rendered = blocks.map(function(block) {
+            var blocks = text.split('\n\n').map(function (b) { return b.trim(); }).filter(Boolean);
+            var sections = [];
+            var currentSection = null;
+
+            function pushCurrent() {
+                if (!currentSection) return;
+                if (currentSection.heading || currentSection.paragraphs.length) {
+                    sections.push(currentSection);
+                }
+                currentSection = null;
+            }
+
+            blocks.forEach(function (block) {
+                var lines = block.split('\n').map(function (line) { return line.trim(); }).filter(Boolean);
                 var trimmed = block.trim();
+
+                if (lines.length > 1) {
+                    var firstLine = lines[0];
+                    var firstLineStrong = firstLine.match(/^<strong>(.*?)<\/strong>$/i);
+                    var isHeadingLine = firstLineStrong || (firstLine.length < 80 && firstLine.indexOf('.') === -1 && firstLine.indexOf('<') === -1 && /^[A-Z\u0102\u00C2\u00CE\u0218\u021A]/.test(firstLine));
+
+                    if (isHeadingLine) {
+                        pushCurrent();
+                        var heading = (firstLineStrong ? firstLineStrong[1] : firstLine).trim();
+                        var content = lines.slice(1).join('\n').trim();
+                        currentSection = { heading: heading, paragraphs: [] };
+                        if (content) currentSection.paragraphs.push(content);
+                        return;
+                    }
+                }
+
                 var strongMatch = trimmed.match(/^<strong>(.*?)<\/strong>$/i);
                 if (strongMatch) {
-                    return '<h3 class="history-heading">' + strongMatch[1] + '</h3>';
+                    pushCurrent();
+                    currentSection = { heading: strongMatch[1].trim(), paragraphs: [] };
+                    return;
                 }
+
                 if (trimmed.length < 80 && trimmed.indexOf('.') === -1 && trimmed.indexOf('<') === -1 && /^[A-Z\u0102\u00C2\u00CE\u0218\u021A]/.test(trimmed)) {
-                    return '<h3 class="history-heading">' + trimmed + '</h3>';
+                    pushCurrent();
+                    currentSection = { heading: trimmed, paragraphs: [] };
+                    return;
                 }
-                return '<p>' + trimmed.replace(/\n/g, '<br>') + '</p>';
+
+                if (!currentSection) {
+                    currentSection = { heading: '', paragraphs: [] };
+                }
+                currentSection.paragraphs.push(trimmed);
+            });
+
+            pushCurrent();
+
+            var autoTitles = ['Context', 'Detalii', 'Evoluție', 'Impact', 'Moștenire'];
+            var autoIndex = 0;
+
+            var rendered = sections.map(function (section) {
+                var heading = section.heading;
+                if (!heading) {
+                    heading = autoTitles[Math.min(autoIndex, autoTitles.length - 1)];
+                    autoIndex += 1;
+                }
+
+                var paragraphs = section.paragraphs.map(function (paragraph) {
+                    return '<p>' + paragraph.replace(/\n/g, '<br>') + '</p>';
+                }).join('');
+
+                return '<h3 class="history-heading">' + heading + '</h3>' + paragraphs;
             }).join('');
 
             historyHtml = '<div class="history-content">' + rendered + '</div>';
@@ -319,6 +387,8 @@
 
     // Main init
     function init() {
+        cleanupConsolePageChrome();
+
         var consoleId = getConsoleId();
         if (!consoleId) {
             showError('Nu s-a putut determina consola din URL.');

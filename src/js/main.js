@@ -6,6 +6,8 @@
 // Import modules
 import { NavigationModule } from './modules/navigation.js';
 import { AnimationsModule } from './modules/animations.js';
+import { ContactFormModule } from './modules/contact-form.js';
+import { DiacriticsModule } from './modules/diacritics.js';
 
 /**
  * App Class - Orchestrates all modules
@@ -35,6 +37,12 @@ class App {
             
             AnimationsModule.init();
             console.log('✓ Animations module initialized');
+
+            ContactFormModule.init();
+            console.log('✓ Contact form module initialized');
+
+            DiacriticsModule.init();
+            console.log('✓ Diacritics module initialized');
             
             console.log('✅ All modules initialized successfully');
             this.initMathRendering();
