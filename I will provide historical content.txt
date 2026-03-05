@@ -1,97 +1,82 @@
 I will provide historical content for a console.
 
-Analiză Cuprinzătoare: Familia de Console Nintendo 3DS
+Nintendo Switch 2: Analiză Cuprinzătoare și Document de Briefing
 Rezumat Executiv
-Lansată în 2011 ca succesor al popularei linii Nintendo DS, familia de console portabile Nintendo 3DS a reprezentat o etapă fundamentală în istoria jocurilor video, introducând pentru prima dată tehnologia vizuală autostereoscopică (3D fără ochelari) pe piața de consum larg. Deși începutul a fost marcat de vânzări lente din cauza prețului ridicat și a lipsei titlurilor emblematice la lansare, o reducere agresivă a prețului și implementarea „Programului Ambasador” au transformat sistemul într-un succes comercial masiv, atingând un total de 75,94 milioane de unități vândute până la întreruperea producției în septembrie 2020.
-Documentul de față detaliază evoluția hardware-ului (de la modelul original la iterațiile „New”), ecosistemul de software inovator (StreetPass, SpotPass, eShop) și impactul cultural al consolei, analizat inclusiv din perspectiva sustenabilității sale în anii 2025-2026 prin intermediul comunităților de modding și al colecționismului de jocuri fizice.
+Nintendo Switch 2 (nume de cod „Ounce”) reprezintă succesorul hibrid al consolei Nintendo Switch, lansat la nivel mondial pe 5 iunie 2025. Dispozitivul păstrează conceptul versatil de consolă portabilă și de sufragerie, aducând îmbunătățiri tehnice majore: rezoluție 4K în modul docked (prin DLSS), un ecran LCD de 7,9 inchi cu rată de reîmprospătare de 120 Hz și o arhitectură bazată pe tehnologia Nvidia Ampere.
+Deși a fost întâmpinată cu critici privind prețul ridicat (449,99 USD / 469,99 EUR) și costul jocurilor (până la 80 USD), consola a devenit cel mai rapid vândut hardware din istoria Nintendo, atingând 17,37 milioane de unități vândute până la 31 decembrie 2025. Inovațiile cheie includ noile controllere Joy-Con 2 cu prindere magnetică, funcția de comunicare socială GameChat și compatibilitatea extinsă cu jocurile generației anterioare prin soluții hibride de emulare.
 --------------------------------------------------------------------------------
-1. Context Istoric și Dezvoltare
-1.1 Rădăcinile Tehnologiei 3D la Nintendo
-Interesul Nintendo pentru jocurile 3D a început cu decenii înainte de lansarea 3DS:
-Famicom 3D System (1988): Un accesoriu cu ochelari LCD lansat doar în Japonia, care a eșuat din cauza lipsei de suport și a problemelor de mișcare cauzate utilizatorilor.
-Virtual Boy (1995): Proiectat de Gunpei Yokoi, acest sistem portabil de masă folosea ochelari integrați și grafică monocromă (roșu și negru). A fost un eșec comercial major, vânzând mai puțin de un milion de unități.
-Experimente ulterioare: Nintendo a testat circuite 3D pe GameCube (jocul Luigi's Mansion avea un prototip funcțional în 3D) și ecrane LCD 3D pe Game Boy Advance SP, dar costurile ridicate și rezoluția scăzută au amânat implementarea comercială.
-1.2 Lansarea și Strategia de Preț
-Nintendo 3DS a fost lansat global în primăvara anului 2011 la un preț inițial de 249,99 USD. Din cauza vânzărilor dezamăgitoare, Nintendo a redus prețul la 169,99 USD în mai puțin de șase luni.
-Programul Ambasador: Pentru a compensa primii cumpărători, Nintendo a oferit gratuit 20 de jocuri clasice (10 NES și 10 Game Boy Advance), acestea din urmă rămânând exclusive pentru acest program pe întreaga durată de viață a consolei.
+1. Istoric și Dezvoltare
+Procesul de pre-producție a început la scurt timp după lansarea modelului original în 2017, dezvoltarea formală demarând în 2019 sub conducerea echipei formate din Kouichi Kawamoto (producător), Takuhiro Dohta (director hardware) și Tetsuya Sasaki (director tehnic).
+Filozofia de Design: Echipa a decis să nu introducă schimbări radicale în modul de utilizare, ci să se concentreze pe performanța computațională pentru a oferi dezvoltatorilor mai multe instrumente.
+Tranziția Consumatorilor: Președintele Nintendo, Shuntaro Furukawa, a subliniat importanța unei tranziții line, motiv pentru care compatibilitatea retroactivă a fost un pilon central al designului.
+Zvonuri și Scurgeri de Informații: Speculațiile despre un model „Pro” au existat încă din 2019, însă Nintendo a transferat toate resursele către succesorul complet până în decembrie 2022. Console a fost prezentată privat la Gamescom 2023, rulând demo-uri tehnice precum The Matrix Awakens (Unreal Engine 5).
 --------------------------------------------------------------------------------
-2. Ecosistemul Hardware: Modele și Specificații
-Familia 3DS cuprinde șase modele distincte, împărțite în generația originală și generația „New”.
-2.1 Compararea Modelelor Principale
-Model
-Caracteristici Cheie
-Design
-Funcționalitate 3D
-Nintendo 3DS (2011)
-Modelul original, carcasă strălucitoare, stylus telescopic.
-Clapetă (Clamshell)
-Da
-Nintendo 3DS XL (2012)
-Ecrane cu 90% mai mari, baterie îmbunătățită.
-Clapetă
-Da
-Nintendo 2DS (2013)
-Varianta de buget, sunet mono, fără 3D.
-Fix (Slate)
-Nu
-New Nintendo 3DS/XL (2014)
-Procesor mai rapid, C-Stick, ZL/ZR, 3D stabil (face tracking).
-Clapetă
-Da
-New Nintendo 2DS XL (2017)
-Design modern, suport NFC integrat, portabil.
-Clapetă
-Nu
-2.2 Specificații Tehnice de Bază (Model Original)
-CPU: Dual-core ARM11 MPCore @ 268 MHz și un procesor single-core ARM9 pentru compatibilitatea cu jocurile DS.
-GPU: DMP PICA200 @ 268 MHz.
-Memorie: 128 MB FCRAM, 6 MB VRAM.
-Stocare: 2 GB eMMC intern, extensibil prin carduri SD/SDHC.
-Ecrane:
-Superior: 3.53 inch autostereoscopic (800x240 px).
-Inferior: 3.00 inch ecran tactil rezistiv (320x240 px).
-Camere: Două camere externe (pentru foto/video 3D) și una internă, toate de 0.3 MP (VGA).
+2. Specificații Tehnice și Hardware
+Consola utilizează un procesor personalizat Nvidia Tegra T239 (nume de cod „Drake”), reprezentând un salt generațional masiv față de modelul anterior.
+Detalii Tehnice Principale
+Componentă
+Specificație Detaliată
+Procesor (SoC)
+Nvidia Tegra T239 (Arhitectură Ampere)
+CPU
+Octa-core ARM Cortex-A78C
+GPU
+1.536 nuclee CUDA (Suport Ray Tracing și DLSS)
+Memorie RAM
+12 GB LPDDR5X (Lățime de bandă: 102 GB/s docked / 68 GB/s mobile)
+Stocare Internă
+256 GB UFS 3.1
+Ecran
+7,9 inchi LCD, 1080p, 120 Hz, HDR10, VRR
+Rezoluție Video
+4K @ 60 fps (Docked) / 1080p (Handheld)
+Baterie
+5.220 mAh (Autonomie estimată: 2 – 6,5 ore)
+Conectivitate
+Wi-Fi 6, Bluetooth 5.2, 2x USB-C, Gigabit Ethernet (pe Dock)
+Inovații Hardware
+Sistem de Decompresie de Fișiere (FDE): Un motor hardware dedicat pentru despachetarea fișierelor comprimate, reducând timpii de încărcare și degrevând CPU-ul.
+Sistem de Răcire: Dock-ul include acum un ventilator propriu pentru a gestiona căldura generată în modul 4K, deși consola are propriul sistem de ventilație.
+Stocare Extensibilă: Suportă carduri microSD Express de până la 2 TB pentru viteze mari de citire/scriere (jocurile noi pot fi rulate doar de pe microSD Express).
 --------------------------------------------------------------------------------
-3. Inovații în Software și Conectivitate
-3.1 Tehnologii Unice de Networking
-StreetPass: Permite schimbul automat de date (Miis, scoruri, obiecte din jocuri) între console aflate în proximitate în modul Sleep.
-SpotPass: Detectează automat puncte de acces Wi-Fi pentru a descărca actualizări, videoclipuri și conținut în fundal.
-Miiverse: O rețea socială integrată (închisă în 2017) unde jucătorii puteau partaja desene și comentarii despre experiențele lor.
-3.2 Aplicații Preinstalate
-Mii Maker: Crearea de avatare digitale, inclusiv prin utilizarea camerei pentru a genera automat un chip bazat pe fotografia utilizatorului.
-AR Games: Utilizarea a șase carduri de hârtie pentru a proiecta jocuri interactive în realitate augmentată.
-Face Raiders: Un joc shooter care folosește giroscopul și fețele fotografiate ale prietenilor drept inamici.
-Activity Log: Monitorizează numărul de pași (funcție pedometru) și timpul petrecut în fiecare joc, oferind „Play Coins” (maxim 10 pe zi) ce pot fi folosite în jocuri.
+3. Joy-Con 2 și Accesorii
+Controllerele au fost reproiectate complet pentru a aborda problemele generației anterioare și pentru a adăuga funcționalități noi.
+Conexiune Magnetică: A fost abandonat sistemul cu șine în favoarea magneților puternici și a unui mecanism de eliberare mecanică. Conectarea produce un sunet specific („snap”) care simbolizează brandul Switch.
+Modul Mouse: Joy-Con-urile pot fi utilizate ca mouse-uri de calculator în jocuri compatibile, facilitând controlul atunci când consola este în dock.
+Butonul „C”: Introdus pe Joy-Con-ul drept pentru acces rapid la funcția GameChat.
+HD Rumble 2: Intensitatea vibrațiilor a fost sporită, fiind comparabilă cu feedback-ul controllerelor de GameCube.
+Nintendo Switch 2 Camera: Un accesoriu web-cam USB-C (1080p) destinat apelurilor video și funcțiilor de realitate augmentată (CameraPlay).
 --------------------------------------------------------------------------------
-4. Biblioteca de Jocuri și Compatibilitate
-4.1 Titluri de Succes
-Până în 2024, peste 392 de milioane de jocuri au fost vândute. Cele mai populare titluri includ:
-Mario Kart 7: 18,99 milioane unități.
-Pokémon X și Y: 16,72 milioane unități.
-Pokémon Omega Ruby și Alpha Sapphire: 14,60 milioane unități.
-Super Mario 3D Land: Un titlu criticat pozitiv pentru modul în care a folosit perspectiva 3D în gameplay.
-4.2 Compatibilitatea cu Trecutul
-Sistemul oferă compatibilitate completă cu jocurile de Nintendo DS și DSi. Prin serviciul Virtual Console, utilizatorii au putut achiziționa jocuri clasice de Game Boy, Game Boy Color, Game Gear și NES. Modelele „New” au adăugat suport pentru jocurile de Super NES.
+4. Software și Servicii Online
+Compatibilitate Retroactivă
+Consola folosește un hibrid între emularea software și hardware.
+Suport Fizic și Digital: Majoritatea jocurilor de Switch 1 funcționează direct, beneficiind de funcții noi precum GameChat.
+Actualizări de Performanță: Titluri precum The Legend of Zelda: Breath of the Wild și Super Mario Odyssey au primit actualizări (gratuite sau plătite) pentru îmbunătățirea graficii pe noul hardware.
+Distribuția Jocurilor
+Carduri de Joc Roșii: Noile carduri sunt colorate în roșu (spre deosebire de gri-ul generației trecute) și păstrează stratul amar protector.
+Game-Key Cards: O inovație controversată unde cardul fizic conține doar o licență digitală, restul datelor trebuind descărcate prin internet. Această metodă este utilizată pentru a permite vânzarea la retail a jocurilor care depășesc capacitatea fizică a cardurilor.
+Servicii Noi
+GameChat: Permite chat vocal, video și partajarea ecranului între utilizatori. A fost dezvoltat ca răspuns la nevoile echipei interne de dezvoltare din timpul pandemiei.
+Nintendo Classics: O expansiune a serviciului Nintendo Switch Online care aduce jocuri de GameCube exclusiv pe Switch 2.
+Virtual Game Cards: Un sistem care permite transferul sau împrumutul temporar al jocurilor digitale între console.
 --------------------------------------------------------------------------------
-5. Recepție, Provocări și Moștenire
-5.1 Critici și Sănătate
-Recenziile au lăudat efectul 3D ca fiind „magical” și „impresionant de clar”, însă au existat critici privind durata scurtă a bateriei (3-5 ore pentru jocurile 3DS) și unghiurile limitate de vizualizare pe modelele non-New. Nintendo a emis avertismente privind utilizarea modului 3D de către copiii sub 6 ani, invocând riscuri potențiale pentru dezvoltarea vederii, deși asociațiile de optometriști au sugerat că utilizarea moderată nu este dăunătoare.
-5.2 Discontinuarea și Perspectiva 2025/2026
-Producția a încetat oficial pe 16 septembrie 2020. eShop-ul s-a închis pe 27 martie 2023, iar serviciile online Nintendo Network au fost oprite pe 8 aprilie 2024.
-Piața în 2025: Consolele 3DS, în special edițiile limitate și modelele japoneze (LL), sunt extrem de căutate.
-Modding și Pretendo: Comunitatea a dezvoltat „Pretendo” pentru a reactiva funcțiile online și utilizează „custom firmware” pentru a ocoli limitările regionale și pentru a instala aplicații de tip homebrew, păstrând consola relevantă ca dispozitiv de zi cu zi (EDC).
+5. Lansare, Preț și Recepție pe Piață
+Lansarea a fost marcată de un succes comercial masiv, dublând vânzările de lansare ale modelului original în primele patru zile.
+Strategia de Preț
+Consolă: 449,99 USD (SUA) / 69.980 ¥ (Japonia). În Japonia, a fost oferit un model mai ieftin (49.980 ¥), dar blocat regional pentru a combate specula de preț și devalorizarea yenului.
+Jocuri: Prețul standard pentru titlurile premium de primă mână a crescut la 80 USD, stârnind critici din partea fanilor.
+Recepția Critică
+Puncte Forte: Îmbunătățirile sociale (GameChat), calitatea ecranului (în ciuda lipsei OLED), performanța tehnică (DLSS/Ray Tracing) și designul robust al kickstand-ului.
+Puncte Slabe: Prețul prohibitiv, autonomia limitată a bateriei (criticată prin comparație cu competitorii portabili de tip PC) și lipsa unei soluții definitive pentru „stick drift”.
+Impact Comercial: Mario Kart World este cel mai bine vândut titlu, cu peste 14 milioane de unități.
 --------------------------------------------------------------------------------
-Citate Relevante din Surse
-„Sloganul sistemului a fost: Aruncă o privire în interior (Take a Look Inside).” — Nintendo Fandom
-„Unde 3DS-ul original părea că privești printr-o gaură de cheie spre o altă lume, modelul XL este aproape ca și cum ai păși printr-o ușă.” — Sam Byford, The Verge
-„Nu cred că mai există o experiență de gaming asemănătoare cu acest lucru în prezent... ecrane duale, titluri first-party solide și compatibilitatea cu versiunile anterioare fac ca acest aparat să se simtă personal.” — Jon Valiagas, YouTube (2025)
-„Există atât de mult ADN de Nintendo Switch în această consolă... se simte ca o piatră de temelie către Switch.” — Byte Review, YouTube (2026)
-
-You must update ONLY that console object inside consoles.json.
+Citate și Perspective Cheie
+„Nintendo Switch este jucat de mulți consumatori și am decis că cea mai bună direcție ar fi ca aceștia să poată juca software-ul deja achiziționat pe succesorul consolei.” — Document de Strategie Nintendo
+„GameChat a fost creat pentru a simula experiența de a fi toți în același loc, fiecare aducându-și propria consolă pentru a juca împreună.” — Kouichi Kawamoto, Producător
+„Sistemul magnetic cu eliberare mecanică face ca Joy-Con-urile să scoată un sunet audibil la conectare, ceea ce ajută la simbolizarea brandingului Switch.” — Takuhiro Dohta, Director Hardware
 
 GENERAL RULES:
-- Keep the language in Romanian, do not translate in English or change the 
-diacritics
+- Keep the language in Romanian, do not translate in English or change the diacritics
 - Do NOT modify other console objects.
 - Do NOT rewrite the entire file.
 - Do NOT change the JSON structure.
